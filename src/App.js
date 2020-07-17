@@ -1,23 +1,24 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// === REDUX ===
+import { Provider } from 'react-redux';
+import store from './Kingdom_____/State/store';
+import { authUser } from './Phylum_____/User/rdx_axn/axn_auth';
+import setAuthToken from './Phylum_____/User/utils/setAuthToken';
+// === Style ===
+import './sass/App.scss';
+//  Comps
+import Hello from './Kingdom_____/Comps/Hello';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='App'>
+      <header className='App-header'>
+        <Fragment>
+          <Hello />
+        </Fragment>
       </header>
     </div>
   );
