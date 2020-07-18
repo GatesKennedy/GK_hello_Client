@@ -6,29 +6,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // import { logout } from '../Modules/User/rdx_axn/axn_auth';
 //  STYLE
-
+import { ContRow, ContCol, Row, Col } from '../../Design/Styled_Common';
+import { NaviBtns, NaviLogo } from './Styled';
 //  Asset
-import { ReactComponent as LogoGk } from '../../Assets/Images/LogoGk.jpg';
 
 // const Navi = ({ auth: { isAuthenticated, user, loading }, logout }) => {
 const Navi = () => {
-  //  AUTH links
-  const authLinks = (
-    <nav className='bg-gry4' id='navi-cont'>
-      <div className='center menu'>
-        <button>(o_O)</button>
-      </div>
-      <section className='cont col'>
-        <div className='center main navi-links'>
-          {' '}
-          <button>talk</button>
-          <button>give</button>
-          <button>take</button>
-        </div>
-      </section>
-    </nav>
-  );
-
   //   //  Decide Navi
   //   const decideNavi = (role) => {
   //     console.log('(o_O) decideNavi() > User Role: ' + role);
@@ -42,10 +25,19 @@ const Navi = () => {
   //   };
 
   return (
-    <Fragment>
-      {/* {isAuthenticated && !loading ? decideNavi(user.role) : guestLinks} */}
-      {authLinks}
-    </Fragment>
+    <Row id='navi-cont'>
+      <NaviLogo id='navi-logo'>
+        <button>(o_O)</button>
+      </NaviLogo>
+      <NaviBtns id='navi-btns'>
+        <div className='center main navi-links'>
+          {' '}
+          <button>talk</button>
+          <button>give</button>
+          <button>take</button>
+        </div>
+      </NaviBtns>
+    </Row>
   );
 };
 // Navi.propTypes = {
