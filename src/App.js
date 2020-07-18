@@ -11,12 +11,14 @@ import setAuthToken from './Phylum_____/User/utils/setAuthToken';
 import './sass/App.scss';
 //  Comps
 import Hello from './Kingdom_____/Comps/Hello';
+import Navi from './Kingdom_____/Comps/Navi';
 
 function App() {
   return (
     <div className='App'>
       <header className='App-header'>
         <Fragment>
+          <Navi />
           <Hello />
         </Fragment>
       </header>
