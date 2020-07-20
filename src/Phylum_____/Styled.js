@@ -19,7 +19,7 @@ export const Cont1 = styled.div`
   align-items: center;
   width: 20vw;
   min-width: 400px;
-  height: 66vh;
+  height: 32vh;
   min-height: 50%;
   background-color: #3c3c3a;
 `;
@@ -53,7 +53,7 @@ export const AuthCont = styled.div`
   align-items: center;
   justify-content: center;
   position: fixed;
-  bottom: 42vh;
+  bottom: 41vh;
 `;
 
 export const AuthForms = styled.section`

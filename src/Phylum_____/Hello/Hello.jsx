@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 //  Redux
 import { connect } from 'react-redux';
@@ -8,32 +9,33 @@ import { loginUser, registerUser } from '../Auth/axn_auth';
 import {
   Row,
   Btn,
+  Btn2,
   FormLabel,
   RowBottom,
   pad1,
 } from '../../Design/Styled_Common';
 import { Cont1, AuthForms, AuthCont } from '../Styled';
+import { setAlert } from '../../Kingdom_____/Alert/axn_alert';
 
-const Hello = ({ loginUser, registerUser }) => {
+const Hello = ({ loginUser, registerUser, isAuthenticated }) => {
   //  ~~ FORM ~~
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, watch, reset, errors, formState } = useForm();
   const watchFields = watch(['image', 'name', 'active']);
+  const { touched, isValid, isSubmitting } = formState;
 
   const onSubmit = async (data) => {
     console.log('FormData: ', data);
-    const { email, password } = data;
-    if (authType === 'hello')
-      authType === 'login'
-        ? loginUser(email, password)
-        : //  Set Token
-          registerUser(email, password);
-    //  Set Token
-    //  Redirect
+    const { email, password, confirm, username } = data;
+
+    if (authType === 'login') loginUser(email, password);
+    else if (password === confirm) {
+      registerUser(username, email, password);
+    } else setAlert("Your passwords don't match");
   };
 
   //    SubComps
   const Login = (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form>
       <Row>
         <FormLabel>em</FormLabel>
         <input
@@ -42,7 +44,6 @@ const Hello = ({ loginUser, registerUser }) => {
           ref={register}
           className='field_entry'
         />
-        <pad1 />
       </Row>
       <Row>
         <FormLabel>pw</FormLabel>
@@ -57,7 +58,16 @@ const Hello = ({ loginUser, registerUser }) => {
   );
 
   const Register = (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form>
+      <Row>
+        <FormLabel>un</FormLabel>
+        <input
+          name='username'
+          defaultValue='username'
+          ref={register}
+          className='field_entry'
+        />
+      </Row>
       <Row>
         <FormLabel>em</FormLabel>
         <input
@@ -89,15 +99,48 @@ const Hello = ({ loginUser, registerUser }) => {
   );
 
   //  ~~ STATE ~~
-  const [authType, setAuthType] = useState(Login);
-
+  const [authType, setAuthType] = useState('login');
+  //  Redirect (auth?)
+  if (isAuthenticated) {
+    setAlert('You gotta log in for that...', 'notice');
+    return <Redirect to='/chat' />;
+  }
   return (
     <Cont1>
       <AuthCont>
         <AuthForms>{authType === 'login' ? Login : Register}</AuthForms>
         <RowBottom>
-          <Btn onClick={() => setAuthType('login')}>login</Btn>
-          <Btn onClick={() => setAuthType('register')}>register</Btn>
+          <Btn
+            onClick={() => {
+              setAuthType('login');
+              reset();
+            }}
+            className={authType === 'login' ? 'bg-active txt-pale' : ''}
+          >
+            login
+          </Btn>
+          <Btn
+            onClick={() => {
+              setAuthType('register');
+              reset();
+            }}
+            className={authType === 'register' ? 'bg-active txt-pale' : ''}
+          >
+            register
+          </Btn>
+        </RowBottom>
+        <RowBottom className={isSubmitting ? 'bg-pale txt-black' : ''}>
+          <Btn2
+            onClick={() => {
+              handleSubmit(onSubmit);
+              reset();
+            }}
+            className={
+              Object.keys(touched).length >= 2 ? 'bg-active txt-pale' : ''
+            }
+          >
+            go
+          </Btn2>
         </RowBottom>
       </AuthCont>
     </Cont1>
@@ -105,7 +148,8 @@ const Hello = ({ loginUser, registerUser }) => {
 };
 
 Hello.propTypes = {
-  login: PropTypes.func.isRequired,
+  loginUser: PropTypes.func.isRequired,
+  registerUser: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool,
 };
 

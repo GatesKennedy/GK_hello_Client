@@ -34,4 +34,32 @@ a {
 }
 
 // =================
-// === structure ===
+// ===   Edges   ===
+.marg-btn {
+  margin: 2px 4px;
+}
+
+// =================
+// ===   Color   ===
+
+.bg-active {
+  background-color: #6b6654;
+}
+.bg-black {
+  background-color: #18191a;
+}
+.bg-jet {
+  background-color: #3c3c3a;
+}
+.bg-pale {
+  background-color: #c4c2b7;
+}
+.txt-black {
+  color: #18191a;
+}
+.txt-jet {
+  color: #3c3c3a;
+}
+.txt-pale {
+  color: #c4c2b7;
+}

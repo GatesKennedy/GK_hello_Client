@@ -12,6 +12,8 @@ import { NaviCont, NaviBtns, NaviLogo } from '../Styled';
 
 // const Navi = ({ auth: { isAuthenticated, user, loading }, logout }) => {
 const Navi = () => {
+  //  STATE
+  const [navNow, setNavNow] = useState('give');
   return (
     <Fragment>
       <NaviCont>
@@ -19,14 +21,44 @@ const Navi = () => {
           <Btn>(o_O)</Btn>
         </NaviLogo>
         <NaviBtns id='navi-btns'>
-          <Link to='/chat'>
-            <Btn>talk</Btn>
+          <Link
+            to='/chat'
+            onClick={() => setNavNow('chat')}
+            className={navNow === 'chat' ? 'bg-active txt-pale' : ''}
+          >
+            <Btn
+              className={
+                navNow === 'chat' ? 'bg-active txt-pale' : 'bg-pale txt-black'
+              }
+            >
+              talk
+            </Btn>
           </Link>
-          <Link to='/profile'>
-            <Btn>give</Btn>
+          <Link
+            to='/profile'
+            onClick={() => setNavNow('give')}
+            className={navNow === 'give' ? 'bg-active txt-pale' : ''}
+          >
+            <Btn
+              className={
+                navNow === 'give' ? 'bg-active txt-pale' : 'bg-pale txt-black'
+              }
+            >
+              give
+            </Btn>
           </Link>
-          <Link to='/about'>
-            <Btn>take</Btn>
+          <Link
+            to='/about'
+            onClick={() => setNavNow('take')}
+            className={navNow === 'take' ? 'bg-active txt-pale' : ''}
+          >
+            <Btn
+              className={
+                navNow === 'take' ? 'bg-active txt-pale' : 'bg-pale txt-black'
+              }
+            >
+              take
+            </Btn>
           </Link>
         </NaviBtns>
         <NaviLogo>

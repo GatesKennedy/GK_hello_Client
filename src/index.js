@@ -4,6 +4,10 @@ import App from './App';
 // === Style ===
 import './sass/App.scss';
 
+// === Logs ===
+console.log('REACT_APP_NAME= ', process.env.REACT_APP_NAME);
+console.log('REACT_APP_API_URL= ', process.env.REACT_APP_API_URL);
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

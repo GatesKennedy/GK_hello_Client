@@ -49,21 +49,19 @@ export const authUser = () => async (dispatch) => {
 
 //  Login User
 //==========================
-export const loginUser = ({ email, password }) => async (dispatch) => {
+export const loginUser = (email, password) => async (dispatch) => {
   console.log('(O_O) login() > ENTER FXN');
   //  req config
   const body = JSON.stringify({ email, password });
+  console.log('(._.) login() > body = ', body);
   const config = {
     headers: { 'Content-Type': 'application/json' },
   };
-  console.log('(._.) login() > body = ' + body);
 
   try {
     //  LOGIN user
-    const res = await API.post('/api/auth', body, config);
-
-    const resStr = JSON.stringify(res.data);
-    console.log('(o_O) login() > resStr: ' + resStr);
+    const res = await API.post('/api/user/login', body, config);
+    console.log('(o_O) login() > resStr: ', res.data);
 
     await dispatch({
       type: LOGIN_SUCCESS,
@@ -74,10 +72,8 @@ export const loginUser = ({ email, password }) => async (dispatch) => {
     dispatch(setAlert('Welcome!', 'success'));
   } catch (err) {
     //  CATCH Error
-    console.log('(>_<) login() > FAIL');
-    const errStr = JSON.stringify(err);
-    console.log('(-_-) login() > FAIL > errStr: ' + errStr);
-    const errors = err.message;
+    console.log('(-_-) login() > FAIL > errStr: ', err);
+    const errors = err.errors;
     if (Array.isArray(errors)) {
       errors.forEach((error) => dispatch(setAlert(error.msg, 'warn')));
     }
@@ -90,12 +86,12 @@ export const loginUser = ({ email, password }) => async (dispatch) => {
 
 //  Register User / Auth User
 //==========================
-export const registerUser = ({
+export const registerUser = (
   username,
   email,
   password,
-  role = 'user',
-}) => async (dispatch) => {
+  role = 'user'
+) => async (dispatch) => {
   console.log('(O_O) register() > ENTER FXN');
   const config = {
     headers: {
@@ -106,7 +102,7 @@ export const registerUser = ({
 
   //  Create User
   try {
-    const { data } = await API.post('/api/auth/register', body, config);
+    const { data } = await API.post('/api/user/register', body, config);
     const resStr = JSON.stringify(data);
     console.log('AUTH REGI: res.data = ' + resStr);
     dispatch({

@@ -80,8 +80,12 @@ export const Btn = styled.div`
   text-align: center;
   width: 5vw;
   margin: 2px;
-  background-color: #c4c2b7;
-  color: #18191a;
+`;
+
+export const Btn2 = styled.div`
+  text-align: center;
+  width: 10vw;
+  margin: 2px;
 `;
 
 export const pad1 = styled.div`
