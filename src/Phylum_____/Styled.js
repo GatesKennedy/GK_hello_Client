@@ -4,23 +4,36 @@ import styled from 'styled-components';
 export const Phylum = styled.div`
   display: flex;
   min-width: 100vw;
-  min-height: 100vh;
+  min-height: 88vh;
   flex-direction: column;
   justify-self: center;
-  justify-items: center;
-  align-self: center;
+  justify-content: center;
   align-items: center;
 `;
-export const Auth = styled.div`
+export const Cont1 = styled.div`
   display: flex;
   flex-direction: column;
   justify-self: center;
   justify-items: center;
   align-self: center;
   align-items: center;
-  width: 200px;
-  min-width: 50%;
-  height: 300px;
+  width: 20vw;
+  min-width: 400px;
+  height: 66vh;
+  min-height: 50%;
+  background-color: #3c3c3a;
+`;
+
+export const Cont2 = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  justify-items: center;
+  align-self: center;
+  align-items: center;
+  width: 50vw;
+  min-width: 400px;
+  height: 64vh;
   min-height: 50%;
   background-color: #131313;
 `;
@@ -32,4 +45,17 @@ export const Head = styled.section`
 
 export const Body = styled.section`
   padding-top: 9vh;
+`;
+
+export const AuthCont = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 42vh;
+`;
+
+export const AuthForms = styled.section`
+  padding-right: 29.2px;
 `;

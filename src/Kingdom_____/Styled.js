@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 //  COMPS
 export const Kingdom = styled.section`
-  background-color: #222631;
-  color: #fafafa;
+  background-color: #18191a;
+  color: #c4c2b7;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,7 @@ export const NaviCont = styled.section`
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    background-color: #26282f;
+    background-color: #3c3c3a;
 }
 `;
 export const NaviLogo = styled.section`
@@ -35,31 +35,8 @@ export const NaviLogo = styled.section`
 `;
 export const NaviBtns = styled.section`
   display: flex;
-  min-width: 20vh;
-`;
-
-export const Phylum = styled.div`
-  display: flex;
-  min-width: 100vw;
-  min-height: 100vh;
-  flex-direction: column;
-  justify-self: center;
-  justify-items: center;
-  align-self: center;
-  align-items: center;
-`;
-export const Hello = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-self: center;
-  justify-items: center;
-  align-self: center;
-  align-items: center;
-  width: 200px;
-  min-width: 50%;
-  height: 300px;
-  min-height: 50%;
-  background-color: #131313;
+  justify-content: space-evenly;
+  min-width: 60vh;
 `;
 
 export const Head = styled.section`

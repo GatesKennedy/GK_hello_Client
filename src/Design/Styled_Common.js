@@ -2,6 +2,11 @@ import styled from 'styled-components';
 //===========
 
 //==========
+export const FormLabel = styled.div`
+  display: flex;
+  padding: 2px 4px;
+`;
+
 export const Section = styled.section`
   display: flex;
   flex-direction: column;
@@ -53,6 +58,15 @@ export const Row = styled.div`
   align-items: center;
   justify-content: space-around;
 `;
+export const RowBottom = styled.div`
+  bottom: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 1;
+  align-items: center;
+  justify-self: center;
+  justify-content: space-evenly;
+`;
 export const Row_Left = styled.div`
   display: flex;
   flex-direction: row;
@@ -64,5 +78,12 @@ export const Row_Left = styled.div`
 
 export const Btn = styled.div`
   text-align: center;
-  width: 6vw;
+  width: 5vw;
+  margin: 2px;
+  background-color: #c4c2b7;
+  color: #18191a;
+`;
+
+export const pad1 = styled.div`
+  min-width: 30px;
 `;

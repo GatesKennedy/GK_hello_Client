@@ -1,23 +1,22 @@
 import { API } from '../../utils/API';
 
-/*
 //  REDUX
-//import { setAlert } from '../../Notify/rdx_axn/axn_alert';
+import { setAlert } from '../../Kingdom_____/Alert/axn_alert';
 import {
   REGISTER_SUCCESS,
   REGISTER_ERROR,
-  USER_LOADED,
-  AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_ERROR,
+  USER_LOADED,
+  AUTH_ERROR,
   LOGOUT,
   PROFILE_CREATE,
   PROFILE_CLEAR,
   PROFILE_ERROR,
-} from '../../../Main/util/axn_types';
+} from '../../utils/axn_types';
 
 //  UTILS
-import setAuthToken from '../utils/setAuthToken';
+import setAuthToken from '../Auth/utils/setAuthToken';
 
 //  Authenticate User
 //==========================
@@ -32,26 +31,25 @@ export const authUser = () => async (dispatch) => {
   try {
     //  AUTH & LOAD USER
     //console.log('AXN AUTH > authUser() > LOAD_USER');
-    const res = await API.get('api/auth/');
-    const resStr = JSON.stringify(res.data);
+    const { data } = await API.get('api/auth/');
 
     dispatch({
       type: USER_LOADED,
-      payload: res.data,
+      payload: data,
     });
     console.log('(^=^) authUser() > DONE');
   } catch (err) {
-    console.log('(>_<) authUser() > catch: ' + err.message);
+    console.log('(>_<) authUser() > catch: ', err.message);
     dispatch({
       type: AUTH_ERROR,
+      payload: err,
     });
   }
 };
 
-/*
 //  Login User
 //==========================
-export const login = ({ email, password }) => async (dispatch) => {
+export const loginUser = ({ email, password }) => async (dispatch) => {
   console.log('(O_O) login() > ENTER FXN');
   //  req config
   const body = JSON.stringify({ email, password });
@@ -92,7 +90,7 @@ export const login = ({ email, password }) => async (dispatch) => {
 
 //  Register User / Auth User
 //==========================
-export const register = ({
+export const registerUser = ({
   username,
   email,
   password,
@@ -150,10 +148,9 @@ export const register = ({
 
 //  Logout / Clear Profile
 //==========================
-export const logout = () => (dispatch) => {
+export const logoutUser = () => (dispatch) => {
   console.log('(O_O) logout() > ENTER FXN');
   dispatch({ type: PROFILE_CLEAR });
   dispatch({ type: LOGOUT });
   console.log('(^=^) logout() > DONE');
 };
-*/

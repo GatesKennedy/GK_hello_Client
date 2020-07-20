@@ -19,9 +19,15 @@ const Navi = () => {
           <Btn>(o_O)</Btn>
         </NaviLogo>
         <NaviBtns id='navi-btns'>
-          <Btn>talk</Btn>
-          <Btn>give</Btn>
-          <Btn>take</Btn>
+          <Link to='/chat'>
+            <Btn>talk</Btn>
+          </Link>
+          <Link to='/profile'>
+            <Btn>give</Btn>
+          </Link>
+          <Link to='/about'>
+            <Btn>take</Btn>
+          </Link>
         </NaviBtns>
         <NaviLogo>
           <Btn>(^=^)</Btn>
