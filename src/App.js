@@ -1,28 +1,42 @@
 import React, { Fragment } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // === REDUX ===
 import { Provider } from 'react-redux';
-import store from './Kingdom_____/State/store';
-import { authUser } from './Phylum_____/User/rdx_axn/axn_auth';
-import setAuthToken from './Phylum_____/User/utils/setAuthToken';
+import store from './Redux/store';
+import { authUser } from './Phylum_____/Auth/axn_auth';
+import setAuthToken from './Phylum_____/Auth/utils/setAuthToken';
 // === Style ===
 import './sass/App.scss';
+
+import { Kingdom } from './Kingdom_____/Styled';
+import { Phylum } from './Phylum_____/Styled';
 //  Comps
-import Hello from './Kingdom_____/Comps/Hello';
-import Navi from './Kingdom_____/Comps/Navi';
+import Navi from './Kingdom_____/Navi/Navi';
+import About from './Phylum_____/About/About';
+import Auth from './Phylum_____/Auth/Auth';
+import Hello from './Phylum_____/Hello/Hello';
+import Chat from './Phylum_____/Chat/Chat';
+import Profile from './Phylum_____/Profile/Profile';
 
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <Fragment>
-          <Navi />
-          <Hello />
-        </Fragment>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Router>
+        <Kingdom className='App'>
+          <Fragment>
+            <Navi />
+            <Phylum>
+              <Switch>
+                <Route path='/' component={Hello} />
+                <Route path='/about' component={About} />
+                <Route path='/chat' component={Chat} />
+                <Route path='/profile' component={Profile} />
+              </Switch>
+            </Phylum>
+          </Fragment>
+        </Kingdom>
+      </Router>
+    </Provider>
   );
 }
 

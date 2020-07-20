@@ -3,8 +3,8 @@ import { combineReducers } from 'redux';
 //    === Main ===
 
 //    === User ===
-import rdc_auth from '../../Phylum_____/User/rdx_rdc/rdc_auth';
-import rdc_profile from '../../Phylum_____/User/rdx_rdc/rdc_profile';
+import rdc_auth from '../Phylum_____/Auth/rdc_auth';
+import rdc_profile from '../Phylum_____/Profile/rdc_profile';
 //    === Chat ===
 
 //    === Note ===
