@@ -16,7 +16,7 @@ import {
 } from '../../utils/axn_types';
 
 //  UTILS
-import setAuthToken from '../Auth/utils/setAuthToken';
+import setAuthToken from './utils/setAuthToken';
 
 //  Authenticate User
 //==========================
@@ -24,14 +24,14 @@ export const authUser = () => async (dispatch) => {
   console.log('(^=^) authUser() > ENTER FXN');
   //  Set Headers with 'x-auth-token': 'token'
   if (localStorage.token) {
-    console.log('(o_O) authUser() > setAuthToken()...');
+    console.log('(o_O) authUser() > setAuthToken() > wait...');
     await setAuthToken(localStorage.token);
   }
 
   try {
     //  AUTH & LOAD USER
-    //console.log('AXN AUTH > authUser() > LOAD_USER');
-    const { data } = await API.get('api/auth/');
+    const { data } = await API.get('api/user/');
+    console.log('AXN AUTH > authUser() > LOADED_USER: ', data);
 
     dispatch({
       type: USER_LOADED,
@@ -62,11 +62,12 @@ export const loginUser = (email, password) => async (dispatch) => {
     //  LOGIN user
     const res = await API.post('/api/user/login', body, config);
     console.log('(o_O) login() > resStr: ', res.data);
-
+    dispatch(setAlert(res.data.msg, 'success'));
     await dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data,
     });
+
     //  AUTH user
     await dispatch(authUser());
     dispatch(setAlert('Welcome!', 'success'));
