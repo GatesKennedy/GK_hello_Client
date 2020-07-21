@@ -10,10 +10,10 @@ import {
   USER_LOADED,
   AUTH_ERROR,
   LOGOUT,
-  PROFILE_CREATE,
+  PROFILE_UPDATE,
   PROFILE_CLEAR,
   PROFILE_ERROR,
-} from '../../utils/axn_types';
+} from '../../Redux/axn_types';
 
 //  UTILS
 import setAuthToken from './utils/setAuthToken';
@@ -131,7 +131,7 @@ export const registerUser = (
     const rezString = JSON.stringify(rez.data[0]);
     //console.log('AXN AUTH > Register > rez.data = ' + rezString);
     dispatch({
-      type: PROFILE_CREATE,
+      type: PROFILE_UPDATE,
       payload: rez.data[0],
     });
     setAlert('WELCOME, Friend!', 'success');

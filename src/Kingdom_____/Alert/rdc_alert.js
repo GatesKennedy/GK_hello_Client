@@ -1,4 +1,4 @@
-import { SET_ALERT, REMOVE_ALERT } from '../../utils/axn_types';
+import { SET_ALERT, REMOVE_ALERT } from '../../Redux/axn_types';
 
 const initialState = [
   // id:

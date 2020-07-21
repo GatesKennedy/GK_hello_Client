@@ -3,8 +3,6 @@ import {
   REGISTER_ERROR,
   LOGIN_SUCCESS,
   LOGIN_ERROR,
-  USER_LOADED,
-  USER_LOAD_ERROR,
   AUTH_ERROR,
   LOGOUT,
 } from '../../Redux/axn_types';
@@ -12,8 +10,8 @@ import {
 const initialState = {
   token: localStorage.getItem('token'),
   isAuthenticated: null,
-  loading: true,
   user: {},
+  loading: true,
   error: {},
 };
 
@@ -27,7 +25,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         token: localStorage.getItem('token'),
-        user: payload,
+        user: payload.user,
         isAuthenticated: true,
         loading: false,
       };
@@ -37,14 +35,8 @@ export default function (state = initialState, action) {
         ...state,
         token: null,
         isAuthenticated: false,
+        user: {},
         loading: false,
-      };
-    case USER_LOADED:
-      return {
-        ...state,
-        isAuthenticated: true,
-        loading: false,
-        user: payload,
       };
     case AUTH_ERROR:
     case LOGIN_ERROR:

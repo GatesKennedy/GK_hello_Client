@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { loginUser, registerUser } from '../Auth/axn_auth';
+import { setAlert } from '../../Kingdom_____/Alert/axn_alert';
 //  Style
 import {
   Row,
@@ -12,11 +13,12 @@ import {
   Btn2,
   FormLabel,
   RowBottom,
-  pad1,
 } from '../../Design/Styled_Common';
 import { Cont1, AuthForms, AuthCont } from '../Styled';
-import { setAlert } from '../../Kingdom_____/Alert/axn_alert';
 
+//~~~~~~~~~~~~~~~~
+//  MAIN
+//~~~~~~~~~~~~~~~~
 const Hello = ({ loginUser, registerUser, isAuthenticated }) => {
   //  ~~ FORM ~~
   const { register, handleSubmit, watch, reset, errors, formState } = useForm();
