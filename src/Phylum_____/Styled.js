@@ -72,7 +72,7 @@ export const ChatHead = styled.div`
   padding: 4px;
   font-size: calc(4px + 2vmin);
 `;
-export const ChatFormCont = styled.div`
+export const ChatFormCont = styled.form`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -83,7 +83,7 @@ export const ChatFormCont = styled.div`
   padding: 4px;
   font-size: calc(4px + 2vmin);
 `;
-export const ChatTxt = styled.div`
+export const ChatTxt = styled.input`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -94,7 +94,7 @@ export const ChatTxt = styled.div`
   padding: 4px;
   font-size: calc(8px + 1vmin);
 `;
-export const ChatBtn = styled.div`
+export const ChatBtn = styled.button`
   display: flex;
   flex-direction: row;
   justify-content: center;
