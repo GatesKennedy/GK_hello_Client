@@ -22,13 +22,13 @@ const Navi = () => {
         </NaviLogo>
         <NaviBtns id='navi-btns'>
           <Link
-            to='/chat'
-            onClick={() => setNavNow('chat')}
-            className={navNow === 'chat' ? 'bg-active txt-pale' : ''}
+            to='/talk'
+            onClick={() => setNavNow('talk')}
+            className={navNow === 'talk' ? 'bg-active txt-pale' : ''}
           >
             <Btn
               className={
-                navNow === 'chat' ? 'bg-active txt-pale' : 'bg-pale txt-black'
+                navNow === 'talk' ? 'bg-active txt-pale' : 'bg-pale txt-black'
               }
             >
               talk

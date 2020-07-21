@@ -5,6 +5,7 @@ import {
   LOGIN_ERROR,
   AUTH_ERROR,
   LOGOUT,
+  USER_LOADED,
 } from '../../Redux/axn_types';
 
 const initialState = {
@@ -19,8 +20,10 @@ export default function (state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
+    case USER_LOADED:
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
+      console.log('rdc_auth.js > payload.token: ', payload.token);
       localStorage.setItem('token', payload.token);
       return {
         ...state,
@@ -29,6 +32,7 @@ export default function (state = initialState, action) {
         isAuthenticated: true,
         loading: false,
       };
+
     case LOGOUT:
       localStorage.removeItem('token');
       return {

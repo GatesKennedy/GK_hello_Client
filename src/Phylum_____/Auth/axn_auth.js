@@ -10,6 +10,7 @@ import {
   USER_LOADED,
   AUTH_ERROR,
   LOGOUT,
+  PROFILE_LOAD,
   PROFILE_UPDATE,
   PROFILE_CLEAR,
   PROFILE_ERROR,
@@ -31,11 +32,20 @@ export const authUser = () => async (dispatch) => {
   try {
     //  AUTH & LOAD USER
     const { data } = await API.get('api/user/');
-    console.log('AXN AUTH > authUser() > LOADED_USER: ', data);
+    console.log('AXN AUTH > authUser() > LOADED_USER: \n', data);
 
+    const payload = {
+      user: { id: data.id, name: data.name },
+      profile: data,
+      token: localStorage.token,
+    };
     dispatch({
       type: USER_LOADED,
-      payload: data,
+      payload: payload,
+    });
+    dispatch({
+      type: PROFILE_LOAD,
+      payload: payload,
     });
     console.log('(^=^) authUser() > DONE');
   } catch (err) {
@@ -49,9 +59,10 @@ export const authUser = () => async (dispatch) => {
 
 //  Login User
 //==========================
-export const loginUser = (email, password) => async (dispatch) => {
+export const loginUser = (emailRaw, password) => async (dispatch) => {
   console.log('(O_O) login() > ENTER FXN');
   //  req config
+  const email = emailRaw.toLowerCase();
   const body = JSON.stringify({ email, password });
   console.log('(._.) login() > body = ', body);
   const config = {
@@ -74,6 +85,7 @@ export const loginUser = (email, password) => async (dispatch) => {
   } catch (err) {
     //  CATCH Error
     console.log('(-_-) login() > FAIL > errStr: ', err);
+    console.log('(-_-) login() > FAIL > errStr: ', err.errors);
     const errors = err.errors;
     if (Array.isArray(errors)) {
       errors.forEach((error) => dispatch(setAlert(error.msg, 'warn')));
@@ -100,7 +112,7 @@ export const registerUser = (
     },
   };
   const body = JSON.stringify({ username, email, password, role });
-
+  //~~~~~~~~~~~~~~
   //  Create User
   try {
     const { data } = await API.post('/api/user/register', body, config);
@@ -109,7 +121,8 @@ export const registerUser = (
     dispatch({
       type: REGISTER_SUCCESS,
       payload: data,
-    });
+    }); //  AUTH user
+    await dispatch(authUser());
     dispatch(setAlert(`Welcome! ${username}`, 'success'));
   } catch (err) {
     const errors = err.response.data.errors;
@@ -118,27 +131,6 @@ export const registerUser = (
     }
     dispatch({
       type: REGISTER_ERROR,
-    });
-  }
-  //  Create Profile
-  try {
-    //  SET GLOBAL HEADER with Token
-    if (localStorage.token) {
-      setAuthToken(localStorage.token);
-    }
-    //  CREATE PROFILE
-    const rez = await API.post('/api/user/profile/create');
-    const rezString = JSON.stringify(rez.data[0]);
-    //console.log('AXN AUTH > Register > rez.data = ' + rezString);
-    dispatch({
-      type: PROFILE_UPDATE,
-      payload: rez.data[0],
-    });
-    setAlert('WELCOME, Friend!', 'success');
-    //  LOAD USER/PROFILE
-  } catch (err) {
-    dispatch({
-      type: PROFILE_ERROR,
     });
   }
 };

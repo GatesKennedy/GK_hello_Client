@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // === REDUX ===
 import { Provider } from 'react-redux';
@@ -14,10 +14,20 @@ import { Phylum } from './Phylum_____/Styled';
 import Navi from './Kingdom_____/Navi/Navi';
 import About from './Phylum_____/About/About';
 import Hello from './Phylum_____/Hello/Hello';
-import Chat from './Phylum_____/Chat/Chat';
+import Talk from './Phylum_____/Talk/Talk';
 import Profile from './Phylum_____/Profile/Profile';
 
-function App() {
+//  Set Headers with 'x-auth-token': 'token'
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
+
+const App = () => {
+  //  Auth User
+  useEffect(() => {
+    store.dispatch(authUser());
+  }, []);
+
   return (
     <Provider store={store}>
       <Router basename='/'>
@@ -28,7 +38,7 @@ function App() {
               <Route exact path='/' component={Hello} />
               <Switch>
                 <Route exact path='/about' component={About} />
-                <Route exact path='/chat' component={Chat} />
+                <Route exact path='/talk' component={Talk} />
                 <Route exact path='/profile' component={Profile} />
               </Switch>
             </Phylum>
@@ -37,6 +47,6 @@ function App() {
       </Router>
     </Provider>
   );
-}
+};
 
 export default App;

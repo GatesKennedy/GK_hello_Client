@@ -1,13 +1,15 @@
 import {
-  PROFILE_LOAD,
-  PROFILE_UPDATE,
-  PROFILE_CLEAR,
-  PROFILE_ERROR,
+  TALK_LOAD,
+  TALK_UPDATE,
+  CHAT_UPDATE,
+  NOTE_UPDATE,
+  TALK_CLEAR,
+  TALK_ERROR,
 } from '../../Redux/axn_types';
 
 const initialState = {
-  profile: {},
-  user: {},
+  chat: [],
+  note: [],
   loading: true,
   error: {},
 };
@@ -16,22 +18,28 @@ export default function (state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case PROFILE_LOAD:
-    case PROFILE_UPDATE:
+    case TALK_LOAD:
+    case TALK_UPDATE:
       return {
         ...state,
-        profile: payload.profile,
-        user: payload.user,
+        chat: payload.chats,
+        note: payload.notes,
         loading: false,
       };
-    case PROFILE_CLEAR:
+    case CHAT_UPDATE:
       return {
         ...state,
-        profile: [],
-        user: [],
+        chat: payload,
         loading: false,
       };
-    case PROFILE_ERROR:
+    case TALK_CLEAR:
+      return {
+        ...state,
+        chat: [],
+        note: [],
+        loading: false,
+      };
+    case TALK_ERROR:
       return {
         ...state,
         error: payload,

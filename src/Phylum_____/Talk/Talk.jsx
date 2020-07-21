@@ -9,17 +9,17 @@ import { setAlert } from '../../Kingdom_____/Alert/axn_alert';
 import { ContRow, ContCol, Row, Col, Btn } from '../../Design/Styled_Common';
 //  Asset
 
-const Chat = ({ isAuthenticated, setAlert }) => {
+const Talk = ({ isAuthenticated, setAlert }) => {
   //  Redirect (auth?)
   if (!isAuthenticated) {
     setAlert('You gotta log in for that...', 'notice');
     return <Redirect to='/' />;
   }
-  return <Fragment>Chat</Fragment>;
+  return <div>Talk</div>;
 };
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { setAlert })(Chat);
+export default connect(mapStateToProps, { setAlert })(Talk);

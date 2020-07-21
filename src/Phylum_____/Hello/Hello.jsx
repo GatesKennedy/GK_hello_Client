@@ -105,7 +105,7 @@ const Hello = ({ loginUser, registerUser, isAuthenticated }) => {
   //  Redirect (auth?)
   if (isAuthenticated) {
     setAlert('You gotta log in for that...', 'notice');
-    return <Redirect to='/chat' />;
+    return <Redirect to='/talk' />;
   } else
     return (
       <Cont1>

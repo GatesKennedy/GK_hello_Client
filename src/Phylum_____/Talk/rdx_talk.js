@@ -8,14 +8,10 @@ import {
   PROFILE_ERROR,
 } from '../../Redux/axn_types';
 
-//  Update Profile (AUTH)
+//  Update Profile
 //==========================
 export const updateProfile = (email, password) => async (dispatch) => {
   console.log('(O_O) updateProfile() > ENTER FXN');
-  //  Set Headers with 'x-auth-token': 'token'
-  if (localStorage.token) {
-    setAuthToken(localStorage.token);
-  }
 
   const body = JSON.stringify({ email, password });
   const config = {

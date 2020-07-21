@@ -5,10 +5,8 @@ import { combineReducers } from 'redux';
 //    === User ===
 import rdc_auth from '../Phylum_____/Auth/rdc_auth';
 import rdc_profile from '../Phylum_____/Profile/rdc_profile';
-//    === Chat ===
-
-//    === Note ===
-
+//    === Talk ===
+import rdc_talk from '../Phylum_____/Talk/rdc_talk';
 //    === Ecom ===
 
 //    === Notify ===
@@ -17,6 +15,7 @@ import rdc_profile from '../Phylum_____/Profile/rdc_profile';
 export default combineReducers({
   auth: rdc_auth,
   profile: rdc_profile,
+  talk: rdc_talk,
 
   // alert: rdc_alert,
 });
