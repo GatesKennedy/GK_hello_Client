@@ -44,9 +44,19 @@ export const ChatDisp = styled.div`
   align-self: center;
   align-items: center;
   width: 86%;
-  min-width: 380px;
   height: 72%;
-  min-height: 46%;
+  padding: 4px;
+`;
+export const ChatDispInner = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  justify-items: center;
+  align-self: center;
+  align-items: center;
+  padding: 4px;
+  width: 100%;
+  height: 100%;
 `;
 
 export const Head = styled.section`

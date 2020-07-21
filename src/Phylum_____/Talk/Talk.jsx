@@ -11,6 +11,7 @@ import {
   Cont2,
   ChatHead,
   ChatDisp,
+  ChatDispInner,
   ChatFormCont,
   ChatTxt,
   ChatBtn,
@@ -33,7 +34,10 @@ const Talk = ({ isAuthenticated, setAlert, profile }) => {
         <div className='txt-active'>.: aoe :.</div>
         <div>{profile.name}</div>
       </ChatHead>
-      <ChatDisp className='bg-jet'>messages message</ChatDisp>
+
+      <ChatDisp className='bg-prop'>
+        <ChatDispInner className='bg-jet'>messages message</ChatDispInner>
+      </ChatDisp>
       <ChatFormCont className='bg-prop'>
         <ChatTxt className='bg-jet'>typing...</ChatTxt>
         <ChatBtn className='bg-pale txt-black'>go</ChatBtn>
