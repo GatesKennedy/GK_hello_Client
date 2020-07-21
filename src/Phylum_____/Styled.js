@@ -23,7 +23,6 @@ export const Cont1 = styled.div`
   min-height: 50%;
   background-color: #3c3c3a;
 `;
-
 export const Cont2 = styled.div`
   display: flex;
   flex-direction: column;
@@ -37,10 +36,65 @@ export const Cont2 = styled.div`
   min-height: 50%;
   background-color: #131313;
 `;
+export const ChatDisp = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  justify-items: center;
+  align-self: center;
+  align-items: center;
+  width: 86%;
+  min-width: 380px;
+  height: 72%;
+  min-height: 46%;
+`;
 
 export const Head = styled.section`
-  padding-top: 9vh;
-  font-size: calc(10px + 2vmin);
+  padding: 4px;
+  font-size: calc(8px + 2vmin);
+`;
+export const ChatHead = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 86%;
+  padding: 4px;
+  font-size: calc(4px + 2vmin);
+`;
+export const ChatFormCont = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 86%;
+  height: 16%;
+  margin: 4px;
+  padding: 4px;
+  font-size: calc(4px + 2vmin);
+`;
+export const ChatTxt = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+  width: 89%;
+  height: 100%;
+  margin: 8px 0px;
+  padding: 4px;
+  font-size: calc(8px + 1vmin);
+`;
+export const ChatBtn = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  width: 11%;
+  height: 92%;
+  margin: 10px 0px 10px 4px;
+  padding: 4px;
+  font-size: calc(9px + 1.5vmin);
 `;
 
 export const Body = styled.section`

@@ -38,6 +38,9 @@ a {
 .marg-btn {
   margin: 2px 4px;
 }
+.pad-btn {
+  padding: 2px 4px;
+}
 
 // =================
 // ===   Color   ===
@@ -48,8 +51,14 @@ a {
 .bg-black {
   background-color: #18191a;
 }
+.bg-eerie {
+  background-color: #0f0f0f;
+}
 .bg-jet {
   background-color: #3c3c3a;
+}
+.bg-prop {
+  background-color: #484846;
 }
 .bg-pale {
   background-color: #c4c2b7;
@@ -62,4 +71,8 @@ a {
 }
 .txt-pale {
   color: #c4c2b7;
+}
+
+.txt-active {
+  color: #6b6654;
 }

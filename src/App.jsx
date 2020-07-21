@@ -6,8 +6,7 @@ import store from './Redux/store';
 import { authUser } from './Phylum_____/Auth/axn_auth';
 import setAuthToken from './Phylum_____/Auth/utils/setAuthToken';
 // === Style ===
-import './sass/App.scss';
-
+import './Design/sass/App.scss';
 import { Kingdom } from './Kingdom_____/Styled';
 import { Phylum } from './Phylum_____/Styled';
 //  Comps
