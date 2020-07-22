@@ -2,6 +2,9 @@
   "name": "gk_hello_client",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
+  "author": "Conor Gates Kennedy",
+  "license": "ISC",
   "engines": {
     "node": "12.13.1",
     "npm": "6.12.1"
