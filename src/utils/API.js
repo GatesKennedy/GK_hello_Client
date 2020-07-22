@@ -40,5 +40,3 @@ const NewApi = () => {
 };
 
 export const API = NewApi();
-
-console.log('(._.) API.js > LOG PROCESS.ENV: ' + process.env);
