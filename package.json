@@ -1,7 +1,17 @@
 {
-  "name": "GK_hello_Client",
+  "name": "gk_hello_client",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "12.13.1",
+    "npm": "6.12.1"
+  },
+  "scripts": {
+    "start": "react-scripts -r dotenv/config start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "@material-ui/core": "^4.10.0",
     "@testing-library/jest-dom": "^4.2.4",
@@ -22,12 +32,6 @@
     "redux-thunk": "^2.3.0",
     "socket.io": "^2.3.0",
     "styled-components": "^5.1.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
