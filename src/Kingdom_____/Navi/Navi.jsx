@@ -42,7 +42,7 @@ const Navi = ({ _phylumObj }) => {
                     : 'bg-idle txt-idle'
                 }
               >
-                {phylum.name}
+                {phylum.show}
               </Link>
             </NavBtn>
           ))}

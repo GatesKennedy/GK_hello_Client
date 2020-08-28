@@ -65,7 +65,7 @@ button {
   }
 
   &:hover {
-    transform: scale(1.01);
+    transform: scale(1.015);
   }
 }
 
@@ -90,7 +90,7 @@ button {
 // ===   Color   ===
 
 .bg-active {
-  background-color: $aoe-gry2;
+  background-color: $aoe-gry1;
 }
 .bg-idle {
   background-color: $aoe-gry3;
@@ -113,6 +113,10 @@ button {
 .bg-pale {
   background-color: #c4c2b7;
 }
+.bg-white {
+  background-color: $aoe-gry2;
+}
+
 .txt-black {
   color: #18191a;
 }

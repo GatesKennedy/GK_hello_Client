@@ -12,7 +12,7 @@ import { BodyCont } from '../../Design/Styled_aoe';
 
 // const Navi = ({ auth: { isAuthenticated, user, loading }, logout }) => {
 const About = () => {
-  return <Fragment>About</Fragment>;
+  return <BodyCont className='bg-white txt-black'>About</BodyCont>;
 };
 
 export default About;

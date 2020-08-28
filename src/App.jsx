@@ -8,7 +8,7 @@ import setAuthToken from './Phylum_____/Auth/utils/setAuthToken';
 // === Style ===
 import './Design/sass/App.scss';
 import { Kingdom } from './Kingdom_____/Styled';
-import { Phylum } from './Phylum_____/Styled';
+import { BodyCont } from './Design/Styled_aoe';
 //  Comps
 import Navi from './Kingdom_____/Navi/Navi';
 import About from './Phylum_____/About/About';
@@ -28,24 +28,24 @@ const App = () => {
   }, []);
   //  Phylum Obj
   const PhylumObj = [
-    { route: '/about', name: 'About' },
-    { route: '/talk', name: 'Talk' },
+    { route: '/about', name: 'about', show: 'I N F O' },
+    { route: '/talk', name: 'talk', show: 'T A L K' },
   ];
 
   return (
     <Provider store={store}>
       <Router basename='/'>
         <Fragment>
-          <Kingdom className='App'>
+          <Kingdom className='App bg-white'>
             <Navi _phylumObj={PhylumObj} />
-            <Phylum>
+            <BodyCont>
               <Route exact path='/' component={Hello} />
               <Switch>
                 <Route exact path='/about' component={About} />
                 <Route exact path='/talk' component={Talk} />
                 <Route exact path='/profile' component={Profile} />
               </Switch>
-            </Phylum>
+            </BodyCont>
           </Kingdom>
         </Fragment>
       </Router>

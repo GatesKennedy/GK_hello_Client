@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 //  COMPS
 export const Kingdom = styled.section`
-  background-color: #18191a;
   color: #c4c2b7;
   min-height: 100vh;
   display: flex;
@@ -18,6 +17,7 @@ export const NaviCont = styled.section`
     display: -ms-flexbox;
     display: flex;
     width: 100vw;
+    height: 48px;
     padding: 8px 36px;
     top: 0px;
     -webkit-flex-direction: row;
