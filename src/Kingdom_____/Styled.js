@@ -18,7 +18,7 @@ export const NaviCont = styled.section`
     display: -ms-flexbox;
     display: flex;
     width: 100vw;
-    padding: 18px 36px;
+    padding: 8px 36px;
     top: 0px;
     -webkit-flex-direction: row;
     -ms-flex-direction: row;

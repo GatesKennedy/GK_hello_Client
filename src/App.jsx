@@ -26,13 +26,18 @@ const App = () => {
   useEffect(() => {
     store.dispatch(authUser());
   }, []);
+  //  Phylum Obj
+  const PhylumObj = [
+    { route: '/about', name: 'about' },
+    { route: '/talk', name: 'talk' },
+  ];
 
   return (
     <Provider store={store}>
       <Router basename='/'>
         <Fragment>
           <Kingdom className='App'>
-            <Navi />
+            <Navi _phylumObj={PhylumObj} />
             <Phylum>
               <Route exact path='/' component={Hello} />
               <Switch>

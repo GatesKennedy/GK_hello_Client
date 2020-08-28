@@ -11,9 +11,10 @@ import { NaviCont, NaviBtns, NaviLogo } from '../Styled';
 //  Asset
 
 // const Navi = ({ auth: { isAuthenticated, user, loading }, logout }) => {
-const Navi = () => {
+const Navi = ({ _phylumObj }) => {
+  console.log('phylumObj:', _phylumObj);
   //  STATE
-  const [navNow, setNavNow] = useState('give');
+  const [navNow, setNavNow] = useState('about');
   return (
     <Fragment>
       <NaviCont>
@@ -21,45 +22,24 @@ const Navi = () => {
           <Btn>(o_O)</Btn>
         </NaviLogo>
         <NaviBtns id='navi-btns'>
-          <Link
-            to='/talk'
-            onClick={() => setNavNow('talk')}
-            className={navNow === 'talk' ? 'bg-active txt-pale' : ''}
-          >
-            <Btn
-              className={
-                navNow === 'talk' ? 'bg-active txt-pale' : 'bg-pale txt-black'
-              }
+          {_phylumObj.map((phylum, index) => (
+            <Link
+              key={index}
+              to={phylum.route}
+              onClick={() => setNavNow(phylum.name)}
+              className={navNow === phylum.name ? 'bg-active txt-pale' : ''}
             >
-              talk
-            </Btn>
-          </Link>
-          <Link
-            to='/profile'
-            onClick={() => setNavNow('give')}
-            className={navNow === 'give' ? 'bg-active txt-pale' : ''}
-          >
-            <Btn
-              className={
-                navNow === 'give' ? 'bg-active txt-pale' : 'bg-pale txt-black'
-              }
-            >
-              give
-            </Btn>
-          </Link>
-          <Link
-            to='/about'
-            onClick={() => setNavNow('take')}
-            className={navNow === 'take' ? 'bg-active txt-pale' : ''}
-          >
-            <Btn
-              className={
-                navNow === 'take' ? 'bg-active txt-pale' : 'bg-pale txt-black'
-              }
-            >
-              take
-            </Btn>
-          </Link>
+              <Btn
+                className={
+                  navNow === phylum.name
+                    ? 'bg-active txt-pale'
+                    : 'bg-pale txt-black'
+                }
+              >
+                {phylum.name}
+              </Btn>
+            </Link>
+          ))}
         </NaviBtns>
         <NaviLogo>
           <Btn>(^=^)</Btn>
