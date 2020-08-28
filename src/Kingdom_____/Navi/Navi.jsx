@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // import { logout } from '../Modules/User/rdx_axn/axn_auth';
 //  STYLE
-import { Btn } from '../../Design/Styled_Common';
+import { Btn, NavBtn } from '../../Design/Styled_Common';
 import { NaviCont, NaviBtns, NaviLogo } from '../Styled';
 //  Asset
 
@@ -17,28 +17,34 @@ const Navi = ({ _phylumObj }) => {
   const [navNow, setNavNow] = useState('about');
   return (
     <Fragment>
-      <NaviCont>
+      <NaviCont className='bg-eerie'>
         <NaviLogo id='navi-logo'>
           <Btn>(o_O)</Btn>
         </NaviLogo>
         <NaviBtns id='navi-btns'>
           {_phylumObj.map((phylum, index) => (
-            <Link
-              key={index}
-              to={phylum.route}
+            <NavBtn
+              id='NavBtn'
+              className={
+                navNow === phylum.name
+                  ? 'bg-active txt-active'
+                  : 'bg-idle txt-idle'
+              }
               onClick={() => setNavNow(phylum.name)}
-              className={navNow === phylum.name ? 'bg-active txt-pale' : ''}
             >
-              <Btn
+              <Link
+                key={index}
+                to={phylum.route}
+                onClick={() => setNavNow(phylum.name)}
                 className={
                   navNow === phylum.name
-                    ? 'bg-active txt-pale'
-                    : 'bg-pale txt-black'
+                    ? 'bg-active txt-active'
+                    : 'bg-idle txt-idle'
                 }
               >
                 {phylum.name}
-              </Btn>
-            </Link>
+              </Link>
+            </NavBtn>
           ))}
         </NaviBtns>
         <NaviLogo>

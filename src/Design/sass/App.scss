@@ -2,6 +2,8 @@
 // ============
 // === core ===
 
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,7 +18,7 @@ body {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Exo 2', Helvetica, sans-serif;
   font-size: 1rem;
   line-height: 1.3;
   background-color: $white-2;
@@ -29,8 +31,50 @@ body {
 
 a {
   text-decoration: none;
+  padding-top: 4px;
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  text-align: center;
+  text-justify: center;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0.1rem;
+  outline: none;
   margin: 1px;
   padding: 0px;
+
+  cursor: pointer;
+  -webkit-appearance: none;
+  text-decoration: none;
+  text-align: center;
+
+  will-change: transform;
+  transform: scale(1);
+  transition: transform 480ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  &:not(:last-of-type) {
+    margin-right: 0.5rem;
+  }
+
+  &:hover {
+    transform: scale(1.01);
+  }
+}
+
+.button:hover {
+  opacity: 0.85;
+}
+
+.button:active {
+  box-shadow: inset 0 3px 4px hsla(0, 0%, 0%, 0.2);
 }
 
 // =================
@@ -46,10 +90,16 @@ a {
 // ===   Color   ===
 
 .bg-active {
-  background-color: #6b6654;
+  background-color: $aoe-gry2;
 }
+.bg-idle {
+  background-color: $aoe-gry3;
+}
+// .bg-active {
+//   background-color: #6b6654;
+// }
 .bg-black {
-  background-color: #18191a;
+  background-color: $aoe-blk1;
 }
 .bg-eerie {
   background-color: #18191a;
@@ -74,5 +124,9 @@ a {
 }
 
 .txt-active {
-  color: #6b6654;
+  color: $aoe-blk3;
+  font-weight: 777;
+}
+.txt-idle {
+  color: $aoe-gry5;
 }

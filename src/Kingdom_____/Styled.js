@@ -27,7 +27,6 @@ export const NaviCont = styled.section`
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    background-color: #3c3c3a;
 }
 `;
 export const NaviLogo = styled.section`
@@ -36,7 +35,7 @@ export const NaviLogo = styled.section`
 export const NaviBtns = styled.section`
   display: flex;
   justify-content: space-evenly;
-  min-width: 60vh;
+  min-width: 30vw;
 `;
 
 export const Head = styled.section`

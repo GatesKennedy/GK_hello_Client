@@ -76,18 +76,23 @@ export const Row_Left = styled.div`
   justify-content: flex-start;
 `;
 
-export const Btn = styled.div`
+export const Btn = styled.button`
   text-align: center;
   width: 5vw;
   margin: 2px;
 `;
+export const NavBtn = styled.button`
+  text-align: center;
+  width: 20vw;
+  margin: 2px;
+`;
 
-export const Btn2 = styled.div`
+export const Btn2 = styled.button`
   text-align: center;
   width: 10vw;
   margin: 2px;
 `;
 
-export const pad1 = styled.div`
+export const pad1 = styled.button`
   min-width: 30px;
 `;

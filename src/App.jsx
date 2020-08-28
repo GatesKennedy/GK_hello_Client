@@ -28,8 +28,8 @@ const App = () => {
   }, []);
   //  Phylum Obj
   const PhylumObj = [
-    { route: '/about', name: 'about' },
-    { route: '/talk', name: 'talk' },
+    { route: '/about', name: 'About' },
+    { route: '/talk', name: 'Talk' },
   ];
 
   return (
