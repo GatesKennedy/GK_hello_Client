@@ -8,6 +8,10 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 
 export const USER_LOADED = 'USER_LOADED';
 export const USER_LOAD_ERROR = 'USER_LOAD_ERROR';
+//    ===   UI    ===
+export const MODAL_SHOW_SET = 'MODAL_SHOW_SET';
+export const MODAL_TYPE_SET = 'MODAL_TYPE_SET';
+export const MODAL_ERROR = 'MODAL_ERROR';
 //    === Profile ===
 export const PROFILE_LOAD = 'PROFILE_LOAD';
 export const PROFILE_UPDATE = 'PROFILE_UPDATE';

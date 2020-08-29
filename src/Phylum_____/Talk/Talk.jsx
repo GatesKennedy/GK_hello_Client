@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setAlert } from '../../Kingdom_____/Alert/axn_alert';
+import { setModal } from '../../Kingdom_____/UI/axn_ui';
 //  STYLE
 import { ContRow, ContCol, Row, Col, Btn } from '../../Design/Styled_Common';
 import {
@@ -22,7 +23,16 @@ import {
 import {} from '../Styled';
 //  Asset
 
-const Talk = ({ isAuthenticated, setAlert, profile }) => {
+const Talk = ({
+  setModal,
+  setAlert,
+  profile,
+  auth: {
+    isAuthenticated,
+    user: { role },
+    loading,
+  },
+}) => {
   //  ~~ FORM ~~
   const { register, handleSubmit, watch, reset, errors, formState } = useForm();
   const watchFields = watch(['text']);
@@ -35,7 +45,7 @@ const Talk = ({ isAuthenticated, setAlert, profile }) => {
   //  Redirect (auth?)
   if (!isAuthenticated) {
     setAlert('You gotta log in for that...', 'notice');
-    return <Redirect to='/' />;
+    setModal(true, 'auth');
   }
   return (
     <Cont2>
@@ -59,8 +69,8 @@ const Talk = ({ isAuthenticated, setAlert, profile }) => {
 };
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.isAuthenticated,
+  auth: state.auth,
   profile: state.profile.profile,
 });
 
-export default connect(mapStateToProps, { setAlert })(Talk);
+export default connect(mapStateToProps, { setAlert, setModal })(Talk);

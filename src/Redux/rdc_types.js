@@ -1,11 +1,10 @@
 import { combineReducers } from 'redux';
 // === comps ===
-//    === Main ===
-
-//    === User ===
-import rdc_auth from '../Phylum_____/Auth/rdc_auth';
+//    === Kingdom ===
+import rdc_auth from '../Kingdom_____/Auth/rdc_auth';
+import rdc_ui from '../Kingdom_____/UI/rdc_ui';
+//    === Phylum  ===
 import rdc_profile from '../Phylum_____/Profile/rdc_profile';
-//    === Talk ===
 import rdc_talk from '../Phylum_____/Talk/rdc_talk';
 //    === Ecom ===
 
@@ -14,6 +13,7 @@ import rdc_talk from '../Phylum_____/Talk/rdc_talk';
 
 export default combineReducers({
   auth: rdc_auth,
+  ui: rdc_ui,
   profile: rdc_profile,
   talk: rdc_talk,
 

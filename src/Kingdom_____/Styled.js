@@ -11,6 +11,21 @@ export const Kingdom = styled.section`
   padding: 0px 20px;
 `;
 
+//  General
+export const Cont1 = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  justify-items: center;
+  align-self: center;
+  align-items: center;
+  width: 20vw;
+  min-width: 400px;
+  height: 32vh;
+  min-height: 50%;
+  background-color: #3c3c3a;
+`;
+
 export const NaviCont = styled.section`
   display: -webkit-box;
     display: -webkit-flex;

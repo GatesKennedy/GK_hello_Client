@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form';
 //  Redux
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { loginUser, registerUser } from '../Auth/axn_auth';
-import { setAlert } from '../../Kingdom_____/Alert/axn_alert';
+import { loginUser, registerUser } from './axn_auth';
+import { setAlert } from '../Alert/axn_alert';
 //  Style
 import {
   Row,
@@ -14,12 +14,13 @@ import {
   FormLabel,
   RowBottom,
 } from '../../Design/Styled_Common';
-import { Cont1, AuthForms, AuthCont } from '../Styled';
+import { AuthForms, AuthCont } from './Styled';
+import { Cont1 } from '../Styled';
 
 //~~~~~~~~~~~~~~~~
 //  MAIN
 //~~~~~~~~~~~~~~~~
-const Hello = ({ loginUser, registerUser, isAuthenticated }) => {
+const Auth = ({ loginUser, registerUser, isAuthenticated }) => {
   //  ~~ FORM ~~
   const { register, handleSubmit, watch, reset, errors, formState } = useForm();
   const watchFields = watch(['image', 'name', 'active']);
@@ -34,6 +35,8 @@ const Hello = ({ loginUser, registerUser, isAuthenticated }) => {
       registerUser(username, email, password);
     } else setAlert("Your passwords don't match");
   };
+  //  ~~ STATE ~~
+  const [authType, setAuthType] = useState('login');
 
   //    SubComps
   const Login = (
@@ -100,12 +103,10 @@ const Hello = ({ loginUser, registerUser, isAuthenticated }) => {
     </form>
   );
 
-  //  ~~ STATE ~~
-  const [authType, setAuthType] = useState('login');
   //  Redirect (auth?)
   if (isAuthenticated) {
     setAlert('You gotta log in for that...', 'notice');
-    return <Redirect to='/talk' />;
+    return <Redirect to='/about' />;
   } else
     return (
       <Cont1>
@@ -146,7 +147,7 @@ const Hello = ({ loginUser, registerUser, isAuthenticated }) => {
     );
 };
 
-Hello.propTypes = {
+Auth.propTypes = {
   loginUser: PropTypes.func.isRequired,
   registerUser: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool,
@@ -156,4 +157,4 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { loginUser, registerUser })(Hello);
+export default connect(mapStateToProps, { loginUser, registerUser })(Auth);
