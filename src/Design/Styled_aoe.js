@@ -9,3 +9,23 @@ export const BodyCont = styled.div`
   margin: 0px;
   padding: 0px;
 `;
+
+export const Btn = styled.button`
+  text-align: center;
+  width: 5vw;
+  margin: 2px;
+`;
+
+export const Btn1 = styled.button`
+  text-align: center;
+  width: 4vw;
+
+  margin: 2px 2px 2px 12px;
+  padding: 0px 4px;
+`;
+export const Btn2 = styled.button`
+  text-align: center;
+  width: 10vw;
+  margin: 2px;
+  padding: 0px 4px;
+`;

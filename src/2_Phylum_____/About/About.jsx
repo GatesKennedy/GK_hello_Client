@@ -16,10 +16,17 @@ import { aboutObj } from './AboutObj';
 import Drop from '../../3_Class_____/Drop';
 // const Navi = ({ auth: { isAuthenticated, user, loading }, logout }) => {
 const About = () => {
+  const [openState, setOpenState] = useState(0);
+
   return (
-    <AboutCont className='bg-white txt-black'>
+    <AboutCont className='bg-gry2 txt-black'>
       {aboutObj.map((item) => (
-        <Drop _item={item} />
+        <Drop
+          key={item.rank}
+          _item={item}
+          _openState={openState}
+          _setOpenState={setOpenState}
+        />
       ))}
     </AboutCont>
   );

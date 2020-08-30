@@ -42,7 +42,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router basename='/'>
-        <Kingdom className='App bg-white'>
+        <Kingdom className='App bg-gry2'>
           <Modal
             id='app-modal'
             _setModalState={setModalState}
