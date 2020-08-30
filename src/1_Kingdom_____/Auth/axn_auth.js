@@ -1,7 +1,7 @@
 import { API } from '../../utils/API';
 
 //  REDUX
-import { setAlert } from '../../Kingdom_____/Alert/axn_alert';
+import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
 import {
   REGISTER_SUCCESS,
   REGISTER_ERROR,

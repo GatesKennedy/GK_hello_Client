@@ -5,8 +5,8 @@ import { useForm } from 'react-hook-form';
 //  REDUX
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setAlert } from '../../Kingdom_____/Alert/axn_alert';
-import { setModal } from '../../Kingdom_____/UI/axn_ui';
+import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
+import { setModal } from '../../1_Kingdom_____/UI/axn_ui';
 //  STYLE
 import { ContRow, ContCol, Row, Col, Btn } from '../../Design/Styled_Common';
 import {

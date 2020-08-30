@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { shape, bool, string, func } from 'prop-types';
 import { setModal } from '../UI/axn_ui';
 //  COMPS
-import Auth from '../../Kingdom_____/Auth/Auth';
+import Auth from '../../1_Kingdom_____/Auth/Auth';
 
 //  STYLE
 import Backdrop from './Backdrop';

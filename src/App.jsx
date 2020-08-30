@@ -3,19 +3,19 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // === REDUX ===
 import { Provider } from 'react-redux';
 import store from './Redux/store';
-import { authUser } from './Kingdom_____/Auth/axn_auth';
-import setAuthToken from './Kingdom_____/Auth/utils/setAuthToken';
+import { authUser } from './1_Kingdom_____/Auth/axn_auth';
+import setAuthToken from './1_Kingdom_____/Auth/utils/setAuthToken';
 // === Style ===
 import './Design/sass/App.scss';
-import { Kingdom } from './Kingdom_____/Styled';
+import { Kingdom } from './1_Kingdom_____/Styled';
 import { BodyCont } from './Design/Styled_aoe';
 //  Comps
-import Navi from './Kingdom_____/Navi/Navi';
-import Modal from './Kingdom_____/UI/Modal';
-import About from './Phylum_____/About/About';
-import Hello from './Kingdom_____/Auth/Auth';
-import Talk from './Phylum_____/Talk/Talk';
-import Profile from './Phylum_____/Profile/Profile';
+import Navi from './1_Kingdom_____/Navi/Navi';
+import Modal from './1_Kingdom_____/UI/Modal';
+import About from './2_Phylum_____/About/About';
+import Hello from './1_Kingdom_____/Auth/Auth';
+import Talk from './2_Phylum_____/Talk/Talk';
+import Profile from './2_Phylum_____/Profile/Profile';
 
 //  Set Headers with 'x-auth-token': 'token'
 if (localStorage.token) {
@@ -49,7 +49,7 @@ const App = () => {
             _modalState={modalState}
           />
           <Navi _phylumObj={PhylumObj} />
-          <BodyCont>
+          <BodyCont id='app-BodyCont'>
             <Route exact path='/' component={Hello} />
             <Switch>
               <Route exact path='/about' component={About} />

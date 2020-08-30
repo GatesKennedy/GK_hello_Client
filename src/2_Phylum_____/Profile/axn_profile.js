@@ -1,17 +1,21 @@
 import { API } from '../../utils/API';
 
 //  REDUX
-import { setAlert } from '../../Kingdom_____/Alert/axn_alert';
+import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
 import {
   PROFILE_UPDATE,
   PROFILE_CLEAR,
   PROFILE_ERROR,
 } from '../../Redux/axn_types';
 
-//  Update Profile
+//  Update Profile (AUTH)
 //==========================
 export const updateProfile = (email, password) => async (dispatch) => {
   console.log('(O_O) updateProfile() > ENTER FXN');
+  //  Set Headers with 'x-auth-token': 'token'
+  if (localStorage.token) {
+    setAuthToken(localStorage.token);
+  }
 
   const body = JSON.stringify({ email, password });
   const config = {
