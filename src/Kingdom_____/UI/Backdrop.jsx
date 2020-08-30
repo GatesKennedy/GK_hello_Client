@@ -20,8 +20,16 @@ const BackdropCont = styled.div`
 `;
 
 const Backdrop = (props) =>
-  props.show ? (
-    <BackdropCont id='modal-backdrop' onClick={props.clicked}></BackdropCont>
+  props._show ? (
+    <BackdropCont
+      id='Backdrop-BackdropCont'
+      onClick={() => {
+        console.log('clk: BackdropCont > props._show: ', props._show);
+        console.log('clk: BackdropCont > !props._show: ', !props._show);
+        props._setModal(!props._show);
+        props.__setModalState(!props._show);
+      }}
+    ></BackdropCont>
   ) : null;
 
 export default Backdrop;

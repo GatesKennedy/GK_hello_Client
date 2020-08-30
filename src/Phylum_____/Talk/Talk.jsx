@@ -1,5 +1,5 @@
 //  React
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 //  REDUX
@@ -42,11 +42,13 @@ const Talk = ({
     console.log('FormData: ', data);
     const { text } = data;
   };
-  //  Redirect (auth?)
-  if (!isAuthenticated) {
-    setAlert('You gotta log in for that...', 'notice');
-    setModal(true, 'auth');
-  }
+  //  Auth Gate
+  useEffect(() => {
+    if (!isAuthenticated) {
+      setAlert('You gotta log in for that...', 'notice');
+      setModal(true, 'auth');
+    }
+  }, []);
   return (
     <Cont2>
       <ChatHead>

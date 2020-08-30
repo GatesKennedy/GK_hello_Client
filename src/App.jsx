@@ -29,6 +29,10 @@ const App = () => {
   }, []);
   //  Modal State
   const [modalState, setModalState] = useState(false);
+  useEffect(
+    () => console.log(`$$   setModalState() > modalState = `, modalState),
+    [modalState]
+  );
   //  Phylum Obj
   const PhylumObj = [
     { route: '/about', name: 'about', show: 'I N F O' },

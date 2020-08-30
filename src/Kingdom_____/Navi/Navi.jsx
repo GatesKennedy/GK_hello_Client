@@ -12,7 +12,6 @@ import { NaviCont, NaviBtns, NaviLogo } from '../Styled';
 
 // const Navi = ({ auth: { isAuthenticated, user, loading }, logout }) => {
 const Navi = ({ _phylumObj }) => {
-  console.log('phylumObj:', _phylumObj);
   //  STATE
   const [navNow, setNavNow] = useState('about');
   return (
@@ -24,6 +23,7 @@ const Navi = ({ _phylumObj }) => {
         <NaviBtns id='navi-btns'>
           {_phylumObj.map((phylum, index) => (
             <NavBtn
+              key={index}
               id='NavBtn'
               className={
                 navNow === phylum.name
@@ -33,7 +33,6 @@ const Navi = ({ _phylumObj }) => {
               onClick={() => setNavNow(phylum.name)}
             >
               <Link
-                key={index}
                 to={phylum.route}
                 onClick={() => setNavNow(phylum.name)}
                 className={

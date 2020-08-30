@@ -11,8 +11,7 @@ import {
 //=============================
 // SET: Modal Show and Type
 export const setModal = (modalShow, modalType = false) => async (dispatch) => {
-  console.log(`(^=^) ENTER  setModal()`);
-  console.log(`|     setModal() > `, {
+  console.log(`axn    setModal() > `, {
     modalShow: modalShow,
     modalType: modalType,
   });

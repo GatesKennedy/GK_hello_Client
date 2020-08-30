@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 //  REDUX
 import { connect } from 'react-redux';
-import { shape, bool, string, arrayOf } from 'prop-types';
+import { shape, bool, string, func } from 'prop-types';
 import { setModal } from '../UI/axn_ui';
 //  COMPS
 import Auth from '../../Kingdom_____/Auth/Auth';
@@ -27,19 +27,15 @@ const UiCont = styled.div`
 
 //=============================================
 const Modal = ({
-  _modalClosed,
-  ui: { modalShow, modalType, modalStr, loading },
-  setModal,
   _setModalState,
+  ui: { modalShow, modalType, modalStr, loading },
   auth: { isAuthenticated },
+  setModal,
 }) => {
   //  STATE
-  const [modalContent, setModalContent] = useState(null);
   if (!isAuthenticated) modalType = 'guest';
-  const AuthModal = <Auth />;
-
   const contentResult = (type) => {
-    console.log(`(^=^)  contentResult() > type: `, type);
+    console.log(`|    Modal > contentResult() > type: `, type);
     switch (type) {
       case 'auth':
       case 'guest':
@@ -51,10 +47,9 @@ const Modal = ({
 
   //  EFFECT
   useEffect(() => {
-    console.log(`($=$)  New Modal State: `, {
+    console.log(`$$$  New Modal State: `, {
       modalShow,
       modalType,
-      modalContent,
       modalStr,
     });
     _setModalState(modalShow);
@@ -69,7 +64,12 @@ const Modal = ({
         opacity: modalShow ? 1 : 0,
       }}
     >
-      <Backdrop id='modal-backdrop' show={modalShow} clicked={_modalClosed} />
+      <Backdrop
+        id='modal-backdrop'
+        _show={modalShow}
+        _setModal={setModal}
+        __setModalState={_setModalState}
+      />
       <UiCont
         id='modal-UiCont'
         style={{
@@ -77,9 +77,6 @@ const Modal = ({
           opacity: modalShow ? 1 : 0,
         }}
       >
-        {/* {modalType === 'guest' && (
-          <div>Oops, you'll need to logged in for that...</div>
-        )} */}
         {contentResult(modalType)}
       </UiCont>
     </ModalCont>
@@ -88,10 +85,10 @@ const Modal = ({
 
 //=============================================
 Modal.propTypes = {
+  setModal: func.isRequired,
   ui: shape({
     modalShow: bool,
     modalType: string,
-    // modalContent: arrayOf(string),
     modalStr: string,
     loading: bool,
   }).isRequired,
