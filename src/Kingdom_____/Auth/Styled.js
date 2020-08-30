@@ -4,9 +4,8 @@ export const AuthCont = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-items: center;
   justify-content: center;
-  position: fixed;
-  bottom: 41vh;
 `;
 
 export const AuthForms = styled.section`

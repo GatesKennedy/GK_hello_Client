@@ -17,8 +17,10 @@ export const Cont1 = styled.div`
   flex-direction: column;
   justify-self: center;
   justify-items: center;
+  justify-content: center;
   align-self: center;
   align-items: center;
+  align-content: center;
   width: 20vw;
   min-width: 400px;
   height: 32vh;

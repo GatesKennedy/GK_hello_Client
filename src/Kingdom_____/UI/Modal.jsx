@@ -34,12 +34,13 @@ const Modal = ({
 }) => {
   //  STATE
   if (!isAuthenticated) modalType = 'guest';
+  const authType = <Auth />;
   const contentResult = (type) => {
     console.log(`|    Modal > contentResult() > type: `, type);
     switch (type) {
       case 'auth':
       case 'guest':
-        return <Auth />;
+        return authType;
       default:
         return 'default goody';
     }

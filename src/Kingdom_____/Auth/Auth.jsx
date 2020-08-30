@@ -109,10 +109,12 @@ const Auth = ({ loginUser, registerUser, isAuthenticated }) => {
     return <Redirect to='/about' />;
   } else
     return (
-      <Cont1>
-        <AuthCont>
-          <AuthForms>{authType === 'login' ? Login : Register}</AuthForms>
-          <RowBottom>
+      <Cont1 id='Auth-Cont1'>
+        <AuthCont id='Auth-AuthCont'>
+          <AuthForms id='Auth-AuthForms'>
+            {authType === 'login' ? Login : Register}
+          </AuthForms>
+          <RowBottom id='Auth-RowBottom'>
             <Btn
               onClick={() => {
                 setAuthType('login');
