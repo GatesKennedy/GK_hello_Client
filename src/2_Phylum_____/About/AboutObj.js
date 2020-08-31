@@ -51,8 +51,8 @@ export const aboutObj = [
     
     Line 4
                 vqc`,
-    imgUrl:
-      'https://media.glamour.com/photos/5af461596cb7e538be078c74/16:9/w_1280,c_limit/kerry-washington-social.jpg',
+    imgUrl: '/src/Design/Images/mobiuss_3.png',
+    // <img src="/details/img/myImage.png" />
   },
 
   {
