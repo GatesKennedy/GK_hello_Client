@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
 //  STYLE
 import { ContRow, ContCol, Row, Col, Btn } from '../../Design/Styled_Common';
-import { AboutCont } from './Styled';
+import { AboutCont, AboutHead, AboutBody } from './Styled';
 import { BodyCont } from '../../Design/Styled_aoe';
 
 //  Asset
@@ -19,15 +19,20 @@ const About = () => {
   const [openState, setOpenState] = useState(0);
 
   return (
-    <AboutCont className='bg-gry2 txt-black'>
-      {aboutObj.map((item) => (
-        <Drop
-          key={item.rank}
-          _item={item}
-          _openState={openState}
-          _setOpenState={setOpenState}
-        />
-      ))}
+    <AboutCont id='About-AboutCont' className='bg-gry2 txt-black'>
+      <AboutHead id='About-AboutHead'>
+        <h2>Interesting Work</h2>
+      </AboutHead>
+      <AboutBody id='About-AboutBody'>
+        {aboutObj.map((item) => (
+          <Drop
+            key={item.rank}
+            _item={item}
+            _openState={openState}
+            _setOpenState={setOpenState}
+          />
+        ))}
+      </AboutBody>
     </AboutCont>
   );
 };

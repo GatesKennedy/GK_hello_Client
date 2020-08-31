@@ -29,3 +29,8 @@ export const Btn2 = styled.button`
   margin: 2px;
   padding: 0px 4px;
 `;
+
+export const ImageMed = styled.img`
+  height: 90px;
+  width: 90px;
+`;
