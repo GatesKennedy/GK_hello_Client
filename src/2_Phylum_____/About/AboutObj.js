@@ -1,7 +1,12 @@
-import LogoGk from '../../Design/Images/LogoGk.jpg';
+import mobiuss_1 from '../../Design/Images/LogoGk.jpg';
 import mobiuss_3 from '../../Design/Images/mobiuss_3.png';
 import mobiuss_4 from '../../Design/Images/mobiuss_4.png';
 import mobiuss_5 from '../../Design/Images/mobiuss_5.png';
+import aggregate from '../../Design/Images/Aggregate.jpg';
+import algorithm from '../../Design/Images/algorithm.png';
+import algorithm2 from '../../Design/Images/algorithm2.png';
+import algorithm3 from '../../Design/Images/algorithm3.png';
+import algorithm4 from '../../Design/Images/algorithm4.jpg';
 
 export const aboutObj = [
   {
@@ -52,7 +57,7 @@ export const aboutObj = [
     ],
     summary: 'This is a summary of the project',
     story: `This is vqc`,
-    imgurl: mobiuss_4,
+    imgurl: algorithm3,
   },
 
   {
@@ -61,7 +66,7 @@ export const aboutObj = [
     tech: ['Django', 'mongoDB', 'Azure DevOps'],
     summary: 'This is a summary of the project',
     story: 'this is a story for Aggregator',
-    imgurl: mobiuss_3,
+    imgurl: aggregate,
   },
 
   {
@@ -77,7 +82,7 @@ export const aboutObj = [
       By the second day I was able to project the progress and saw it was likely a deadline would be missed, so I decided to script for the task after hours.
       I ended up with a parsing algorithm that could translate any amount of raw data from google docs and repopulate the damaged system. 
       This may sound like a nightmare but, again, I felt like I was discovering magic.`,
-    imgurl: LogoGk,
+    imgurl: algorithm,
   },
 
   {
@@ -99,6 +104,6 @@ export const aboutObj = [
     
     Line 4
                 vqc`,
-    imgurl: mobiuss_3,
+    imgurl: algorithm2,
   },
 ];
