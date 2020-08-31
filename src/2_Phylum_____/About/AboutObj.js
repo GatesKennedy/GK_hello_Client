@@ -1,3 +1,8 @@
+import LogoGk from '../../Design/Images/LogoGk.jpg';
+import mobiuss_3 from '../../Design/Images/mobiuss_3.png';
+import mobiuss_4 from '../../Design/Images/mobiuss_4.png';
+import mobiuss_5 from '../../Design/Images/mobiuss_5.png';
+
 export const aboutObj = [
   {
     rank: 1,
@@ -29,7 +34,7 @@ export const aboutObj = [
     Custom CMS: Admin Library, Artist, Filter, Playlist and User Mgmt, Media Upload,
     Custom CMS: Admin Library, Artist, Filter, Playlist and User Mgmt, Media Upload,
     `,
-    imgUrl: 'https://www.needledrop.co/images/whitesmlogo.png',
+    imgurl: 'https://www.needledrop.co/images/whitesmlogo.png',
   },
 
   {
@@ -46,13 +51,8 @@ export const aboutObj = [
       'Heroku',
     ],
     summary: 'This is a summary of the project',
-    story: `This is the full story of the Project 1... and it starts right now!
-    Line 2
-    
-    Line 4
-                vqc`,
-    imgUrl: '/src/Design/Images/mobiuss_3.png',
-    // <img src="/details/img/myImage.png" />
+    story: `This is vqc`,
+    imgurl: mobiuss_4,
   },
 
   {
@@ -60,36 +60,24 @@ export const aboutObj = [
     title: 'Web Content Aggregator',
     tech: ['Django', 'mongoDB', 'Azure DevOps'],
     summary: 'This is a summary of the project',
-    story: `<div>
-    <p>
-    This is the full story of the Project 2... and it starts right now! 
-    </p>
-    <p>
-    Line 2 
-    </p>
-    <p>
-    Line 4
-    </p>
-    <p>
-    vqc
-    </p>
-    </div>
-    `,
-    imgUrl: 'void',
+    story: 'this is a story for Aggregator',
+    imgurl: mobiuss_3,
   },
 
   {
-    rank: 4,
+    rank: 5,
     title: 'Curriculum Parsing Algorithm',
     tech: ['C#', 'Javascript', 'Google Apps Script'],
     summary: 'This is a summary of the project',
-    story: `This is the full story of Project 3... and it starts right now!
-    Line 2
-    
-    Line 4
-                vqc`,
-    imgUrl:
-      'https://media1.popsugar-assets.com/files/thumbor/YeZ58D4tl6ApJsXnRJuIjWRgL90/0x261:2864x3125/fit-in/500x500/filters:format_auto-!!-:strip_icc-!!-/2020/02/11/851/n/1922398/0e3925665e42ffc7158d67.98012267_/i/Kerry-Washington.jpg',
+    story: `Skip a few years to when I felt I had outgrown my role at Escape Collective, and I find myself pursuing software development as my primary focus.
+      Needing to stay calm and leading a team through long hours has suited me well for what I’ve experienced in the software industry.
+      On the first day of my first job as a developer, a crippling situation with the company’s database occurred. 
+      I suddenly found myself deputized. 
+      I served as the liaison to the fraught development team while tracking the progress of a team that was tasked with repopulating an inhuman amount of data.
+      By the second day I was able to project the progress and saw it was likely a deadline would be missed, so I decided to script for the task after hours.
+      I ended up with a parsing algorithm that could translate any amount of raw data from google docs and repopulate the damaged system. 
+      This may sound like a nightmare but, again, I felt like I was discovering magic.`,
+    imgurl: LogoGk,
   },
 
   {
@@ -111,6 +99,6 @@ export const aboutObj = [
     
     Line 4
                 vqc`,
-    imgUrl: 'void',
+    imgurl: mobiuss_3,
   },
 ];

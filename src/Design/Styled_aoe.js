@@ -17,11 +17,16 @@ export const Btn = styled.button`
 `;
 
 export const Btn1 = styled.button`
+  display: flex;
   text-align: center;
-  width: 4vw;
 
-  margin: 2px 2px 2px 12px;
-  padding: 0px 4px;
+  /* align-self: flex-end; */
+  width: 64px;
+  max-width: 64px;
+  max-height: 16px;
+
+  margin: 2px 2px 0px 0px;
+  padding: 0px 4px 0px 9px;
 `;
 export const Btn2 = styled.button`
   text-align: center;
@@ -31,6 +36,6 @@ export const Btn2 = styled.button`
 `;
 
 export const ImageMed = styled.img`
-  height: 90px;
-  width: 90px;
+  height: 96px;
+  width: 96px;
 `;

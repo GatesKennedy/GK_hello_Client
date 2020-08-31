@@ -9,20 +9,75 @@ export const ItemCont = styled.section`
   display: flex;
   flex-direction: row;
 
+  min-height: 96px;
+  max-width: 960px;
+  width: 100%;
+  padding: 8px 8px;
+`;
+export const ImgCont = styled.section`
+  display: flex;
+  flex-direction: column;
+  height: 96px;
+`;
+export const InfoCont = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  justify-items: flex-start;
+
+  height: (100% + 6px);
+  width: 100%;
+  padding: 0px 8px;
+  margin-top: -6px;
+`;
+export const SummaryCont = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 100%;
+`;
+export const StoryCont = styled.section`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  justify-items: flex-start;
   padding: 8px;
 `;
-export const ItemSpecs = styled.text`
+
+export const ItemTitle = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-end;
 
-  font-size: smaller;
+  margin-bottom: 2px;
+
+  font-size: large;
+  font-weight: bold;
 `;
-export const ItemStory = styled.text`
+export const ItemTech = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
 
+  margin-bottom: 4px;
+  font-size: smaller;
+`;
+export const ItemSummary = styled.div`
+  display: flex;
+
+  width: 100%;
+  height: 36px;
+  font-size: smaller;
+`;
+export const ItemStory = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 0px 8px;
+
+  width: 100%;
   font-size: smaller;
 `;
 export const TechList = styled.ul`
@@ -39,58 +94,73 @@ export const TechItem = styled.li`
   justify-content: flex-start;
   align-items: flex-start;
 
+  height: 100%;
+
   list-style-type: none;
-  margin: 0px 0px 2px 4px;
+  margin: 0px 0px 1px 4px;
   padding: 1px 4px;
 
   font-size: smaller;
 `;
-export const ImgCont = styled.section`
-  display: flex;
-  flex-direction: column;
-  height: 90px;
-  margin: 40px, 0px;
-`;
-export const InfoCont = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  justify-items: flex-start;
-  padding: 8px;
+
+export const SubTitle = styled.div`
+  font-size: 14px;
+  font-weight: bold;
 `;
 
 //  MAIN
-const Drop = ({ _item, _openState, _setOpenState }) => {
+const Drop = ({
+  _item: { imgurl, title, tech, rank, summary, story },
+  _openState,
+  _setOpenState,
+}) => {
   return (
-    <ItemCont id='Drop-ItemCont'>
+    <ItemCont id='Drop-ItemCont' className={_openState === rank && ' bg-gry1'}>
       <ImgCont id='Drop-ImgCont' className='bg-gry6'>
-        <ImageMed src={_item.imgUrl} alt='oops... bad link' />
+        <ImageMed src={imgurl} alt='oops... bad link' />
       </ImgCont>
       <InfoCont id='Drop-InfoCont'>
-        <h3>{_item.title}</h3>
-        <ItemSpecs>
-          <h4>Tech: </h4>
-          <TechList>
-            {_item.tech.map((item) => (
-              <TechItem className='bg-gry1'>{item}</TechItem>
+        <ItemTitle id='Drop-ItemTitle'>{title}</ItemTitle>
+        <ItemTech id='Drop-ItemTech'>
+          <SubTitle>Tech: </SubTitle>
+          <TechList id='Drop-TechList'>
+            {tech.map((item, index) => (
+              <TechItem id='Drop-TechItem' key={index} className='bg-gry1'>
+                {item}
+              </TechItem>
             ))}
           </TechList>
-        </ItemSpecs>
-        {_openState !== _item.rank ? (
-          <Fragment>
-            <ItemSpecs>{_item.summary}</ItemSpecs>
-            <Btn1 onClick={() => _setOpenState(_item.rank)}>
+        </ItemTech>
+        {_openState !== rank ? (
+          <SummaryCont id='Drop-SummaryCont'>
+            <ItemSummary id='Drop-ItemSummary'>{summary}</ItemSummary>
+            <Btn1 onClick={() => _setOpenState(rank)}>
               more <RiArrowDropDownLine />
             </Btn1>
-          </Fragment>
+          </SummaryCont>
         ) : (
-          <ItemStory>{_item.story}</ItemStory>
+          <StoryCont>
+            {/* <ImgCont id='Drop-ImgCont' className='bg-gry6'>
+              <ImageMed src={imgurl} alt='oops... bad link' />
+            </ImgCont> */}
+            <ItemStory>{story}</ItemStory>
+          </StoryCont>
         )}
       </InfoCont>
     </ItemCont>
   );
 };
 
-Drop.propTypes = {};
+Drop.propTypes = {
+  _item: PropTypes.object.isRequired,
+  // imgurl: PropTypes.string.isRequired,
+  // title: PropTypes.string.isRequired,
+  // tech: PropTypes.arrayOf(PropTypes.string).isRequired,
+  // rank: PropTypes.number.isRequired,
+  // summary: PropTypes.string.isRequired,
+  // story: PropTypes.string.isRequired,
+  _openState: PropTypes.number.isRequired,
+  _setOpenState: PropTypes.func.isRequired,
+};
 
 export default Drop;

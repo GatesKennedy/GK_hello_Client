@@ -5,10 +5,10 @@ export const AboutCont = styled.section`
   display: flex;
   flex-direction: column;
 
+  width: 100%;
   margin: 0vw 8vw;
   padding: 8px;
 `;
-
 export const AboutHead = styled.section`
   display: flex;
   flex-direction: column;

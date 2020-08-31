@@ -14,15 +14,19 @@ import { BodyCont } from '../../Design/Styled_aoe';
 //  Asset
 import { aboutObj } from './AboutObj';
 import Drop from '../../3_Class_____/Drop';
-// const Navi = ({ auth: { isAuthenticated, user, loading }, logout }) => {
-const About = () => {
-  const [openState, setOpenState] = useState(0);
+import TitleHeader from '../../0_GenComps_____/TitleHeader';
 
+//  MAIN
+const About = () => {
+  //  STATE
+  const [openState, setOpenState] = useState(0);
+  const titleTxt1 = 'Hello, Friend...';
+  const titleTxt2 = 'Recently...';
   return (
     <AboutCont id='About-AboutCont' className='bg-gry2 txt-black'>
-      <AboutHead id='About-AboutHead'>
-        <h2>Interesting Work</h2>
-      </AboutHead>
+      <TitleHeader id='About-TitleHeader1' _txt={titleTxt1} />
+
+      <TitleHeader id='About-TitleHeader2' _txt={titleTxt2} />
       <AboutBody id='About-AboutBody'>
         {aboutObj.map((item) => (
           <Drop
@@ -35,6 +39,10 @@ const About = () => {
       </AboutBody>
     </AboutCont>
   );
+};
+
+Drop.propTypes = {
+  aboutObj: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default About;

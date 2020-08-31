@@ -12,8 +12,8 @@ import { BodyCont } from './Design/Styled_aoe';
 //  Comps
 import Navi from './1_Kingdom_____/Navi/Navi';
 import Modal from './1_Kingdom_____/UI/Modal';
+import Hello from './2_Phylum_____/Hello/Hello';
 import About from './2_Phylum_____/About/About';
-import Hello from './1_Kingdom_____/Auth/Auth';
 import Talk from './2_Phylum_____/Talk/Talk';
 import Profile from './2_Phylum_____/Profile/Profile';
 
