@@ -7,6 +7,7 @@ import algorithm from '../../Design/Images/algorithm.png';
 import algorithm2 from '../../Design/Images/algorithm2.png';
 import algorithm3 from '../../Design/Images/algorithm3.png';
 import algorithm4 from '../../Design/Images/algorithm4.jpg';
+import esc from '../../Design/Images/esc.png';
 
 export const aboutObj = [
   {
@@ -70,7 +71,7 @@ export const aboutObj = [
   },
 
   {
-    rank: 5,
+    rank: 4,
     title: 'Curriculum Parsing Algorithm',
     tech: ['C#', 'Javascript', 'Google Apps Script'],
     summary: 'This is a summary of the project',
@@ -86,7 +87,7 @@ export const aboutObj = [
   },
 
   {
-    rank: 4,
+    rank: 5,
     title: 'Happy Birthday Bridger',
     tech: [
       'ReactJS',
@@ -105,5 +106,27 @@ export const aboutObj = [
     Line 4
                 vqc`,
     imgurl: algorithm2,
+  },
+  {
+    rank: 6,
+    title: 'Escape Collective',
+    tech: [
+      'ReactJS',
+      'NodeJS',
+      'PostgreSQL',
+      'AWS',
+      'Redux/Thunk',
+      'Axios',
+      'ExpressJS',
+      'Heroku',
+    ],
+    summary:
+      'Co-Founder and Lead Design Engineer of an design and fabrication companyin Portland, OR.',
+    story: `This is the full story of Project 3... and it starts right now!
+    Line 2
+    
+    Line 4
+                vqc`,
+    imgurl: esc,
   },
 ];
