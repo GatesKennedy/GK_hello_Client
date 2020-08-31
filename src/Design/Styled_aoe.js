@@ -36,6 +36,9 @@ export const Btn2 = styled.button`
 `;
 
 export const ImageMed = styled.img`
+  position: relative;
+  top: 3px;
+  left: 2px;
   clip-path: circle(50%);
   overflow: hidden;
   background-color: #262727;

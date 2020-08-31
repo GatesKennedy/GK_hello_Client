@@ -119,8 +119,11 @@ const Drop = ({
   _setOpenState,
 }) => {
   return (
-    <ItemCont id='Drop-ItemCont' className={_openState === rank && ' bg-gry1'}>
-      <ImgCont id='Drop-ImgCont' className='bg-gry2'>
+    <ItemCont
+      id='Drop-ItemCont'
+      className={_openState === rank ? ' bg-gry1' : ' bg-gry2'}
+    >
+      <ImgCont id='Drop-ImgCont' className={_openState === rank && ' bg-gry2'}>
         {/* <ImgCont id='Drop-ImgCont' className='bg-gry2'> */}
         <ImageMed src={imgurl} alt='oops... bad link' />
       </ImgCont>
@@ -130,7 +133,11 @@ const Drop = ({
           <SubTitle>Tech: </SubTitle>
           <TechList id='Drop-TechList'>
             {tech.map((item, index) => (
-              <TechItem id='Drop-TechItem' key={index} className='bg-gry1'>
+              <TechItem
+                id='Drop-TechItem'
+                key={index}
+                className={_openState !== rank ? ' bg-gry1' : ' bg-gry2'}
+              >
                 {item}
               </TechItem>
             ))}
