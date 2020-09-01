@@ -20,6 +20,8 @@ const UiCont = styled.div`
   align-content: center;
   z-index: 500;
 
+  min-width: 320;
+
   border-radius: 8px;
   box-shadow: 1px 1px 1px black;
   padding: 8px;
@@ -57,7 +59,7 @@ const Modal = ({
     }
   };
   const [message, setMessage] = useState(
-    `You'll need to log in for that feature...`
+    `You'll need to log in for that feature... `
   );
   //  EFFECT
   useEffect(() => {

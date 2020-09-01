@@ -7,14 +7,8 @@ import PropTypes from 'prop-types';
 import { loginUser, registerUser } from './axn_auth';
 import { setAlert } from '../Alert/axn_alert';
 //  Style
-import {
-  Row,
-  Btn,
-  Btn2,
-  FormLabel,
-  RowBottom,
-} from '../../Design/Styled_Common';
-import { AuthForms, AuthCont } from './Styled';
+import { Row, Btn, Btn2, FormLabel } from '../../Design/Styled_Common';
+import { AuthCont, FormCont, BtnsCont, BtnsRow } from './Styled';
 
 //~~~~~~~~~~~~~~~~
 //  MAIN
@@ -108,39 +102,44 @@ const Auth = ({ loginUser, registerUser, isAuthenticated }) => {
   } else
     return (
       <AuthCont id='Auth-AuthCont' className='bg-blk1'>
-        <AuthForms id='Auth-AuthForms'>
+        <FormCont id='Auth-FormCont'>
           {authType === 'login' ? Login : Register}
-        </AuthForms>
-        <RowBottom id='Auth-RowBottom'>
-          <Btn
-            onClick={() => {
-              setAuthType('login');
-              reset();
-            }}
-            className={authType === 'login' ? 'bg-active txt-pale' : ''}
+        </FormCont>
+        <BtnsCont id='Auth-BtnsCont'>
+          <BtnsRow id='Auth-BtnsRow'>
+            <Btn
+              onClick={() => {
+                setAuthType('login');
+                reset();
+              }}
+              className={authType === 'login' ? 'bg-gry3 txt-black' : ''}
+            >
+              login
+            </Btn>
+            <Btn
+              onClick={() => {
+                setAuthType('register');
+                reset();
+              }}
+              className={authType === 'register' ? 'bg-gry3 txt-black' : ''}
+            >
+              register
+            </Btn>
+          </BtnsRow>
+          <BtnsRow
+            id='Auth-BtnsRow'
+            className={isSubmitting ? 'bg-pale txt-black' : ''}
           >
-            login
-          </Btn>
-          <Btn
-            onClick={() => {
-              setAuthType('register');
-              reset();
-            }}
-            className={authType === 'register' ? 'bg-active txt-pale' : ''}
-          >
-            register
-          </Btn>
-        </RowBottom>
-        <RowBottom className={isSubmitting ? 'bg-pale txt-black' : ''}>
-          <Btn2
-            onClick={handleSubmit(onSubmit)}
-            className={
-              Object.keys(touched).length >= 2 ? 'bg-active txt-pale' : ''
-            }
-          >
-            go
-          </Btn2>
-        </RowBottom>
+            <Btn2
+              onClick={handleSubmit(onSubmit)}
+              className={
+                Object.keys(touched).length >= 2 ? 'bg-active txt-pale' : ''
+              }
+            >
+              go
+            </Btn2>
+          </BtnsRow>
+        </BtnsCont>{' '}
       </AuthCont>
     );
 };

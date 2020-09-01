@@ -12,7 +12,7 @@ export const ModalCont = styled.div`
   align-items: center;
 
   border: none;
-  outline: #f2f2f2 solid 4px;
+
   box-shadow: 1px 1px 1px black;
   box-sizing: border-box;
 
@@ -65,7 +65,7 @@ export const Btn = styled.button`
   transition: transform 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
   &:not(:last-of-type) {
-    margin-right: 0.5rem;
+    margin-right: 4px;
   }
 
   &:hover {

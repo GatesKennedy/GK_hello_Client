@@ -78,8 +78,14 @@ export const Row_Left = styled.div`
 
 export const Btn = styled.button`
   text-align: center;
-  width: 5vw;
+  width: 50%;
   margin: 2px;
+
+  background-color: #e0e0e0;
+
+  &:hover {
+    background-color: #bdbdbd; /* $aoe-gry3 */
+  }
 `;
 export const NavBtn = styled.button`
   text-align: center;
@@ -89,8 +95,14 @@ export const NavBtn = styled.button`
 
 export const Btn2 = styled.button`
   text-align: center;
-  width: 10vw;
+  width: calc(100% + 10px);
   margin: 2px;
+
+  background-color: #e0e0e0;
+
+  &:hover {
+    background-color: #b0eedd; /* $nds-grn1 */
+  }
 `;
 
 export const pad1 = styled.button`
