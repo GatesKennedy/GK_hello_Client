@@ -10,6 +10,15 @@ export const BodyCont = styled.div`
   padding: 0px;
 `;
 
+//  Select
+
+export const Para = styled.p`
+  display: flex;
+  padding: 4px;
+
+  width: 100%;
+`;
+
 export const Btn = styled.button`
   text-align: center;
   width: 5vw;

@@ -15,6 +15,14 @@ import PG13_1 from '../../Design/Images/PG-13_1.jpg';
 import PG13_2 from '../../Design/Images/PG-13_2.jpg';
 import PG13_4 from '../../Design/Images/PG-13_4.jpg';
 
+export const introObj = [
+  `I’ve been building things for as long as I can remember.`,
+  `By age five, household items and my sisters’ toys would go missing because ‘Conor was making something again’ and by grade five, I
+had convinced my dad to purchase blueprints for a 6’x8’x32’ half-pipe.  As a general contractor, we agreed that he’d handle the cuts 
+but I had to mark them out myself and do all other work. He taught me what all the symbols meant on the schematics, and by middle school I’d built it. `,
+  `Twenty years later I’m learning a different set of symbols and exploring how I can implement
+them to build new things that I’ve now designed myself.`,
+];
 export const softwareObj = [
   {
     rank: 1,
@@ -139,7 +147,7 @@ export const softwareObj = [
 
 export const personalObj = [
   {
-    rank: 2,
+    rank: 7,
     title: 'PG-13 [band]',
     tech: [
       'Audio Production',
