@@ -4,13 +4,14 @@ import styled from 'styled-components';
 export const ModalCont = styled.div`
   position: fixed;
   z-index: 500;
+
   display: flex;
   width: 100vw;
   height: 100vh;
   justify-content: center;
-  padding: 16px;
+  align-items: center;
 
-  border: 1px solid #ccc;
+  border: none;
   outline: #f2f2f2 solid 4px;
   box-shadow: 1px 1px 1px black;
   box-sizing: border-box;

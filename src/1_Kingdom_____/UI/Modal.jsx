@@ -14,21 +14,32 @@ import { ModalCont } from './Styled';
 const UiCont = styled.div`
   position: fixed;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   justify-items: center;
   align-content: center;
   z-index: 500;
-  border: 1px solid #ccc;
+
+  border-radius: 8px;
   box-shadow: 1px 1px 1px black;
-  padding: 16px;
+  padding: 8px;
   box-sizing: border-box;
   transition: all 0.3s ease-out;
+`;
+const ModalMsg = styled.div`
+  display: flex;
+  color: #333;
+
+  padding: 8px;
+  margin-bottom: 4px;
+  /* box-shadow: 1px 1px 1px black; */
+  border-radius: 4px;
 `;
 
 //=============================================
 const Modal = ({
   _setModalState,
-  ui: { modalShow, modalType, modalStr, loading },
+  ui: { modalShow, modalType, modalMsg, loading },
   auth: { isAuthenticated },
   setModal,
 }) => {
@@ -45,13 +56,15 @@ const Modal = ({
         return 'default goody';
     }
   };
-
+  const [message, setMessage] = useState(
+    `You'll need to log in for that feature...`
+  );
   //  EFFECT
   useEffect(() => {
     console.log(`$$$  New Modal State: `, {
       modalShow,
       modalType,
-      modalStr,
+      modalMsg,
     });
     _setModalState(modalShow);
   }, [modalShow]);
@@ -73,11 +86,15 @@ const Modal = ({
       />
       <UiCont
         id='modal-UiCont'
+        className='bg-gry2'
         style={{
           transform: modalShow ? 'translateY(0)' : 'translateY(-100vh)',
           opacity: modalShow ? 1 : 0,
         }}
       >
+        <ModalMsg id='Modal-ModalMsg' className='bg-gry1'>
+          {message}
+        </ModalMsg>
         {contentResult(modalType)}
       </UiCont>
     </ModalCont>
@@ -90,7 +107,7 @@ Modal.propTypes = {
   ui: shape({
     modalShow: bool,
     modalType: string,
-    modalStr: string,
+    modalMsg: string,
     loading: bool,
   }).isRequired,
 };
