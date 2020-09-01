@@ -36,6 +36,11 @@ export const Btn1 = styled.button`
 
   margin: 2px 2px 0px 0px;
   padding: 0px 4px 0px 9px;
+
+  &:hover {
+    transform: scale(1.02);
+    background-color: #bdbdbd;
+  }
 `;
 export const Btn2 = styled.button`
   text-align: center;

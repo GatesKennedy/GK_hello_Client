@@ -50,7 +50,7 @@ const App = () => {
           />
           <Navi _phylumObj={PhylumObj} />
           <BodyCont id='app-BodyCont'>
-            <Route exact path='/' component={Hello} />
+            <Route exact path='/' component={About} />
             <Switch>
               <Route exact path='/about' component={About} />
               <Route exact path='/talk' component={Talk} />
