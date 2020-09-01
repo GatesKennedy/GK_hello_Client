@@ -8,8 +8,14 @@ import algorithm2 from '../../Design/Images/algorithm2.png';
 import algorithm3 from '../../Design/Images/algorithm3.png';
 import algorithm4 from '../../Design/Images/algorithm4.jpg';
 import esc from '../../Design/Images/esc.png';
+import bridger from '../../Design/Images/BridgerBaby1.JPG';
+import ohnodamn from '../../Design/Images/ohnodamn.png';
+import PG13_0 from '../../Design/Images/PG-13_0.jpg';
+import PG13_1 from '../../Design/Images/PG-13_1.jpg';
+import PG13_2 from '../../Design/Images/PG-13_2.jpg';
+import PG13_4 from '../../Design/Images/PG-13_4.jpg';
 
-export const aboutObj = [
+export const softwareObj = [
   {
     rank: 1,
     title: 'Needle Drop Co.',
@@ -67,7 +73,7 @@ export const aboutObj = [
     tech: ['Django', 'mongoDB', 'Azure DevOps'],
     summary: 'This is a summary of the project',
     story: 'this is a story for Aggregator',
-    imgurl: aggregate,
+    imgurl: algorithm2,
   },
 
   {
@@ -88,7 +94,7 @@ export const aboutObj = [
 
   {
     rank: 5,
-    title: 'Happy Birthday Bridger',
+    title: 'GK_HBD-Bridger',
     tech: [
       'ReactJS',
       'NodeJS',
@@ -99,13 +105,13 @@ export const aboutObj = [
       'ExpressJS',
       'Heroku',
     ],
-    summary: 'This is a summary of the project',
+    summary: `"Happy Birthday Bridger" is a birthday gift to an old friend. The application generates 100,000+ permutations of a personalized adulation.[ripe with inside jokes..]`,
     story: `This is the full story of Project 3... and it starts right now!
     Line 2
     
     Line 4
                 vqc`,
-    imgurl: algorithm2,
+    imgurl: bridger,
   },
   {
     rank: 6,
@@ -128,5 +134,28 @@ export const aboutObj = [
     Line 4
                 vqc`,
     imgurl: esc,
+  },
+];
+
+export const personalObj = [
+  {
+    rank: 2,
+    title: 'PG-13 [band]',
+    tech: [
+      'Audio Production',
+      'Composition',
+      'Art as f**k',
+      'Ableton Live 9',
+      'Guitar',
+      'Bass',
+      'Drums',
+      'Synth',
+      'Vocals',
+      'All Instruments Poorly',
+    ],
+    summary:
+      'A personal music project started in 2017 after 18yrs of experimentation.',
+    story: 'This is PG-13',
+    imgurl: PG13_2,
   },
 ];
