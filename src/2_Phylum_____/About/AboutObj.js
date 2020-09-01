@@ -135,7 +135,7 @@ export const softwareObj = [
       'Heroku',
     ],
     summary:
-      'Co-Founder and Lead Design Engineer of an design and fabrication companyin Portland, OR.',
+      'Co-Founder and Lead Design Engineer of a design and fabrication company in Portland, OR.',
     story: `This is the full story of Project 3... and it starts right now!
     Line 2
     
@@ -152,7 +152,6 @@ export const personalObj = [
     tech: [
       'Audio Production',
       'Composition',
-      'Art as f**k',
       'Ableton Live 9',
       'Guitar',
       'Bass',

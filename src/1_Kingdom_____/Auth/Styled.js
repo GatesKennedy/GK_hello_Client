@@ -9,5 +9,5 @@ export const AuthCont = styled.div`
 `;
 
 export const AuthForms = styled.section`
-  padding-right: 29.2px;
+  padding-right: 4px;
 `;

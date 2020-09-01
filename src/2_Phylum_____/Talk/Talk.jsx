@@ -10,16 +10,15 @@ import { setModal } from '../../1_Kingdom_____/UI/axn_ui';
 //  STYLE
 import { ContRow, ContCol, Row, Col, Btn } from '../../Design/Styled_Common';
 import {
-  Cont2,
+  TalkCont,
+  ChatCont,
   ChatHead,
   ChatDisp,
   ChatDispInner,
   ChatFormCont,
-  ChatTxt,
-  ChatBtn,
-  AuthForms,
-  AuthCont,
-} from '../Styled';
+  ChatFormTxt,
+  ChatFormBtn,
+} from './Styled';
 import {} from '../Styled';
 //  Asset
 
@@ -50,23 +49,26 @@ const Talk = ({
     }
   }, []);
   return (
-    <Cont2>
-      <ChatHead>
-        <div className=''>Conor</div>
-        <div className='txt-active'>.: aoe :.</div>
-        <div>{profile.name}</div>
-      </ChatHead>
-
-      <ChatDisp className='bg-prop'>
-        <ChatDispInner className='bg-jet'>messages message</ChatDispInner>
-      </ChatDisp>
-      <ChatFormCont className='bg-prop'>
-        <ChatTxt type='text' className='bg-jet' />
-        <ChatBtn type='submit' className='bg-pale txt-black'>
-          go
-        </ChatBtn>
-      </ChatFormCont>
-    </Cont2>
+    <TalkCont id='Talk-TalkCont'>
+      <ChatCont id='Talk-ChatCont' className='bg-blk1'>
+        <ChatHead id='Talk-ChatHead'>
+          <div className=''>Conor</div>
+          <div className='txt-pale'>.: aoe :.</div>
+          <div>{isAuthenticated ? profile.name : 'Guest'}</div>
+        </ChatHead>
+        <ChatDisp id='Talk-ChatDisp' className='bg-prop'>
+          <ChatDispInner id='Talk-ChatDispInner' className='bg-jet'>
+            'Hol up...'
+          </ChatDispInner>
+        </ChatDisp>
+        <ChatFormCont id='Talk-ChatFormCont' className='bg-prop'>
+          <ChatFormTxt type='text' className='bg-jet' />
+          <ChatFormBtn type='submit' className='bg-pale txt-black'>
+            go
+          </ChatFormBtn>
+        </ChatFormCont>
+      </ChatCont>
+    </TalkCont>
   );
 };
 

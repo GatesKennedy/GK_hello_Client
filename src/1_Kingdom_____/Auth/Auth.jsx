@@ -15,7 +15,6 @@ import {
   RowBottom,
 } from '../../Design/Styled_Common';
 import { AuthForms, AuthCont } from './Styled';
-import { Cont1 } from '../Styled';
 
 //~~~~~~~~~~~~~~~~
 //  MAIN
@@ -61,7 +60,6 @@ const Auth = ({ loginUser, registerUser, isAuthenticated }) => {
       </Row>
     </form>
   );
-
   const Register = (
     <form>
       <Row>
@@ -109,43 +107,41 @@ const Auth = ({ loginUser, registerUser, isAuthenticated }) => {
     return <Redirect to='/about' />;
   } else
     return (
-      <Cont1 id='Auth-Cont1'>
-        <AuthCont id='Auth-AuthCont'>
-          <AuthForms id='Auth-AuthForms'>
-            {authType === 'login' ? Login : Register}
-          </AuthForms>
-          <RowBottom id='Auth-RowBottom'>
-            <Btn
-              onClick={() => {
-                setAuthType('login');
-                reset();
-              }}
-              className={authType === 'login' ? 'bg-active txt-pale' : ''}
-            >
-              login
-            </Btn>
-            <Btn
-              onClick={() => {
-                setAuthType('register');
-                reset();
-              }}
-              className={authType === 'register' ? 'bg-active txt-pale' : ''}
-            >
-              register
-            </Btn>
-          </RowBottom>
-          <RowBottom className={isSubmitting ? 'bg-pale txt-black' : ''}>
-            <Btn2
-              onClick={handleSubmit(onSubmit)}
-              className={
-                Object.keys(touched).length >= 2 ? 'bg-active txt-pale' : ''
-              }
-            >
-              go
-            </Btn2>
-          </RowBottom>
-        </AuthCont>
-      </Cont1>
+      <AuthCont id='Auth-AuthCont' className='bg-blk1'>
+        <AuthForms id='Auth-AuthForms'>
+          {authType === 'login' ? Login : Register}
+        </AuthForms>
+        <RowBottom id='Auth-RowBottom'>
+          <Btn
+            onClick={() => {
+              setAuthType('login');
+              reset();
+            }}
+            className={authType === 'login' ? 'bg-active txt-pale' : ''}
+          >
+            login
+          </Btn>
+          <Btn
+            onClick={() => {
+              setAuthType('register');
+              reset();
+            }}
+            className={authType === 'register' ? 'bg-active txt-pale' : ''}
+          >
+            register
+          </Btn>
+        </RowBottom>
+        <RowBottom className={isSubmitting ? 'bg-pale txt-black' : ''}>
+          <Btn2
+            onClick={handleSubmit(onSubmit)}
+            className={
+              Object.keys(touched).length >= 2 ? 'bg-active txt-pale' : ''
+            }
+          >
+            go
+          </Btn2>
+        </RowBottom>
+      </AuthCont>
     );
 };
 

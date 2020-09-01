@@ -42,14 +42,14 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router basename='/'>
-        <Kingdom className='App bg-gry2'>
+        <Kingdom id='App-Kingdom' className='App bg-gry2'>
           <Modal
-            id='app-modal'
+            id='App-Modal'
             _setModalState={setModalState}
             _modalState={modalState}
           />
           <Navi _phylumObj={PhylumObj} />
-          <BodyCont id='app-BodyCont'>
+          <BodyCont id='App-BodyCont'>
             <Route exact path='/' component={About} />
             <Switch>
               <Route exact path='/about' component={About} />

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 // import { logout } from '../Modules/User/rdx_axn/axn_auth';
 //  STYLE
 import { Btn, NavBtn } from '../../Design/Styled_Common';
-import { NaviCont, NaviBtns, NaviLogo } from '../Styled';
+import { NaviCont, NaviBtns, NaviLogo } from './Styled';
 //  Asset
 
 // const Navi = ({ auth: { isAuthenticated, user, loading }, logout }) => {
