@@ -21,4 +21,5 @@ export const AboutBody = styled.section`
 
   margin: 0px 93px;
   padding: 8px;
+  border-radius: 12px;
 `;

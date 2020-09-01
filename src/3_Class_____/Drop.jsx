@@ -16,8 +16,8 @@ export const ItemCont = styled.section`
   margin: 2px 0px;
   border-radius: 12px;
   &:hover {
-
     background-color: #e7e7e7;
+  }
 `;
 export const ImgCont = styled.section`
   display: flex;

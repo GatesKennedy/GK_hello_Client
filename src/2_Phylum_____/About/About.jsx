@@ -26,7 +26,7 @@ const About = () => {
     <AboutCont id='About-AboutCont' className='bg-gry2 txt-black'>
       {/* Intro */}
       <TitleHeader id='About-TitleHeader1' _txt={titleTxt1} />
-      <AboutBody id='About-AboutBody'>
+      <AboutBody id='About-AboutBody' className='bg-gry1-5'>
         {introObj.map((item) => (
           <Para>{item}</Para>
         ))}
