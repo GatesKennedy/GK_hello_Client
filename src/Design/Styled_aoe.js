@@ -2,7 +2,7 @@ import styled from 'styled-components';
 //===========
 
 //==========
-export const BodyCont = styled.div`
+export const BodyCont = styled.section`
   display: flex;
 
   /* height: 100%;
