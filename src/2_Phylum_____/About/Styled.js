@@ -32,6 +32,8 @@ export const AboutBody = styled.section`
 `;
 
 export const BodyCont = styled.section`
+  display: flex;
+  flex-direction: column;
   min-height: 116px;
   max-width: 960px;
   width: calc(100% + 16px);
