@@ -23,15 +23,26 @@ export const AboutBody = styled.section`
   margin: 0px 6vw;
   padding: 8px;
   border-radius: 12px;
+
+  @media only screen and (max-width: 600px) {
+    /* For desktop: */
+    position: relative;
+    left: -24px;
+  }
 `;
 
 export const BodyCont = styled.section`
   min-height: 116px;
   max-width: 960px;
-  width: calc(100%);
+  width: calc(100% + 16px);
   padding: 8px 12px 8px 16px;
   margin: 2px 0px 2px -8px;
   border-radius: 12px;
+
+  @media only screen and (max-width: 600px) {
+    /* For desktop: */
+    width: calc(100% + 32px);
+  }
 
   &:hover {
     background-color: #e7e7e7;

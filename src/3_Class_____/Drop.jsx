@@ -18,6 +18,11 @@ export const ItemCont = styled.section`
   &:hover {
     background-color: #e7e7e7;
   }
+
+  @media only screen and (max-width: 600px) {
+    /* For desktop: */
+    width: calc(100% + 32px);
+  }
 `;
 export const ImgCont = styled.section`
   display: flex;
@@ -111,7 +116,8 @@ export const TechList = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: flex-end;
+  align-content: flex-start;
+  flex-wrap: wrap;
 
   font-size: smaller;
   width: 80vw;
@@ -125,13 +131,16 @@ export const TechItem = styled.li`
   height: 100%;
 
   list-style-type: none;
-  margin: 0px 0px 1px 4px;
+  margin: 2px 0px 2px 4px;
   padding: 1px 4px;
 
   font-size: smaller;
 `;
 
 export const SubTitle = styled.div`
+  display: flex;
+  align-self: flex-start;
+
   font-size: 14px;
   font-weight: bold;
 `;

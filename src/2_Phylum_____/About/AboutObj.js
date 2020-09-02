@@ -86,7 +86,7 @@ export const softwareObj = [
 
   {
     rank: 4,
-    title: 'Curriculum Parsing Algorithm',
+    title: 'Document Parsing Algorithm',
     tech: ['C#', 'Javascript', 'Google Apps Script'],
     summary: 'This is a summary of the project',
     story: `Skip a few years to when I felt I had outgrown my role at Escape Collective, and I find myself pursuing software development as my primary focus.

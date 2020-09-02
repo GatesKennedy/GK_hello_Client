@@ -26,8 +26,8 @@ const About = () => {
     <AboutCont id='About-AboutCont' className='bg-gry2 txt-black'>
       {/* Intro */}
       <TitleHeader id='About-TitleHeader1' _txt={titleTxt1} />
-      <AboutBody id='About-AboutBody' className='phoneOffset'>
-        <BodyCont className='bg-gry1-5'>
+      <AboutBody id='About-AboutBody'>
+        <BodyCont id='About-BodyCont' className='bg-gry1-5'>
           {introObj.map((item) => (
             <Para>{item}</Para>
           ))}
@@ -35,7 +35,7 @@ const About = () => {
       </AboutBody>
       {/* Software */}
       <TitleHeader id='About-TitleHeader2' _txt={titleTxt2} />
-      <AboutBody id='About-AboutBody' className='phoneOffset'>
+      <AboutBody id='About-AboutBody'>
         {softwareObj.map((item) => (
           <Drop
             key={item.rank}
@@ -47,7 +47,7 @@ const About = () => {
       </AboutBody>
       {/* Personal */}
       <TitleHeader id='About-TitleHeader3' _txt={titleTxt3} />
-      <AboutBody id='About-AboutBody' className='phoneOffset'>
+      <AboutBody id='About-AboutBody'>
         {personalObj.map((item) => (
           <Drop
             key={item.rank}
