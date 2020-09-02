@@ -7,8 +7,8 @@ import PropTypes from 'prop-types';
 // import { logout } from '../Modules/User/rdx_axn/axn_auth';
 
 //  STYLE
-import { AboutCont, AboutHead, AboutBody } from './Styled';
-import { BodyCont, Para } from '../../Design/Styled_aoe';
+import { AboutCont, AboutHead, AboutBody, BodyCont } from './Styled';
+import { Para } from '../../Design/Styled_aoe';
 
 //  Asset
 import { introObj, softwareObj, personalObj } from './AboutObj';
@@ -26,10 +26,12 @@ const About = () => {
     <AboutCont id='About-AboutCont' className='bg-gry2 txt-black'>
       {/* Intro */}
       <TitleHeader id='About-TitleHeader1' _txt={titleTxt1} />
-      <AboutBody id='About-AboutBody' className='bg-gry1-5'>
-        {introObj.map((item) => (
-          <Para>{item}</Para>
-        ))}
+      <AboutBody id='About-AboutBody' className='phoneOffset'>
+        <BodyCont className='bg-gry1-5'>
+          {introObj.map((item) => (
+            <Para>{item}</Para>
+          ))}
+        </BodyCont>
       </AboutBody>
       {/* Software */}
       <TitleHeader id='About-TitleHeader2' _txt={titleTxt2} />

@@ -11,9 +11,9 @@ export const ItemCont = styled.section`
 
   min-height: 116px;
   max-width: 960px;
-  width: 100%;
+  width: calc(100% + 16px);
   padding: 8px 0px;
-  margin: 2px 0px;
+  margin: 2px 0px 2px -8px;
   border-radius: 12px;
   &:hover {
     background-color: #e7e7e7;
@@ -44,24 +44,23 @@ export const InfoCont = styled.section`
   justify-content: flex-start;
   justify-items: flex-start;
 
-  height: (100% + 6px);
-  width: 100%;
+  height: calc(100% + 6px);
+  width: 80%;
   padding: 0px 8px;
   margin-top: -6px;
 
   @media only screen and (max-width: 600px) {
     /* For desktop: */
-    position: relative;
-    max-width: ;
+    /* position: relative;
+    max-width: calc(100% + 6px); */
   }
 `;
 export const SummaryCont = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  overflow: hidden;
   height: 100%;
-  width: 100%;
 `;
 export const StoryCont = styled.section`
   display: flex;
@@ -79,6 +78,8 @@ export const ItemTitle = styled.div`
 
   margin-bottom: 2px;
 
+  white-space: nowrap;
+  text-overflow: ellipsis;
   font-size: large;
   font-weight: bold;
 `;
@@ -93,9 +94,9 @@ export const ItemTech = styled.div`
 `;
 export const ItemSummary = styled.div`
   display: flex;
-
+  margin-bottom: 4px;
   width: 100%;
-  height: 36px;
+
   font-size: smaller;
 `;
 export const ItemStory = styled.div`

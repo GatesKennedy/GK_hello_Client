@@ -6,6 +6,7 @@ export const AboutCont = styled.section`
   flex-direction: column;
 
   width: 100%;
+
   margin: 0vw 4vw;
   padding: 8px;
 `;
@@ -22,4 +23,17 @@ export const AboutBody = styled.section`
   margin: 0px 6vw;
   padding: 8px;
   border-radius: 12px;
+`;
+
+export const BodyCont = styled.section`
+  min-height: 116px;
+  max-width: 960px;
+  width: calc(100%);
+  padding: 8px 12px 8px 16px;
+  margin: 2px 0px 2px -8px;
+  border-radius: 12px;
+
+  &:hover {
+    background-color: #e7e7e7;
+  }
 `;
