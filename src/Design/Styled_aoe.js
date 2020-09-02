@@ -56,19 +56,20 @@ export const Btn2 = styled.button`
 
 export const ImageMed = styled.img`
   position: relative;
-  top: 3px;
-  left: 2px;
+  top: 0px;
+
   clip-path: circle(50%);
   overflow: hidden;
   background-color: #262727;
-  padding: 2px 4px;
 
   height: 96px;
   width: 96px;
 
   @media only screen and (max-width: 600px) {
     /* For desktop: */
-    height: 16vw;
-    width: auto;
+    position: relative;
+    top: 0px;
+    width: calc(16vw - 8px);
+    height: calc(16vw - 8px);
   }
 `;

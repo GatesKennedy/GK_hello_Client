@@ -9,7 +9,7 @@ export const ItemCont = styled.section`
   display: flex;
   flex-direction: row;
 
-  min-height: 102px;
+  min-height: 116px;
   max-width: 960px;
   width: 100%;
   padding: 8px 0px;
@@ -22,8 +22,12 @@ export const ItemCont = styled.section`
 export const ImgCont = styled.section`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   margin-left: 8px;
-  height: 102px;
+  padding: 4px;
+  height: 104px;
   border-radius: 8px;
 
   @media only screen and (max-width: 600px) {
@@ -143,8 +147,7 @@ const Drop = ({
       className={_openState === rank ? ' bg-gry1' : ' bg-gry2'}
     >
       <ImgCont id='Drop-ImgCont' className={_openState === rank && ' bg-gry2'}>
-        {/* <ImgCont id='Drop-ImgCont' className='bg-gry2'> */}
-        <ImageMed src={imgurl} alt='oops... bad link' />
+        <ImageMed id='Drop-ImageMed' src={imgurl} alt='oops... bad link' />
       </ImgCont>
       <InfoCont id='Drop-InfoCont'>
         <ItemTitle id='Drop-ItemTitle'>{title}</ItemTitle>
