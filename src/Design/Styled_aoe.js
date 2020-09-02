@@ -8,7 +8,7 @@ export const BodyCont = styled.section`
   /* height: 100%;
   width: 100%; */
   /* min-width: 100vw; */
-  min-height: 94vh;
+  /* min-height: 94vh; */
 
   overflow: scroll;
 

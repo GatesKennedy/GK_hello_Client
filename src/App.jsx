@@ -48,7 +48,7 @@ const App = () => {
             _setModalState={setModalState}
             _modalState={modalState}
           />
-          <Navi _phylumObj={PhylumObj} />
+          <Navi id='App-Navi' _phylumObj={PhylumObj} />
           <BodyCont id='App-BodyCont'>
             <Route exact path='/' component={About} />
             <Switch>
