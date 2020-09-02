@@ -61,7 +61,14 @@ export const ImageMed = styled.img`
   clip-path: circle(50%);
   overflow: hidden;
   background-color: #262727;
+  padding: 2px 4px;
 
   height: 96px;
   width: 96px;
+
+  @media only screen and (max-width: 600px) {
+    /* For desktop: */
+    height: 16vw;
+    width: auto;
+  }
 `;

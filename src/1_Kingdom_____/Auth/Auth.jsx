@@ -112,7 +112,7 @@ const Auth = ({ loginUser, registerUser, isAuthenticated }) => {
                 setAuthType('login');
                 reset();
               }}
-              className={authType === 'login' ? 'bg-gry3 txt-black' : ''}
+              className={authType === 'login' && 'bg-gry3 txt-active'}
             >
               login
             </Btn>
@@ -121,14 +121,14 @@ const Auth = ({ loginUser, registerUser, isAuthenticated }) => {
                 setAuthType('register');
                 reset();
               }}
-              className={authType === 'register' ? 'bg-gry3 txt-black' : ''}
+              className={authType === 'register' && 'bg-gry3 txt-active'}
             >
               register
             </Btn>
           </BtnsRow>
           <BtnsRow
             id='Auth-BtnsRow'
-            className={isSubmitting ? 'bg-pale txt-black' : ''}
+            className={isSubmitting ? 'bg-pale txt-active' : ''}
           >
             <Btn2
               onClick={handleSubmit(onSubmit)}

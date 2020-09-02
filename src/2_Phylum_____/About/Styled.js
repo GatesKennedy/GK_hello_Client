@@ -6,7 +6,7 @@ export const AboutCont = styled.section`
   flex-direction: column;
 
   width: 100%;
-  margin: 0vw 8vw;
+  margin: 0vw 4vw;
   padding: 8px;
 `;
 export const AboutHead = styled.section`
@@ -19,7 +19,7 @@ export const AboutBody = styled.section`
   display: flex;
   flex-direction: column;
 
-  margin: 0px 93px;
+  margin: 0px 6vw;
   padding: 8px;
   border-radius: 12px;
 `;

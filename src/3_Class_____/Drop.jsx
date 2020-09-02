@@ -12,7 +12,7 @@ export const ItemCont = styled.section`
   min-height: 102px;
   max-width: 960px;
   width: 100%;
-  padding: 8px 8px;
+  padding: 8px 0px;
   margin: 2px 0px;
   border-radius: 12px;
   &:hover {
@@ -22,9 +22,17 @@ export const ItemCont = styled.section`
 export const ImgCont = styled.section`
   display: flex;
   flex-direction: column;
-
+  margin-left: 8px;
   height: 102px;
   border-radius: 8px;
+
+  @media only screen and (max-width: 600px) {
+    /* For desktop: */
+    position: relative;
+    top: 0px;
+    width: 16vw;
+    height: 16vw;
+  }
 `;
 export const InfoCont = styled.section`
   display: flex;
@@ -36,6 +44,12 @@ export const InfoCont = styled.section`
   width: 100%;
   padding: 0px 8px;
   margin-top: -6px;
+
+  @media only screen and (max-width: 600px) {
+    /* For desktop: */
+    position: relative;
+    max-width: ;
+  }
 `;
 export const SummaryCont = styled.section`
   display: flex;
@@ -43,6 +57,7 @@ export const SummaryCont = styled.section`
   justify-content: space-between;
 
   height: 100%;
+  width: 100%;
 `;
 export const StoryCont = styled.section`
   display: flex;
@@ -94,6 +109,7 @@ export const TechList = styled.ul`
   align-items: flex-end;
 
   font-size: smaller;
+  width: 80vw;
 `;
 export const TechItem = styled.li`
   display: flex;

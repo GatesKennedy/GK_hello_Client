@@ -6,12 +6,12 @@ export const TitleHead = styled.section`
   display: flex;
   flex-direction: column;
   margin-top: 18px;
-  padding: 8px 8px 0px 8px;
+  padding-top: 8px;
 `;
 
 const TitleHeader = ({ _txt }) => {
   return (
-    <TitleHead>
+    <TitleHead id='TitleHeader-TitleHead'>
       <h2>{_txt}</h2>
     </TitleHead>
   );

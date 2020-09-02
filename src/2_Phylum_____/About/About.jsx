@@ -33,7 +33,7 @@ const About = () => {
       </AboutBody>
       {/* Software */}
       <TitleHeader id='About-TitleHeader2' _txt={titleTxt2} />
-      <AboutBody id='About-AboutBody'>
+      <AboutBody id='About-AboutBody' className='phoneOffset'>
         {softwareObj.map((item) => (
           <Drop
             key={item.rank}
@@ -45,7 +45,7 @@ const About = () => {
       </AboutBody>
       {/* Personal */}
       <TitleHeader id='About-TitleHeader3' _txt={titleTxt3} />
-      <AboutBody id='About-AboutBody'>
+      <AboutBody id='About-AboutBody' className='phoneOffset'>
         {personalObj.map((item) => (
           <Drop
             key={item.rank}
