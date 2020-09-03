@@ -15,12 +15,12 @@ const UiCont = styled.div`
   position: fixed;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  justify-items: center;
+  justify-content: flex-start;
   align-content: center;
   z-index: 500;
 
-  min-width: 320;
+  min-width: 320px;
+  min-height: 36vh;
 
   border-radius: 8px;
   box-shadow: 1px 1px 1px black;

@@ -155,10 +155,9 @@ export const personalObj = [
       'Ableton Live 9',
       'Guitar',
       'Bass',
-      'Drums',
-      'Synth',
       'Vocals',
-      'All Instruments Poorly',
+      'Synth',
+      'Drums',
     ],
     summary:
       'A personal music project started in 2017 after 18yrs of experimentation.',

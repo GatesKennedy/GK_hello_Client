@@ -3,12 +3,15 @@ import styled from 'styled-components';
 
 //==========
 export const BodyCont = styled.section`
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
 
   /* height: 100%;
   width: 100%; */
-  /* min-width: 100vw; */
-  /* min-height: 94vh; */
+  width: 100vw;
+  min-height: 94vh;
 
   overflow: scroll;
 
@@ -19,6 +22,9 @@ export const BodyCont = styled.section`
 //  Select
 
 export const Para = styled.p`
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   padding: 4px;
 
@@ -32,6 +38,9 @@ export const Btn = styled.button`
 `;
 
 export const Btn1 = styled.button`
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   text-align: center;
 

@@ -15,42 +15,40 @@ const Navi = ({ _phylumObj }) => {
   //  STATE
   const [navNow, setNavNow] = useState('about');
   return (
-    <Fragment>
-      <NaviCont className='bg-eerie'>
-        <NaviLogo id='navi-logo'>
-          <Btn>(o_O)</Btn>
-        </NaviLogo>
-        <NaviBtns id='navi-btns'>
-          {_phylumObj.map((phylum, index) => (
-            <NavBtn
-              key={index}
-              id='NavBtn'
+    <NaviCont className='bg-eerie'>
+      <NaviLogo id='navi-logo'>
+        <Btn>(o_O)</Btn>
+      </NaviLogo>
+      <NaviBtns id='navi-btns'>
+        {_phylumObj.map((phylum, index) => (
+          <NavBtn
+            key={index}
+            id='NavBtn'
+            className={
+              navNow === phylum.name
+                ? 'bg-active txt-active'
+                : 'bg-idle txt-idle'
+            }
+            onClick={() => setNavNow(phylum.name)}
+          >
+            <Link
+              to={phylum.route}
+              onClick={() => setNavNow(phylum.name)}
               className={
                 navNow === phylum.name
                   ? 'bg-active txt-active'
                   : 'bg-idle txt-idle'
               }
-              onClick={() => setNavNow(phylum.name)}
             >
-              <Link
-                to={phylum.route}
-                onClick={() => setNavNow(phylum.name)}
-                className={
-                  navNow === phylum.name
-                    ? 'bg-active txt-active'
-                    : 'bg-idle txt-idle'
-                }
-              >
-                {phylum.show}
-              </Link>
-            </NavBtn>
-          ))}
-        </NaviBtns>
-        <NaviLogo>
-          <Btn>(^=^)</Btn>
-        </NaviLogo>
-      </NaviCont>
-    </Fragment>
+              {phylum.show}
+            </Link>
+          </NavBtn>
+        ))}
+      </NaviBtns>
+      <NaviLogo>
+        <Btn>(^=^)</Btn>
+      </NaviLogo>
+    </NaviCont>
   );
 };
 // Navi.propTypes = {
