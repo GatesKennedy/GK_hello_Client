@@ -13,8 +13,6 @@ export const AuthCont = styled.div`
   padding: 8px 12px;
   margin: 0px;
   border-radius: 4px;
-
-  transition: all 0.3s ease-out;
 `;
 
 export const FormCont = styled.section`
@@ -30,8 +28,6 @@ export const BtnsCont = styled.section`
   padding-top: 4px;
   margin-top: 2px;
   width: 62%;
-
-  transition: all 0.3s ease-out;
 `;
 
 export const BtnsRow = styled.div`

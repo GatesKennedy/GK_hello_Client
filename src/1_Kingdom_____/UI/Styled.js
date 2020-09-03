@@ -3,7 +3,6 @@ import styled from 'styled-components';
 //  MODAL
 export const ModalCont = styled.div`
   position: fixed;
-  z-index: 500;
 
   display: flex;
   width: 100vw;

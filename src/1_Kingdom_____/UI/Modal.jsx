@@ -5,11 +5,12 @@ import { shape, bool, string, func } from 'prop-types';
 import { setModal } from '../UI/axn_ui';
 //  COMPS
 import Auth from '../../1_Kingdom_____/Auth/Auth';
-
-//  STYLE
 import Backdrop from './Backdrop';
+//  STYLE
 import styled from 'styled-components';
+import { IoMdClose } from 'react-icons/io';
 import { ModalCont } from './Styled';
+import { Btn2 } from '../../Design/Styled_aoe';
 
 const UiCont = styled.div`
   position: fixed;
@@ -61,6 +62,10 @@ const Modal = ({
   const [message, setMessage] = useState(
     `You'll need to log in for that feature... `
   );
+  function handleCancel() {
+    setModal(false);
+    _setModalState(false);
+  }
   //  EFFECT
   useEffect(() => {
     console.log(`$$$  New Modal State: `, {
@@ -76,10 +81,22 @@ const Modal = ({
     <ModalCont
       id='modal-ModalCont'
       style={{
-        transform: modalShow ? 'translateY(0)' : 'translateY(-100vh)',
+        // transform: modalShow ? 'translateY(0)' : 'translateY(-100vh)',
         opacity: modalShow ? 1 : 0,
+        'z-index': modalShow ? 100 : -100,
       }}
     >
+      <IoMdClose
+        className='fade btn'
+        style={{
+          position: 'relative',
+          top: '-20vh',
+          right: '-14vw',
+          'z-index': 500,
+          opacity: modalShow ? 1 : 0,
+        }}
+        onClick={() => handleCancel()}
+      />
       <Backdrop
         id='modal-backdrop'
         _show={modalShow}
