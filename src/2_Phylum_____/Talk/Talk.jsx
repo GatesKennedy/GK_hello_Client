@@ -45,7 +45,7 @@ const Talk = ({
   useEffect(() => {
     if (!isAuthenticated) {
       setAlert('You gotta log in for that...', 'notice');
-      setModal(true, 'auth');
+      setModal(true, 'auth', "You'll need to log in to Talk");
     }
   }, []);
   return (

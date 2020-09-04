@@ -9,6 +9,7 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 export const USER_LOADED = 'USER_LOADED';
 export const USER_LOAD_ERROR = 'USER_LOAD_ERROR';
 //    ===   UI    ===
+export const MODAL_SET = 'MODAL_SET';
 export const MODAL_SHOW_SET = 'MODAL_SHOW_SET';
 export const MODAL_TYPE_SET = 'MODAL_TYPE_SET';
 export const MODAL_ERROR = 'MODAL_ERROR';

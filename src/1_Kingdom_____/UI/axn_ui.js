@@ -1,4 +1,5 @@
 import {
+  MODAL_SET,
   MODAL_SHOW_SET,
   MODAL_TYPE_SET,
   MODAL_ERROR,
@@ -10,13 +11,28 @@ import {
 
 //=============================
 // SET: Modal Show and Type
-export const setModal = (modalShow, modalType = false) => async (dispatch) => {
+export const setModal = (
+  modalShow,
+  modalType = false,
+  modalMsg = false
+) => async (dispatch) => {
   console.log(`axn    setModal() > `, {
     modalShow: modalShow,
     modalType: modalType,
+    modalMsg: modalMsg,
   });
 
+  const setObj = {
+    modalShow: modalShow,
+    modalType: modalType,
+    modalMsg: modalMsg,
+  };
+
   try {
+    dispatch({
+      type: MODAL_SET,
+      payload: setObj,
+    });
     dispatch({
       type: MODAL_SHOW_SET,
       payload: modalShow,

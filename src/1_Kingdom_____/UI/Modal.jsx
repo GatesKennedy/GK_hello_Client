@@ -102,9 +102,6 @@ const Modal = ({
         return 'default goody';
     }
   };
-  const [message, setMessage] = useState(
-    `You'll need to log in for that feature... `
-  );
   function handleCancel() {
     setModal(false);
     _setModalState(false);
@@ -149,9 +146,11 @@ const Modal = ({
           opacity: modalShow ? 1 : 0,
         }}
       >
-        <ModalMsg id='Modal-ModalMsg' className='bg-gry1'>
-          {message}
-        </ModalMsg>
+        {modalMsg && (
+          <ModalMsg id='Modal-ModalMsg' className='bg-gry1'>
+            {modalMsg}
+          </ModalMsg>
+        )}
         {contentResult(modalType)}
       </UiCont>
     </ModalCont>
