@@ -44,8 +44,23 @@ export const Para = styled.p`
 
 export const Btn = styled.button`
   text-align: center;
-  width: 5vw;
-  margin: 2px;
+
+  margin: 0px;
+
+  background-color: #e0e0e0;
+
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.06);
+    background-color: #bdbdbd; /* $aoe-gry3 */
+  }
+`;
+export const NavBtn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 20vw;
 `;
 
 export const Btn1 = styled.button`

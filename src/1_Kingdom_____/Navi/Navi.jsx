@@ -6,18 +6,25 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // import { logout } from '../Modules/User/rdx_axn/axn_auth';
 //  STYLE
-import { Btn, NavBtn } from '../../Design/Styled_Common';
+import { Btn, NavBtn } from '../../Design/Styled_aoe';
 import { NaviCont, NaviBtns, NaviLogo } from './Styled';
+import { IoMdLogIn, IoMdLogOut } from 'react-icons/io';
+import { FaHorseHead } from 'react-icons/fa';
+import { Gi3DStairs } from 'react-icons/gi';
+
 //  Asset
 
 // const Navi = ({ auth: { isAuthenticated, user, loading }, logout }) => {
-const Navi = ({ _phylumObj }) => {
+const Navi = ({ _phylumObj, isAuthenticated }) => {
   //  STATE
   const [navNow, setNavNow] = useState('about');
+  const iconStyle = { height: '3vh', width: 'auto', padding: '2px 3px' };
   return (
     <NaviCont className='bg-eerie'>
-      <NaviLogo id='navi-logo'>
-        <Btn>(o_O)</Btn>
+      <NaviLogo id='navi-logo-horse'>
+        <Btn>
+          <FaHorseHead style={iconStyle} />
+        </Btn>
       </NaviLogo>
       <NaviBtns id='navi-btns'>
         {_phylumObj.map((phylum, index) => (
@@ -46,19 +53,24 @@ const Navi = ({ _phylumObj }) => {
         ))}
       </NaviBtns>
       <NaviLogo>
-        <Btn>(^=^)</Btn>
+        <Btn>
+          {!isAuthenticated ? (
+            <IoMdLogIn style={iconStyle} />
+          ) : (
+            <IoMdLogOut style={iconStyle} />
+          )}
+        </Btn>
       </NaviLogo>
     </NaviCont>
   );
 };
-// Navi.propTypes = {
-//   //logout: PropTypes.func.isRequired,
-//   auth: PropTypes.object.isRequired,
-// };
+Navi.propTypes = {
+  //logout: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+};
 
-// const mapStateToProps = (state) => ({
-//   //auth: state.auth,
-// });
+const mapStateToProps = (state) => ({
+  auth: state.auth.isAuthenticated,
+});
 
-// export default connect(mapStateToProps, {})(Navi);
-export default Navi;
+export default connect(mapStateToProps, {})(Navi);
