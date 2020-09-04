@@ -92,8 +92,7 @@ export const ChatFormTxt = styled.input`
   height: 100%;
 
   border-style: none;
-  border-radius: 0px 0px 6px 6px;
-  margin: 8px 0px;
+  border-radius: 0px 0px 0px 6px;
   padding: 4px;
   font-size: calc(8px + 1vmin);
 `;
@@ -104,8 +103,10 @@ export const ChatFormBtn = styled.button`
   align-items: center;
   align-self: center;
   width: 11%;
-  height: 92%;
-  margin: 10px 0px 10px 4px;
-  padding: 4px;
+  height: calc(100% - 1px);
+
+  border-radius: 0px 0px 6px 0px;
+  margin: 0px 0px 0px 4px;
+
   font-size: calc(9px + 1.5vmin);
 `;
