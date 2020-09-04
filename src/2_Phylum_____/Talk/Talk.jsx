@@ -50,22 +50,30 @@ const Talk = ({
     }
   }, []);
   return (
-    <TalkCont id='Talk-TalkCont'>
+    <TalkCont id='Talk-TalkCont' className='bg-eerie'>
       <ChatCont id='Talk-ChatCont' className='bg-blk1'>
         <ChatHead id='Talk-ChatHead'>
           <div className=''>Conor</div>
           <div className='txt-pale'>.: GK_Talk :.</div>
           <div>{isAuthenticated ? profile.name : 'Guest'}</div>
         </ChatHead>
-        <ChatDisp id='Talk-ChatDisp' className='bg-prop'>
-          <ChatDispInner id='Talk-ChatDispInner' className='bg-jet'>
+        <ChatDisp id='Talk-ChatDisp' className='bg-gry4'>
+          <ChatDispInner id='Talk-ChatDispInner' className='bg-gry5'>
             <p>'GK_Talk' is being updated with socket.io</p>
             <p>Be back shortly...</p>
           </ChatDispInner>
         </ChatDisp>
-        <ChatFormCont id='Talk-ChatFormCont' className='bg-prop'>
-          <ChatFormTxt type='text' className='bg-jet' />
-          <ChatFormBtn type='submit' className='bg-pale txt-black'>
+        <ChatFormCont id='Talk-ChatFormCont' className='bg-gry4'>
+          <ChatFormTxt
+            id='Talk-ChatFormTxt'
+            type='text'
+            className='bg-gry5 txt-pale'
+          />
+          <ChatFormBtn
+            id='Talk-ChatFormBtn'
+            type='submit'
+            className='bg-pale txt-black'
+          >
             go
           </ChatFormBtn>
         </ChatFormCont>

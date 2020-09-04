@@ -30,15 +30,16 @@ export const ChatCont = styled.div`
   min-width: 375px;
   min-height: 375px;
 
-  padding: 12px;
-  border-radius: 12px;
+  padding: 8px 12px;
+  border-radius: 18px;
+  /* box-shadow: 1px 2px 2px #dddddd; */
 `;
 export const ChatHead = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 86%;
+  width: 96%;
   padding-bottom: 4px;
   font-size: calc(4px + 2vmin);
 `;
@@ -49,8 +50,10 @@ export const ChatDisp = styled.div`
   justify-items: center;
   align-self: center;
   align-items: center;
-  width: 86%;
-  height: 72%;
+  width: 100%;
+  height: 96%;
+
+  border-radius: 8px 8px 0px 0px;
   padding: 4px;
 `;
 export const ChatDispInner = styled.div`
@@ -60,6 +63,8 @@ export const ChatDispInner = styled.div`
   justify-items: center;
   align-self: center;
   align-items: center;
+
+  border-radius: 6px 6px 0px 0px;
   padding: 4px;
   width: 100%;
   height: 100%;
@@ -70,8 +75,10 @@ export const ChatFormCont = styled.form`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 86%;
-  height: 16%;
+  width: 100%;
+  height: 24%;
+
+  border-radius: 0px 0px 8px 8px;
   margin: 4px;
   padding: 4px;
   font-size: calc(4px + 2vmin);
@@ -79,10 +86,13 @@ export const ChatFormCont = styled.form`
 export const ChatFormTxt = styled.input`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-self: center;
+  align-content: flex-start;
+
   width: 89%;
   height: 100%;
+
+  border-style: none;
+  border-radius: 0px 0px 6px 6px;
   margin: 8px 0px;
   padding: 4px;
   font-size: calc(8px + 1vmin);
