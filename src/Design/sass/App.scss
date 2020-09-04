@@ -40,6 +40,12 @@ a {
 }
 
 // ANIMATE
+.styleIcon {
+  @media only screen and (max-width: 600px) {
+    /* For desktop: */
+    width: calc(100% + 32px);
+  }
+}
 
 button {
   display: flex;

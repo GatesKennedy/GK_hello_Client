@@ -21,6 +21,17 @@ export const BodyCont = styled.section`
 
 //  Select
 
+export const Act = styled.div`
+  cursor: pointer;
+  will-change: transform;
+  transform: scale(1);
+  transition: transform 480ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  &:hover {
+    transform: scale(1.02);
+    background-color: #bdbdbd;
+  }
+`;
+
 export const Para = styled.p`
   display: -webkit-box;
   display: -webkit-flex;

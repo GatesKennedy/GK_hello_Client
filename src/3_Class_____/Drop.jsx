@@ -15,6 +15,7 @@ export const ItemCont = styled.section`
   padding: 8px 0px;
   margin: 2px 0px 2px -8px;
   border-radius: 12px;
+
   &:hover {
     background-color: #e7e7e7;
   }

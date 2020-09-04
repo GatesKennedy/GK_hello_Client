@@ -5,13 +5,44 @@ import { shape, bool, string, func } from 'prop-types';
 import { setModal } from '../UI/axn_ui';
 //  COMPS
 import Auth from '../../1_Kingdom_____/Auth/Auth';
-import Backdrop from './Backdrop';
+// import Backdrop from './Backdrop';
 //  STYLE
 import styled from 'styled-components';
 import { IoMdClose } from 'react-icons/io';
-import { ModalCont } from './Styled';
-import { Btn2 } from '../../Design/Styled_aoe';
+import { Act } from '../../Design/Styled_aoe';
+const ModalCont = styled.div`
+  position: fixed;
+  left: 0;
+  top: 0;
 
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  box-shadow: 1px 1px 1px black;
+  box-sizing: border-box;
+
+  @media (min-width: 600px) {
+    .Modal {
+      width: 500px;
+      left: calc(50% - 250px);
+    }
+  }
+`;
+const Backdrop = styled.div`
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.6);
+
+  transition: all 0.7s ease-in-out;
+`;
 const UiCont = styled.div`
   position: fixed;
   display: flex;
@@ -24,10 +55,10 @@ const UiCont = styled.div`
   min-height: 36vh;
 
   border-radius: 8px;
-  box-shadow: 1px 1px 1px black;
+  box-shadow: 2px 2px 2px white;
   padding: 8px;
   box-sizing: border-box;
-  transition: all 0.3s ease-out;
+  transition: all 0.3s ease-in;
 `;
 const ModalMsg = styled.div`
   display: flex;
@@ -35,17 +66,29 @@ const ModalMsg = styled.div`
 
   padding: 8px;
   margin-bottom: 4px;
-  /* box-shadow: 1px 1px 1px black; */
   border-radius: 4px;
 `;
 
 //=============================================
 const Modal = ({
+  _modalState,
   _setModalState,
   ui: { modalShow, modalType, modalMsg, loading },
   auth: { isAuthenticated },
   setModal,
 }) => {
+  //  STYLE
+
+  const styleIcon = {
+    position: 'relative',
+    top: '-142px',
+    right: '-172px',
+    zIndex: modalShow ? 501 : -100,
+    opacity: modalShow ? 1 : 0,
+    transition: 'all 1s ease-in-out',
+
+    cursor: 'pointer',
+  };
   //  STATE
   if (!isAuthenticated) modalType = 'guest';
   const authType = <Auth />;
@@ -72,6 +115,7 @@ const Modal = ({
       modalShow,
       modalType,
       modalMsg,
+      _modalState,
     });
     _setModalState(modalShow);
   }, [modalShow]);
@@ -81,27 +125,21 @@ const Modal = ({
     <ModalCont
       id='modal-ModalCont'
       style={{
-        // transform: modalShow ? 'translateY(0)' : 'translateY(-100vh)',
-        opacity: modalShow ? 1 : 0,
-        'z-index': modalShow ? 100 : -100,
+        zIndex: modalShow ? 100 : -100,
       }}
     >
       <IoMdClose
-        className='fade btn'
+        id='Modal-IoMdClose'
+        className='styleIcon'
+        style={styleIcon}
+        onClick={() => handleCancel()}
+      />{' '}
+      <Backdrop
+        id='modal-backdrop'
         style={{
-          position: 'relative',
-          top: '-20vh',
-          right: '-14vw',
-          'z-index': 500,
           opacity: modalShow ? 1 : 0,
         }}
         onClick={() => handleCancel()}
-      />
-      <Backdrop
-        id='modal-backdrop'
-        _show={modalShow}
-        _setModal={setModal}
-        __setModalState={_setModalState}
       />
       <UiCont
         id='modal-UiCont'

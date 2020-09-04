@@ -1,29 +1,7 @@
 import styled from 'styled-components';
 
 //  MODAL
-export const ModalCont = styled.div`
-  position: fixed;
 
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-
-  border: none;
-
-  box-shadow: 1px 1px 1px black;
-  box-sizing: border-box;
-
-  transition: all 0.3s ease-out;
-
-  @media (min-width: 600px) {
-    .Modal {
-      width: 500px;
-      left: calc(50% - 250px);
-    }
-  }
-`;
 export const ModalMid = styled.section`
   display: flex;
   flex-direction: column;
