@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
 //  STYLE
 import { AboutCont, AboutHead, AboutBody, BodyCont } from './Styled';
-import { Para } from '../../Design/Styled_aoe';
+import { ParaMed } from '../../Design/Styled_aoe';
 
 //  Asset
 import { introObj, softwareObj, personalObj } from './AboutObj';
@@ -29,7 +29,7 @@ const About = () => {
       <AboutBody id='About-AboutBody'>
         <BodyCont id='About-BodyCont'>
           {introObj.map((item) => (
-            <Para>{item}</Para>
+            <ParaMed>{item}</ParaMed>
           ))}
         </BodyCont>
       </AboutBody>

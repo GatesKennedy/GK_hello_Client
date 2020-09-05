@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 //  STYLE
 import styled from 'styled-components';
-import { Btn1, ImageMed } from '../Design/Styled_aoe';
+import { Btn1, ImageMed, ParaSml } from '../Design/Styled_aoe';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 
 export const ItemCont = styled.section`
@@ -70,7 +70,7 @@ export const SummaryCont = styled.section`
 `;
 export const StoryCont = styled.section`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   justify-items: flex-start;
   padding: 8px;
@@ -106,8 +106,11 @@ export const ItemSummary = styled.div`
   font-size: smaller;
 `;
 export const ItemStory = styled.div`
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding: 0px 8px;
 
   width: 100%;
@@ -185,10 +188,11 @@ const Drop = ({
           </SummaryCont>
         ) : (
           <StoryCont>
-            {/* <ImgCont id='Drop-ImgCont' className='bg-gry6'>
-              <ImageMed src={imgurl} alt='oops... bad link' />
-            </ImgCont> */}
-            <ItemStory>{story}</ItemStory>
+            <ItemStory>
+              {story.map((paragraph) => (
+                <ParaSml>{paragraph}</ParaSml>
+              ))}
+            </ItemStory>
           </StoryCont>
         )}
       </InfoCont>

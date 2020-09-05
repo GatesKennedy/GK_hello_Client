@@ -22,6 +22,8 @@ had convinced my dad to purchase blueprints for a 6’x8’x32’ half-pipe.  As
 but I had to mark them out myself and do all other work. He taught me what all the symbols meant on the schematics, and by middle school I’d built it. `,
   `Twenty years later I’m learning a different set of symbols and exploring how I can implement
 them to build new things that I’ve now designed myself.`,
+  `Below are a collection of projects I feel are relevant to the reason you are here.`,
+  `Cheers`,
 ];
 export const softwareObj = [
   {
@@ -39,21 +41,12 @@ export const softwareObj = [
     ],
     summary:
       'Application Software for a music licensing company in Portland, OR. Consumer and Enterprise systems.',
-    story: `Application Software for Music Licensing. Consumer and Enterprise systems.
-    Consumer Services: Library filter, search, preview, purchase, user profile and playlist
-    creation and management
-    Custom CMS: Admin Library, Artist, Filter, Playlist and User Mgmt, Media Upload,
-    Application Software for Music Licensing. Consumer and Enterprise systems.
-    Consumer Services: Library filter, search, preview, purchase, user profile and playlist
-    creation and management
-    Custom CMS: Admin Library, Artist, Filter, Playlist and User Mgmt, Media Upload,
-    Custom CMS: Admin Library, Artist, Filter, Playlist and User Mgmt, Media Upload,
-    Custom CMS: Admin Library, Artist, Filter, Playlist and User Mgmt, Media Upload,
-    Custom CMS: Admin Library, Artist, Filter, Playlist and User Mgmt, Media Upload,
-    Custom CMS: Admin Library, Artist, Filter, Playlist and User Mgmt, Media Upload,
-    Custom CMS: Admin Library, Artist, Filter, Playlist and User Mgmt, Media Upload,
-    Custom CMS: Admin Library, Artist, Filter, Playlist and User Mgmt, Media Upload,
-    `,
+    story: [
+      `Needle Drop Co. is a music licensing company in Portland, Oregon. Having outgrown the functionality of their prior web presence, they were seeking a web application that could help the user explore their product library and streamline inventory maintainence`,
+      `While working closely with Needle Drop a solution was reached that covers customer experience as well as catalogue management.`,
+      `User Experience: User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!! While working closely with Needle Drop a solution was reached that covers customer experience as well as catalogue management. User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!!`,
+      `User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!!`,
+    ],
     imgurl: 'https://www.needledrop.co/images/whitesmlogo.png',
   },
 
@@ -71,7 +64,7 @@ export const softwareObj = [
       'Heroku',
     ],
     summary: 'This is a summary of the project',
-    story: `This is vqc`,
+    story: [`This is vqc`],
     imgurl: algorithm3,
   },
 
@@ -80,7 +73,7 @@ export const softwareObj = [
     title: 'Web Content Aggregator',
     tech: ['Django', 'mongoDB', 'Azure DevOps'],
     summary: 'This is a summary of the project',
-    story: 'this is a story for Aggregator',
+    story: ['this is a story for Aggregator'],
     imgurl: algorithm2,
   },
 
@@ -89,14 +82,17 @@ export const softwareObj = [
     title: 'Document Parsing Algorithm',
     tech: ['C#', 'Javascript', 'Google Apps Script'],
     summary: 'This is a summary of the project',
-    story: `Skip a few years to when I felt I had outgrown my role at Escape Collective, and I find myself pursuing software development as my primary focus.
+    story: [
+      `Skip a few years to when I felt I had outgrown my role at Escape Collective, and I find myself pursuing software development as my primary focus.
       Needing to stay calm and leading a team through long hours has suited me well for what I’ve experienced in the software industry.
-      On the first day of my first job as a developer, a crippling situation with the company’s database occurred. 
-      I suddenly found myself deputized. 
-      I served as the liaison to the fraught development team while tracking the progress of a team that was tasked with repopulating an inhuman amount of data.
+      On the first day of my first job as a developer, a crippling situation with the company’s database occurred.`,
+      `I suddenly found myself deputized.`,
+      `I served as the liaison to the fraught development team while tracking the progress of a team that was tasked with repopulating an inhuman amount of data.
       By the second day I was able to project the progress and saw it was likely a deadline would be missed, so I decided to script for the task after hours.
       I ended up with a parsing algorithm that could translate any amount of raw data from google docs and repopulate the damaged system. 
-      This may sound like a nightmare but, again, I felt like I was discovering magic.`,
+      `,
+      `This may sound like a nightmare but, again, I felt like I was discovering magic.`,
+    ],
     imgurl: algorithm,
   },
 
@@ -114,13 +110,16 @@ export const softwareObj = [
       'Heroku',
     ],
     summary: `"Happy Birthday Bridger" is a birthday gift to an old friend. The application generates 100,000+ permutations of a personalized adulation.[ripe with inside jokes..]`,
-    story: `This is the full story of Project 3... and it starts right now!
+    story: [
+      `This is the full story of Project 3... and it starts right now!
     Line 2
     
     Line 4
                 vqc`,
+    ],
     imgurl: bridger,
   },
+
   {
     rank: 6,
     title: 'Escape Collective',
@@ -136,11 +135,13 @@ export const softwareObj = [
     ],
     summary:
       'Co-Founder and Lead Design Engineer of a design and fabrication company in Portland, OR.',
-    story: `This is the full story of Project 3... and it starts right now!
+    story: [
+      `This is the full story of Project 3... and it starts right now!
     Line 2
     
     Line 4
                 vqc`,
+    ],
     imgurl: esc,
   },
 ];
@@ -161,7 +162,7 @@ export const personalObj = [
     ],
     summary:
       'A personal music project started in 2017 after 18yrs of experimentation.',
-    story: 'This is PG-13',
+    story: ['This is PG-13'],
     imgurl: PG13_2,
   },
 ];

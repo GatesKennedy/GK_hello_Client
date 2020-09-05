@@ -32,12 +32,23 @@ export const Act = styled.div`
   }
 `;
 
-export const Para = styled.p`
+export const ParaMed = styled.p`
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+
   padding: 4px;
+
+  width: 100%;
+`;
+export const ParaSml = styled.p`
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+
+  padding: 3px;
 
   width: 100%;
 `;
