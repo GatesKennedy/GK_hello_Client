@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 // import { logout } from '../Modules/User/rdx_axn/axn_auth';
 
 //  STYLE
-import { AboutCont, AboutHead, AboutBody, BodyCont } from './Styled';
+import { AboutCont, AboutBody, BodyCont } from './Styled';
 import { ParaMed } from '../../Design/Styled_aoe';
 
 //  Asset

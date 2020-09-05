@@ -3,10 +3,7 @@ import styled from 'styled-components';
 
 //==========
 export const BodyCont = styled.section`
-  display: flex;
-
-  /* height: 100%;
-  width: 100%; */
+  display: block;
   width: 100vw;
   min-height: 94vh;
 
@@ -30,15 +27,12 @@ export const Act = styled.div`
 `;
 
 export const ParaMed = styled.p`
-  display: flex;
-
+  display: block;
   padding: 4px;
-
   width: 100%;
 `;
 export const ParaSml = styled.p`
-  display: flex;
-
+  display: block;
   padding: 3px;
 
   width: 100%;
@@ -58,6 +52,10 @@ export const Btn = styled.button`
   }
 `;
 export const NavBtn = styled.button`
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,10 +64,8 @@ export const NavBtn = styled.button`
 `;
 
 export const Btn1 = styled.button`
-  display: flex;
   text-align: center;
 
-  /* align-self: flex-end; */
   width: 64px;
   max-width: 64px;
   max-height: 16px;
