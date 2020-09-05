@@ -28,8 +28,10 @@ const About = () => {
       <TitleHeader id='About-TitleHeader1' _txt={titleTxt1} />
       <AboutBody id='About-AboutBody'>
         <BodyCont id='About-BodyCont'>
-          {introObj.map((item) => (
-            <ParaMed id='About-ParaMed'>{item}</ParaMed>
+          {introObj.map((item, index) => (
+            <ParaMed key={index} id='About-ParaMed'>
+              {item}
+            </ParaMed>
           ))}
         </BodyCont>
       </AboutBody>
@@ -62,7 +64,25 @@ const About = () => {
 };
 
 Drop.propTypes = {
-  softwareObj: PropTypes.arrayOf(PropTypes.object).isRequired,
+  // introObj: PropTypes.arrayOf(PropTypes.string).isRequired,
+  // softwareObj: PropTypes.shape({
+  //   rank: PropTypes.number,
+  //   title: PropTypes.string,
+  //   tech: PropTypes.arrayOf(PropTypes.string),
+  //   summary: PropTypes.string,
+  //   story: PropTypes.arrayOf(PropTypes.string),
+  //   titleImgUrl: PropTypes.string,
+  //   storyImgUrls: PropTypes.arrayOf(PropTypes.string),
+  // }).isRequired,
+  // personalObj: PropTypes.shape({
+  //   rank: PropTypes.number,
+  //   title: PropTypes.string,
+  //   tech: PropTypes.arrayOf(PropTypes.string),
+  //   summary: PropTypes.string,
+  //   story: PropTypes.arrayOf(PropTypes.string),
+  //   titleImgUrl: PropTypes.string,
+  //   storyImgUrls: PropTypes.arrayOf(PropTypes.string),
+  // }).isRequired,
 };
 
 export default About;

@@ -148,7 +148,7 @@ export const SubTitle = styled.div`
 
 //  MAIN
 const Drop = ({
-  _item: { imgurl, title, tech, rank, summary, story },
+  _item: { titleImgUrl, title, tech, rank, summary, story },
   _openState,
   _setOpenState,
 }) => {
@@ -158,7 +158,7 @@ const Drop = ({
       className={_openState === rank ? ' bg-gry1' : ' bg-gry2'}
     >
       <ImgCont id='Drop-ImgCont' className={_openState === rank && ' bg-gry2'}>
-        <ImageMed id='Drop-ImageMed' src={imgurl} alt='oops... bad link' />
+        <ImageMed id='Drop-ImageMed' src={titleImgUrl} alt='oops... bad link' />
       </ImgCont>
       <InfoCont id='Drop-InfoCont'>
         <ItemTitle id='Drop-ItemTitle'>{title}</ItemTitle>
@@ -186,8 +186,10 @@ const Drop = ({
         ) : (
           <StoryCont>
             <ItemStory>
-              {story.map((paragraph) => (
-                <ParaSml id='Drop-ParaSml'>{paragraph}</ParaSml>
+              {story.map((paragraph, index) => (
+                <ParaSml key={index} id='Drop-ParaSml'>
+                  {paragraph}
+                </ParaSml>
               ))}
             </ItemStory>
           </StoryCont>
@@ -198,13 +200,14 @@ const Drop = ({
 };
 
 Drop.propTypes = {
-  _item: PropTypes.object.isRequired,
-  // imgurl: PropTypes.string.isRequired,
-  // title: PropTypes.string.isRequired,
-  // tech: PropTypes.arrayOf(PropTypes.string).isRequired,
-  // rank: PropTypes.number.isRequired,
-  // summary: PropTypes.string.isRequired,
-  // story: PropTypes.string.isRequired,
+  _item: PropTypes.shape({
+    titleImgUrl: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    tech: PropTypes.arrayOf(PropTypes.string).isRequired,
+    rank: PropTypes.number.isRequired,
+    summary: PropTypes.arrayOf(PropTypes.string).isRequired,
+    story: PropTypes.string.isRequired,
+  }).isRequired,
   _openState: PropTypes.number.isRequired,
   _setOpenState: PropTypes.func.isRequired,
 };

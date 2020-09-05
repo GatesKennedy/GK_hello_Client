@@ -7,7 +7,7 @@ import algorithm from '../../Design/Images/algorithm.png';
 import algorithm2 from '../../Design/Images/algorithm2.png';
 import algorithm3 from '../../Design/Images/algorithm3.png';
 import algorithm4 from '../../Design/Images/algorithm4.jpg';
-import esc from '../../Design/Images/esc.png';
+import esc_1 from '../../Design/Images/esc.png';
 import bridger from '../../Design/Images/BridgerBaby1.JPG';
 import ohnodamn from '../../Design/Images/ohnodamn.png';
 import PG13_0 from '../../Design/Images/PG-13_0.jpg';
@@ -47,7 +47,8 @@ export const softwareObj = [
       `User Experience: User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!! While working closely with Needle Drop a solution was reached that covers customer experience as well as catalogue management. User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!!`,
       `User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!!`,
     ],
-    imgurl: 'https://www.needledrop.co/images/whitesmlogo.png',
+    titleImgUrl: 'https://www.needledrop.co/images/whitesmlogo.png',
+    storyImgUrls: ['void'],
   },
 
   {
@@ -74,7 +75,8 @@ export const softwareObj = [
       `GK_Talk features go beyond live chat and persisted conversation history.  Collaborative notes, Persisted chat/note history
     `,
     ],
-    imgurl: algorithm3,
+    titleImgUrl: algorithm3,
+    storyImgUrls: ['void'],
   },
 
   {
@@ -83,7 +85,8 @@ export const softwareObj = [
     tech: ['Django', 'mongoDB', 'Azure DevOps'],
     summary: 'This is a summary of the project',
     story: ['this is a story for Aggregator'],
-    imgurl: algorithm2,
+    titleImgUrl: algorithm2,
+    storyImgUrls: ['void'],
   },
 
   {
@@ -102,7 +105,8 @@ export const softwareObj = [
       `,
       `This may sound like a nightmare but, again, I felt like I was discovering magic.`,
     ],
-    imgurl: algorithm,
+    titleImgUrl: algorithm,
+    storyImgUrls: ['void'],
   },
 
   {
@@ -126,7 +130,8 @@ export const softwareObj = [
     Line 4
                 vqc`,
     ],
-    imgurl: bridger,
+    titleImgUrl: bridger,
+    storyImgUrls: ['void'],
   },
 
   {
@@ -151,7 +156,8 @@ export const softwareObj = [
     Line 4
                 vqc`,
     ],
-    imgurl: esc,
+    titleImgUrl: esc_1,
+    storyImgUrls: ['void'],
   },
 ];
 
@@ -172,6 +178,7 @@ export const personalObj = [
     summary:
       'A personal music project started in 2017 after 18yrs of experimentation.',
     story: ['This is PG-13'],
-    imgurl: PG13_2,
+    titleImgUrl: PG13_2,
+    storyImgUrls: ['void'],
   },
 ];

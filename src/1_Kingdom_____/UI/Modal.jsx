@@ -151,7 +151,7 @@ const Modal = ({
           opacity: modalShow ? 1 : 0,
         }}
       >
-        {modalMsg && (
+        {modalMsg !== 'void' && (
           <ModalMsg id='Modal-ModalMsg' className='bg-gry1 txt-gry6'>
             {modalMsg}
           </ModalMsg>

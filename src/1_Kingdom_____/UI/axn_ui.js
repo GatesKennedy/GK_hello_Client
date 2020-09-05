@@ -13,8 +13,8 @@ import {
 // SET: Modal Show and Type
 export const setModal = (
   modalShow,
-  modalType = false,
-  modalMsg = false
+  modalType = 'guest',
+  modalMsg = 'void'
 ) => async (dispatch) => {
   console.log(`axn > setModal() > ENTER FXN`, {
     modalShow: modalShow,
@@ -41,18 +41,3 @@ export const setModal = (
   }
 };
 // SET: Modal Type
-// export const setModalType = (modalType, modalStr) => async (dispatch) => {
-//   console.log(`ENTER      setModalType()`);
-
-//   try {
-//     dispatch({
-//       type: MODAL_TYPE_SET,
-//       payload: { type: modalType, str: modalStr },
-//     });
-//   } catch (err) {
-//     dispatch({
-//       type: MODAL_ERROR,
-//       payload: { msg: err.message, status: err.response },
-//     });
-//   }
-// };
