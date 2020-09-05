@@ -190,7 +190,7 @@ const Drop = ({
           <StoryCont>
             <ItemStory>
               {story.map((paragraph) => (
-                <ParaSml>{paragraph}</ParaSml>
+                <ParaSml id='Drop-ParaSml'>{paragraph}</ParaSml>
               ))}
             </ItemStory>
           </StoryCont>

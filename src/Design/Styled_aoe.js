@@ -33,9 +33,6 @@ export const Act = styled.div`
 `;
 
 export const ParaMed = styled.p`
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
 
   padding: 4px;
@@ -43,9 +40,6 @@ export const ParaMed = styled.p`
   width: 100%;
 `;
 export const ParaSml = styled.p`
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
 
   padding: 3px;

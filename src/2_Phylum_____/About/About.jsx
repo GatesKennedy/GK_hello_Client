@@ -29,7 +29,7 @@ const About = () => {
       <AboutBody id='About-AboutBody'>
         <BodyCont id='About-BodyCont'>
           {introObj.map((item) => (
-            <ParaMed>{item}</ParaMed>
+            <ParaMed id='About-ParaMed'>{item}</ParaMed>
           ))}
         </BodyCont>
       </AboutBody>
