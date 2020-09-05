@@ -81,7 +81,7 @@ const Auth = ({ loginUser, registerUser, isAuthenticated }) => {
         <input
           id='Auth-Input1'
           name='email'
-          defaultValue='email'
+          placeholder='email'
           ref={register}
           style={txtInput}
         />
@@ -91,7 +91,7 @@ const Auth = ({ loginUser, registerUser, isAuthenticated }) => {
         <input
           id='Auth-Input2'
           name='password'
-          defaultValue='password'
+          placeholder='password'
           ref={register}
           style={txtInput}
         />
@@ -105,7 +105,7 @@ const Auth = ({ loginUser, registerUser, isAuthenticated }) => {
         <input
           id='Auth-Input1'
           name='username'
-          defaultValue='username'
+          placeholder='username'
           ref={register}
           style={txtInput}
         />
@@ -115,7 +115,7 @@ const Auth = ({ loginUser, registerUser, isAuthenticated }) => {
         <input
           id='Auth-Input1'
           name='email'
-          defaultValue='email'
+          placeholder='email'
           ref={register}
           style={txtInput}
         />
@@ -125,7 +125,7 @@ const Auth = ({ loginUser, registerUser, isAuthenticated }) => {
         <input
           id='Auth-Input1'
           name='password'
-          defaultValue='password'
+          placeholder='password'
           ref={register}
           style={txtInput}
         />
@@ -135,7 +135,7 @@ const Auth = ({ loginUser, registerUser, isAuthenticated }) => {
         <input
           id='Auth-Input1'
           name='confirm'
-          defaultValue='confirm'
+          placeholder='confirm'
           ref={register}
           style={txtInput}
         />
@@ -158,7 +158,7 @@ const Auth = ({ loginUser, registerUser, isAuthenticated }) => {
             <Btn
               onClick={() => {
                 setAuthType('login');
-                reset();
+                authType !== 'login' && reset();
               }}
               className={authType === 'login' && 'bg-gry3 txt-active'}
             >
@@ -167,7 +167,7 @@ const Auth = ({ loginUser, registerUser, isAuthenticated }) => {
             <Btn
               onClick={() => {
                 setAuthType('register');
-                reset();
+                authType !== 'register' && reset();
               }}
               className={authType === 'register' && 'bg-gry3 txt-active'}
             >
