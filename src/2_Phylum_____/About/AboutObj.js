@@ -57,14 +57,23 @@ export const softwareObj = [
       'ReactJS',
       'NodeJS',
       'PostgreSQL',
+      'Socket.io',
       'AWS',
       'Redux/Thunk',
       'Axios',
       'ExpressJS',
       'Heroku',
     ],
-    summary: 'This is a summary of the project',
-    story: [`This is vqc`],
+    summary:
+      'GK_Talk is a text-based communication module designed for reuse across projects and microservice implementation.',
+    story: [
+      `Designed for reuse across projects with and for later implementation as a microservice, GK_Talk's intended feature set goes well beyond standard text-based conversations.
+    Currently, text is stored in relation to a conversation which..."
+    `,
+      `With a backend architecture that is flexibly suited for feature updates.`,
+      `GK_Talk features go beyond live chat and persisted conversation history.  Collaborative notes, Persisted chat/note history
+    `,
+    ],
     imgurl: algorithm3,
   },
 

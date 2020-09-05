@@ -18,6 +18,9 @@ body {
 }
 
 body {
+  -webkit-flex: 1 0;
+  -ms-flex: 1; /* IE 10 */
+  flex: 1 0;
   font-family: 'Exo 2', Helvetica, sans-serif;
   font-size: 1rem;
   line-height: 1.3;
