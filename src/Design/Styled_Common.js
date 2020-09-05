@@ -87,12 +87,6 @@ export const Btn = styled.button`
     background-color: #bdbdbd; /* $aoe-gry3 */
   }
 `;
-export const NavBtn = styled.button`
-  text-align: center;
-  width: 20vw;
-  margin: 2px;
-`;
-
 export const Btn2 = styled.button`
   text-align: center;
   width: calc(100% + 10px);
@@ -103,6 +97,11 @@ export const Btn2 = styled.button`
   &:hover {
     background-color: #b0eedd; /* $nds-grn1 */
   }
+`;
+export const NavBtn = styled.button`
+  text-align: center;
+  width: 20vw;
+  margin: 2px;
 `;
 
 export const pad1 = styled.button`

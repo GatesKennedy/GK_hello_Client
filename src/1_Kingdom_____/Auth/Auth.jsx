@@ -7,13 +7,55 @@ import PropTypes from 'prop-types';
 import { loginUser, registerUser } from './axn_auth';
 import { setAlert } from '../Alert/axn_alert';
 //  Style
-import { Row, Btn, Btn2, FormLabel } from '../../Design/Styled_Common';
+import styled from 'styled-components';
 import { AuthCont, FormCont, BtnsCont, BtnsRow } from './Styled';
+
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 1;
+  align-self: flex-start;
+  align-items: center;
+  justify-content: space-around;
+
+  width: 100%;
+`;
+const Btn = styled.button`
+  text-align: center;
+  width: 50%;
+  margin: 2px;
+
+  background-color: #e0e0e0;
+
+  &:hover {
+    background-color: #bdbdbd; /* $aoe-gry3 */
+  }
+`;
+const Btn2 = styled.button`
+  text-align: center;
+  width: calc(100% + 10px);
+  margin: 2px;
+
+  background-color: #e0e0e0;
+
+  &:hover {
+    background-color: #b0eedd; /* $nds-grn1 */
+  }
+`;
+const FormLabel = styled.div`
+  width: 2em;
+  display: flex;
+  padding: 2px 4px;
+`;
 
 //~~~~~~~~~~~~~~~~
 //  MAIN
 //~~~~~~~~~~~~~~~~
 const Auth = ({ loginUser, registerUser, isAuthenticated }) => {
+  const txtInput = {
+    width: '100%',
+    marginRight: 'calc(2em + 4px)',
+  };
   //  ~~ FORM ~~
   const { register, handleSubmit, watch, reset, errors, formState } = useForm();
   const watchFields = watch(['image', 'name', 'active']);
@@ -33,63 +75,69 @@ const Auth = ({ loginUser, registerUser, isAuthenticated }) => {
 
   //    SubComps
   const Login = (
-    <form>
-      <Row>
-        <FormLabel>em</FormLabel>
+    <form id='Auth-Form'>
+      <Row id='Auth-Row1'>
+        <FormLabel id='Auth-FormLabel1'>em</FormLabel>
         <input
+          id='Auth-Input1'
           name='email'
           defaultValue='email'
           ref={register}
-          className='field_entry'
+          style={txtInput}
         />
       </Row>
-      <Row>
-        <FormLabel>pw</FormLabel>
+      <Row id='Auth-Row2'>
+        <FormLabel id='Auth-FormLabel2'>pw</FormLabel>
         <input
+          id='Auth-Input2'
           name='password'
           defaultValue='password'
           ref={register}
-          className='field_entry'
+          style={txtInput}
         />
       </Row>
     </form>
   );
   const Register = (
-    <form>
-      <Row>
-        <FormLabel>un</FormLabel>
+    <form id='Auth-Form'>
+      <Row id='Auth-Row1'>
+        <FormLabel id='Auth-FormLabel1'>un</FormLabel>
         <input
+          id='Auth-Input1'
           name='username'
           defaultValue='username'
           ref={register}
-          className='field_entry'
+          style={txtInput}
         />
       </Row>
-      <Row>
-        <FormLabel>em</FormLabel>
+      <Row id='Auth-Row1'>
+        <FormLabel id='Auth-FormLabel1'>em</FormLabel>
         <input
+          id='Auth-Input1'
           name='email'
           defaultValue='email'
           ref={register}
-          className='field_entry'
+          style={txtInput}
         />
       </Row>
-      <Row>
-        <FormLabel>pw</FormLabel>
+      <Row id='Auth-Row1'>
+        <FormLabel id='Auth-FormLabel1'>pw</FormLabel>
         <input
+          id='Auth-Input1'
           name='password'
           defaultValue='password'
           ref={register}
-          className='field_entry'
+          style={txtInput}
         />
       </Row>
-      <Row>
-        <FormLabel>pw</FormLabel>
+      <Row id='Auth-Row1'>
+        <FormLabel id='Auth-FormLabel1'>pw</FormLabel>
         <input
+          id='Auth-Input1'
           name='confirm'
           defaultValue='confirm'
           ref={register}
-          className='field_entry'
+          style={txtInput}
         />
       </Row>
     </form>

@@ -13,8 +13,7 @@ export const AuthCont = styled.div`
 `;
 
 export const FormCont = styled.section`
-  padding-right: 4px;
-  margin-right: 26px;
+  width: 80%;
 `;
 
 export const BtnsCont = styled.section`
@@ -24,7 +23,7 @@ export const BtnsCont = styled.section`
   align-items: center;
   padding-top: 4px;
   margin-top: 2px;
-  width: 62%;
+  width: calc(80% - 4em + 6px);
 `;
 
 export const BtnsRow = styled.div`
