@@ -10,10 +10,10 @@ export const TalkCont = styled.div`
   align-content: center;
   align-items: center;
 
-  width: 100%;
-  height: 100%;
-  min-width: 375px;
+  height: calc(100vh - 60px);
+  width: 100vw;
   min-height: 375px;
+  min-width: 375px;
 `;
 export const ChatCont = styled.div`
   display: flex;
@@ -26,7 +26,7 @@ export const ChatCont = styled.div`
   align-items: center;
 
   width: 50%;
-  height: 64%;
+  height: 80%;
   min-width: 375px;
   min-height: 375px;
 
@@ -77,6 +77,7 @@ export const ChatFormCont = styled.form`
   align-items: center;
   width: 100%;
   height: 24%;
+  max-height: 72px;
 
   border-radius: 0px 0px 8px 8px;
   margin: 4px;
@@ -88,7 +89,7 @@ export const ChatFormTxt = styled.input`
   flex-direction: row;
   align-content: flex-start;
 
-  width: 89%;
+  width: calc(100% - 76px);
   height: 100%;
 
   border-style: none;
@@ -102,7 +103,7 @@ export const ChatFormBtn = styled.button`
   justify-content: center;
   align-items: center;
   align-self: center;
-  width: 11%;
+  width: 72px;
   height: calc(100% - 1px);
 
   border-radius: 0px 0px 6px 0px;

@@ -9,10 +9,10 @@ export const NaviCont = styled.section`
   -webkit-justify-content: space-between;
   -ms-flex-direction: row;
   -ms-flex-pack: justify; */
-
-  width: 100vw;
   height: 42px;
-  /* min-height: 36px; */
+  width: 100vw;
+
+  min-height: 42px;
 
   padding: 8px 36px;
   top: 0px;
