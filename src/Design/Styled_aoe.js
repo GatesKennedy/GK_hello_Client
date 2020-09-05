@@ -57,6 +57,7 @@ export const NavBtn = styled.button`
 `;
 
 export const Btn1 = styled.button`
+  display: block;
   text-align: center;
 
   width: 64px;

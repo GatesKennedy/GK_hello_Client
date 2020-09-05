@@ -11,7 +11,7 @@ export const NaviCont = styled.section`
   -ms-flex-pack: justify; */
 
   width: 100vw;
-  height: 6vh;
+  height: 42px;
   /* min-height: 36px; */
 
   padding: 8px 36px;
@@ -21,7 +21,8 @@ export const NaviLogo = styled.div`
   display: flex;
   justify-self: center;
   align-self: center;
-  height: 3vh;
+  height: 24px;
+  width: 24px;
 
   &:hover {
     background-color: #bdbdbd; /* $aoe-gry3 */

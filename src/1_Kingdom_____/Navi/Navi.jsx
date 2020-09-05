@@ -19,7 +19,7 @@ import { Gi3DStairs } from 'react-icons/gi';
 const Navi = ({ _phylumObj, setModal, isAuthenticated }) => {
   //  STATE
   const [navNow, setNavNow] = useState('about');
-  const iconStyle = { height: '3vh', width: 'auto', padding: '2px 3px' };
+  const iconStyle = { height: '22px', width: 'auto', padding: '2px 3px' };
   return (
     <NaviCont className='bg-eerie'>
       <NaviLogo id='navi-logo-horse'>
