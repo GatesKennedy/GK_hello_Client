@@ -3,9 +3,6 @@ import styled from 'styled-components';
 
 //==========
 export const BodyCont = styled.section`
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
 
   /* height: 100%;
@@ -69,9 +66,6 @@ export const NavBtn = styled.button`
 `;
 
 export const Btn1 = styled.button`
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   text-align: center;
 

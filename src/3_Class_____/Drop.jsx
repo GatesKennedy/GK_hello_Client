@@ -106,9 +106,6 @@ export const ItemSummary = styled.div`
   font-size: smaller;
 `;
 export const ItemStory = styled.div`
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   flex-direction: column;
   padding: 0px 8px;

@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
 export const NaviCont = styled.section`
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
