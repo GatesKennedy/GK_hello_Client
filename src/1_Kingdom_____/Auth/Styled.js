@@ -9,10 +9,7 @@ export const AuthCont = styled.div`
   flex-grow: 1;
 
   height: 100%;
-
-  padding: 8px 12px;
-  margin: 0px;
-  border-radius: 4px;
+  width: 100%;
 `;
 
 export const FormCont = styled.section`

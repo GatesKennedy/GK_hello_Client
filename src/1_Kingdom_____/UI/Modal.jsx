@@ -22,7 +22,7 @@ const ModalCont = styled.div`
   align-items: center;
 
   border: none;
-  box-shadow: 1px 1px 1px black;
+  /* box-shadow: 1px 1px 1px black; */
   box-sizing: border-box;
 
   @media (min-width: 600px) {
@@ -55,18 +55,28 @@ const UiCont = styled.div`
   min-height: 36vh;
 
   border-radius: 8px;
-  box-shadow: 2px 2px 2px white;
-  padding: 8px;
+  /* box-shadow: 2px 2px 2px white; */
+  padding: 8px 8px 6px 8px;
   box-sizing: border-box;
   transition: all 0.3s ease-in;
 `;
 const ModalMsg = styled.div`
   display: flex;
-  color: #333;
 
   padding: 8px;
   margin-bottom: 4px;
-  border-radius: 4px;
+  border-radius: 4px 4px 0px 0px;
+`;
+const ModalInsert = styled.div`
+  display: flex;
+  flex-direction: inherit;
+  justify-content: center;
+  align-content: center;
+  min-height: calc(28vh + 4px);
+  width: 100%;
+
+  padding: 8px;
+  border-radius: 0px 0px 4px 4px;
 `;
 
 //=============================================
@@ -147,11 +157,13 @@ const Modal = ({
         }}
       >
         {modalMsg && (
-          <ModalMsg id='Modal-ModalMsg' className='bg-gry1'>
+          <ModalMsg id='Modal-ModalMsg' className='bg-gry1 txt-gry6'>
             {modalMsg}
           </ModalMsg>
         )}
-        {contentResult(modalType)}
+        <ModalInsert className='bg-blk1'>
+          {contentResult(modalType)}
+        </ModalInsert>
       </UiCont>
     </ModalCont>
   );
