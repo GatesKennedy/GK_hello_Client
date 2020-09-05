@@ -43,9 +43,11 @@ const Btn2 = styled.button`
   }
 `;
 const FormLabel = styled.div`
-  width: 2em;
-  display: flex;
+  display: block;
+  width: 2.5em;
+
   padding: 2px 4px;
+  text-align: center;
 `;
 
 //~~~~~~~~~~~~~~~~
