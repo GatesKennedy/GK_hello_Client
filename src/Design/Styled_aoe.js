@@ -52,13 +52,6 @@ export const Btn = styled.button`
   }
 `;
 export const NavBtn = styled.button`
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
   width: 20vw;
 `;

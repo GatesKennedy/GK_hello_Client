@@ -4,11 +4,11 @@ export const NaviCont = styled.section`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  -webkit-flex-direction: row;
+  /* -webkit-flex-direction: row;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-direction: row;
-  -ms-flex-pack: justify;
+  -ms-flex-pack: justify; */
 
   width: 100vw;
   height: 6vh;
