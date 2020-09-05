@@ -8,7 +8,7 @@ import {
 const initialState = {
   modalShow: false,
   modalType: 'guest',
-  modalMsg: false,
+  modalMsg: 'void',
   modalData: [],
   loading: true,
   error: {},

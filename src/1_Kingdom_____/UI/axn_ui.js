@@ -16,7 +16,7 @@ export const setModal = (
   modalType = false,
   modalMsg = false
 ) => async (dispatch) => {
-  console.log(`axn    setModal() > `, {
+  console.log(`axn > setModal() > ENTER FXN`, {
     modalShow: modalShow,
     modalType: modalType,
     modalMsg: modalMsg,
@@ -33,16 +33,6 @@ export const setModal = (
       type: MODAL_SET,
       payload: setObj,
     });
-    dispatch({
-      type: MODAL_SHOW_SET,
-      payload: modalShow,
-    });
-    if (modalType) {
-      dispatch({
-        type: MODAL_TYPE_SET,
-        payload: modalType,
-      });
-    }
   } catch (err) {
     dispatch({
       type: MODAL_ERROR,
@@ -51,18 +41,18 @@ export const setModal = (
   }
 };
 // SET: Modal Type
-export const setModalType = (modalType, modalStr) => async (dispatch) => {
-  console.log(`ENTER      setModalType()`);
+// export const setModalType = (modalType, modalStr) => async (dispatch) => {
+//   console.log(`ENTER      setModalType()`);
 
-  try {
-    dispatch({
-      type: MODAL_TYPE_SET,
-      payload: { type: modalType, str: modalStr },
-    });
-  } catch (err) {
-    dispatch({
-      type: MODAL_ERROR,
-      payload: { msg: err.message, status: err.response },
-    });
-  }
-};
+//   try {
+//     dispatch({
+//       type: MODAL_TYPE_SET,
+//       payload: { type: modalType, str: modalStr },
+//     });
+//   } catch (err) {
+//     dispatch({
+//       type: MODAL_ERROR,
+//       payload: { msg: err.message, status: err.response },
+//     });
+//   }
+// };

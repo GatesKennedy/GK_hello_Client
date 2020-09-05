@@ -118,15 +118,10 @@ const Modal = ({
   }
   //  EFFECT
   useEffect(() => {
-    console.log(`$$$  New Modal State: `, {
-      modalShow,
-      modalType,
-      modalMsg,
-      _modalState,
-    });
     _setModalState(modalShow);
   }, [modalShow]);
 
+  //=============================================
   //=============================================
   return (
     <ModalCont

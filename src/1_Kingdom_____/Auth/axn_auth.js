@@ -22,7 +22,7 @@ import setAuthToken from './utils/setAuthToken';
 //  Authenticate User
 //==========================
 export const authUser = () => async (dispatch) => {
-  console.log('(^=^) authUser() > ENTER FXN');
+  console.log('axn > authUser() > ENTER FXN');
   //  Set Headers with 'x-auth-token': 'token'
   if (localStorage.token) {
     console.log('(o_O) authUser() > setAuthToken() > wait...');
@@ -32,7 +32,7 @@ export const authUser = () => async (dispatch) => {
   try {
     //  AUTH & LOAD USER
     const { data } = await API.get('api/user/');
-    console.log('AXN AUTH > authUser() > LOADED_USER: \n', data);
+    console.log('(^=^) authUser() > LOADED_USER: \n', data);
 
     const payload = {
       user: { id: data.id, name: data.name },
