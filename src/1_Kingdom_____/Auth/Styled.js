@@ -14,6 +14,7 @@ export const AuthCont = styled.div`
 
 export const FormCont = styled.section`
   width: 80%;
+  min-width: 240px;
 `;
 
 export const BtnsCont = styled.section`
@@ -24,6 +25,7 @@ export const BtnsCont = styled.section`
   padding-top: 4px;
   margin-top: 2px;
   width: calc(80% - 4em + 6px);
+  min-width: 180px;
 `;
 
 export const BtnsRow = styled.div`

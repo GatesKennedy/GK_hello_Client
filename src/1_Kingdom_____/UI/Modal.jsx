@@ -51,7 +51,9 @@ const UiCont = styled.div`
   align-content: center;
   z-index: 500;
 
-  min-width: 320px;
+  width: 320px;
+  max-width: 80vw;
+  min-width: 300px;
   min-height: 36vh;
 
   border-radius: 8px;
