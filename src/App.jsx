@@ -17,22 +17,20 @@ import About from './2_Phylum_____/About/About';
 import Talk from './2_Phylum_____/Talk/Talk';
 import Profile from './2_Phylum_____/Profile/Profile';
 
-//  Set Headers with 'x-auth-token': 'token'
-if (localStorage.token) {
-  setAuthToken(localStorage.token);
-}
+// //  Set Headers with 'x-auth-token': 'token'
+// if (localStorage.token) {
+//   setAuthToken(localStorage.token);
+// }
 
 const App = () => {
   //  Auth User
   useEffect(() => {
+    console.log('$$$  > App > authUser() >');
     store.dispatch(authUser());
   }, []);
   //  Modal State
   const [modalState, setModalState] = useState(false);
-  useEffect(
-    () => console.log(`$$   setModalState() > modalState = `, modalState),
-    [modalState]
-  );
+
   //  Phylum Obj
   const PhylumObj = [
     { route: '/about', name: 'about', show: 'I N F O' },

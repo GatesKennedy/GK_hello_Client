@@ -3,6 +3,7 @@ import {
   REGISTER_ERROR,
   LOGIN_SUCCESS,
   LOGIN_ERROR,
+  AUTH_SUCCESS,
   AUTH_ERROR,
   LOGOUT,
 } from '../../Redux/axn_types';
@@ -19,6 +20,13 @@ export default function (state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
+    case AUTH_SUCCESS:
+      return {
+        ...state,
+        role: payload.role,
+        isAuthenticated: true,
+        loading: false,
+      };
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
       console.log('rdc_auth.js > payload.token: ', payload.token);

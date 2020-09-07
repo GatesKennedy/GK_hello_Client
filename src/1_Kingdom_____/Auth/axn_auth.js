@@ -3,15 +3,15 @@ import { API } from '../../utils/API';
 //  REDUX
 import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
 import { setModal } from '../../1_Kingdom_____/UI/axn_ui';
+import { loadUser } from '../../2_Phylum_____/User/axn_user';
 import {
   REGISTER_SUCCESS,
   REGISTER_ERROR,
   LOGIN_SUCCESS,
   LOGIN_ERROR,
-  USER_LOAD,
+  AUTH_SUCCESS,
   AUTH_ERROR,
   LOGOUT,
-  PROFILE_LOAD,
   PROFILE_CLEAR,
 } from '../../Redux/axn_types';
 
@@ -26,26 +26,22 @@ export const authUser = () => async (dispatch) => {
   if (localStorage.token) {
     console.log('(o_O) authUser() > setAuthToken() > wait...');
     await setAuthToken(localStorage.token);
+  } else {
+    console.log('(._.) authUser() > logout()...');
+    dispatch({ type: PROFILE_CLEAR });
+    dispatch({ type: LOGOUT });
+    return;
   }
 
   try {
-    //  AUTH & LOAD USER
-    const { data } = await API.get('api/user/');
+    const { data } = await API.get('api/auth/');
     console.log('(^=^) authUser() > LOADED_USER: \n', data);
-
-    const payload = {
-      user: { id: data.id, name: data.name },
-      profile: data,
-      token: localStorage.token,
-    };
     dispatch({
-      type: USER_LOAD,
-      payload: payload,
+      type: AUTH_SUCCESS,
+      payload: data,
     });
-    dispatch({
-      type: PROFILE_LOAD,
-      payload: payload,
-    });
+    //  LOAD USER & LOAD PROFILE
+    await dispatch(loadUser());
     console.log('(^=^) authUser() > DONE');
   } catch (err) {
     console.log('(>_<) authUser() > catch: ', err.message);
@@ -78,7 +74,7 @@ export const loginUser = (emailRaw, passwordRaw) => async (dispatch) => {
       payload: data,
     });
     //  AUTH user
-    await dispatch(authUser());
+    await dispatch(authUser(data.role));
     dispatch(setAlert('Welcome!', 'success'));
     dispatch(setModal(false, 'void'));
   } catch (err) {
