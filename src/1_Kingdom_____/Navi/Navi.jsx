@@ -21,7 +21,7 @@ const Navi = ({ _phylumObj, setModal, username, isAuthenticated }) => {
   const [navNow, setNavNow] = useState('about');
   const iconStyle = { height: '100%', width: 'auto', padding: '2px 3px' };
   return (
-    <NaviCont className='bg-eerie'>
+    <NaviCont id='Navi-NaviCont' className='bg-eerie'>
       <NaviLogo
         id='Navi-NaviLogo'
         onClick={() =>
@@ -66,9 +66,7 @@ const Navi = ({ _phylumObj, setModal, username, isAuthenticated }) => {
         ))}
       </NaviBtns>
       <NaviLogo id='Navi-NaviLogo' onClick={() => setModal(true, 'auth')}>
-        <IconText id='Navi-IconText'>
-          {!isAuthenticated ? '' : 'logout'}
-        </IconText>
+        <IconText id='Navi-IconText'>{!isAuthenticated ? '' : ''}</IconText>
         <Btn>
           {!isAuthenticated ? (
             <IoMdLogIn style={iconStyle} className='hoverColor' />
