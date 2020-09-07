@@ -27,7 +27,8 @@ them to build new things that I’ve now designed myself.`,
 ];
 export const softwareObj = [
   {
-    rank: 1,
+    favRank: 1,
+    timeRank: 5,
     title: 'Needle Drop Co.',
     tech: [
       'ReactJS',
@@ -64,7 +65,8 @@ export const softwareObj = [
   },
 
   {
-    rank: 2,
+    favRank: 2,
+    timeRank: 6,
     title: 'GK_Talk',
     tech: [
       'ReactJS',
@@ -80,19 +82,17 @@ export const softwareObj = [
     summary:
       'GK_Talk is a text-based communication module designed for reuse across projects and microservice implementation.',
     story: [
-      `Designed for reuse across projects with and for later implementation as a microservice, GK_Talk's intended feature set goes well beyond standard text-based conversations.
-    Currently, text is stored with a primary relation to a conversation which allows for multiple user access "
-    `,
-      `With a backend architecture that is flexibly suited for feature updates.`,
-      `GK_Talk features go beyond live chat and persisted conversation history.  Collaborative notes, Persisted chat/note history
-    `,
+      `Designed for reuse across projects with and for later implementation as a microservice, GK_Talk is foundationally a messaging service.
+      However, with a backend architecture that is flexibly suited for feature updates, GK_Talk features go beyond live chat and persisted conversation history. 
+      Along with AWS integration for media sharing, collaborative 'note' sections shared within the conversation feed can be edited by all parties and used for organizing shopping lists, camping trips or the weekend 'To-Do.'`,
     ],
     titleImgUrl: algorithm3,
     storyImgUrls: ['void'],
   },
 
   {
-    rank: 3,
+    favRank: 4,
+    timeRank: 1,
     title: 'Web Content Aggregator',
     tech: ['Django', 'mongoDB', 'Azure DevOps', 'Scrum', 'Beautiful Soup'],
     summary:
@@ -105,7 +105,8 @@ export const softwareObj = [
   },
 
   {
-    rank: 4,
+    favRank: 4,
+    timeRank: 2,
     title: 'Document Parsing Algorithm',
     tech: ['C#', 'Javascript', 'Google Apps Script'],
     summary:
@@ -126,7 +127,8 @@ export const softwareObj = [
   },
 
   {
-    rank: 5,
+    favRank: 5,
+    timeRank: 3,
     title: 'GK_HBD-Bridger',
     tech: ['ReactJS', 'Heroku', 'C#', 'ASP.NET'],
     summary: `"Happy Birthday Bridger" is a birthday gift to an old friend. The application generates 100,000+ permutations of a personalized adulation.[ripe with inside jokes..]`,
@@ -141,26 +143,32 @@ export const softwareObj = [
   },
 
   {
-    rank: 6,
+    favRank: 6,
+    timeRank: 1,
     title: 'Escape Collective',
     tech: [
-      'ReactJS',
-      'NodeJS',
-      'PostgreSQL',
-      'AWS',
-      'Redux/Thunk',
-      'Axios',
-      'ExpressJS',
-      'Heroku',
+      'Python',
+      'SolidWorks',
+      'Statics',
+      'FEA (Finite Element Analysis)',
+      'JavaScript',
+      'Project Management',
     ],
     summary:
       'Co-Founder and Lead Design Engineer of a design and fabrication company in Portland, OR.',
     story: [
-      `This is the full story of Project 3... and it starts right now!
-    Line 2
-    
-    Line 4
-                vqc`,
+      `Shortly after graduating with a degree in Mechanical Engineering from WSU, I chose to start a design and fabrication company with some talented friends in Portland called the Escape Collective. 
+      I was the design engineer. 
+      My early roles were focused on calculating, analyzing and explaining the frame and cover designs for 36’ diameter geodesic domes. 
+      This is where I remember really experiencing programming in a powerful way for the first time. 
+      I’d learned and implemented Matlab, EES and similar engineering tools, but this was different. 
+      I found a python script off a blog of an Australian aerospace engineer that tackled most of the math published by Buckminster Fuller in regards to the linear approximation of spherical geodesics. 
+      With some quick python study and a few modifications, I had a functional script that took in radius, frequency (degree of subdivisions) and returned to me an order list of every ‘beam’ in CSV format.`,
+
+      `In Escape Collective, as with all start-ups, no one person could afford to play a single role. 
+      I found myself project managing event installations, leading build teams on remote event sites around the country and interfacing with on-site civil engineers all while making sure the client representatives for Nike, Corona, or DocuSign were satisfied. 
+      The amount of organization, communication, and planning involved with executing demanding fabrication and installation deadlines was very challenging and sleepless for the first few years, but I loved it. 
+      `,
     ],
     titleImgUrl: esc_1,
     storyImgUrls: ['void'],
@@ -169,7 +177,8 @@ export const softwareObj = [
 
 export const personalObj = [
   {
-    rank: 7,
+    favRank: 1,
+    timeRank: 1,
     title: 'PG-13 [band]',
     tech: [
       'Audio Production',
