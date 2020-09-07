@@ -8,7 +8,7 @@ import { authUser, logoutUser } from '../Auth/axn_auth';
 import { setModal } from '../UI/axn_ui';
 //  STYLE
 import { Btn, NavBtn } from '../../Design/Styled_aoe';
-import { NaviCont, NaviBtns, NaviLogo } from './Styled';
+import { NaviCont, NaviBtns, NaviLogo, IconText } from './Styled';
 
 //  ASSET
 import { IoMdLogIn, IoMdLogOut } from 'react-icons/io';
@@ -29,8 +29,10 @@ const Navi = ({ _phylumObj, setModal, username, isAuthenticated }) => {
           }
         >
           <FaHorseHead style={iconStyle} />
+          <IconText>
+            {isAuthenticated ? <div>{username.name}</div> : ''}
+          </IconText>
         </Btn>
-        {isAuthenticated ? <div>{username.name}</div> : ''}
       </NaviLogo>
       <NaviBtns id='navi-btns'>
         {_phylumObj.map((phylum, index) => (
@@ -59,8 +61,8 @@ const Navi = ({ _phylumObj, setModal, username, isAuthenticated }) => {
         ))}
       </NaviBtns>
       <NaviLogo>
-        {!isAuthenticated ? '' : 'logout?'}
         <Btn onClick={() => setModal(true, 'auth')}>
+          <IconText>{!isAuthenticated ? '' : 'logout?'}</IconText>
           {!isAuthenticated ? (
             <IoMdLogIn style={iconStyle} />
           ) : (

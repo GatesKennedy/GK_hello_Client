@@ -33,3 +33,7 @@ export const NaviBtns = styled.div`
   justify-content: space-evenly;
   min-width: 30vw;
 `;
+
+export const IconText = styled.div`
+  padding: 4px;
+`;
