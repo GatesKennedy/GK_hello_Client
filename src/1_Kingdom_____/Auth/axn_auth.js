@@ -140,5 +140,6 @@ export const logoutUser = () => (dispatch) => {
   console.log('(O_O) logout() > ENTER FXN');
   dispatch({ type: PROFILE_CLEAR });
   dispatch({ type: LOGOUT });
+  dispatch(setModal(false, 'guest'));
   console.log('(^=^) logout() > DONE');
 };

@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 //  Redux
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { loginUser, registerUser } from './axn_auth';
+import { loginUser, registerUser, logoutUser } from './axn_auth';
 import { setAlert } from '../Alert/axn_alert';
 //  Style
 import styled from 'styled-components';
@@ -53,7 +53,7 @@ const FormLabel = styled.div`
 //~~~~~~~~~~~~~~~~
 //  MAIN
 //~~~~~~~~~~~~~~~~
-const Auth = ({ loginUser, registerUser, isAuthenticated }) => {
+const Auth = ({ loginUser, registerUser, logoutUser, isAuthenticated }) => {
   const txtInput = {
     width: '100%',
     marginRight: 'calc(2em + 4px)',
@@ -147,8 +147,26 @@ const Auth = ({ loginUser, registerUser, isAuthenticated }) => {
 
   //  Redirect (auth?)
   if (isAuthenticated) {
-    setAlert('You gotta log in for that...', 'notice');
-    return <Redirect to='/about' />;
+    return (
+      <AuthCont id='Auth-AuthCont' className='bg-blk1'>
+        <FormCont id='Auth-FormCont'>Logout? Are you sure?</FormCont>
+        <BtnsCont id='Auth-BtnsCont'>
+          <BtnsRow
+            id='Auth-BtnsRow'
+            className={isSubmitting ? 'bg-pale txt-active' : ''}
+          >
+            <Btn2
+              onClick={() => logoutUser()}
+              className={
+                Object.keys(touched).length >= 2 ? 'bg-active txt-pale' : ''
+              }
+            >
+              Yes, Logout
+            </Btn2>
+          </BtnsRow>
+        </BtnsCont>{' '}
+      </AuthCont>
+    );
   } else
     return (
       <AuthCont id='Auth-AuthCont' className='bg-blk1'>
@@ -204,4 +222,8 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { loginUser, registerUser })(Auth);
+export default connect(mapStateToProps, {
+  loginUser,
+  registerUser,
+  logoutUser,
+})(Auth);
