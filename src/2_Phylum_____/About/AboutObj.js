@@ -105,7 +105,7 @@ export const softwareObj = [
   },
 
   {
-    favRank: 4,
+    favRank: 5,
     timeRank: 2,
     title: 'Document Parsing Algorithm',
     tech: ['C#', 'Javascript', 'Google Apps Script'],
@@ -127,7 +127,7 @@ export const softwareObj = [
   },
 
   {
-    favRank: 5,
+    favRank: 6,
     timeRank: 3,
     title: 'GK_HBD-Bridger',
     tech: ['ReactJS', 'Heroku', 'C#', 'ASP.NET'],
@@ -143,7 +143,7 @@ export const softwareObj = [
   },
 
   {
-    favRank: 6,
+    favRank: 7,
     timeRank: 1,
     title: 'Escape Collective',
     tech: [

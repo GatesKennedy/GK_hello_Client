@@ -40,7 +40,7 @@ const About = () => {
       <AboutBody id='About-AboutBody'>
         {softwareObj.map((item) => (
           <Drop
-            key={item.rank}
+            key={item.favRank}
             _item={item}
             _openState={openState}
             _setOpenState={setOpenState}
@@ -52,7 +52,7 @@ const About = () => {
       <AboutBody id='About-AboutBody'>
         {personalObj.map((item) => (
           <Drop
-            key={item.rank}
+            key={item.favRank}
             _item={item}
             _openState={openState}
             _setOpenState={setOpenState}

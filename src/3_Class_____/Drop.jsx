@@ -148,16 +148,19 @@ export const SubTitle = styled.div`
 
 //  MAIN
 const Drop = ({
-  _item: { titleImgUrl, title, tech, rank, summary, story },
+  _item: { titleImgUrl, title, tech, favRank, summary, story },
   _openState,
   _setOpenState,
 }) => {
   return (
     <ItemCont
       id='Drop-ItemCont'
-      className={_openState === rank ? ' bg-gry1' : ' bg-gry2'}
+      className={_openState === favRank ? ' bg-gry1' : ' bg-gry2'}
     >
-      <ImgCont id='Drop-ImgCont' className={_openState === rank && ' bg-gry2'}>
+      <ImgCont
+        id='Drop-ImgCont'
+        className={_openState === favRank && ' bg-gry2'}
+      >
         <ImageMed id='Drop-ImageMed' src={titleImgUrl} alt='oops... bad link' />
       </ImgCont>
       <InfoCont id='Drop-InfoCont'>
@@ -169,17 +172,17 @@ const Drop = ({
               <TechItem
                 id='Drop-TechItem'
                 key={index}
-                className={_openState !== rank ? ' bg-gry1' : ' bg-gry2'}
+                className={_openState !== favRank ? ' bg-gry1' : ' bg-gry2'}
               >
                 {item}
               </TechItem>
             ))}
           </TechList>
         </ItemTech>
-        {_openState !== rank ? (
+        {_openState !== favRank ? (
           <SummaryCont id='Drop-SummaryCont'>
             <ItemSummary id='Drop-ItemSummary'>{summary}</ItemSummary>
-            <Btn1 onClick={() => _setOpenState(rank)}>
+            <Btn1 onClick={() => _setOpenState(favRank)}>
               more <RiArrowDropDownLine />
             </Btn1>
           </SummaryCont>
@@ -204,7 +207,7 @@ Drop.propTypes = {
     titleImgUrl: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     tech: PropTypes.arrayOf(PropTypes.string).isRequired,
-    rank: PropTypes.number.isRequired,
+    favRank: PropTypes.number.isRequired,
     summary: PropTypes.arrayOf(PropTypes.string).isRequired,
     story: PropTypes.string.isRequired,
   }).isRequired,
