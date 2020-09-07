@@ -50,6 +50,12 @@ a {
   }
 }
 
+.hoverColor {
+  &:hover {
+    background-color: #bdbdbd; /* $aoe-gry3 */
+  }
+}
+
 button {
   display: flex;
   justify-content: center;

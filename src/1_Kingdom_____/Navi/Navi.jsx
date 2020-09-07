@@ -19,20 +19,25 @@ import { Gi3DStairs } from 'react-icons/gi';
 const Navi = ({ _phylumObj, setModal, username, isAuthenticated }) => {
   //  STATE
   const [navNow, setNavNow] = useState('about');
-  const iconStyle = { height: '22px', width: 'auto', padding: '2px 3px' };
+  const iconStyle = { height: '100%', width: 'auto', padding: '2px 3px' };
   return (
     <NaviCont className='bg-eerie'>
-      <NaviLogo id='navi-logo-horse'>
-        <Btn
-          onClick={() =>
-            setModal(true, 'auth', 'You like horses too?? ...Who are you?')
-          }
-        >
-          <FaHorseHead style={iconStyle} />
-          <IconText>
-            {isAuthenticated ? <div>{username.name}</div> : ''}
-          </IconText>
-        </Btn>
+      <NaviLogo
+        id='Navi-NaviLogo'
+        onClick={() =>
+          setModal(true, 'auth', 'You like horses too?? ...Who are you?')
+        }
+      >
+        <Btn>
+          <FaHorseHead
+            id='navi-logo-horse'
+            style={iconStyle}
+            className='hoverColor'
+          />
+        </Btn>{' '}
+        <IconText id='Navi-IconText'>
+          {isAuthenticated ? <div>{username.name}</div> : ''}
+        </IconText>
       </NaviLogo>
       <NaviBtns id='navi-btns'>
         {_phylumObj.map((phylum, index) => (
@@ -60,13 +65,15 @@ const Navi = ({ _phylumObj, setModal, username, isAuthenticated }) => {
           </NavBtn>
         ))}
       </NaviBtns>
-      <NaviLogo>
-        <Btn onClick={() => setModal(true, 'auth')}>
-          <IconText>{!isAuthenticated ? '' : 'logout?'}</IconText>
+      <NaviLogo id='Navi-NaviLogo' onClick={() => setModal(true, 'auth')}>
+        <IconText id='Navi-IconText'>
+          {!isAuthenticated ? '' : 'logout'}
+        </IconText>
+        <Btn>
           {!isAuthenticated ? (
-            <IoMdLogIn style={iconStyle} />
+            <IoMdLogIn style={iconStyle} className='hoverColor' />
           ) : (
-            <IoMdLogOut style={iconStyle} />
+            <IoMdLogOut style={iconStyle} className='hoverColor' />
           )}
         </Btn>
       </NaviLogo>
