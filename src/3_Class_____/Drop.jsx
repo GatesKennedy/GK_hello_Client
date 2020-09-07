@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 //  STYLE
 import styled from 'styled-components';
 import { Btn1, ImageMed, ParaSml } from '../Design/Styled_aoe';
-import { RiArrowDropDownLine } from 'react-icons/ri';
+import { RiArrowDropDownLine, RiArrowUpSLine } from 'react-icons/ri';
 
 export const ItemCont = styled.section`
   display: flex;
@@ -195,6 +195,9 @@ const Drop = ({
                 </ParaSml>
               ))}
             </ItemStory>
+            <Btn1 onClick={() => _setOpenState(0)}>
+              less <RiArrowUpSLine />
+            </Btn1>
           </StoryCont>
         )}
       </InfoCont>
