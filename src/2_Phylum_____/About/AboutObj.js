@@ -38,14 +38,26 @@ export const softwareObj = [
       'Axios',
       'ExpressJS',
       'Heroku',
+      'Jira Software',
     ],
     summary:
       'Application Software for a music licensing company in Portland, OR. Consumer and Enterprise systems.',
     story: [
-      `Needle Drop Co. is a music licensing company in Portland, Oregon. Having outgrown the functionality of their prior web presence, they were seeking a web application that could help the user explore their product library and streamline inventory maintainence`,
-      `While working closely with Needle Drop a solution was reached that covers customer experience as well as catalogue management.`,
-      `User Experience: User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!! While working closely with Needle Drop a solution was reached that covers customer experience as well as catalogue management. User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!!`,
-      `User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!! User's friggin love it!!!!`,
+      `Needle Drop Co. is a music licensing company in Portland, Oregon. Having outgrown the functionality of their prior web presence, 
+      they were seeking a web application that could help the user explore their product library and streamline inventory maintainence`,
+      `While working closely with the client a solution was reached that offers a powerful customer experience and a comprehensive catalogue management system.`,
+      `Consumer Software Features: `,
+      `Library browsing by filters or search`,
+      `User playlists and favorites`,
+      `Currated playlists by Needle Drop`,
+      `Artist discovery and Artist Profiles`,
+      `Secure payment system for obtaining licenses`,
+      `Enterprise Software Features:`,
+      `Library Managment`,
+      `Filter Managment`,
+      `Artist Managment`,
+      `Playlist Managment`,
+      `Purchase History and Trends`,
     ],
     titleImgUrl: 'https://www.needledrop.co/images/whitesmlogo.png',
     storyImgUrls: ['void'],
@@ -82,9 +94,12 @@ export const softwareObj = [
   {
     rank: 3,
     title: 'Web Content Aggregator',
-    tech: ['Django', 'mongoDB', 'Azure DevOps'],
-    summary: 'This is a summary of the project',
-    story: ['this is a story for Aggregator'],
+    tech: ['Django', 'mongoDB', 'Azure DevOps', 'Scrum', 'Beautiful Soup'],
+    summary:
+      'Final Project Instructor, Scrum Master, and Project Lead for web scraping application at a code school in Portland, OR. ',
+    story: [
+      'Final Project Instructor, Scrum Master, and Project Lead for web scraping application at a code school in Portland, OR. ',
+    ],
     titleImgUrl: algorithm2,
     storyImgUrls: ['void'],
   },
@@ -93,15 +108,16 @@ export const softwareObj = [
     rank: 4,
     title: 'Document Parsing Algorithm',
     tech: ['C#', 'Javascript', 'Google Apps Script'],
-    summary: 'This is a summary of the project',
+    summary:
+      'A text parsing algorithm developed in C# to identify, isolate and organize 1200+ pages of course curriculum for automated field population.',
     story: [
-      `Skip a few years to when I felt I had outgrown my role at Escape Collective, and I find myself pursuing software development as my primary focus.
-      Needing to stay calm and leading a team through long hours has suited me well for what I’ve experienced in the software industry.
-      On the first day of my first job as a developer, a crippling situation with the company’s database occurred.`,
+      `After leaving Escape Collective and pursuing software development as my primary focus, I found suprising overlap in skills. 
+      The ability to stay calm and lead a team through long hours appeared to fit well with what I’d experience in the software industry. 
+      On the first day of my first job, a crippling situation with the company’s database occurred.`,
       `I suddenly found myself deputized.`,
-      `I served as the liaison to the fraught development team while tracking the progress of a team that was tasked with repopulating an inhuman amount of data.
-      By the second day I was able to project the progress and saw it was likely a deadline would be missed, so I decided to script for the task after hours.
-      I ended up with a parsing algorithm that could translate any amount of raw data from google docs and repopulate the damaged system. 
+      `I served as the liaison to the fraught development team while tracking the progress of seperate team tasked with manually repopulating an inhuman amount of data.
+      By the second day I was able to project my observations and saw it was likely the Monday deadline would be missed, so I decided to develop a script for the task after hours.
+      I ended up with a parsing algorithm that could translate any amount of raw data (following the established format) from Google Documents and repopulate the damaged system. 
       `,
       `This may sound like a nightmare but, again, I felt like I was discovering magic.`,
     ],
@@ -112,23 +128,13 @@ export const softwareObj = [
   {
     rank: 5,
     title: 'GK_HBD-Bridger',
-    tech: [
-      'ReactJS',
-      'NodeJS',
-      'PostgreSQL',
-      'AWS',
-      'Redux/Thunk',
-      'Axios',
-      'ExpressJS',
-      'Heroku',
-    ],
+    tech: ['ReactJS', 'Heroku', 'C#', 'ASP.NET'],
     summary: `"Happy Birthday Bridger" is a birthday gift to an old friend. The application generates 100,000+ permutations of a personalized adulation.[ripe with inside jokes..]`,
     story: [
-      `This is the full story of Project 3... and it starts right now!
-    Line 2
-    
-    Line 4
-                vqc`,
+      `Originally built with C# on ASP.NET, this application was basically a Mad Lib solution generator. 
+      There was a predetermined paragraph structure with associated collections of nouns, verbs, adjectives, etc... that were randomized for each solution.`,
+      `The resulting application was capable of generating more than 100,000 permutations of the three sentence phrase. 
+      I'm certain Bridger has yet to see the same joke twice.`,
     ],
     titleImgUrl: bridger,
     storyImgUrls: ['void'],
