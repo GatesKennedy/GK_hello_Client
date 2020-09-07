@@ -16,6 +16,8 @@ export const ItemCont = styled.section`
   margin: 2px 0px 2px -8px;
   border-radius: 12px;
 
+  cursor: pointer;
+
   &:hover {
     background-color: #e7e7e7;
   }
@@ -148,14 +150,23 @@ export const SubTitle = styled.div`
 
 //  MAIN
 const Drop = ({
-  _item: { titleImgUrl, title, tech, favRank, summary, story },
+  _item: { titleImgUrl, title, tech, favRank, timeRank, summary, story },
   _openState,
   _setOpenState,
 }) => {
+  //  FXN
+  const handleToggle = () => {
+    _openState === favRank ? _setOpenState(0) : _setOpenState(favRank);
+  };
+  function changeBackground(e) {
+    if (_openState !== favRank) e.target.style.background = '#e7e7e7';
+  }
+
   return (
     <ItemCont
       id='Drop-ItemCont'
       className={_openState === favRank ? ' bg-gry1' : ' bg-gry2'}
+      onClick={() => handleToggle()}
     >
       <ImgCont
         id='Drop-ImgCont'
@@ -195,7 +206,10 @@ const Drop = ({
                 </ParaSml>
               ))}
             </ItemStory>
-            <Btn1 onClick={() => _setOpenState(0)}>
+            <Btn1
+              onClick={() => _setOpenState(0)}
+              className={_openState === favRank && 'bg-gry3-5 txt-white'}
+            >
               less <RiArrowUpSLine />
             </Btn1>
           </StoryCont>

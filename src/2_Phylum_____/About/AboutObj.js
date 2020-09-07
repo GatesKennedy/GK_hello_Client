@@ -48,17 +48,9 @@ export const softwareObj = [
       they were seeking a web application that could help the user explore their product library and streamline inventory maintainence`,
       `While working closely with the client a solution was reached that offers a powerful customer experience and a comprehensive catalogue management system.`,
       `Consumer Software Features: `,
-      `Library browsing by filters or search`,
-      `User playlists and favorites`,
-      `Currated playlists by Needle Drop`,
-      `Artist discovery and Artist Profiles`,
-      `Secure payment system for obtaining licenses`,
+      `Library browsing by filters or search, User playlists and favorites, Currated playlists by Needle Drop, Artist discovery and Artist Profiles, Secure payment system for obtaining licenses`,
       `Enterprise Software Features:`,
-      `Library Managment`,
-      `Filter Managment`,
-      `Artist Managment`,
-      `Playlist Managment`,
-      `Purchase History and Trends`,
+      `Library Managment, Filter Managment, Artist Managment, Playlist Managment, Purchase History and Trends`,
     ],
     titleImgUrl: 'https://www.needledrop.co/images/whitesmlogo.png',
     storyImgUrls: ['void'],
@@ -177,7 +169,7 @@ export const softwareObj = [
 
 export const personalObj = [
   {
-    favRank: 1,
+    favRank: 7,
     timeRank: 1,
     title: 'PG-13 [band]',
     tech: [
