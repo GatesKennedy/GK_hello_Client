@@ -7,13 +7,11 @@ import {
   REGISTER_ERROR,
   LOGIN_SUCCESS,
   LOGIN_ERROR,
-  USER_LOADED,
+  USER_LOAD,
   AUTH_ERROR,
   LOGOUT,
   PROFILE_LOAD,
-  PROFILE_UPDATE,
   PROFILE_CLEAR,
-  PROFILE_ERROR,
 } from '../../Redux/axn_types';
 
 //  UTILS
@@ -40,7 +38,7 @@ export const authUser = () => async (dispatch) => {
       token: localStorage.token,
     };
     dispatch({
-      type: USER_LOADED,
+      type: USER_LOAD,
       payload: payload,
     });
     dispatch({
@@ -59,11 +57,11 @@ export const authUser = () => async (dispatch) => {
 
 //  Login User
 //==========================
-export const loginUser = (emailRaw, password) => async (dispatch) => {
+export const loginUser = (emailRaw, passwordRaw) => async (dispatch) => {
   console.log('(O_O) login() > ENTER FXN');
   //  req config
   const email = emailRaw.toLowerCase();
-  const body = JSON.stringify({ email, password });
+  const body = { emailIn: email, passwordIn: passwordRaw };
   console.log('(._.) login() > body = ', body);
   const config = {
     headers: { 'Content-Type': 'application/json' },
@@ -71,12 +69,12 @@ export const loginUser = (emailRaw, password) => async (dispatch) => {
 
   try {
     //  LOGIN user
-    const res = await API.post('/api/user/login', body, config);
-    console.log('(o_O) login() > resStr: ', res.data);
-    dispatch(setAlert(res.data.msg, 'success'));
+    const { data } = await API.post('/api/auth/login', body, config);
+    console.log('(o_O) login() > resStr: ', data);
+    dispatch(setAlert(data.msg, 'success'));
     await dispatch({
       type: LOGIN_SUCCESS,
-      payload: res.data,
+      payload: data,
     });
 
     //  AUTH user

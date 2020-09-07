@@ -27,11 +27,7 @@ const Talk = ({
   setModal,
   setAlert,
   profile,
-  auth: {
-    isAuthenticated,
-    user: { role },
-    loading,
-  },
+  auth: { isAuthenticated, role, loading },
 }) => {
   //  ~~ FORM ~~
   const { register, handleSubmit, watch, reset, errors, formState } = useForm();
