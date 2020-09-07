@@ -114,7 +114,7 @@ export const registerUser = (
   //~~~~~~~~~~~~~~
   //  Create User
   try {
-    const { data } = await API.post('/api/user/register', body, config);
+    const { data } = await API.post('/api/auth/register', body, config);
     const resStr = JSON.stringify(data);
     console.log('AUTH REGI: res.data = ' + resStr);
     dispatch({
@@ -123,11 +123,13 @@ export const registerUser = (
     }); //  AUTH user
     await dispatch(authUser());
     dispatch(setAlert(`Welcome! ${username}`, 'success'));
+    dispatch(setModal(false, 'void'));
   } catch (err) {
-    const errors = err.response.data.errors;
-    if (errors) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, 'warn')));
-    }
+    console.log('(>_<) ERROR CATCH > err: ', err);
+    // const errors = err.response.data.errors;
+    // if (errors) {
+    //   errors.forEach((error) => dispatch(setAlert(error.msg, 'warn')));
+    // }
     dispatch({
       type: REGISTER_ERROR,
     });
@@ -141,5 +143,6 @@ export const logoutUser = () => (dispatch) => {
   dispatch({ type: PROFILE_CLEAR });
   dispatch({ type: LOGOUT });
   dispatch(setModal(false, 'guest'));
+  dispatch(setAuthToken(false));
   console.log('(^=^) logout() > DONE');
 };
