@@ -2,6 +2,7 @@ import { API } from '../../utils/API';
 
 //  REDUX
 import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
+import { setModal } from '../../1_Kingdom_____/UI/axn_ui';
 import {
   REGISTER_SUCCESS,
   REGISTER_ERROR,
@@ -76,10 +77,10 @@ export const loginUser = (emailRaw, passwordRaw) => async (dispatch) => {
       type: LOGIN_SUCCESS,
       payload: data,
     });
-
     //  AUTH user
     await dispatch(authUser());
     dispatch(setAlert('Welcome!', 'success'));
+    dispatch(setModal(false, 'void'));
   } catch (err) {
     //  CATCH Error
     console.log('(-_-) login() > FAIL > errStr: ', err);

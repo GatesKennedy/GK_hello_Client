@@ -28,19 +28,7 @@ export default function (state = initialState, action) {
         modalMsg: modalMsg,
         loading: false,
       };
-    case MODAL_SHOW_SET:
-      return {
-        ...state,
-        modalShow: payload,
-        loading: false,
-      };
-    case MODAL_TYPE_SET:
-      return {
-        ...state,
-        modalType: payload,
-        // modalData: payload.data,
-        loading: false,
-      };
+
     //    ERROR
     case MODAL_ERROR:
       return {
