@@ -16,7 +16,7 @@ import { FaHorseHead } from 'react-icons/fa';
 import { Gi3DStairs } from 'react-icons/gi';
 
 // const Navi = ({ auth: { isAuthenticated, user, loading }, logout }) => {
-const Navi = ({ _phylumObj, setModal, isAuthenticated }) => {
+const Navi = ({ _phylumObj, setModal, username, isAuthenticated }) => {
   //  STATE
   const [navNow, setNavNow] = useState('about');
   const iconStyle = { height: '22px', width: 'auto', padding: '2px 3px' };
@@ -30,6 +30,7 @@ const Navi = ({ _phylumObj, setModal, isAuthenticated }) => {
         >
           <FaHorseHead style={iconStyle} />
         </Btn>
+        {isAuthenticated ? <div>{username.name}</div> : ''}
       </NaviLogo>
       <NaviBtns id='navi-btns'>
         {_phylumObj.map((phylum, index) => (
@@ -58,6 +59,7 @@ const Navi = ({ _phylumObj, setModal, isAuthenticated }) => {
         ))}
       </NaviBtns>
       <NaviLogo>
+        {!isAuthenticated ? '' : 'logout?'}
         <Btn onClick={() => setModal(true, 'auth')}>
           {!isAuthenticated ? (
             <IoMdLogIn style={iconStyle} />
@@ -76,6 +78,7 @@ Navi.propTypes = {
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
+  username: state.profile.user,
 });
 
 export default connect(mapStateToProps, { setModal })(Navi);
