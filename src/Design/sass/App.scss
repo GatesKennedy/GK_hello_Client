@@ -185,6 +185,15 @@ button {
 .txt-black {
   color: #18191a;
 }
+.txt-gry2 {
+  color: $aoe-gry2;
+}
+.txt-gry3 {
+  color: $aoe-gry3;
+}
+.txt-gry5 {
+  color: $aoe-gry5;
+}
 .txt-gry6 {
   color: $aoe-gry6;
 }
@@ -205,6 +214,13 @@ button {
 .txt-active {
   color: $aoe-blk3;
   font-weight: 777;
+}
+
+.txt-suggest {
+  color: #1fcecb;
+  // color: #18a29f;
+  font-size: 1.02rem;
+  // font-weight: 777;
 }
 .txt-idle {
   color: $aoe-gry5;

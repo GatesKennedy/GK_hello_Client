@@ -10,6 +10,11 @@ import { setAlert } from '../Alert/axn_alert';
 import styled from 'styled-components';
 import { AuthCont, FormCont, BtnsCont, BtnsRow } from './Styled';
 
+const Title = styled.h4`
+  text-align: center;
+  padding-bottom: 4px;
+  width: 100%;
+`;
 const Row = styled.div`
   display: flex;
   flex-direction: row;
@@ -22,13 +27,12 @@ const Row = styled.div`
 `;
 const Btn = styled.button`
   text-align: center;
-  width: 50%;
+  width: 40%;
   margin: 2px;
 
-  background-color: #e0e0e0;
-
   &:hover {
-    background-color: #bdbdbd; /* $aoe-gry3 */
+    background-color: #a0a0a0; /* $aoe-gry3 */
+    color: #fafafa;
   }
 `;
 const Btn2 = styled.button`
@@ -36,10 +40,10 @@ const Btn2 = styled.button`
   width: calc(100% + 10px);
   margin: 2px;
 
-  background-color: #e0e0e0;
-
   &:hover {
     background-color: #b0eedd; /* $nds-grn1 */
+    color: #4f4f4f;
+    font-weight: bold;
   }
 `;
 const FormLabel = styled.div`
@@ -149,16 +153,20 @@ const Auth = ({ loginUser, registerUser, logoutUser, isAuthenticated }) => {
   if (isAuthenticated) {
     return (
       <AuthCont id='Auth-AuthCont' className='bg-blk1'>
-        <FormCont id='Auth-FormCont'>Logout? Are you sure?</FormCont>
+        <Title>Logout? Are you sure?</Title>
+        <FormCont id='Auth-FormCont'></FormCont>
         <BtnsCont id='Auth-BtnsCont'>
           <BtnsRow
             id='Auth-BtnsRow'
             className={isSubmitting ? 'bg-pale txt-active' : ''}
           >
             <Btn2
+              id='Auth-Btn2'
               onClick={() => logoutUser()}
               className={
-                Object.keys(touched).length >= 2 ? 'bg-active txt-pale' : ''
+                Object.keys(touched).length >= 2
+                  ? 'bg-gry4 txt-suggest'
+                  : 'bg-gry2'
               }
             >
               Yes, Logout
@@ -170,42 +178,51 @@ const Auth = ({ loginUser, registerUser, logoutUser, isAuthenticated }) => {
   } else
     return (
       <AuthCont id='Auth-AuthCont' className='bg-blk1'>
+        <Title>{authType}</Title>
         <FormCont id='Auth-FormCont'>
           {authType === 'login' ? Login : Register}
         </FormCont>
         <BtnsCont id='Auth-BtnsCont'>
-          <BtnsRow id='Auth-BtnsRow'>
-            <Btn
-              onClick={() => {
-                setAuthType('login');
-                authType !== 'login' && reset();
-              }}
-              className={authType === 'login' && 'bg-gry3 txt-active'}
-            >
-              login
-            </Btn>
-            <Btn
-              onClick={() => {
-                setAuthType('register');
-                authType !== 'register' && reset();
-              }}
-              className={authType === 'register' && 'bg-gry3 txt-active'}
-            >
-              register
-            </Btn>
-          </BtnsRow>
+          {' '}
           <BtnsRow
             id='Auth-BtnsRow'
             className={isSubmitting ? 'bg-pale txt-active' : ''}
           >
             <Btn2
+              id='Auth-Btn2'
               onClick={handleSubmit(onSubmit)}
               className={
-                Object.keys(touched).length >= 2 ? 'bg-active txt-pale' : ''
+                Object.keys(touched).length >= 2 ? '  txt-suggest' : ' bg-gry2 '
               }
             >
               go
             </Btn2>
+          </BtnsRow>
+          {/* Change Auth Type */}
+          <BtnsRow id='Auth-BtnsRow'>
+            {authType === 'login' ? (
+              <Btn
+                id='Auth-Btn1'
+                onClick={() => {
+                  setAuthType('register');
+                  authType !== 'register' && reset();
+                }}
+                className={'bg-gry5 txt-gry2'}
+              >
+                register?
+              </Btn>
+            ) : (
+              <Btn
+                id='Auth-Btn1'
+                onClick={() => {
+                  setAuthType('login');
+                  authType !== 'login' && reset();
+                }}
+                className={'bg-gry5 txt-gry3'}
+              >
+                login?
+              </Btn>
+            )}
           </BtnsRow>
         </BtnsCont>{' '}
       </AuthCont>

@@ -4,8 +4,7 @@ export const AuthCont = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-grow: 1;
 
   height: 100%;
