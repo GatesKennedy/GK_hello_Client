@@ -139,6 +139,5 @@ export const logoutUser = () => (dispatch) => {
   dispatch({ type: PROFILE_CLEAR });
   dispatch({ type: LOGOUT });
   dispatch(setModal(false, 'guest'));
-  dispatch(setAuthToken(false));
   console.log('(^=^) logout() > DONE');
 };

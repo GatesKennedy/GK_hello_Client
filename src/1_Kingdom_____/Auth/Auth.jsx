@@ -9,8 +9,14 @@ import { setAlert } from '../Alert/axn_alert';
 //  Style
 import styled from 'styled-components';
 import { AuthCont, FormCont, BtnsCont, BtnsRow } from './Styled';
+import { setModal } from '../UI/axn_ui';
 
 const Title = styled.h4`
+  text-align: center;
+  padding-bottom: 4px;
+  width: 100%;
+`;
+const SubTitle = styled.h5`
   text-align: center;
   padding-bottom: 4px;
   width: 100%;
@@ -57,7 +63,13 @@ const FormLabel = styled.div`
 //~~~~~~~~~~~~~~~~
 //  MAIN
 //~~~~~~~~~~~~~~~~
-const Auth = ({ loginUser, registerUser, logoutUser, isAuthenticated }) => {
+const Auth = ({
+  loginUser,
+  registerUser,
+  logoutUser,
+  setModal,
+  isAuthenticated,
+}) => {
   const txtInput = {
     width: '100%',
     marginRight: 'calc(2em + 4px)',
@@ -151,28 +163,29 @@ const Auth = ({ loginUser, registerUser, logoutUser, isAuthenticated }) => {
 
   //  Redirect (auth?)
   if (isAuthenticated) {
+    setModal(true, 'auth', 'void');
     return (
-      <AuthCont id='Auth-AuthCont' className='bg-blk1'>
-        <Title>Logout? Are you sure?</Title>
-        <FormCont id='Auth-FormCont'></FormCont>
-        <BtnsCont id='Auth-BtnsCont'>
-          <BtnsRow
-            id='Auth-BtnsRow'
-            className={isSubmitting ? 'bg-pale txt-active' : ''}
-          >
-            <Btn2
-              id='Auth-Btn2'
-              onClick={() => logoutUser()}
-              className={
-                Object.keys(touched).length >= 2
-                  ? 'bg-gry4 txt-suggest'
-                  : 'bg-gry2'
-              }
-            >
-              Yes, Logout
-            </Btn2>
-          </BtnsRow>
+      <AuthCont
+        id='Auth-AuthCont'
+        className='bg-blk1'
+        style={{ justifyContent: 'space-between' }}
+      >
+        <div>
+          <Title>logout</Title>
+        </div>
+        <BtnsCont
+          id='Auth-BtnsCont'
+          className={isSubmitting ? ' bg-pale txt-active' : ''}
+        >
+          <SubTitle>Are you sure?</SubTitle>
+          <Btn2 id='Auth-Btn2' onClick={() => logoutUser()}>
+            Yes, Logout
+          </Btn2>
+          <Btn2 id='Auth-Btn2' onClick={() => setModal(false)}>
+            No, I wanna stay
+          </Btn2>
         </BtnsCont>{' '}
+        <FormCont id='Auth-FormCont'></FormCont>
       </AuthCont>
     );
   } else
@@ -243,4 +256,5 @@ export default connect(mapStateToProps, {
   loginUser,
   registerUser,
   logoutUser,
+  setModal,
 })(Auth);

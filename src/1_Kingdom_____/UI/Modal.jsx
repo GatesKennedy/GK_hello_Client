@@ -54,7 +54,7 @@ const UiCont = styled.div`
   width: 320px;
   max-width: 80vw;
   min-width: 300px;
-  min-height: 36vh;
+  /* min-height: 36vh; */
 
   border-radius: 8px;
   /* box-shadow: 2px 2px 2px white; */
@@ -78,7 +78,6 @@ const ModalInsert = styled.div`
   width: 100%;
 
   padding: 8px;
-  border-radius: 0px 0px 4px 4px;
 `;
 
 //=============================================
@@ -158,7 +157,13 @@ const Modal = ({
             {modalMsg}
           </ModalMsg>
         )}
-        <ModalInsert className='bg-blk1'>
+        <ModalInsert
+          className='bg-blk1'
+          style={{
+            borderRadius:
+              modalMsg === 'void' ? '4px 4px 4px 4px' : '0px 0px 4px 4px',
+          }}
+        >
           {contentResult(modalType)}
         </ModalInsert>
       </UiCont>
