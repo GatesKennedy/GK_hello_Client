@@ -1,11 +1,12 @@
 import { SET_ALERT, REMOVE_ALERT } from '../../Redux/axn_types';
 
 const initialState = [
-  // id:
-  // msg:
-  // alertType:
+  {
+    id: null,
+    msg: null,
+    alertType: null,
+  },
 ];
-
 export default function (state = initialState, action) {
   const { type, payload } = action;
 

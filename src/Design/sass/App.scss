@@ -21,9 +21,11 @@ body {
   -webkit-flex: 1 0;
   -ms-flex: 1; /* IE 10 */
   flex: 1 0;
+
   font-family: 'Exo 2', Helvetica, sans-serif;
   font-size: 1rem;
   line-height: 1.3;
+
   background-color: $white-2;
   color: $black-1;
 }
@@ -109,7 +111,23 @@ button {
 }
 
 // =================
-// ===   mobile   ===
+// ===   alert   ===
+.alert {
+  width: 100vw;
+  padding: 4px 8px;
+}
+
+.alert-good {
+  background-color: $aoe-act-2;
+  color: $aoe-blk2;
+}
+.alert-warn {
+  background-color: $aoe-act-2;
+  color: $aoe-gry2;
+}
+
+// =================
+// ===   mobile  ===
 
 // =================
 // ===   Edges   ===
@@ -148,6 +166,7 @@ button {
   background-color: #c4c2b7;
 }
 
+//  aoe-bg grayscale
 .bg-gry1 {
   background-color: $aoe-gry1;
 }
@@ -180,6 +199,30 @@ button {
 }
 .bg-blk3 {
   background-color: $aoe-blk3;
+}
+
+//  aoe-bg action
+
+.bg-act0 {
+  background-color: $aoe-act-3;
+}
+.bg-act0 {
+  background-color: $aoe-act-2;
+}
+.bg-act0 {
+  background-color: $aoe-act-1;
+}
+.bg-act0 {
+  background-color: $aoe-act0;
+}
+.bg-act0 {
+  background-color: $aoe-act1;
+}
+.bg-act0 {
+  background-color: $aoe-act2;
+}
+.bg-act0 {
+  background-color: $aoe-act3;
 }
 
 .txt-black {

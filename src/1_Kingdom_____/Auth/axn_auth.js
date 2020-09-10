@@ -68,14 +68,14 @@ export const loginUser = (emailRaw, passwordRaw) => async (dispatch) => {
     //  LOGIN user
     const { data } = await API.post('/api/auth/login', body, config);
     console.log('(o_O) login() > resStr: ', data);
-    dispatch(setAlert(data.msg, 'success'));
+    dispatch(setAlert(data.msg, 'good'));
     await dispatch({
       type: LOGIN_SUCCESS,
       payload: data,
     });
     //  AUTH user
     await dispatch(authUser(data.role));
-    dispatch(setAlert('Welcome!', 'success'));
+    dispatch(setAlert('Welcome!', 'good'));
     dispatch(setModal(false, 'void'));
   } catch (err) {
     //  CATCH Error
@@ -118,7 +118,7 @@ export const registerUser = (
       payload: data,
     }); //  AUTH user
     await dispatch(authUser());
-    dispatch(setAlert(`Welcome! ${username}`, 'success'));
+    dispatch(setAlert(`Welcome! ${username}`, 'good'));
     dispatch(setModal(false, 'void'));
   } catch (err) {
     console.log('(>_<) ERROR CATCH > err: ', err);

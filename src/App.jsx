@@ -10,8 +10,9 @@ import './Design/sass/App.scss';
 import { Kingdom } from './1_Kingdom_____/Styled';
 import { BodyCont } from './Design/Styled_aoe';
 //  Comps
-import Navi from './1_Kingdom_____/Navi/Navi';
+import Alert from './1_Kingdom_____/Alert/Alert';
 import Modal from './1_Kingdom_____/UI/Modal';
+import Navi from './1_Kingdom_____/Navi/Navi';
 import Hello from './2_Phylum_____/Hello/Hello';
 import About from './2_Phylum_____/About/About';
 import Talk from './2_Phylum_____/Talk/Talk';
@@ -41,6 +42,7 @@ const App = () => {
     <Provider store={store}>
       <Router basename='/'>
         <Kingdom id='App-Kingdom' className='App bg-gry2'>
+          <Alert />
           <Modal
             id='App-Modal'
             _setModalState={setModalState}
