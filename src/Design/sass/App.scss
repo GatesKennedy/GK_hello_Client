@@ -114,16 +114,20 @@ button {
 // ===   alert   ===
 .alert {
   width: 100vw;
-  padding: 4px 8px;
 }
 
 .alert-good {
-  background-color: $aoe-act-2;
-  color: $aoe-blk2;
+  padding: 4px 8px;
+  background-color: $aoe-act2;
+  // color: $aoe-blk2;
+  color: $aoe-gry2;
+  font-weight: bold;
 }
 .alert-warn {
+  padding: 4px 8px;
   background-color: $aoe-act-2;
   color: $aoe-gry2;
+  font-weight: bold;
 }
 
 // =================

@@ -75,7 +75,7 @@ export const loginUser = (emailRaw, passwordRaw) => async (dispatch) => {
     });
     //  AUTH user
     await dispatch(authUser(data.role));
-    dispatch(setAlert('Welcome!', 'good'));
+    // dispatch(setAlert('Welcome!', 'good'));
     dispatch(setModal(false, 'void'));
   } catch (err) {
     //  CATCH Error

@@ -1,7 +1,7 @@
 import uuid from 'uuid';
 import { SET_ALERT, REMOVE_ALERT } from '../../Redux/axn_types';
 
-export const setAlert = (msg, alertType, timeout = 400000) => (dispatch) => {
+export const setAlert = (msg, alertType, timeout = 4000) => (dispatch) => {
   // generate ID
   const id = uuid.v4();
   // dispatch
