@@ -79,8 +79,39 @@ export const loginUser = (emailRaw, passwordRaw) => async (dispatch) => {
     dispatch(setModal(false, 'void'));
   } catch (err) {
     //  CATCH Error
-    console.log('(-_-) login() > FAIL > errStr: ', err);
-    console.log('(-_-) login() > FAIL > errStr: ', err.errors);
+    const errStr = JSON.stringify(err);
+    console.log('(-_-) login() > FAIL > errStr: ', errStr);
+    //    ==========================
+    //    ===   ERROR RESPONSE   ===
+    //
+    // (-_-) login() > FAIL > errStr:
+    //   {
+    //   "message":"Request failed with status code 400",
+    //   "name":"Error",
+    //   "stack":"Error: Request failed with status code 400
+    //     \n    at createError (http://localhost:3000/static/js/1.chunk.js:1588:15)
+    //     \n    at settle (http://localhost:3000/static/js/1.chunk.js:1809:12)
+    //     \n    at XMLHttpRequest.handleLoad (http://localhost:3000/static/js/1.chunk.js:1063:7)",
+    //   "config":{
+    //     "url":"/api/auth/login",
+    //     "method":"post",
+    //     "data":"{
+    //       \"emailIn\":\"asdf\",\"passwordIn\":\"asdf\"
+    //     }",
+    //     "headers":{
+    //       "Accept":"application/json, text/plain, */*",
+    //       "Content-Type":"application/json"},
+    //       "baseURL":"http://localhost:5000",
+    //       "transformRequest":[null],
+    //       "transformResponse":[null],
+    //       "timeout":0,
+    //       "responseType":"json",
+    //       "xsrfCookieName":"XSRF-TOKEN",
+    //       "xsrfHeaderName":"X-XSRF-TOKEN",
+    //       "maxContentLength":-1
+    //     }
+    //   }
+    console.log('(-_-) login() > FAIL > err: ', err);
     const errors = err.errors;
     if (Array.isArray(errors)) {
       errors.forEach((error) => dispatch(setAlert(error.msg, 'warn')));
