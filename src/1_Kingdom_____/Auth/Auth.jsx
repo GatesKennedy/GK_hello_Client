@@ -43,7 +43,7 @@ const Btn = styled.button`
 `;
 const Btn2 = styled.button`
   text-align: center;
-  width: calc(100% + 10px);
+  width: calc(60% + 8px);
   margin: 2px;
 
   &:hover {
