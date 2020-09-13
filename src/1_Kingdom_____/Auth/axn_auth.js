@@ -1,5 +1,4 @@
 import { API } from '../../utils/API';
-
 //  REDUX
 import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
 import { setModal } from '../../1_Kingdom_____/UI/axn_ui';
@@ -14,7 +13,6 @@ import {
   LOGOUT,
   PROFILE_CLEAR,
 } from '../../Redux/axn_types';
-
 //  UTILS
 import setAuthToken from './utils/setAuthToken';
 
@@ -44,7 +42,7 @@ export const authUser = () => async (dispatch) => {
     await dispatch(loadUser());
     console.log('(^=^) authUser() > DONE');
   } catch (err) {
-    console.log('(>_<) authUser() > catch: ', err.message);
+    console.log('(>_<) authUser() > catch > err.message: ', err.message);
     dispatch({
       type: AUTH_ERROR,
       payload: err,
@@ -79,43 +77,13 @@ export const loginUser = (emailRaw, passwordRaw) => async (dispatch) => {
     dispatch(setModal(false, 'void'));
   } catch (err) {
     //  CATCH Error
-    const errStr = JSON.stringify(err);
-    console.log('(-_-) login() > FAIL > errStr: ', errStr);
-    //    ==========================
-    //    ===   ERROR RESPONSE   ===
-    //
-    // (-_-) login() > FAIL > errStr:
-    //   {
-    //   "message":"Request failed with status code 400",
-    //   "name":"Error",
-    //   "stack":"Error: Request failed with status code 400
-    //     \n    at createError (http://localhost:3000/static/js/1.chunk.js:1588:15)
-    //     \n    at settle (http://localhost:3000/static/js/1.chunk.js:1809:12)
-    //     \n    at XMLHttpRequest.handleLoad (http://localhost:3000/static/js/1.chunk.js:1063:7)",
-    //   "config":{
-    //     "url":"/api/auth/login",
-    //     "method":"post",
-    //     "data":"{
-    //       \"emailIn\":\"asdf\",\"passwordIn\":\"asdf\"
-    //     }",
-    //     "headers":{
-    //       "Accept":"application/json, text/plain, */*",
-    //       "Content-Type":"application/json"},
-    //       "baseURL":"http://localhost:5000",
-    //       "transformRequest":[null],
-    //       "transformResponse":[null],
-    //       "timeout":0,
-    //       "responseType":"json",
-    //       "xsrfCookieName":"XSRF-TOKEN",
-    //       "xsrfHeaderName":"X-XSRF-TOKEN",
-    //       "maxContentLength":-1
-    //     }
-    //   }
-    console.log('(-_-) login() > FAIL > err: ', err);
-    const errors = err.errors;
+    const errResStr = JSON.stringify(err.response);
+    console.log(`(>_<) login() > errResStr: `, errResStr);
+
+    const { errors } = err.response.data;
     if (Array.isArray(errors)) {
       errors.forEach((error) => dispatch(setAlert(error.msg, 'warn')));
-    }
+    } else dispatch(setAlert(err.response.data.msg));
     dispatch({
       type: LOGIN_ERROR,
       payload: errors,
@@ -170,5 +138,6 @@ export const logoutUser = () => (dispatch) => {
   dispatch({ type: PROFILE_CLEAR });
   dispatch({ type: LOGOUT });
   dispatch(setModal(false, 'guest'));
+  dispatch(setAlert('okee.. bye bye', 'good'));
   console.log('(^=^) logout() > DONE');
 };
