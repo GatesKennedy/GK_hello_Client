@@ -77,9 +77,6 @@ export const loginUser = (emailRaw, passwordRaw) => async (dispatch) => {
     dispatch(setModal(false, 'void'));
   } catch (err) {
     //  CATCH Error
-    const errResStr = JSON.stringify(err.response);
-    console.log(`(>_<) login() > errResStr: `, errResStr);
-
     const { errors } = err.response.data;
     if (Array.isArray(errors)) {
       errors.forEach((error) => dispatch(setAlert(error.msg, 'warn')));
@@ -97,9 +94,14 @@ export const registerUser = (
   username,
   email,
   password,
+  confirm,
   role = 'user'
 ) => async (dispatch) => {
   console.log('(O_O) register() > ENTER FXN');
+  if (password !== confirm) {
+    dispatch(setAlert(`oops.. passwords don't match`, `warn`));
+    return;
+  }
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -121,10 +123,10 @@ export const registerUser = (
     dispatch(setModal(false, 'void'));
   } catch (err) {
     console.log('(>_<) ERROR CATCH > err: ', err);
-    // const errors = err.response.data.errors;
-    // if (errors) {
-    //   errors.forEach((error) => dispatch(setAlert(error.msg, 'warn')));
-    // }
+    const { errors, msg } = err.response.data;
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, 'warn')));
+    } else dispatch(setAlert(msg));
     dispatch({
       type: REGISTER_ERROR,
     });

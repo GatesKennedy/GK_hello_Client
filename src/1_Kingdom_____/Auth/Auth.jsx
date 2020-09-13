@@ -80,13 +80,14 @@ const Auth = ({
   const { touched, isValid, isSubmitting } = formState;
 
   const onSubmit = async (data) => {
-    console.log('FormData: ', data);
+    console.log('onSubmit > FormData: ', data);
     const { email, password, confirm, username } = data;
 
-    if (authType === 'login') loginUser(email, password);
-    else if (password === confirm) {
-      registerUser(username, email, password);
-    } else setAlert("Your passwords don't match");
+    if (authType === 'login') {
+      loginUser(email, password);
+    } else {
+      registerUser(username, email, password, confirm);
+    }
   };
   //  ~~ STATE ~~
   const [authType, setAuthType] = useState('login');
