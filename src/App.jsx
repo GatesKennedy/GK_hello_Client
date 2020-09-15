@@ -34,8 +34,9 @@ const App = () => {
 
   //  Phylum Obj
   const PhylumObj = [
-    { route: '/about', name: 'about', show: 'I N F O' },
-    { route: '/talk', name: 'talk', show: 'T A L K' },
+    { route: '/about', name: 'about', private: false, show: 'I N F O' },
+    { route: '/talk', name: 'talk', private: false, show: 'T A L K' },
+    // { route: '/profile', name: 'profile', private: true, show: 'P R O F' },
   ];
 
   return (
