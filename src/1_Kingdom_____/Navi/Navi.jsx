@@ -1,10 +1,9 @@
 //  React
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 //  REDUX
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { authUser, logoutUser } from '../Auth/axn_auth';
 import { setModal } from '../UI/axn_ui';
 //  STYLE
 import { Btn, NavBtn } from '../../Design/Styled_aoe';
@@ -15,7 +14,6 @@ import { IoMdLogIn, IoMdLogOut } from 'react-icons/io';
 import { FaHorseHead } from 'react-icons/fa';
 import { Gi3DStairs } from 'react-icons/gi';
 
-// const Navi = ({ auth: { isAuthenticated, user, loading }, logout }) => {
 const Navi = ({ _phylumObj, setModal, username, isAuthenticated }) => {
   //  STATE
   const [navNow, setNavNow] = useState('about');

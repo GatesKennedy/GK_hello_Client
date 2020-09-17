@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 // REDUX
 import PropTypes from 'prop-types';
@@ -14,25 +14,28 @@ const ChatForm = ({ onSendMessage: pushMessage }) => {
     <ChatFormCont id='Talk-ChatFormCont' className='bg-gry4'>
       <ChatFormTxt
         id='Talk-ChatFormTxt'
+        className='bg-gry5 txt-pale'
         type='text'
         name='ChatForm'
+        value={msg}
         onChange={(e) => setMsg(e.target.value)}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
             e.preventDefault();
-            pushMessage(msg);
+            pushMessage({ msg });
             setMsg('');
           }
         }}
-        className='bg-gry5 txt-pale'
       />
+
       <ChatFormBtn
         id='Talk-ChatFormBtn'
         type='submit'
         name='chatSend'
         className='bg-pale txt-black'
-        onClick={() => {
-          pushMessage(msg);
+        onClick={(e) => {
+          e.preventDefault();
+          pushMessage({ msg });
           setMsg('');
         }}
       >

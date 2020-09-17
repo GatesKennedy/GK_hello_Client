@@ -5,7 +5,6 @@ import { shape, bool, string, func } from 'prop-types';
 import { setModal } from '../UI/axn_ui';
 //  COMPS
 import Auth from '../../1_Kingdom_____/Auth/Auth';
-// import Backdrop from './Backdrop';
 //  STYLE
 import styled from 'styled-components';
 import { IoMdClose } from 'react-icons/io';
@@ -82,14 +81,16 @@ const ModalInsert = styled.div`
 
 //=============================================
 const Modal = ({
-  _modalState,
   _setModalState,
-  ui: { modalShow, modalType, modalMsg, loading },
+  ui: { modalShow, modalType, modalMsg },
   auth: { isAuthenticated },
   setModal,
 }) => {
+  //  EFFECT
+  useEffect(() => {
+    _setModalState(modalShow);
+  }, [modalShow]);
   //  STYLE
-
   const styleIcon = {
     position: 'relative',
     top: '-142px',
@@ -117,10 +118,6 @@ const Modal = ({
     setModal(false);
     _setModalState(false);
   }
-  //  EFFECT
-  useEffect(() => {
-    _setModalState(modalShow);
-  }, [modalShow]);
 
   //=============================================
   //=============================================

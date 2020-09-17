@@ -1,5 +1,5 @@
 //  React
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 //  REDUX
 import { connect } from 'react-redux';
@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
 import { setModal } from '../../1_Kingdom_____/UI/axn_ui';
 //  SOCKET
-import { ioGreet } from './socket_io';
+import useChat from './_useChat';
 
 //  STYLE
 import { TalkCont, ChatCont, ChatHead, ChatDisp } from './Styled';
@@ -22,6 +22,7 @@ const Talk = ({
   profile,
   auth: { isAuthenticated, role, loading },
 }) => {
+  const { hookMsgs, sendMsg } = useChat();
   //  ~~ STATE ~~
   const [chatMsg, setChatMsg] = useState('oh boy!');
   //  ~~ FORM ~~
@@ -33,7 +34,7 @@ const Talk = ({
     console.log('FormData: ', data);
     const { text } = data;
   };
-  //  Auth Gate
+
   useEffect(() => {
     if (!isAuthenticated) {
       setAlert('You gotta log in for that...', 'notice');
@@ -49,20 +50,11 @@ const Talk = ({
           <div>{isAuthenticated ? profile.name : 'Guest'}</div>
         </ChatHead>
         <ChatDisp id='Talk-ChatDisp' className='bg-gry4'>
-          <ChatBody
-            chatContent={[
-              'hello',
-              'sup?',
-              'nm chilln rn',
-              'vqc',
-              'ik, u?',
-              'who dis?',
-            ]}
-          />
+          <ChatBody chatContent={hookMsgs} />
         </ChatDisp>
         <ChatForm
           onSendMessage={(msg) => {
-            alert('Message Sent: ' + msg);
+            sendMsg({ msg });
           }}
         />
       </ChatCont>
@@ -75,4 +67,4 @@ const mapStateToProps = (state) => ({
   profile: state.profile.profile,
 });
 
-export default connect(mapStateToProps, { setAlert, setModal, ioGreet })(Talk);
+export default connect(mapStateToProps, { setAlert, setModal })(Talk);

@@ -44,11 +44,7 @@ const App = () => {
       <Router basename='/'>
         <Kingdom id='App-Kingdom' className='App bg-gry2'>
           <Alert />
-          <Modal
-            id='App-Modal'
-            _setModalState={setModalState}
-            _modalState={modalState}
-          />
+          <Modal id='App-Modal' _setModalState={setModalState} />
           <Navi id='App-Navi' _phylumObj={PhylumObj} />
           <BodyCont id='App-BodyCont'>
             <Route exact path='/' component={About} />

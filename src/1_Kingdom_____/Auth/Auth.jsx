@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 //  Redux
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { loginUser, registerUser, logoutUser } from './axn_auth';
-import { setAlert } from '../Alert/axn_alert';
 //  Style
 import styled from 'styled-components';
 import { AuthCont, FormCont, BtnsCont, BtnsRow } from './Styled';
