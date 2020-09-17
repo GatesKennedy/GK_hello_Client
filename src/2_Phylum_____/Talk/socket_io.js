@@ -1,47 +1,31 @@
-// const server
-// const socket = io('http://localhost:5555');
+//~~~~~~~~~~~~~~~~~~~~~~~
+//    Socket.io
+//~~~~~~~~~~~~~~~~~~~~~~~
 
-// socket.on('chat-message', (data) => {
-//   console.log('chat-message: ', data);
+// //  init
+// const io = require('socket.io-client');
+// const socket = io.connect(process.env.REACT_APP_API_URL);
+
+// //----------------------------
+// export const ioGreet = async () => {
+//   await socket.on('alert', (message) => {
+//     console.log(message);
+//   });
+// };
+
+// //----------------------------
+// socket.on('error', function (err) {
+//   console.log('received socket error:');
+//   console.log(err);
 // });
 
-const io = require('socket.io-client');
+import openSocket from 'socket.io-client';
+const socket = openSocket(process.env.REACT_APP_URL);
 
-const socket = io.connect('http://localhost:3000');
-
-function registerHandler(onMessageReceived) {
-  socket.on('message', onMessageReceived);
+//----------------------------
+function ioGreet(cb) {
+  const message = 'there you are peter...';
+  socket.on('alert', (text) => cb(null, text));
+  socket.emit('alert', message);
 }
-
-function unregisterHandler() {
-  socket.off('message');
-}
-
-socket.on('error', function (err) {
-  console.log('received socket error:');
-  console.log(err);
-});
-
-function register(name, cb) {
-  socket.emit('register', name, cb);
-}
-
-function join(chatroomName, cb) {
-  socket.emit('join', chatroomName, cb);
-}
-
-function leave(chatroomName, cb) {
-  socket.emit('leave', chatroomName, cb);
-}
-
-function message(chatroomName, msg, cb) {
-  socket.emit('message', { chatroomName, message: msg }, cb);
-}
-
-function getChatrooms(cb) {
-  socket.emit('chatrooms', null, cb);
-}
-
-function getAvailableUsers(cb) {
-  socket.emit('availableUsers', null, cb);
-}
+export { ioGreet };

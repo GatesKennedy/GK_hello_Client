@@ -1,12 +1,14 @@
 //  React
-import React, { Fragment, useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { Fragment, useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 //  REDUX
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
 import { setModal } from '../../1_Kingdom_____/UI/axn_ui';
+//  SOCKET
+import { ioGreet } from './socket_io';
+
 //  STYLE
 import { ContRow, ContCol, Row, Col, Btn } from '../../Design/Styled_Common';
 import { Para } from '../../Design/Styled_aoe';
@@ -20,15 +22,19 @@ import {
   ChatFormTxt,
   ChatFormBtn,
 } from './Styled';
-import {} from '../Styled';
 //  Asset
+import ChatForm from './ChatForm';
 
+//==========================================================
 const Talk = ({
   setModal,
   setAlert,
+  ioGreet,
   profile,
   auth: { isAuthenticated, role, loading },
 }) => {
+  //  ~~ STATE ~~
+  const [chatMsg, setChatMsg] = useState('oh boy!');
   //  ~~ FORM ~~
   const { register, handleSubmit, watch, reset, errors, formState } = useForm();
   const watchFields = watch(['text']);
@@ -55,24 +61,14 @@ const Talk = ({
         </ChatHead>
         <ChatDisp id='Talk-ChatDisp' className='bg-gry4'>
           <ChatDispInner id='Talk-ChatDispInner' className='bg-gry5'>
-            <p>'GK_Talk' is being updated with socket.io</p>
-            <p>Be back shortly...</p>
+            <p>{chatMsg}</p>
           </ChatDispInner>
         </ChatDisp>
-        <ChatFormCont id='Talk-ChatFormCont' className='bg-gry4'>
-          <ChatFormTxt
-            id='Talk-ChatFormTxt'
-            type='text'
-            className='bg-gry5 txt-pale'
-          />
-          <ChatFormBtn
-            id='Talk-ChatFormBtn'
-            type='submit'
-            className='bg-pale txt-black'
-          >
-            go
-          </ChatFormBtn>
-        </ChatFormCont>
+        <ChatForm
+          onSendMessage={(msg) => {
+            alert('Message Sent: ' + msg);
+          }}
+        />
       </ChatCont>
     </TalkCont>
   );
@@ -83,4 +79,4 @@ const mapStateToProps = (state) => ({
   profile: state.profile.profile,
 });
 
-export default connect(mapStateToProps, { setAlert, setModal })(Talk);
+export default connect(mapStateToProps, { setAlert, setModal, ioGreet })(Talk);

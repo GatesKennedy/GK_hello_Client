@@ -56,6 +56,8 @@ export const ChatDisp = styled.div`
   border-radius: 8px 8px 0px 0px;
   padding: 4px;
 `;
+
+//  Chat Messages
 export const ChatDispInner = styled.div`
   display: flex;
   flex-direction: column;
@@ -69,7 +71,7 @@ export const ChatDispInner = styled.div`
   width: 100%;
   height: 100%;
 `;
-
+//  Chat Forms
 export const ChatFormCont = styled.form`
   display: flex;
   flex-direction: row;
