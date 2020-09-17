@@ -10,26 +10,15 @@ import { setModal } from '../../1_Kingdom_____/UI/axn_ui';
 import { ioGreet } from './socket_io';
 
 //  STYLE
-import { ContRow, ContCol, Row, Col, Btn } from '../../Design/Styled_Common';
-import { Para } from '../../Design/Styled_aoe';
-import {
-  TalkCont,
-  ChatCont,
-  ChatHead,
-  ChatDisp,
-  ChatDispInner,
-  ChatFormCont,
-  ChatFormTxt,
-  ChatFormBtn,
-} from './Styled';
+import { TalkCont, ChatCont, ChatHead, ChatDisp } from './Styled';
 //  Asset
+import ChatBody from './ChatBody';
 import ChatForm from './ChatForm';
 
 //==========================================================
 const Talk = ({
   setModal,
   setAlert,
-  ioGreet,
   profile,
   auth: { isAuthenticated, role, loading },
 }) => {
@@ -60,9 +49,16 @@ const Talk = ({
           <div>{isAuthenticated ? profile.name : 'Guest'}</div>
         </ChatHead>
         <ChatDisp id='Talk-ChatDisp' className='bg-gry4'>
-          <ChatDispInner id='Talk-ChatDispInner' className='bg-gry5'>
-            <p>{chatMsg}</p>
-          </ChatDispInner>
+          <ChatBody
+            chatContent={[
+              'hello',
+              'sup?',
+              'nm chilln rn',
+              'vqc',
+              'ik, u?',
+              'who dis?',
+            ]}
+          />
         </ChatDisp>
         <ChatForm
           onSendMessage={(msg) => {
