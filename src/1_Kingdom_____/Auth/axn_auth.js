@@ -3,7 +3,7 @@ import { API } from '../../utils/API';
 import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
 import { setModal } from '../../1_Kingdom_____/UI/axn_ui';
 import { loadUser } from '../../2_Phylum_____/User/axn_user';
-import { loadChat } from '../../2_Phylum_____/Talk/axn_talk';
+import { loadChat, loadTalkAccess } from '../../2_Phylum_____/Talk/axn_talk';
 import {
   REGISTER_SUCCESS,
   REGISTER_ERROR,
@@ -19,8 +19,9 @@ import setAuthToken from './utils/setAuthToken';
 
 //  Authenticate User
 //==========================
-export const authUser = () => async (dispatch) => {
+export const authUser = (role) => async (dispatch) => {
   console.log('axn > authUser() > ENTER FXN');
+  console.log('axn > authUser() > User Role: ', role);
   //  Set Headers with 'x-auth-token': 'token'
   if (localStorage.token) {
     console.log('(o_O) authUser() > setAuthToken() > wait...');
@@ -33,14 +34,16 @@ export const authUser = () => async (dispatch) => {
   }
 
   try {
-    const { data } = await API.get('api/auth/');
+    console.log('(^=^) authUser() > Enter Try');
+    const { data } = await API.get('api/auth');
     console.log('(^=^) authUser() > LOADED_USER: \n', data);
     dispatch({
       type: AUTH_SUCCESS,
       payload: data,
     });
     //  LOAD USER & LOAD PROFILE
-    await dispatch(loadUser());
+    dispatch(loadUser());
+    dispatch(loadTalkAccess);
     await dispatch(loadChat());
     console.log('(^=^) authUser() > DONE');
   } catch (err) {

@@ -10,6 +10,7 @@ import {
 } from '../../Redux/axn_types';
 
 const initialState = {
+  access: [],
   chat: [],
   note: [],
   loading: true,
@@ -20,6 +21,12 @@ export default function (state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
+    case TALK_LOAD:
+      return {
+        ...state,
+        access: payload,
+        loading: false,
+      };
     case TALK_CHAT_LOAD:
     case TALK_CHAT_UPDATE:
       return {
