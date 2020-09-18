@@ -28,7 +28,10 @@ export const REMOVE_ALERT = 'REMOVE_ALERT';
 //    === Talk ===
 export const TALK_LOAD = 'TALK_LOAD';
 export const TALK_UPDATE = 'TALK_UPDATE';
-export const CHAT_UPDATE = 'CHAT_UPDATE';
-export const NOTE_UPDATE = 'NOTE_UPDATE';
-export const TALK_CLEAR = 'TALK_CLEAR';
 export const TALK_ERROR = 'TALK_ERROR';
+export const TALK_CLEAR = 'TALK_CHAT_CLEAR';
+
+export const TALK_CHAT_LOAD = 'TALK_CHAT_LOAD';
+export const TALK_CHAT_UPDATE = 'TALK_CHAT_UPDATE';
+export const TALK_NOTE_LOAD = 'TALK_NOTE_LOAD';
+export const TALK_NOTE_UPDATE = 'TALK_NOTE_UPDATE';

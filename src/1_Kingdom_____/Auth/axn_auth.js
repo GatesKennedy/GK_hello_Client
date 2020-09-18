@@ -3,6 +3,7 @@ import { API } from '../../utils/API';
 import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
 import { setModal } from '../../1_Kingdom_____/UI/axn_ui';
 import { loadUser } from '../../2_Phylum_____/User/axn_user';
+import { loadChat } from '../../2_Phylum_____/Talk/axn_talk';
 import {
   REGISTER_SUCCESS,
   REGISTER_ERROR,
@@ -40,6 +41,7 @@ export const authUser = () => async (dispatch) => {
     });
     //  LOAD USER & LOAD PROFILE
     await dispatch(loadUser());
+    await dispatch(loadChat());
     console.log('(^=^) authUser() > DONE');
   } catch (err) {
     console.log('(>_<) authUser() > catch > err.message: ', err.message);
@@ -73,7 +75,6 @@ export const loginUser = (emailRaw, passwordRaw) => async (dispatch) => {
     });
     //  AUTH user
     await dispatch(authUser(data.role));
-    // dispatch(setAlert('Welcome!', 'good'));
     dispatch(setModal(false, 'void'));
   } catch (err) {
     //  CATCH Error

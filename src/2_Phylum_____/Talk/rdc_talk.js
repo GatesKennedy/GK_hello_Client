@@ -1,9 +1,11 @@
 import {
   TALK_LOAD,
   TALK_UPDATE,
-  CHAT_UPDATE,
-  NOTE_UPDATE,
   TALK_CLEAR,
+  TALK_CHAT_LOAD,
+  TALK_CHAT_UPDATE,
+  TALK_NOTE_LOAD,
+  TALK_NOTE_UPDATE,
   TALK_ERROR,
 } from '../../Redux/axn_types';
 
@@ -18,15 +20,15 @@ export default function (state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case TALK_LOAD:
-    case TALK_UPDATE:
+    case TALK_CHAT_LOAD:
+    case TALK_CHAT_UPDATE:
       return {
         ...state,
-        chat: payload.chats,
-        note: payload.notes,
+        chat: payload,
+
         loading: false,
       };
-    case CHAT_UPDATE:
+    case TALK_CHAT_UPDATE:
       return {
         ...state,
         chat: payload,
