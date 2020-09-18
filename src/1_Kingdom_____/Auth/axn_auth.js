@@ -43,7 +43,7 @@ export const authUser = (role) => async (dispatch) => {
     });
     //  LOAD USER & LOAD PROFILE
     dispatch(loadUser());
-    dispatch(loadTalkAccess);
+    dispatch(loadTalkAccess());
     await dispatch(loadChat());
     console.log('(^=^) authUser() > DONE');
   } catch (err) {
