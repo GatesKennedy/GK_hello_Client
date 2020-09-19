@@ -141,6 +141,7 @@ export const registerUser = (
 //==========================
 export const logoutUser = () => (dispatch) => {
   console.log('(O_O) logout() > ENTER FXN');
+  //  !!! remove token from local storage!
   dispatch({ type: PROFILE_CLEAR });
   dispatch({ type: LOGOUT });
   dispatch(setModal(false, 'guest'));

@@ -33,8 +33,6 @@ const Talk = ({
   talk: { access, chat, talkNow, loading },
   auth: { isAuthenticated, role },
 }) => {
-  //  ~~ STATE ~~
-  const [talkObj, setTalkObj] = useState(talkNow);
   //  ~~ HOOKS ~~
   const { hookMsgs, initHookMsgs, sendMsg } = useChat();
   useEffect(() => {
@@ -45,8 +43,6 @@ const Talk = ({
           '$$$    initHookMsgs() > talkNow.msgobj is NOT an array: ',
           talkNow.msgobj
         );
-    // console.log(`$$$    setTalkObj()`);
-    // setTalkObj(talkNow);
   }, [talkNow]);
 
   useEffect(() => {
@@ -68,9 +64,6 @@ const Talk = ({
     };
     console.log(`FXN    handleSend() > newMsg: `, newMsg);
     sendMsg(newMsg);
-    // hookMsgs.length < 1 ? {
-    // initHookMsgs()
-    // sendMsg(newMsg)} : sendMsg(newMsg);
   };
   return (
     <TalkCont id='Talk-TalkCont' className='bg-eerie'>

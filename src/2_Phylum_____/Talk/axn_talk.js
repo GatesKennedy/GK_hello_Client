@@ -16,16 +16,12 @@ import ChatBody from './ChatBody';
 
 //  Set Messages Now
 //==========================
-export const setTalkNow = (talkObj, msgObj) => (dispatch) => {
+export const setTalkNow = (talkObj) => (dispatch) => {
   console.log(`AXN  > setTalkNow() > ENTER`);
   try {
-    const payload = {
-      talkObj: talkObj,
-      msgObj: msgObj,
-    };
     dispatch({
       type: TALK_SET_NOW,
-      payload: payload,
+      payload: talkObj,
     });
   } catch (err) {
     console.log(`AXN  > setTalkNow() > catch err`);
@@ -116,6 +112,23 @@ export const loadChat = () => async (dispatch) => {
     dispatch({
       type: TALK_ERROR,
       payload: errors,
+    });
+  }
+};
+//  Update User Chat [PRIVATE]
+//==========================
+export const updateTalkHistory = (talkObj) => (dispatch) => {
+  console.log(`AXN  > setTalkNow() > ENTER`);
+  try {
+    dispatch({
+      type: TALK_SET_NOW,
+      payload: talkObj,
+    });
+  } catch (err) {
+    console.log(`AXN  > setTalkNow() > catch err`);
+    dispatch({
+      type: TALK_ERROR,
+      payload: err,
     });
   }
 };
