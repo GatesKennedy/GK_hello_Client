@@ -5,6 +5,7 @@ import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
 import {
   TALK_CHAT_LOAD,
   TALK_SET_NOW,
+  TALK_CHAT_UPDATE,
   TALK_LOAD,
   TALK_ERROR,
   TALK_CLEAR,
@@ -117,15 +118,35 @@ export const loadChat = () => async (dispatch) => {
 };
 //  Update User Chat [PRIVATE]
 //==========================
-export const updateTalkHistory = (talkObj) => (dispatch) => {
-  console.log(`AXN  > setTalkNow() > ENTER`);
+export const updateTalkHistory = (talk_id, msgObj) => async (dispatch) => {
+  console.log(`AXN  > updateTalkHistory() > ENTER`);
+
+  // const newMsg = {
+  //   body: { type: type, text: text },
+  //   send_id: String(profile.id),
+  //   seen: false,
+  //   //  !!!
+  //   // date_time: 'void'
+  // };
+  const config = {
+    headers: { 'Content-Type': 'application/json' },
+  };
+  const body = {
+    id: msgObj.send_id,
+    talkId: talk_id,
+    body: msgObj.body,
+    seen: msgObj.seen,
+  };
+  console.log('(._.) login() > body = ', body);
+
   try {
+    const { data } = await API.post('/api/chat/', body, config);
+    console.log(`AXN    updateTalkHistory() > returned > data: `, data);
     dispatch({
-      type: TALK_SET_NOW,
-      payload: talkObj,
+      type: TALK_CHAT_UPDATE,
     });
   } catch (err) {
-    console.log(`AXN  > setTalkNow() > catch err`);
+    console.log(`AXN  > updateTalkHistory() > catch err`);
     dispatch({
       type: TALK_ERROR,
       payload: err,

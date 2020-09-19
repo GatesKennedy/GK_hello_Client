@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
 import { setModal } from '../../1_Kingdom_____/UI/axn_ui';
-import { setTalkNow } from './axn_talk';
+import { setTalkNow, loadChat, updateTalkHistory } from './axn_talk';
 //  SOCKET
 import useChat from './_useChat';
 
@@ -29,11 +29,21 @@ const Talk = ({
   setModal,
   setAlert,
   setTalkNow,
+  loadChat,
+  updateTalkHistory,
   profile,
   talk: { access, chat, talkNow, loading },
   auth: { isAuthenticated, role },
 }) => {
   //  ~~ HOOKS ~~
+  useEffect(() => {
+    if (!isAuthenticated) {
+      setAlert('You gotta log in for that...', 'notice');
+      setModal(true, 'auth', "You'll need to log in for GK_Talk");
+    } else {
+      loadChat();
+    }
+  }, []);
   const { hookMsgs, initHookMsgs, sendMsg } = useChat();
   useEffect(() => {
     console.log(`$$$    initHookMsgs()`);
@@ -45,12 +55,6 @@ const Talk = ({
         );
   }, [talkNow]);
 
-  useEffect(() => {
-    if (!isAuthenticated) {
-      setAlert('You gotta log in for that...', 'notice');
-      setModal(true, 'auth', "You'll need to log in for GK_Talk");
-    }
-  }, []);
   //  FXN
   const handleSend = (type, text) => {
     console.log(`FXN    handleSend() > hookMsgs.length: `, hookMsgs.length);
@@ -64,6 +68,7 @@ const Talk = ({
     };
     console.log(`FXN    handleSend() > newMsg: `, newMsg);
     sendMsg(newMsg);
+    updateTalkHistory(talkNow.talk_id, newMsg);
   };
   return (
     <TalkCont id='Talk-TalkCont' className='bg-eerie'>
@@ -99,6 +104,10 @@ const mapStateToProps = (state) => ({
   talk: state.talk,
 });
 
-export default connect(mapStateToProps, { setAlert, setModal, setTalkNow })(
-  Talk
-);
+export default connect(mapStateToProps, {
+  setAlert,
+  setModal,
+  loadChat,
+  setTalkNow,
+  updateTalkHistory,
+})(Talk);
