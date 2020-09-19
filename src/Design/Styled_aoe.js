@@ -13,6 +13,18 @@ export const BodyCont = styled.section`
   padding: 0px;
 `;
 
+//  MENU
+export const MenuVert = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  justify-content: flex-start;
+
+  width: 16vw;
+  height: 100%;
+  padding: 4px;
+  margin: 2px;
+`;
 //  Select
 
 export const Act = styled.div`

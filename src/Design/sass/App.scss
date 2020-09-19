@@ -34,6 +34,16 @@ body {
   text-transform: none;
 }
 
+ul {
+  list-style-type: none;
+}
+.msg-them {
+  text-align: left;
+}
+.msg-self {
+  text-align: right;
+}
+
 a {
   text-decoration: none;
   padding-top: 4px;

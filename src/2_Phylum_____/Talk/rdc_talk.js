@@ -2,6 +2,7 @@ import {
   TALK_LOAD,
   TALK_UPDATE,
   TALK_CLEAR,
+  TALK_SET_NOW,
   TALK_CHAT_LOAD,
   TALK_CHAT_UPDATE,
   TALK_NOTE_LOAD,
@@ -11,6 +12,7 @@ import {
 
 const initialState = {
   access: [],
+  talkNow: {},
   chat: [],
   note: [],
   loading: true,
@@ -21,6 +23,12 @@ export default function (state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
+    case TALK_SET_NOW:
+      return {
+        ...state,
+        talkNow: payload,
+        loading: false,
+      };
     case TALK_LOAD:
       return {
         ...state,
@@ -32,7 +40,6 @@ export default function (state = initialState, action) {
       return {
         ...state,
         chat: payload,
-
         loading: false,
       };
     case TALK_CHAT_UPDATE:

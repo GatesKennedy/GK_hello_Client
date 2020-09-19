@@ -8,7 +8,6 @@ const useChat = () => {
 
   useEffect(() => {
     sockRef.current = sockClient(REACT_APP_API_URL);
-
     sockRef.current.on('sockMsg', ({ msg }) => {
       setHookMsgs((hookMsgs) => [...hookMsgs, msg]);
     });

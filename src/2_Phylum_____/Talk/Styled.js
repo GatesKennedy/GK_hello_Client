@@ -15,9 +15,10 @@ export const TalkCont = styled.div`
   min-height: 375px;
   min-width: 375px;
 `;
+
 export const ChatCont = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-self: center;
   justify-content: center;
   justify-items: center;
@@ -25,7 +26,9 @@ export const ChatCont = styled.div`
   align-content: center;
   align-items: center;
 
-  width: 50%;
+  position: relative;
+  left: -5vw;
+  width: 80%;
   height: 80%;
   min-width: 375px;
   min-height: 375px;
@@ -34,12 +37,47 @@ export const ChatCont = styled.div`
   border-radius: 18px;
   /* box-shadow: 1px 2px 2px #dddddd; */
 `;
+
+//  MENU
+export const RoomMenu = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  align-self: center;
+  align-content: center;
+  align-items: center;
+
+  width: 10vw;
+  height: 100%;
+
+  margin: 4px;
+`;
+export const RoomBtn = styled.button`
+  text-align: center;
+  margin: 4px;
+
+  height: 24px;
+  font-weight: bold;
+
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.06);
+    background-color: #bdbdbd; /* $aoe-gry3 */
+  }
+`;
+export const RoomCont = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  width: calc(100% - 10vw);
+`;
+
 export const ChatHead = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 96%;
   padding-bottom: 4px;
   font-size: calc(4px + 2vmin);
 `;
@@ -61,10 +99,7 @@ export const ChatDisp = styled.div`
 export const ChatDispInner = styled.div`
   display: flex;
   flex-direction: column;
-  justify-self: center;
-  justify-items: center;
-  align-self: center;
-  align-items: center;
+  text-align: center;
 
   border-radius: 6px 6px 0px 0px;
   padding: 4px;
@@ -82,7 +117,6 @@ export const ChatFormCont = styled.form`
   max-height: 72px;
 
   border-radius: 0px 0px 8px 8px;
-  margin: 4px;
   padding: 4px;
   font-size: calc(4px + 2vmin);
 `;
@@ -113,3 +147,5 @@ export const ChatFormBtn = styled.button`
 
   font-size: calc(9px + 1.5vmin);
 `;
+
+//========================

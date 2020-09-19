@@ -4,6 +4,7 @@ import { API } from '../../utils/API';
 import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
 import {
   TALK_CHAT_LOAD,
+  TALK_SET_NOW,
   TALK_LOAD,
   TALK_ERROR,
   TALK_CLEAR,
@@ -11,6 +12,29 @@ import {
 } from '../../Redux/axn_types';
 //  UTILS
 import setAuthToken from '../../1_Kingdom_____/Auth/utils/setAuthToken';
+import ChatBody from './ChatBody';
+
+//  Set Messages Now
+//==========================
+export const setTalkNow = (talkObj, msgObj) => (dispatch) => {
+  console.log(`AXN  > setTalkNow() > ENTER`);
+  try {
+    const payload = {
+      talkObj: talkObj,
+      msgObj: msgObj,
+    };
+    dispatch({
+      type: TALK_SET_NOW,
+      payload: payload,
+    });
+  } catch (err) {
+    console.log(`AXN  > setTalkNow() > catch err`);
+    dispatch({
+      type: TALK_ERROR,
+      payload: err,
+    });
+  }
+};
 
 //  Get Talk Access  [PRIVATE]
 //==========================
@@ -67,14 +91,21 @@ export const loadChat = () => async (dispatch) => {
   }
 
   try {
-    const res = await API.get('/api/chat/history');
-    console.log('(o_O) chatLoad() > resStr: ', res.data);
+    const { data } = await API.get('/api/chat/history');
+    console.log('(o_O) chatLoad() > resStr: ', data);
+    console.log('(o_O) chatLoad() > data[0]: ', data[0]);
 
     await dispatch({
       type: TALK_CHAT_LOAD,
-      payload: res.data,
+      payload: data,
     });
-    dispatch(setAlert(res.data.msg, 'success'));
+    if (data.length > 0) {
+      await dispatch({
+        type: TALK_SET_NOW,
+        payload: data[0],
+      });
+    }
+    dispatch(setAlert(data.msg, 'success'));
   } catch (err) {
     //  CATCH Error
     console.log('(-_-) chatLoad() > FAIL > errStr: ', err);
