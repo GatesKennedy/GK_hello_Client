@@ -12,7 +12,7 @@ const ChatForm = ({ onSendMessage: pushMessage }) => {
   //  FXN
   const handleSend = (e) => {
     e.preventDefault();
-    pushMessage({ msg });
+    pushMessage('chat', msg);
     setMsg('');
   };
   return (

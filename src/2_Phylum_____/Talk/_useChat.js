@@ -7,8 +7,12 @@ const useChat = () => {
   const sockRef = useRef();
 
   useEffect(() => {
+    console.log(`$$$    useChat() > hookMsgs: `, hookMsgs);
+  }, [hookMsgs]);
+
+  useEffect(() => {
     sockRef.current = sockClient(REACT_APP_API_URL);
-    sockRef.current.on('sockMsg', ({ msg }) => {
+    sockRef.current.on('sockMsg', (msg) => {
       setHookMsgs((hookMsgs) => [...hookMsgs, msg]);
     });
 
@@ -17,11 +21,15 @@ const useChat = () => {
     };
   }, []);
 
-  const sendMsg = ({ msg }) => {
-    sockRef.current.emit('sockMsg', { msg });
+  const initHookMsgs = (initMsgs) => {
+    setHookMsgs((hookMsgs) => [...hookMsgs, ...initMsgs]);
   };
 
-  return { hookMsgs, sendMsg };
+  const sendMsg = (msg) => {
+    sockRef.current.emit('sockMsg', msg);
+  };
+
+  return { hookMsgs, initHookMsgs, sendMsg };
 };
 
 export default useChat;

@@ -36,18 +36,42 @@ const Talk = ({
   //  ~~ STATE ~~
   const [talkObj, setTalkObj] = useState(talkNow);
   //  ~~ HOOKS ~~
-  const { hookMsgs, sendMsg } = useChat();
-
+  const { hookMsgs, initHookMsgs, sendMsg } = useChat();
   useEffect(() => {
-    console.log(`$$$    setTalkObj()`);
-    setTalkObj(talkNow);
+    console.log(`$$$    initHookMsgs()`);
+    Array.isArray(talkNow.msgobj)
+      ? initHookMsgs(talkNow.msgobj)
+      : console.log(
+          '$$$    initHookMsgs() > talkNow.msgobj is NOT an array: ',
+          talkNow.msgobj
+        );
+    // console.log(`$$$    setTalkObj()`);
+    // setTalkObj(talkNow);
   }, [talkNow]);
+
   useEffect(() => {
     if (!isAuthenticated) {
       setAlert('You gotta log in for that...', 'notice');
       setModal(true, 'auth', "You'll need to log in for GK_Talk");
     }
   }, []);
+  //  FXN
+  const handleSend = (type, text) => {
+    console.log(`FXN    handleSend() > hookMsgs.length: `, hookMsgs.length);
+    console.log(`FXN    handleSend() > profile.id: `, profile.id);
+    const newMsg = {
+      body: { type: type, text: text },
+      send_id: String(profile.id),
+      seen: false,
+      //  !!!
+      // date_time: 'void'
+    };
+    console.log(`FXN    handleSend() > newMsg: `, newMsg);
+    sendMsg(newMsg);
+    // hookMsgs.length < 1 ? {
+    // initHookMsgs()
+    // sendMsg(newMsg)} : sendMsg(newMsg);
+  };
   return (
     <TalkCont id='Talk-TalkCont' className='bg-eerie'>
       <ChatCont id='Talk-ChatCont' className='bg-blk1'>
@@ -66,13 +90,10 @@ const Talk = ({
             <div>{isAuthenticated ? profile.name : 'Guest'}</div>
           </ChatHead>
           <ChatDisp id='Talk-ChatDisp' className='bg-gry4'>
-            <ChatBody chatContent={talkObj.msgobj} userId={profile.id} />
+            <ChatBody chatContent={hookMsgs} userId={profile.id} />
+            {/* <ChatBody chatContent={talkObj.msgobj} userId={profile.id} /> */}
           </ChatDisp>
-          <ChatForm
-            onSendMessage={(msg) => {
-              sendMsg({ msg });
-            }}
-          />
+          <ChatForm onSendMessage={(type, text) => handleSend(type, text)} />
         </RoomCont>
       </ChatCont>
     </TalkCont>

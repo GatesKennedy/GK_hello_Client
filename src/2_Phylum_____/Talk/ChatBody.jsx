@@ -7,13 +7,15 @@ const ChatBody = ({ chatContent, userId }) => {
     <ChatDispInner id='Talk-ChatDispInner' className='bg-gry5'>
       <ul>
         {Array.isArray(chatContent) ? (
-          chatContent.map((msg) => (
+          chatContent.map((msg, index) => (
             <li
               className={
                 'msg-chat ' +
-                (msg.send_id === userId ? ' msg-self' : ' msg-them')
+                (String(msg.send_id) === userId ? ' msg-self' : ' msg-them')
               }
-              key={msg.id}
+              key={index}
+              // !!!
+              // key={msg.id}
             >
               {msg.body.text}
             </li>
