@@ -27,11 +27,8 @@ const Navi = ({
   const iconStyle = { height: '100%', width: 'auto', padding: '2px 3px' };
   //  EFFECT
   useEffect(() => {
-    // const url = String(window.location.href);
     const routeExt = String(window.location.href).split('/').pop();
     setNavNow(routeExt);
-
-    // setNavNow()
   }, []);
   return (
     <NaviCont id='Navi-NaviCont' className='bg-eerie'>

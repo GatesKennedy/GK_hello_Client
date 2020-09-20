@@ -17,12 +17,14 @@ const useChat = () => {
     });
 
     return () => {
+      setHookMsgs([]);
       sockRef.current.disconnect();
     };
   }, []);
 
   const initHookMsgs = (initMsgs) => {
-    setHookMsgs((hookMsgs) => [...hookMsgs, ...initMsgs]);
+    console.log(`$$$    useChat() > initHookMsgs()`);
+    setHookMsgs(() => [...initMsgs]);
   };
 
   const sendMsg = (msg) => {

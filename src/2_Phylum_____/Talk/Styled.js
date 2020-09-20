@@ -99,12 +99,15 @@ export const ChatDisp = styled.div`
 export const ChatDispInner = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
   text-align: center;
 
   border-radius: 6px 6px 0px 0px;
   padding: 4px;
   width: 100%;
   height: 100%;
+  max-height: 58vh;
 `;
 //  Chat Forms
 export const ChatFormCont = styled.form`

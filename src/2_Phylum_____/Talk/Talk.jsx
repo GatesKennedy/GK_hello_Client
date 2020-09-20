@@ -35,24 +35,33 @@ const Talk = ({
   talk: { access, chat, talkNow, loading },
   auth: { isAuthenticated, role },
 }) => {
+  //  UTIL
+  const checkReload = async (rdxState, hookState) => {
+    console.log(`UTL    checkReload > ENTER`);
+    console.log(`UTL    checkReload > rdxState: `, rdxState);
+    console.log(`UTL    checkReload > hookState: `, hookState);
+    if (hookState.length !== rdxState.length && Array.isArray(talkNow.msgobj)) {
+      console.log(`$$$    initHookMsgs()`);
+      initHookMsgs(talkNow.msgobj);
+    }
+  };
   //  ~~ HOOKS ~~
+  const { hookMsgs, initHookMsgs, sendMsg } = useChat();
   useEffect(() => {
     if (!isAuthenticated) {
       setAlert('You gotta log in for that...', 'notice');
       setModal(true, 'auth', "You'll need to log in for GK_Talk");
     } else {
-      loadChat();
+      console.log(`$$$  Load Talk > loadChat()`);
+      if (hookMsgs.length < 1) loadChat();
     }
-  }, []);
-  const { hookMsgs, initHookMsgs, sendMsg } = useChat();
+  }, [isAuthenticated]);
+
   useEffect(() => {
     console.log(`$$$    initHookMsgs()`);
-    Array.isArray(talkNow.msgobj)
-      ? initHookMsgs(talkNow.msgobj)
-      : console.log(
-          '$$$    initHookMsgs() > talkNow.msgobj is NOT an array: ',
-          talkNow.msgobj
-        );
+    if (Array.isArray(talkNow.msgobj) && hookMsgs.length < 1)
+      // initHookMsgs(talkNow.msgobj);
+      checkReload(talkNow.msgobj, hookMsgs);
   }, [talkNow]);
 
   //  FXN
@@ -73,14 +82,16 @@ const Talk = ({
   return (
     <TalkCont id='Talk-TalkCont' className='bg-eerie'>
       <ChatCont id='Talk-ChatCont' className='bg-blk1'>
-        <RoomMenu>
-          <ChatHead>Rooms</ChatHead>
-          {access.map((talkRoom) => (
-            <RoomBtn key={talkRoom.id} className=''>
-              {talkRoom.id.substring(0, 8)}
-            </RoomBtn>
-          ))}
-        </RoomMenu>{' '}
+        {profile.role === 'admin' && (
+          <RoomMenu>
+            <ChatHead>Rooms</ChatHead>
+            {access.map((talkRoom) => (
+              <RoomBtn key={talkRoom.id} className=''>
+                {talkRoom.id.substring(0, 8)}
+              </RoomBtn>
+            ))}
+          </RoomMenu>
+        )}
         <RoomCont>
           <ChatHead id='Talk-ChatHead'>
             <div className=''>Conor</div>
