@@ -8,6 +8,7 @@ import {
   TALK_NOTE_LOAD,
   TALK_NOTE_UPDATE,
   TALK_ERROR,
+  LOGOUT,
 } from '../../Redux/axn_types';
 
 const initialState = {
@@ -59,6 +60,15 @@ export default function (state = initialState, action) {
       return {
         ...state,
         error: payload,
+        loading: false,
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        access: [],
+        talkNow: {},
+        chat: [],
+        note: [],
         loading: false,
       };
     default:

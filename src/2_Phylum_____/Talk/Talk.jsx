@@ -1,5 +1,5 @@
 //  React
-import React, { useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 //  REDUX
 import { connect } from 'react-redux';
@@ -23,6 +23,7 @@ import {
 //  Asset
 import ChatBody from './ChatBody';
 import ChatForm from './ChatForm';
+import BackDrop from '../../1_Kingdom_____/UI/Backdrop';
 
 //==========================================================
 const Talk = ({
@@ -46,11 +47,12 @@ const Talk = ({
     }
   };
   //  ~~ HOOKS ~~
-  const { hookMsgs, initHookMsgs, sendMsg } = useChat();
+  const { hookMsgs, setHookMsgs, initHookMsgs, sendMsg } = useChat();
   useEffect(() => {
     if (!isAuthenticated) {
       setAlert('You gotta log in for that...', 'notice');
       setModal(true, 'auth', "You'll need to log in for GK_Talk");
+      setHookMsgs([]);
     } else {
       console.log(`$$$  Load Talk > loadChat()`);
       if (hookMsgs.length < 1) loadChat();
@@ -80,32 +82,35 @@ const Talk = ({
     updateTalkHistory(talkNow.talk_id, newMsg);
   };
   return (
-    <TalkCont id='Talk-TalkCont' className='bg-eerie'>
-      <ChatCont id='Talk-ChatCont' className='bg-blk1'>
-        {profile.role === 'admin' && (
-          <RoomMenu>
-            <ChatHead>Rooms</ChatHead>
-            {access.map((talkRoom) => (
-              <RoomBtn key={talkRoom.id} className=''>
-                {talkRoom.id.substring(0, 8)}
-              </RoomBtn>
-            ))}
-          </RoomMenu>
-        )}
-        <RoomCont>
-          <ChatHead id='Talk-ChatHead'>
-            <div className=''>Conor</div>
-            <div className='txt-pale'>.: GK_Talk :.</div>
-            <div>{isAuthenticated ? profile.name : 'Guest'}</div>
-          </ChatHead>
-          <ChatDisp id='Talk-ChatDisp' className='bg-gry4'>
-            <ChatBody chatContent={hookMsgs} userId={profile.id} />
-            {/* <ChatBody chatContent={talkObj.msgobj} userId={profile.id} /> */}
-          </ChatDisp>
-          <ChatForm onSendMessage={(type, text) => handleSend(type, text)} />
-        </RoomCont>
-      </ChatCont>
-    </TalkCont>
+    <Fragment>
+      {!isAuthenticated && <BackDrop />}
+      <TalkCont id='Talk-TalkCont' className='bg-eerie'>
+        <ChatCont id='Talk-ChatCont' className='bg-blk1'>
+          {profile.role === 'admin' && (
+            <RoomMenu>
+              <ChatHead>Rooms</ChatHead>
+              {access.map((talkRoom) => (
+                <RoomBtn key={talkRoom.id} className=''>
+                  {talkRoom.id.substring(0, 8)}
+                </RoomBtn>
+              ))}
+            </RoomMenu>
+          )}
+          <RoomCont>
+            <ChatHead id='Talk-ChatHead'>
+              <div className=''>Conor</div>
+              <div className='txt-pale'>.: GK_Talk :.</div>
+              <div>{isAuthenticated ? profile.name : 'Guest'}</div>
+            </ChatHead>
+            <ChatDisp id='Talk-ChatDisp' className='bg-gry4'>
+              <ChatBody chatContent={hookMsgs} userId={profile.id} />
+              {/* <ChatBody chatContent={talkObj.msgobj} userId={profile.id} /> */}
+            </ChatDisp>
+            <ChatForm onSendMessage={(type, text) => handleSend(type, text)} />
+          </RoomCont>
+        </ChatCont>
+      </TalkCont>
+    </Fragment>
   );
 };
 

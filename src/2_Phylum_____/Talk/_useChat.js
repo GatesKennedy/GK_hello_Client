@@ -31,7 +31,7 @@ const useChat = () => {
     sockRef.current.emit('sockMsg', msg);
   };
 
-  return { hookMsgs, initHookMsgs, sendMsg };
+  return { hookMsgs, setHookMsgs, initHookMsgs, sendMsg };
 };
 
 export default useChat;
