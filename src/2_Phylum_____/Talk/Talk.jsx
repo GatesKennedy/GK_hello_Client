@@ -64,7 +64,7 @@ const Talk = ({
     if (Array.isArray(talkNow.msgobj) && hookMsgs.length < 1)
       // initHookMsgs(talkNow.msgobj);
       checkReload(talkNow.msgobj, hookMsgs);
-  }, [talkNow]);
+  }, [talkNow.talk_id]);
 
   //  FXN
   const handleSend = (type, text) => {
@@ -81,6 +81,12 @@ const Talk = ({
     sendMsg(newMsg);
     updateTalkHistory(talkNow.talk_id, newMsg);
   };
+
+  const handleRoomChange = (roomId) => {
+    const newRoom = chat.filter((room) => room.talk_id === roomId);
+    console.log('FXN    handleRoom() > newRoom: ', newRoom);
+    setTalkNow(newRoom);
+  };
   return (
     <Fragment>
       {!isAuthenticated && <BackDrop />}
@@ -90,7 +96,11 @@ const Talk = ({
             <RoomMenu>
               <ChatHead>Rooms</ChatHead>
               {access.map((talkRoom) => (
-                <RoomBtn key={talkRoom.id} className=''>
+                <RoomBtn
+                  key={talkRoom.id}
+                  onClick={() => handleRoomChange(talkRoom.id)}
+                  className=''
+                >
                   {talkRoom.id.substring(0, 8)}
                 </RoomBtn>
               ))}
@@ -118,6 +128,7 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
   profile: state.profile.profile,
   talk: state.talk,
+  // talkNow: state.talk.talkNow,
 });
 
 export default connect(mapStateToProps, {

@@ -19,6 +19,8 @@ import ChatBody from './ChatBody';
 //==========================
 export const setTalkNow = (talkObj) => (dispatch) => {
   console.log(`AXN  > setTalkNow() > ENTER`);
+  console.log('AXN    setTalkNow() > talkObj: ', talkObj);
+
   try {
     dispatch({
       type: TALK_SET_NOW,
