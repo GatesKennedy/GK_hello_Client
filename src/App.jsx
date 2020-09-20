@@ -1,5 +1,10 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom';
 // === REDUX ===
 import { Provider } from 'react-redux';
 import store from './Redux/store';
@@ -24,14 +29,18 @@ import Profile from './2_Phylum_____/Profile/Profile';
 // }
 
 const App = () => {
+  //  Modal State
+  const [modalState, setModalState] = useState(false);
+  const [pageNow, setPageNow] = useState('about');
   //  Auth User
   useEffect(() => {
     console.log('$$$  > App > authUser() >');
     store.dispatch(authUser());
   }, []);
-  //  Modal State
-  const [modalState, setModalState] = useState(false);
-
+  // useEffect(() => {
+  //   console.log(`$$$    setPageNow()`);
+  //   return <Redirect to={`/${pageNow}`} />;
+  // }, [pageNow]);
   //  Phylum Obj
   const PhylumObj = [
     { route: '/about', name: 'about', private: false, show: 'I N F O' },
@@ -45,7 +54,12 @@ const App = () => {
         <Kingdom id='App-Kingdom' className='App bg-gry2'>
           <Alert />
           <Modal id='App-Modal' _setModalState={setModalState} />
-          <Navi id='App-Navi' _phylumObj={PhylumObj} />
+          <Navi
+            id='App-Navi'
+            _phylumObj={PhylumObj}
+            _pageNow={pageNow}
+            _setPageNow={setPageNow}
+          />
           <BodyCont id='App-BodyCont'>
             <Route exact path='/' component={About} />
             <Switch>

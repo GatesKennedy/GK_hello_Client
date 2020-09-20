@@ -1,6 +1,6 @@
 //  React
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 //  REDUX
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -14,10 +14,25 @@ import { IoMdLogIn, IoMdLogOut } from 'react-icons/io';
 import { FaHorseHead } from 'react-icons/fa';
 import { Gi3DStairs } from 'react-icons/gi';
 
-const Navi = ({ _phylumObj, setModal, username, isAuthenticated }) => {
+const Navi = ({
+  _pageNow,
+  _setPageNow,
+  _phylumObj,
+  setModal,
+  username,
+  isAuthenticated,
+}) => {
   //  STATE
-  const [navNow, setNavNow] = useState('about');
+  const [navNow, setNavNow] = useState();
   const iconStyle = { height: '100%', width: 'auto', padding: '2px 3px' };
+  //  EFFECT
+  useEffect(() => {
+    // const url = String(window.location.href);
+    const routeExt = String(window.location.href).split('/').pop();
+    setNavNow(routeExt);
+
+    // setNavNow()
+  }, []);
   return (
     <NaviCont id='Navi-NaviCont' className='bg-eerie'>
       <NaviLogo
@@ -44,15 +59,19 @@ const Navi = ({ _phylumObj, setModal, username, isAuthenticated }) => {
             id='NavBtn'
             className={
               navNow === phylum.name
-                ? 'bg-active txt-active'
+                ? // _pageNow === phylum.name
+                  'bg-active txt-active'
                 : 'bg-idle txt-idle'
             }
-            onClick={() => setNavNow(phylum.name)}
+            // onClick={() => _setPageNow(phylum.name)}
+            // onClick={() => setNavNow(phylum.name)}
           >
             <Link
               to={phylum.route}
+              // onClick={() => _setPageNow(phylum.name)}
               onClick={() => setNavNow(phylum.name)}
               className={
+                // _pageNow === phylum.name
                 navNow === phylum.name
                   ? 'bg-active txt-active'
                   : 'bg-idle txt-idle'
