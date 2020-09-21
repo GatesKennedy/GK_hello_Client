@@ -75,6 +75,40 @@ export const loadTalkAccess = () => async (dispatch) => {
 };
 //  Init User Chat  [PRIVATE]
 //==========================
+export const initTalk = () => async (dispatch) => {
+  console.log('(O_O) chatLoad() > ENTER FXN');
+
+  try {
+    const { data } = await API.get('/api/chat');
+    console.log('(o_O) chatLoad() > resStr: ', data);
+    console.log('(o_O) chatLoad() > data[0]: ', data[0]);
+
+    await dispatch({
+      type: TALK_CHAT_LOAD,
+      payload: data,
+    });
+    if (data.length > 0) {
+      await dispatch({
+        type: TALK_SET_NOW,
+        payload: data[0],
+      });
+    }
+    dispatch(setAlert(data.msg, 'success'));
+  } catch (err) {
+    //  CATCH Error
+    console.log('(-_-) chatLoad() > FAIL > errStr: ', err);
+    const errors = err.errors;
+    if (Array.isArray(errors)) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, 'warn')));
+    }
+    dispatch({
+      type: TALK_ERROR,
+      payload: errors,
+    });
+  }
+};
+//  Load User Chat  [PRIVATE]
+//==========================
 export const loadChat = () => async (dispatch) => {
   console.log('(O_O) chatLoad() > ENTER FXN');
   //  !!! > should be middleware function
@@ -122,7 +156,7 @@ export const loadChat = () => async (dispatch) => {
 //==========================
 export const updateTalkHistory = (talk_id, msgObj) => async (dispatch) => {
   console.log(`AXN  > updateTalkHistory() > ENTER`);
-
+  setAuthToken(localStorage.token);
   // const newMsg = {
   //   body: { type: type, text: text },
   //   send_id: String(profile.id),

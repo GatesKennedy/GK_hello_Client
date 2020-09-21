@@ -12,7 +12,7 @@ const useChat = () => {
 
   useEffect(() => {
     sockRef.current = sockClient(REACT_APP_API_URL);
-    sockRef.current.on('sockMsg', (msg) => {
+    sockRef.current.on('message', (msg) => {
       setHookMsgs((hookMsgs) => [...hookMsgs, msg]);
     });
 
@@ -28,7 +28,7 @@ const useChat = () => {
   };
 
   const sendMsg = (msg) => {
-    sockRef.current.emit('sockMsg', msg);
+    sockRef.current.emit('message', msg);
   };
 
   return { hookMsgs, setHookMsgs, initHookMsgs, sendMsg };

@@ -13,6 +13,7 @@ import {
 
 const initialState = {
   access: [],
+  talkNowId: '',
   talkNow: {},
   chat: [],
   note: [],
@@ -28,6 +29,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         talkNow: payload,
+        // talkNowId: payload.
         loading: false,
       };
     case TALK_LOAD:
