@@ -73,40 +73,7 @@ export const loadTalkAccess = () => async (dispatch) => {
     });
   }
 };
-//  Init User Chat  [PRIVATE]
-//==========================
-export const initTalk = () => async (dispatch) => {
-  console.log('(O_O) chatLoad() > ENTER FXN');
 
-  try {
-    const { data } = await API.get('/api/chat');
-    console.log('(o_O) chatLoad() > resStr: ', data);
-    console.log('(o_O) chatLoad() > data[0]: ', data[0]);
-
-    await dispatch({
-      type: TALK_CHAT_LOAD,
-      payload: data,
-    });
-    if (data.length > 0) {
-      await dispatch({
-        type: TALK_SET_NOW,
-        payload: data[0],
-      });
-    }
-    dispatch(setAlert(data.msg, 'success'));
-  } catch (err) {
-    //  CATCH Error
-    console.log('(-_-) chatLoad() > FAIL > errStr: ', err);
-    const errors = err.errors;
-    if (Array.isArray(errors)) {
-      errors.forEach((error) => dispatch(setAlert(error.msg, 'warn')));
-    }
-    dispatch({
-      type: TALK_ERROR,
-      payload: errors,
-    });
-  }
-};
 //  Load User Chat  [PRIVATE]
 //==========================
 export const loadChat = () => async (dispatch) => {
@@ -155,15 +122,8 @@ export const loadChat = () => async (dispatch) => {
 //  Update User Chat [PRIVATE]
 //==========================
 export const updateTalkHistory = (talk_id, msgObj) => async (dispatch) => {
-  console.log(`AXN  > updateTalkHistory() > ENTER`);
+  console.log(`AXN    updateTalkHistory() > ENTER`);
   setAuthToken(localStorage.token);
-  // const newMsg = {
-  //   body: { type: type, text: text },
-  //   send_id: String(profile.id),
-  //   seen: false,
-  //   //  !!!
-  //   // date_time: 'void'
-  // };
   const config = {
     headers: { 'Content-Type': 'application/json' },
   };
@@ -173,11 +133,11 @@ export const updateTalkHistory = (talk_id, msgObj) => async (dispatch) => {
     body: msgObj.body,
     seen: msgObj.seen,
   };
-  console.log('(._.) login() > body = ', body);
+  console.log('AXN    updateTalkHistory() > req body = ', body.body);
 
   try {
     const { data } = await API.post('/api/chat/', body, config);
-    console.log(`AXN    updateTalkHistory() > returned > data: `, data);
+    console.log(`AXN    updateTalkHistory() > returned > data: `, data[0].body);
     dispatch({
       type: TALK_CHAT_UPDATE,
     });

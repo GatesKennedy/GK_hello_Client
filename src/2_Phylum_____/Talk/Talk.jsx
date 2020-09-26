@@ -24,6 +24,7 @@ import {
 import ChatBody from './ChatBody';
 import ChatForm from './ChatForm';
 import BackDrop from '../../1_Kingdom_____/UI/Backdrop';
+import { REGISTER_ERROR } from '../../Redux/axn_types';
 
 //==========================================================
 const Talk = ({
@@ -36,56 +37,64 @@ const Talk = ({
   talk: { access, chat, talkNow, loading },
   auth: { isAuthenticated, role },
 }) => {
+  const talkId = talkNow.talk_id;
+  const userId = profile.id;
+  const [roomName, setRoomName] = useState();
   //  UTIL
-  const checkReload = async (rdxState, hookState) => {
-    console.log(`UTL    checkReload > ENTER`);
-    console.log(`UTL    checkReload > rdxState: `, rdxState);
-    console.log(`UTL    checkReload > hookState: `, hookState);
-    if (hookState.length !== rdxState.length && Array.isArray(talkNow.msgobj)) {
-      console.log(`$$$    initHookMsgs()`);
-      initHookMsgs(talkNow.msgobj);
-    }
-  };
+  // const checkReload = (rdxState, hookState) => {
+  //   console.log(`UTL    checkReload > ENTER`);
+  //   console.log(`UTL    checkReload > rdxState: `, rdxState);
+  //   console.log(`UTL    checkReload > hookState: `, hookState);
+  //   if (hookState.length !== rdxState.length && Array.isArray(talkNow.msgobj)) {
+  //     console.log(`UTL    initTalkConnect()`);
+  //     initTalkConnect(profile.id, talkNow.talk_id);
+  //   }
+  // };
   //  ~~ HOOKS ~~
-  const { hookMsgs, setHookMsgs, initHookMsgs, sendMsg } = useChat();
+  const { hookMsgs, setHookMsgs, registerClient, initTalk, sendMsg } = useChat(
+    talkId
+  );
+  //---------
   useEffect(() => {
     if (!isAuthenticated) {
       setAlert('You gotta log in for that...', 'notice');
       setModal(true, 'auth', "You'll need to log in for GK_Talk");
       setHookMsgs([]);
     } else {
-      console.log(`$$$  Load Talk > loadChat()`);
+      console.log(`$$$    Talk > loadChat()`);
       if (hookMsgs.length < 1) loadChat();
     }
-  }, [isAuthenticated]);
+  }, []);
 
   useEffect(() => {
-    console.log(`$$$    initHookMsgs()`);
     if (Array.isArray(talkNow.msgobj) && hookMsgs.length < 1)
-      // initHookMsgs(talkNow.msgobj);
-      checkReload(talkNow.msgobj, hookMsgs);
+      // checkReload(talkNow.msgobj, hookMsgs);
+      registerClient(profile.id, talkNow.talk_id);
   }, [talkNow.talk_id]);
 
   //  FXN
   const handleSend = (type, text) => {
-    console.log(`FXN    handleSend() > hookMsgs.length: `, hookMsgs.length);
-    console.log(`FXN    handleSend() > profile.id: `, profile.id);
-    const newMsg = {
+    const msgObj = {
       body: { type: type, text: text },
+      talkId: talkId,
       send_id: String(profile.id),
       seen: false,
       //  !!!
       // date_time: 'void'
     };
-    console.log(`FXN    handleSend() > newMsg: `, newMsg);
-    sendMsg(newMsg);
-    updateTalkHistory(talkNow.talk_id, newMsg);
+    console.log(`FXN    handleSend() > newMsg: `, msgObj);
+    sendMsg(msgObj);
+    updateTalkHistory(talkId, msgObj);
   };
 
   const handleRoomChange = (roomId) => {
-    const newRoom = chat.filter((room) => room.talk_id === roomId);
+    const newRoom = chat.find((room) => room.talk_id === roomId);
     console.log('FXN    handleRoom() > newRoom: ', newRoom);
     setTalkNow(newRoom);
+    const newName = access
+      .find((room) => room.id === roomId)
+      .members.find((member) => member.id !== profile.id).name;
+    setRoomName(newName);
   };
   return (
     <Fragment>
@@ -101,14 +110,17 @@ const Talk = ({
                   onClick={() => handleRoomChange(talkRoom.id)}
                   className=''
                 >
-                  {talkRoom.id.substring(0, 8)}
+                  {/* {talkRoom.id.substring(0, 8)} */}
+                  {talkRoom.members
+                    .filter((member) => member.id !== profile.id)
+                    .map((member) => `${member.name}`)}
                 </RoomBtn>
               ))}
             </RoomMenu>
           )}
           <RoomCont>
             <ChatHead id='Talk-ChatHead'>
-              <div className=''>Conor</div>
+              <div className=''>{roomName}</div>
               <div className='txt-pale'>.: GK_Talk :.</div>
               <div>{isAuthenticated ? profile.name : 'Guest'}</div>
             </ChatHead>

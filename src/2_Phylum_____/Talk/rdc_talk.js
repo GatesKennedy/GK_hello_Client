@@ -29,7 +29,6 @@ export default function (state = initialState, action) {
       return {
         ...state,
         talkNow: payload,
-        // talkNowId: payload.
         loading: false,
       };
     case TALK_LOAD:
@@ -39,7 +38,6 @@ export default function (state = initialState, action) {
         loading: false,
       };
     case TALK_CHAT_LOAD:
-    case TALK_CHAT_UPDATE:
       return {
         ...state,
         chat: payload,
@@ -48,7 +46,7 @@ export default function (state = initialState, action) {
     case TALK_CHAT_UPDATE:
       return {
         ...state,
-        chat: payload,
+
         loading: false,
       };
     case TALK_CLEAR:
