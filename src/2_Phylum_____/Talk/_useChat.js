@@ -3,48 +3,45 @@ import io from 'socket.io-client';
 const { REACT_APP_API_URL } = process.env;
 
 const useChat = (talkId) => {
-  const [hookMsgs, setHookMsgs] = useState([]);
+  const [chatContent, setChatContent] = useState([]);
   const sockRef = useRef();
-  const roomId = talkId;
-  console.log('talkId is a ', typeof talkId);
-
-  useEffect(() => {
-    console.log(`$$$    useChat() > hookMsgs: `, hookMsgs);
-  }, [hookMsgs]);
 
   useEffect(() => {
     sockRef.current = io(REACT_APP_API_URL);
 
-    sockRef.current.on('message', (msgObj) => {
-      console.log(`$$$  useChat() > .on('message', ${msgObj.body.text})`);
-      setHookMsgs((hookMsgs) => [...hookMsgs, msgObj]);
+    sockRef.current.on('chatMsg', (msgObj) => {
+      console.log(`$$$  useChat() > .on('chatMsg', cb) > 
+          talkId = ${msgObj.talkId}`);
+      setChatContent((chatContent) => [...chatContent, msgObj]);
+    });
+    sockRef.current.on('status', (res) => {
+      console.log(`$$$  useChat() > .on('status', cb)`);
+      console.log(res);
     });
 
     return () => {
-      setHookMsgs([]);
+      // setHookMsgs([]);
       sockRef.current.disconnect();
     };
   }, []);
 
   const registerClient = (userId, talkId) => {
-    console.log(`$$$    useChat() > .emit('register', cb)`);
+    console.log(`$$$    useChat() > .emit('register', {userId, talkId})`);
+
     sockRef.current.emit('register', { userId, talkId });
   };
   const initTalk = (userId, talkId, talkHistory) => {
-    console.log(`$$$    useChat() > .emit('init-talk', cb)`);
-    sockRef.current.emit('init-talk', talkId);
-  };
-  const initHistory = (talkId) => {
-    console.log(`$$$    useChat() > .emit('init-talk', cb)`);
+    console.log(`$$$    useChat() > .emit('init-talk', talkId)`);
+
     sockRef.current.emit('init-talk', talkId);
   };
 
   const sendMsg = (msgObj) => {
-    console.log(`$$$    useChat() > .emit('message', cb)`);
-    sockRef.current.emit('message', msgObj);
+    console.log(`$$$    useChat() > .emit('chatMsg', msgObj)`);
+    sockRef.current.emit('chatMsg', msgObj);
   };
 
-  return { hookMsgs, setHookMsgs, registerClient, initTalk, sendMsg };
+  return { chatContent, setChatContent, registerClient, initTalk, sendMsg };
 };
 
 export default useChat;

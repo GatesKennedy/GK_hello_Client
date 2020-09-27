@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
 import { setModal } from '../../1_Kingdom_____/UI/axn_ui';
-import { setTalkNow, loadChat, updateTalkHistory } from './axn_talk';
+import { setTalkNow, loadChat, postTalkHistory } from './axn_talk';
 //  SOCKET
 import useChat from './_useChat';
 
@@ -32,14 +32,15 @@ const Talk = ({
   setAlert,
   setTalkNow,
   loadChat,
-  updateTalkHistory,
+  postTalkHistory,
   user,
   talk: { access, chat, talkNow, loading },
   auth: { isAuthenticated, role },
 }) => {
   const talkId = talkNow.talk_id;
   const { id: userId, name: userName, role: userRole } = user;
-  const [roomName, setRoomName] = useState();
+  const [roomName, setRoomName] = useState(talkId);
+
   //  UTIL
   const checkReload = (rdxState, hookState) => {
     console.log(`UTL    checkReload > ENTER`);
@@ -51,24 +52,31 @@ const Talk = ({
     }
   };
   //  ~~ HOOKS ~~
-  const { hookMsgs, setHookMsgs, registerClient, initTalk, sendMsg } = useChat(
-    talkId
-  );
-  //---------
   useEffect(() => {
     if (!isAuthenticated) {
       setAlert('You gotta log in for that...', 'notice');
       setModal(true, 'auth', "You'll need to log in for GK_Talk");
-      setHookMsgs([]);
     } else {
-      console.log(`$$$    Talk > loadChat()`);
-      if (hookMsgs.length < 1) loadChat();
+      if (chatContent.length < 1) {
+        console.log(`$$$    Talk > loadChat()`);
+        loadChat();
+      }
     }
   }, []);
-
+  //---------
   useEffect(() => {
-    if (Array.isArray(talkNow.msgobj) && hookMsgs.length < 1)
-      checkReload(talkNow.msgobj, hookMsgs);
+    setChatContent(talkNow.msgobj);
+  }, [talkNow]);
+  //----------
+  const {
+    chatContent,
+    setChatContent,
+    registerClient,
+    initTalk,
+    sendMsg,
+  } = useChat(talkId);
+  //----------
+  useEffect(() => {
     registerClient(userId, talkNow.talk_id);
   }, [talkNow.talk_id]);
 
@@ -77,12 +85,12 @@ const Talk = ({
     const msgObj = {
       body: { type: type, text: text },
       talkId: talkId,
-      send_id: String(userId),
+      send_id: userId,
       seen: false,
     };
     console.log(`FXN    handleSend() > newMsg: `, msgObj);
     sendMsg(msgObj);
-    updateTalkHistory(talkId, msgObj);
+    postTalkHistory(talkId, msgObj);
   };
 
   const handleRoomChange = (roomId) => {
@@ -123,7 +131,7 @@ const Talk = ({
               <div>{isAuthenticated ? userName : 'Guest'}</div>
             </ChatHead>
             <ChatDisp id='Talk-ChatDisp' className='bg-gry4'>
-              <ChatBody chatContent={hookMsgs} userId={userId} />
+              <ChatBody chatContent={chatContent} userId={userId} />
               {/* <ChatBody chatContent={talkObj.msgobj} userId={userId} /> */}
             </ChatDisp>
             <ChatForm onSendMessage={(type, text) => handleSend(type, text)} />
@@ -146,5 +154,5 @@ export default connect(mapStateToProps, {
   setModal,
   loadChat,
   setTalkNow,
-  updateTalkHistory,
+  postTalkHistory,
 })(Talk);

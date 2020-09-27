@@ -22,11 +22,9 @@ import Hello from './2_Phylum_____/Hello/Hello';
 import About from './2_Phylum_____/About/About';
 import Talk from './2_Phylum_____/Talk/Talk';
 import Profile from './2_Phylum_____/Profile/Profile';
-
-// //  Set Headers with 'x-auth-token': 'token'
-// if (localStorage.token) {
-//   setAuthToken(localStorage.token);
-// }
+// === Socket.io ===
+import io from 'socket.io-client';
+const { REACT_APP_API_URL } = process.env;
 
 const App = () => {
   //  Modal State

@@ -119,10 +119,10 @@ export const loadChat = () => async (dispatch) => {
     });
   }
 };
-//  Update User Chat [PRIVATE]
+//  Post User Chat [PRIVATE]
 //==========================
-export const updateTalkHistory = (talk_id, msgObj) => async (dispatch) => {
-  console.log(`AXN    updateTalkHistory() > ENTER`);
+export const postTalkHistory = (talk_id, msgObj) => async (dispatch) => {
+  console.log(`AXN    postTalkHistory() > ENTER`);
   setAuthToken(localStorage.token);
   const config = {
     headers: { 'Content-Type': 'application/json' },
@@ -133,16 +133,41 @@ export const updateTalkHistory = (talk_id, msgObj) => async (dispatch) => {
     body: msgObj.body,
     seen: msgObj.seen,
   };
-  console.log('AXN    updateTalkHistory() > req body = ', body.body);
+  console.log('AXN    postTalkHistory() > req body = ', body.body);
 
   try {
     const { data } = await API.post('/api/chat/', body, config);
-    console.log(`AXN    updateTalkHistory() > returned > data: `, data[0].body);
+    console.log(`AXN    postTalkHistory() > returned > data: `, data[0].body);
     dispatch({
       type: TALK_CHAT_UPDATE,
     });
   } catch (err) {
-    console.log(`AXN  > updateTalkHistory() > catch err`);
+    console.log(`AXN  > postTalkHistory() > catch err`);
+    dispatch({
+      type: TALK_ERROR,
+      payload: err,
+    });
+  }
+};
+//  Update User Chat [PRIVATE]
+//==========================
+export const setChatHistory = (talk_id, msgObj) => async (dispatch) => {
+  console.log(`AXN    setChatHistory() > ENTER`);
+
+  try {
+    const chatObj = {
+      id: msgObj.send_id,
+      talkId: talk_id,
+      body: msgObj.body,
+      seen: msgObj.seen,
+    };
+    console.log('AXN    setChatHistory() > chatObj: ', chatObj);
+
+    dispatch({
+      type: TALK_CHAT_UPDATE,
+    });
+  } catch (err) {
+    console.log(`AXN  > setChatHistory() > catch err`);
     dispatch({
       type: TALK_ERROR,
       payload: err,
