@@ -14,23 +14,11 @@ const useChat = (talkId) => {
 
   useEffect(() => {
     sockRef.current = io(REACT_APP_API_URL);
-    sockRef.current.on('connect', (talkId) => {
-      console.log(`$$$    useChat() > .on('connect', cb) > talkId: `, talkId);
-      registerClient('userBlahD', talkId);
-    });
 
     sockRef.current.on('message', (msgObj) => {
       console.log(`$$$  useChat() > .on('message', ${msgObj.body.text})`);
       setHookMsgs((hookMsgs) => [...hookMsgs, msgObj]);
     });
-    sockRef.current.on('init-talk', (talkHistory) => {
-      console.log(
-        `$$$    useChat() > .on('init-talk') > talkHistory: `,
-        talkHistory
-      );
-      setHookMsgs((hookMsgs) => [...hookMsgs, ...talkHistory.msgobj]);
-    });
-    console.log(`$$$    useChat() > isConnected? `, sockRef.current.connected);
 
     return () => {
       setHookMsgs([]);
@@ -42,7 +30,11 @@ const useChat = (talkId) => {
     console.log(`$$$    useChat() > .emit('register', cb)`);
     sockRef.current.emit('register', { userId, talkId });
   };
-  const initTalk = (talkId) => {
+  const initTalk = (userId, talkId, talkHistory) => {
+    console.log(`$$$    useChat() > .emit('init-talk', cb)`);
+    sockRef.current.emit('init-talk', talkId);
+  };
+  const initHistory = (talkId) => {
     console.log(`$$$    useChat() > .emit('init-talk', cb)`);
     sockRef.current.emit('init-talk', talkId);
   };

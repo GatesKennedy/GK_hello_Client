@@ -38,18 +38,18 @@ const Talk = ({
   auth: { isAuthenticated, role },
 }) => {
   const talkId = talkNow.talk_id;
-  const userId = profile.id;
+  const { id: userId, name: userName, role: userRole } = profile;
   const [roomName, setRoomName] = useState();
   //  UTIL
-  // const checkReload = (rdxState, hookState) => {
-  //   console.log(`UTL    checkReload > ENTER`);
-  //   console.log(`UTL    checkReload > rdxState: `, rdxState);
-  //   console.log(`UTL    checkReload > hookState: `, hookState);
-  //   if (hookState.length !== rdxState.length && Array.isArray(talkNow.msgobj)) {
-  //     console.log(`UTL    initTalkConnect()`);
-  //     initTalkConnect(profile.id, talkNow.talk_id);
-  //   }
-  // };
+  const checkReload = (rdxState, hookState) => {
+    console.log(`UTL    checkReload > ENTER`);
+    console.log(`UTL    checkReload > rdxState: `, rdxState);
+    console.log(`UTL    checkReload > hookState: `, hookState);
+    if (hookState.length !== rdxState.length && Array.isArray(talkNow.msgobj)) {
+      console.log(`UTL    initTalkConnect()`);
+      initTalk(userId, talkNow.talk_id);
+    }
+  };
   //  ~~ HOOKS ~~
   const { hookMsgs, setHookMsgs, registerClient, initTalk, sendMsg } = useChat(
     talkId
@@ -68,8 +68,8 @@ const Talk = ({
 
   useEffect(() => {
     if (Array.isArray(talkNow.msgobj) && hookMsgs.length < 1)
-      // checkReload(talkNow.msgobj, hookMsgs);
-      registerClient(profile.id, talkNow.talk_id);
+      checkReload(talkNow.msgobj, hookMsgs);
+    registerClient(userId, talkNow.talk_id);
   }, [talkNow.talk_id]);
 
   //  FXN
@@ -77,10 +77,8 @@ const Talk = ({
     const msgObj = {
       body: { type: type, text: text },
       talkId: talkId,
-      send_id: String(profile.id),
+      send_id: String(userId),
       seen: false,
-      //  !!!
-      // date_time: 'void'
     };
     console.log(`FXN    handleSend() > newMsg: `, msgObj);
     sendMsg(msgObj);
@@ -93,7 +91,7 @@ const Talk = ({
     setTalkNow(newRoom);
     const newName = access
       .find((room) => room.id === roomId)
-      .members.find((member) => member.id !== profile.id).name;
+      .members.find((member) => member.id !== userId).name;
     setRoomName(newName);
   };
   return (
@@ -101,18 +99,18 @@ const Talk = ({
       {!isAuthenticated && <BackDrop />}
       <TalkCont id='Talk-TalkCont' className='bg-eerie'>
         <ChatCont id='Talk-ChatCont' className='bg-blk1'>
-          {profile.role === 'admin' && (
+          {userRole === 'admin' && (
             <RoomMenu>
               <ChatHead>Rooms</ChatHead>
               {access.map((talkRoom) => (
                 <RoomBtn
                   key={talkRoom.id}
                   onClick={() => handleRoomChange(talkRoom.id)}
-                  className=''
+                  className={talkRoom.id === talkId ? 'bg-gry3' : ''}
                 >
                   {/* {talkRoom.id.substring(0, 8)} */}
                   {talkRoom.members
-                    .filter((member) => member.id !== profile.id)
+                    .filter((member) => member.id !== userId)
                     .map((member) => `${member.name}`)}
                 </RoomBtn>
               ))}
@@ -122,11 +120,11 @@ const Talk = ({
             <ChatHead id='Talk-ChatHead'>
               <div className=''>{roomName}</div>
               <div className='txt-pale'>.: GK_Talk :.</div>
-              <div>{isAuthenticated ? profile.name : 'Guest'}</div>
+              <div>{isAuthenticated ? userName : 'Guest'}</div>
             </ChatHead>
             <ChatDisp id='Talk-ChatDisp' className='bg-gry4'>
-              <ChatBody chatContent={hookMsgs} userId={profile.id} />
-              {/* <ChatBody chatContent={talkObj.msgobj} userId={profile.id} /> */}
+              <ChatBody chatContent={hookMsgs} userId={userId} />
+              {/* <ChatBody chatContent={talkObj.msgobj} userId={userId} /> */}
             </ChatDisp>
             <ChatForm onSendMessage={(type, text) => handleSend(type, text)} />
           </RoomCont>
