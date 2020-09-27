@@ -6,8 +6,14 @@ import {
 } from '../../Redux/axn_types';
 
 const initialState = {
-  profile: {},
-  user: {},
+  name: null,
+  email: null,
+  entity: null,
+  location: null,
+  puzzle: null,
+  thought: null,
+  web_url: null,
+  img_url: null,
   loading: true,
   error: {},
 };
@@ -20,8 +26,14 @@ export default function (state = initialState, action) {
     case PROFILE_UPDATE:
       return {
         ...state,
-        profile: payload.profile,
-        user: payload.user,
+        name: payload.name,
+        email: payload.email,
+        entity: payload.entity,
+        location: payload.location,
+        puzzle: payload.puzzle,
+        thought: payload.thought,
+        web_url: payload.web_url,
+        img_url: payload.img_url,
         loading: false,
       };
     case PROFILE_CLEAR:

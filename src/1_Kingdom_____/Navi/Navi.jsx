@@ -14,14 +14,7 @@ import { IoMdLogIn, IoMdLogOut } from 'react-icons/io';
 import { FaHorseHead } from 'react-icons/fa';
 import { Gi3DStairs } from 'react-icons/gi';
 
-const Navi = ({
-  _pageNow,
-  _setPageNow,
-  _phylumObj,
-  setModal,
-  username,
-  isAuthenticated,
-}) => {
+const Navi = ({ _phylumObj, setModal, profile, isAuthenticated }) => {
   //  STATE
   const [navNow, setNavNow] = useState();
   const iconStyle = { height: '100%', width: 'auto', padding: '2px 3px' };
@@ -46,7 +39,7 @@ const Navi = ({
           />
         </Btn>{' '}
         <IconText id='Navi-IconText'>
-          {isAuthenticated ? <div>{username.name}</div> : ''}
+          {isAuthenticated ? <div>{profile.name}</div> : ''}
         </IconText>
       </NaviLogo>
       <NaviBtns id='navi-btns'>
@@ -99,7 +92,7 @@ Navi.propTypes = {
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
-  username: state.profile.user,
+  profile: state.profile,
 });
 
 export default connect(mapStateToProps, { setModal })(Navi);

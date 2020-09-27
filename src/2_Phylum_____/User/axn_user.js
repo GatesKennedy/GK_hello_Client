@@ -26,20 +26,31 @@ export const loadUser = (profile) => async (dispatch) => {
   try {
     //  AUTH & LOAD USER
     const { data } = await API.get('api/user/');
-    console.log('(^=^) authUser() > LOADED_USER: \n', data);
+    console.log('AXN    authUser() > LOADED_USER: \n', data);
 
-    const payload = {
-      user: { id: data.id, name: data.name },
-      profile: data,
-      token: localStorage.token,
+    const profileObj = {
+      name: data.name,
+      email: data.email,
+      entity: data.entity,
+      location: data.location,
+      puzzle: data.puzzle,
+      thought: data.thought,
+      web_url: data.website,
+      img_url: data.img_url,
     };
+    const userObj = {
+      id: data.id,
+      name: data.name,
+      role: data.role,
+    };
+
     dispatch({
       type: USER_LOAD,
-      payload: payload,
+      payload: userObj,
     });
     dispatch({
       type: PROFILE_LOAD,
-      payload: payload,
+      payload: profileObj,
     });
     console.log('(^=^) authUser() > DONE');
   } catch (err) {

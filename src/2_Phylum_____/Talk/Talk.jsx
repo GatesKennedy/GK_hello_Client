@@ -33,12 +33,12 @@ const Talk = ({
   setTalkNow,
   loadChat,
   updateTalkHistory,
-  profile,
+  user,
   talk: { access, chat, talkNow, loading },
   auth: { isAuthenticated, role },
 }) => {
   const talkId = talkNow.talk_id;
-  const { id: userId, name: userName, role: userRole } = profile;
+  const { id: userId, name: userName, role: userRole } = user;
   const [roomName, setRoomName] = useState();
   //  UTIL
   const checkReload = (rdxState, hookState) => {
@@ -136,7 +136,7 @@ const Talk = ({
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
-  profile: state.profile.profile,
+  user: state.user,
   talk: state.talk,
   // talkNow: state.talk.talkNow,
 });

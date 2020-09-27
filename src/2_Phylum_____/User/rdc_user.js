@@ -8,7 +8,8 @@ import {
 
 const initialState = {
   id: null,
-  username: null,
+  name: null,
+  role: null,
   email: null,
   loading: true,
   error: {},
@@ -23,15 +24,17 @@ export default function (state = initialState, action) {
       return {
         ...state,
         id: payload.id,
-        username: payload.username,
-        // email:
+        name: payload.name,
+        role: payload.role,
+        email: payload.email,
         loading: false,
       };
     case USER_CLEAR:
       return {
         ...state,
         id: null,
-        username: null,
+        name: null,
+        role: null,
         email: null,
         loading: false,
       };
