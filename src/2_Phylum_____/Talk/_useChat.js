@@ -4,14 +4,28 @@ const { REACT_APP_API_URL } = process.env;
 
 const useChat = (talkId) => {
   const [chatContent, setChatContent] = useState([]);
+  //
   const sockRef = useRef();
+  useEffect(() => {
+    console.log('$$$    chatContent: ', chatContent);
+  }, [chatContent]);
 
   useEffect(() => {
     sockRef.current = io(REACT_APP_API_URL);
+    console.log('$$$$$    chatContent: ', chatContent);
 
     sockRef.current.on('chatMsg', (msgObj) => {
-      console.log(`$$$  useChat() > .on('chatMsg', cb) > 
-          talkId = ${msgObj.talkId}`);
+      console.log(
+        `$$$  useChat() > .on('chatMsg', cb) > 
+      talkId = ${msgObj.talkId}`
+      );
+      console.log(`$$$   msgObj: `, msgObj);
+      console.log(`$$$   chatContent: `, chatContent);
+
+      const newContent = chatContent.find(
+        (chat) => chat.talk_id === msgObj.talkId
+      );
+      newContent && console.log('$$$    newContent: ', newContent);
       setChatContent((chatContent) => [...chatContent, msgObj]);
     });
     sockRef.current.on('status', (res) => {

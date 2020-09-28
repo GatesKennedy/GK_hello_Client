@@ -46,6 +46,7 @@ export default function (state = initialState, action) {
     case TALK_CHAT_UPDATE:
       return {
         ...state,
+        chat: payload,
         loading: false,
       };
     case TALK_CLEAR:

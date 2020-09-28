@@ -36,23 +36,13 @@ const Talk = ({
   talk: { access, chat, loading },
   auth: { isAuthenticated, role },
 }) => {
-  const { id: userId, name: userName, role: userRole } = user; // !!! REDUCE
-  const [talkId, setTalkId] = useState(access[0].id);
+  const userObj = user;
+  const { id: userId, name: userName, role: userRole } = user;
+  const [talkNow, setTalkNow] = useState();
+  const [talkId, setTalkId] = useState();
   const [roomName, setRoomName] = useState();
 
   //  ~~ HOOKS ~~
-  useEffect(() => {
-    if (!isAuthenticated) {
-      setAlert('You gotta log in for that...', 'notice');
-      setModal(true, 'auth', "You'll need to log in for GK_Talk");
-    } else {
-      if (chatContent.length < 1) {
-        console.log(`$$$    Talk > loadChat()`);
-        loadChat();
-      }
-    }
-  }, []);
-  //----------
   const {
     chatContent,
     setChatContent,
@@ -62,7 +52,29 @@ const Talk = ({
   } = useChat(talkId);
   //----------
   useEffect(() => {
-    registerClient(userId, talkId);
+    if (!isAuthenticated) {
+      setAlert('You gotta log in for that...', 'notice');
+      setModal(true, 'auth', "You'll need to log in for GK_Talk");
+    } else if (chat.length > 0 && access.length > 0) {
+      setAlert('Welcome friend...', 'success');
+      console.log(`$$$    Talk > ENTER > LOAD GOOD`);
+      setTalkId(access[0].id);
+      setChatContent(chat);
+    } else {
+      console.log(`$$$    Talk > ENTER > LOAD FAIL`);
+      setAlert('aww... you new?', 'success');
+    }
+  }, []);
+  //----------
+  useEffect(() => {
+    if (chatContent && talkId) {
+      const newTalk = chatContent.find((chat) => chat.talk_id === talkId);
+      newTalk && setTalkNow(newTalk.msgobj);
+    }
+  }, [chatContent, talkId]);
+  //----------
+  useEffect(() => {
+    registerClient(userObj, talkId);
   }, [talkId]);
 
   //  FXN
@@ -79,9 +91,6 @@ const Talk = ({
   };
 
   const handleRoomChange = (roomId) => {
-    const newMsgObj = chat.find((room) => room.talk_id === roomId).msgobj;
-    console.log('FXN    handleRoom() > newRoom: ', newMsgObj);
-    setChatContent(newMsgObj);
     const newName = access
       .find((room) => room.id === roomId)
       .members.find((member) => member.id !== userId).name;
@@ -117,7 +126,7 @@ const Talk = ({
               <div>{isAuthenticated ? userName : 'Guest'}</div>
             </ChatHead>
             <ChatDisp id='Talk-ChatDisp' className='bg-gry4'>
-              <ChatBody chatContent={chatContent} userId={userId} />
+              <ChatBody chatContent={talkNow} userId={userId} />
               {/* <ChatBody chatContent={talkObj.msgobj} userId={userId} /> */}
             </ChatDisp>
             <ChatForm onSendMessage={(type, text) => handleSend(type, text)} />
