@@ -21,12 +21,17 @@ const useChat = (talkId) => {
       );
       console.log(`$$$   msgObj: `, msgObj);
       console.log(`$$$   chatContent: `, chatContent);
-
-      const newContent = chatContent.find(
-        (chat) => chat.talk_id === msgObj.talkId
-      );
-      newContent && console.log('$$$    newContent: ', newContent);
-      setChatContent((chatContent) => [...chatContent, msgObj]);
+      setChatContent((chatContent) => {
+        const foundConvo = chatContent.find(
+          (chat) => chat.talk_id === msgObj.talkId
+        );
+        Array.isArray(foundConvo.msgobj) && foundConvo.msgobj.push(msgObj);
+        const newContent = chatContent.filter(
+          (chat) => chat.talk_id !== msgObj.talkId
+        );
+        newContent.push(foundConvo);
+        return newContent;
+      });
     });
     sockRef.current.on('status', (res) => {
       console.log(`$$$  useChat() > .on('status', cb)`);
