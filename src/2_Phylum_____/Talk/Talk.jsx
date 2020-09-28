@@ -37,20 +37,10 @@ const Talk = ({
   talk: { access, chat, talkNow, loading },
   auth: { isAuthenticated, role },
 }) => {
-  const talkId = talkNow.talk_id;
   const { id: userId, name: userName, role: userRole } = user;
-  const [roomName, setRoomName] = useState(talkId);
+  const [talkId, setTalkId] = useState(access[0].id);
+  const [roomName, setRoomName] = useState();
 
-  //  UTIL
-  const checkReload = (rdxState, hookState) => {
-    console.log(`UTL    checkReload > ENTER`);
-    console.log(`UTL    checkReload > rdxState: `, rdxState);
-    console.log(`UTL    checkReload > hookState: `, hookState);
-    if (hookState.length !== rdxState.length && Array.isArray(talkNow.msgobj)) {
-      console.log(`UTL    initTalkConnect()`);
-      initTalk(userId, talkNow.talk_id);
-    }
-  };
   //  ~~ HOOKS ~~
   useEffect(() => {
     if (!isAuthenticated) {
@@ -101,6 +91,7 @@ const Talk = ({
       .find((room) => room.id === roomId)
       .members.find((member) => member.id !== userId).name;
     setRoomName(newName);
+    setTalkId(roomId);
   };
   return (
     <Fragment>
@@ -114,7 +105,7 @@ const Talk = ({
                 <RoomBtn
                   key={talkRoom.id}
                   onClick={() => handleRoomChange(talkRoom.id)}
-                  className={talkRoom.id === talkId ? 'bg-gry3' : ''}
+                  className={talkRoom.id === talkId ? 'bg-act2 txt-white' : ''}
                 >
                   {/* {talkRoom.id.substring(0, 8)} */}
                   {talkRoom.members
