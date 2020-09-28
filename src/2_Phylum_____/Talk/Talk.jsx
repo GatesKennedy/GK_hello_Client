@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
 import { setModal } from '../../1_Kingdom_____/UI/axn_ui';
-import { setTalkNow, loadChat, postTalkHistory } from './axn_talk';
+import { loadChat, postTalkHistory } from './axn_talk';
 //  SOCKET
 import useChat from './_useChat';
 
@@ -30,14 +30,13 @@ import { REGISTER_ERROR } from '../../Redux/axn_types';
 const Talk = ({
   setModal,
   setAlert,
-  setTalkNow,
   loadChat,
   postTalkHistory,
   user,
-  talk: { access, chat, talkNow, loading },
+  talk: { access, chat, loading },
   auth: { isAuthenticated, role },
 }) => {
-  const { id: userId, name: userName, role: userRole } = user;
+  const { id: userId, name: userName, role: userRole } = user; // !!! REDUCE
   const [talkId, setTalkId] = useState(access[0].id);
   const [roomName, setRoomName] = useState();
 
@@ -53,10 +52,6 @@ const Talk = ({
       }
     }
   }, []);
-  //---------
-  useEffect(() => {
-    setChatContent(talkNow.msgobj);
-  }, [talkNow]);
   //----------
   const {
     chatContent,
@@ -67,8 +62,8 @@ const Talk = ({
   } = useChat(talkId);
   //----------
   useEffect(() => {
-    registerClient(userId, talkNow.talk_id);
-  }, [talkNow.talk_id]);
+    registerClient(userId, talkId);
+  }, [talkId]);
 
   //  FXN
   const handleSend = (type, text) => {
@@ -84,9 +79,9 @@ const Talk = ({
   };
 
   const handleRoomChange = (roomId) => {
-    const newRoom = chat.find((room) => room.talk_id === roomId);
-    console.log('FXN    handleRoom() > newRoom: ', newRoom);
-    setTalkNow(newRoom);
+    const newMsgObj = chat.find((room) => room.talk_id === roomId).msgobj;
+    console.log('FXN    handleRoom() > newRoom: ', newMsgObj);
+    setChatContent(newMsgObj);
     const newName = access
       .find((room) => room.id === roomId)
       .members.find((member) => member.id !== userId).name;
@@ -144,6 +139,6 @@ export default connect(mapStateToProps, {
   setAlert,
   setModal,
   loadChat,
-  setTalkNow,
+
   postTalkHistory,
 })(Talk);
