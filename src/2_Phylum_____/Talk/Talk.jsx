@@ -132,13 +132,11 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
   user: state.user,
   talk: state.talk,
-  // talkNow: state.talk.talkNow,
 });
 
 export default connect(mapStateToProps, {
   setAlert,
   setModal,
   loadChat,
-
   postTalkHistory,
 })(Talk);
