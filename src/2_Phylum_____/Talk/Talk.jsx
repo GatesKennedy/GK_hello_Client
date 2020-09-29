@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 //  REDUX
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
+import { setAlert, removeAlerts } from '../../1_Kingdom_____/Alert/axn_alert';
 import { setModal } from '../../1_Kingdom_____/UI/axn_ui';
 import { loadChat, postTalkHistory } from './axn_talk';
 //  SOCKET
@@ -30,6 +30,7 @@ import { REGISTER_ERROR } from '../../Redux/axn_types';
 const Talk = ({
   setModal,
   setAlert,
+  removeAlerts,
   loadChat,
   postTalkHistory,
   user,
@@ -52,19 +53,21 @@ const Talk = ({
   } = useChat(talkId);
   //----------
   useEffect(() => {
+    removeAlerts();
     if (!isAuthenticated) {
-      setAlert('You gotta log in for that...', 'notice');
+      setAlert('You gotta log in for that...', 'warn');
       setModal(true, 'auth', "You'll need to log in for GK_Talk");
     } else if (chat.length > 0 && access.length > 0) {
-      setAlert('Welcome friend...', 'success');
+      setAlert('Welcome friend...', 'good');
       console.log(`$$$    Talk > ENTER > LOAD GOOD`);
       setTalkId(access[0].id);
       setChatContent(chat);
+      if (user.role !== 'admin') setRoomName('Conor');
     } else {
       console.log(`$$$    Talk > ENTER > LOAD FAIL`);
       setAlert('aww... you new?', 'success');
     }
-  }, []);
+  }, [chat]);
   //----------
   useEffect(() => {
     if (chatContent && talkId) {
@@ -121,9 +124,11 @@ const Talk = ({
           )}
           <RoomCont>
             <ChatHead id='Talk-ChatHead'>
-              <div className=''>{roomName}</div>
+              <div className='txt-they'>{roomName}</div>
               <div className='txt-pale'>.: GK_Talk :.</div>
-              <div>{isAuthenticated ? userName : 'Guest'}</div>
+              <div className='txt-mine'>
+                {isAuthenticated ? userName : 'Guest'}
+              </div>
             </ChatHead>
             <ChatDisp id='Talk-ChatDisp' className='bg-gry4'>
               <ChatBody chatContent={talkNow} userId={userId} />
@@ -145,6 +150,7 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   setAlert,
+  removeAlerts,
   setModal,
   loadChat,
   postTalkHistory,

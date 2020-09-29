@@ -303,6 +303,16 @@ button {
   font-size: 1.02rem;
   // font-weight: 777;
 }
+.txt-mine {
+  padding: 0px 12px;
+  color: $aoe-good2;
+  font-weight: bold;
+}
+.txt-they {
+  padding: 0px 12px;
+  color: $aoe-good3;
+  font-weight: bold;
+}
 .txt-idle {
   color: $aoe-gry5;
 }

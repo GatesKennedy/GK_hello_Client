@@ -1,5 +1,5 @@
 import uuid from 'uuid';
-import { SET_ALERT, REMOVE_ALERT } from '../../Redux/axn_types';
+import { SET_ALERT, REMOVE_ALERT, REMOVE_ALERTS } from '../../Redux/axn_types';
 
 export const setAlert = (msg, alertType, timeout = 4000) => (dispatch) => {
   // generate ID
@@ -11,4 +11,12 @@ export const setAlert = (msg, alertType, timeout = 4000) => (dispatch) => {
   });
 
   setTimeout(() => dispatch({ type: REMOVE_ALERT, payload: id }), timeout);
+};
+export const removeAlerts = (msg, alertType, timeout = 4000) => (dispatch) => {
+  // generate ID
+  const id = uuid.v4();
+  // dispatch
+  dispatch({
+    type: REMOVE_ALERTS,
+  });
 };

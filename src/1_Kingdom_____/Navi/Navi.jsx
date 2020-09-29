@@ -39,7 +39,11 @@ const Navi = ({ _phylumObj, setModal, profile, isAuthenticated }) => {
           />
         </Btn>{' '}
         <IconText id='Navi-IconText'>
-          {isAuthenticated ? <div>{profile.name}</div> : ''}
+          {isAuthenticated ? (
+            <div className='txt-mine'>{profile.name}</div>
+          ) : (
+            ''
+          )}
         </IconText>
       </NaviLogo>
       <NaviBtns id='navi-btns'>

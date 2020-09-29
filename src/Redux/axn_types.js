@@ -25,6 +25,7 @@ export const PROFILE_ERROR = 'PROFILE_ERROR';
 //    === Alert ===
 export const SET_ALERT = 'SET_ALERT';
 export const REMOVE_ALERT = 'REMOVE_ALERT';
+export const REMOVE_ALERTS = 'REMOVE_ALERTS';
 //    === Talk ===
 export const TALK_LOAD = 'TALK_LOAD';
 export const TALK_UPDATE = 'TALK_UPDATE';
