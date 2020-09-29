@@ -8,7 +8,7 @@ import { ChatFormCont, ChatFormTxt, ChatFormBtn } from './Styled';
 
 const ChatForm = ({ onSendMessage: pushMessage }) => {
   //  ~~ STATE ~~
-  const [msg, setMsg] = useState('oh boy!');
+  const [msg, setMsg] = useState('');
   //  FXN
   const handleSend = (e) => {
     e.preventDefault();
@@ -36,7 +36,7 @@ const ChatForm = ({ onSendMessage: pushMessage }) => {
         className='bg-pale txt-black'
         onClick={(e) => handleSend(e)}
       >
-        go
+        send
       </ChatFormBtn>
     </ChatFormCont>
   );
