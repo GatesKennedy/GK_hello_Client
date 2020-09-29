@@ -4,7 +4,7 @@ import {
   TALK_CLEAR,
   TALK_SET_NOW,
   TALK_CHAT_LOAD,
-  TALK_CHAT_UPDATE,
+  TALK_SET_UPDATE,
   TALK_NOTE_LOAD,
   TALK_NOTE_UPDATE,
   TALK_ERROR,
@@ -43,7 +43,7 @@ export default function (state = initialState, action) {
         chat: payload,
         loading: false,
       };
-    case TALK_CHAT_UPDATE:
+    case TALK_SET_UPDATE:
       return {
         ...state,
         chat: payload,

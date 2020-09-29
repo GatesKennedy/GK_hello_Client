@@ -57,7 +57,7 @@ const Talk = ({
     if (!isAuthenticated) {
       setAlert('You gotta log in for that...', 'warn');
       setModal(true, 'auth', "You'll need to log in for GK_Talk");
-    } else if (chat.length > 0 && access.length > 0) {
+    } else if (access.length > 0) {
       setAlert('Welcome friend...', 'good');
       console.log(`$$$    Talk > ENTER > LOAD GOOD`);
       setTalkId(access[0].id);

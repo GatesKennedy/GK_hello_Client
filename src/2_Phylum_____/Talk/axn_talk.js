@@ -5,7 +5,8 @@ import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
 import {
   TALK_CHAT_LOAD,
   TALK_SET_NOW,
-  TALK_CHAT_UPDATE,
+  TALK_SET_UPDATE,
+  TALK_CHAT_POST,
   TALK_LOAD,
   TALK_ERROR,
   TALK_CLEAR,
@@ -138,7 +139,7 @@ export const postTalkHistory = (talk_id, msgObj) => async (dispatch) => {
     const { data } = await API.post('/api/chat/', body, config);
     console.log(`AXN    postTalkHistory() > returned > data: `, data[0].body);
     dispatch({
-      type: TALK_CHAT_UPDATE,
+      type: TALK_CHAT_POST,
     });
   } catch (err) {
     console.log(`AXN  > postTalkHistory() > catch err`);
@@ -163,7 +164,7 @@ export const setChatHistory = (talk_id, msgObj) => async (dispatch) => {
     console.log('AXN    setChatHistory() > chatObj: ', chatObj);
 
     dispatch({
-      type: TALK_CHAT_UPDATE,
+      type: TALK_SET_UPDATE,
     });
   } catch (err) {
     console.log(`AXN  > setChatHistory() > catch err`);
