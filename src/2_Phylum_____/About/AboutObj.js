@@ -169,7 +169,7 @@ export const softwareObj = [
 
 export const personalObj = [
   {
-    favRank: 7,
+    favRank: 8,
     timeRank: 1,
     title: 'PG-13 [band]',
     tech: [
