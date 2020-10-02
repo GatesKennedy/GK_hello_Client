@@ -123,7 +123,7 @@ export const ChatFormCont = styled.form`
   padding: 4px;
   font-size: calc(4px + 2vmin);
 `;
-export const ChatFormTxt = styled.input`
+export const ChatFormTxt = styled.textarea`
   display: flex;
   flex-direction: row;
   align-content: flex-start;
