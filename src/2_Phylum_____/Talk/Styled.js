@@ -109,6 +109,15 @@ export const ChatDispInner = styled.div`
   height: 100%;
   max-height: 58vh;
 `;
+//  Msg Container
+export const MsgCont = styled.div`
+  width: fit-content;
+  max-width: 80%;
+  padding: 2px 8px calc(2px + 0.25em) 8px;
+  margin: 1.5px;
+  border-radius: 9px;
+  line-height: 1;
+`;
 //  Chat Forms
 export const ChatFormCont = styled.form`
   display: flex;

@@ -1,6 +1,6 @@
 import React from 'react';
 //  STYLE
-import { ChatDispInner } from './Styled';
+import { ChatDispInner, MsgCont } from './Styled';
 
 const ChatBody = ({ chatContent, userId }) => {
   return (
@@ -17,7 +17,13 @@ const ChatBody = ({ chatContent, userId }) => {
               // !!!
               // key={msg.id}
             >
-              {msg.body.text}
+              <MsgCont
+                className={
+                  String(msg.send_id) === userId ? ' bg-act3' : ' bg-gry6'
+                }
+              >
+                {msg.body.text}
+              </MsgCont>
             </li>
           ))
         ) : (

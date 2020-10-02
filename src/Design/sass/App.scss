@@ -37,10 +37,16 @@ body {
 ul {
   list-style-type: none;
 }
+
+.msg-chat {
+  display: flex;
+}
 .msg-them {
+  justify-content: flex-start;
   text-align: left;
 }
 .msg-self {
+  justify-content: flex-end;
   text-align: right;
 }
 
