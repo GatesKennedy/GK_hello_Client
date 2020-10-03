@@ -1,10 +1,5 @@
 import styled from 'styled-components';
 
-//  PROFILE
-export const SectionCont = styled.section`
-  padding-top: 9vh;
-`;
-
 //  Comp
 export const ProfileCont = styled.section`
   display: flex;
@@ -34,6 +29,10 @@ export const ProfileBody = styled.section`
     position: relative;
     left: -24px;
   }
+`;
+//  PROFILE
+export const SectionCont = styled.section`
+  padding-top: 9vh;
 `;
 
 export const BodyCont = styled.section`

@@ -14,8 +14,13 @@ import {
   FormLabel,
   RowBottom,
 } from '../../Design/Styled_Common';
-import { BodyCont } from '../../Design/Styled_aoe';
-import { ProfileCont } from '../Styled';
+import {
+  ProfileCont,
+  ProfileHead,
+  ProfileBody,
+  SectionCont,
+  BodyCont,
+} from './Styled';
 
 //~~~~~~~~~~~~~~~~
 //  MAIN
@@ -38,9 +43,14 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
   } else
     return (
       <ProfileCont>
-        <BodyCont>
-          <Row>profile</Row>
-        </BodyCont>
+        <ProfileHead>Profile Head</ProfileHead>
+        <ProfileBody>
+          Profile Body
+          <BodyCont>
+            Body Cont
+            <SectionCont>Section Cont</SectionCont>
+          </BodyCont>
+        </ProfileBody>
       </ProfileCont>
     );
 };
