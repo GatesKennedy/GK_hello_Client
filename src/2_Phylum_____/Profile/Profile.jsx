@@ -29,6 +29,16 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
   //  ~~ FORM ~~
   const { register, handleSubmit, watch, reset, errors, formState } = useForm();
   const { touched, isValid, isSubmitting } = formState;
+  const {
+    name,
+    email,
+    entity,
+    location,
+    puzzle,
+    thought,
+    web_url,
+    img_url,
+  } = profile;
 
   const onSubmit = async (data) => {
     console.log('FormData: ', data);
@@ -38,17 +48,40 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
     setAlert('You gotta log in for that...', 'Notice');
     return <Redirect to='/' />;
   }
+
+  // Profile Obj
+  //   name: "Coco"
+  //   email: "ohno@coco.com"
+  //   entity: "void"
+  //   location: null
+  //   puzzle: null
+  //   thought: null
+  //   web_url: null
+  //   img_url: null
+
+  //==================
+  // MAIN RETURN
   if (profile.length <= 1) {
     return <div>Profile Error</div>;
   } else
     return (
       <ProfileCont>
-        <ProfileHead>Profile Head</ProfileHead>
+        <ProfileHead>Profile Editing</ProfileHead>
         <ProfileBody>
-          Profile Body
+          <h4>{profile.name}</h4>
           <BodyCont>
-            Body Cont
-            <SectionCont>Section Cont</SectionCont>
+            Who:
+            <SectionCont>name: {name}</SectionCont>
+            <SectionCont>company: {entity}</SectionCont>
+            <SectionCont>location: {location}</SectionCont>
+            <SectionCont>Image: {img_url}</SectionCont>
+            <SectionCont>email: {email}</SectionCont>
+          </BodyCont>
+          <BodyCont>
+            How:
+            <SectionCont>puzzle: {puzzle}</SectionCont>
+            <SectionCont>thought: {thought}</SectionCont>
+            <SectionCont>history: {web_url}</SectionCont>
           </BodyCont>
         </ProfileBody>
       </ProfileCont>

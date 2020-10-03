@@ -10,7 +10,7 @@ export const ProfileCont = styled.section`
   margin: 0vw 4vw;
   padding: 8px;
 `;
-export const ProfileHead = styled.section`
+export const ProfileHead = styled.h3`
   display: flex;
   flex-direction: column;
   margin-top: 18px;
