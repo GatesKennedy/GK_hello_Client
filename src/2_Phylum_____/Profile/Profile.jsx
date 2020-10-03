@@ -14,7 +14,8 @@ import {
   FormLabel,
   RowBottom,
 } from '../../Design/Styled_Common';
-import { Cont1, Cont2, AuthForms, AuthCont } from '../Styled';
+import { BodyCont } from '../../Design/Styled_aoe';
+import { ProfileCont } from '../Styled';
 
 //~~~~~~~~~~~~~~~~
 //  MAIN
@@ -36,9 +37,11 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
     return <div>Profile Error</div>;
   } else
     return (
-      <Cont2>
-        <Row>profile</Row>
-      </Cont2>
+      <ProfileCont>
+        <BodyCont>
+          <Row>profile</Row>
+        </BodyCont>
+      </ProfileCont>
     );
 };
 const mapStateToProps = (state) => ({
