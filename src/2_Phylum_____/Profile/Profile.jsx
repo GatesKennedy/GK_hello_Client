@@ -18,7 +18,10 @@ import {
   ProfileCont,
   ProfileHead,
   ProfileBody,
-  SectionCont,
+  WhoCont,
+  WhoForm,
+  HowCont,
+  HowForm,
   BodyCont,
 } from './Styled';
 
@@ -49,39 +52,58 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
     return <Redirect to='/' />;
   }
 
-  // Profile Obj
-  //   name: "Coco"
-  //   email: "ohno@coco.com"
-  //   entity: "void"
-  //   location: null
-  //   puzzle: null
-  //   thought: null
-  //   web_url: null
-  //   img_url: null
-
   //==================
   // MAIN RETURN
   if (profile.length <= 1) {
     return <div>Profile Error</div>;
   } else
     return (
-      <ProfileCont>
+      <ProfileCont className='txt-black'>
         <ProfileHead>Profile Editing</ProfileHead>
-        <ProfileBody>
-          <h4>{profile.name}</h4>
+        <ProfileBody className='bg-gry2'>
           <BodyCont>
             Who:
-            <SectionCont>name: {name}</SectionCont>
-            <SectionCont>company: {entity}</SectionCont>
-            <SectionCont>location: {location}</SectionCont>
-            <SectionCont>Image: {img_url}</SectionCont>
-            <SectionCont>email: {email}</SectionCont>
+            <Row className='fill-full'>
+              <WhoCont>
+                name:
+                {name}
+              </WhoCont>
+              <WhoCont>
+                company:
+                {entity}
+              </WhoCont>
+              <WhoCont>
+                location:
+                {location}
+              </WhoCont>
+            </Row>
+            <Row className='fill-full'>
+              <WhoCont>
+                Image:
+                {img_url}
+              </WhoCont>
+              <WhoCont>
+                history:
+                {web_url}
+              </WhoCont>
+              <WhoCont>
+                email:
+                {email}
+              </WhoCont>
+            </Row>
           </BodyCont>
           <BodyCont>
             How:
-            <SectionCont>puzzle: {puzzle}</SectionCont>
-            <SectionCont>thought: {thought}</SectionCont>
-            <SectionCont>history: {web_url}</SectionCont>
+            <Row className='fill-full'>
+              <HowCont>
+                puzzle:
+                <HowForm>{puzzle}</HowForm>
+              </HowCont>
+              <HowCont>
+                thought:
+                <HowForm>{thought}</HowForm>
+              </HowCont>
+            </Row>
           </BodyCont>
         </ProfileBody>
       </ProfileCont>

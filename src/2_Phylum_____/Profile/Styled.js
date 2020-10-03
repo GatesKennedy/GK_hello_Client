@@ -10,7 +10,7 @@ export const ProfileCont = styled.section`
   margin: 0vw 4vw;
   padding: 8px;
 `;
-export const ProfileHead = styled.h3`
+export const ProfileHead = styled.h2`
   display: flex;
   flex-direction: column;
   margin-top: 18px;
@@ -31,8 +31,20 @@ export const ProfileBody = styled.section`
   }
 `;
 //  PROFILE
-export const SectionCont = styled.section`
-  padding-top: 9vh;
+export const WhoCont = styled.section`
+  padding: 12px;
+  min-width: calc(30% - 12px);
+`;
+export const WhoForm = styled.input`
+  width: 80%;
+`;
+//  PROFILE
+export const HowCont = styled.section`
+  padding: 12px;
+  min-width: calc(50% - 12px);
+`;
+export const HowForm = styled.div`
+  height: 20vh;
 `;
 
 export const BodyCont = styled.section`
