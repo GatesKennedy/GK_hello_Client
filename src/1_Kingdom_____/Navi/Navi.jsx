@@ -7,7 +7,14 @@ import PropTypes from 'prop-types';
 import { setModal } from '../UI/axn_ui';
 //  STYLE
 import { Btn, NavBtn } from '../../Design/Styled_aoe';
-import { NaviCont, NaviBtns, NaviLogo, IconText } from './Styled';
+import {
+  NaviCont,
+  NaviBtns,
+  NaviLogo,
+  NaviImg,
+  LinkCont,
+  IconText,
+} from './Styled';
 
 //  ASSET
 import { IoMdLogIn, IoMdLogOut } from 'react-icons/io';
@@ -23,29 +30,48 @@ const Navi = ({ _phylumObj, setModal, profile, isAuthenticated }) => {
     const routeExt = String(window.location.href).split('/').pop();
     setNavNow(routeExt);
   }, []);
+  //  FXN
+  // const handleProfileLink = (isAuthenticated) => {
+  //   if (!isAuthenticated) {
+  //     setModal(true, 'auth', 'You like horses too?? ...Who are you?')
+  //   } else {
+  //     //  !!! Redirect to Profile Route...
+  //   }
+  // };
   return (
     <NaviCont id='Navi-NaviCont' className='bg-eerie'>
-      <NaviLogo
-        id='Navi-NaviLogo'
-        onClick={() =>
-          setModal(true, 'auth', 'You like horses too?? ...Who are you?')
-        }
-      >
-        <Btn>
-          <FaHorseHead
-            id='navi-logo-horse'
-            style={iconStyle}
-            className='hoverColor'
-          />
-        </Btn>{' '}
-        <IconText id='Navi-IconText'>
-          {isAuthenticated ? (
-            <div className='txt-mine'>{profile.name}</div>
-          ) : (
-            ''
-          )}
-        </IconText>
-      </NaviLogo>
+      {isAuthenticated ? (
+        <LinkCont>
+          <Link
+            to='/profile'
+            onClick={() => setNavNow('profile')}
+            className='flex-row'
+          >
+            <Btn>
+              <NaviImg src={profile.img_url} alt='img' />
+            </Btn>
+            <IconText id='Navi-IconText'>
+              <div className='txt-mine align-left'>{profile.name}</div>
+            </IconText>
+          </Link>
+        </LinkCont>
+      ) : (
+        <NaviLogo
+          id='Navi-NaviLogo'
+          onClick={() =>
+            setModal(true, 'auth', 'You like horses too?? ...Who are you?')
+          }
+        >
+          <Btn>
+            <FaHorseHead
+              id='navi-logo-horse'
+              style={iconStyle}
+              className='hoverColor'
+            />
+          </Btn>{' '}
+          <IconText id='Navi-IconText'></IconText>
+        </NaviLogo>
+      )}
       <NaviBtns id='navi-btns'>
         {_phylumObj.map((phylum, index) => (
           <NavBtn
@@ -53,19 +79,14 @@ const Navi = ({ _phylumObj, setModal, profile, isAuthenticated }) => {
             id='NavBtn'
             className={
               navNow === phylum.name
-                ? // _pageNow === phylum.name
-                  'bg-active txt-active'
+                ? 'bg-active txt-active'
                 : 'bg-idle txt-idle'
             }
-            // onClick={() => _setPageNow(phylum.name)}
-            // onClick={() => setNavNow(phylum.name)}
           >
             <Link
               to={phylum.route}
-              // onClick={() => _setPageNow(phylum.name)}
               onClick={() => setNavNow(phylum.name)}
               className={
-                // _pageNow === phylum.name
                 navNow === phylum.name
                   ? 'bg-active txt-active'
                   : 'bg-idle txt-idle'

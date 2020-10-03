@@ -32,13 +32,8 @@ const App = () => {
   const [pageNow, setPageNow] = useState('about');
   //  Auth User
   useEffect(() => {
-    console.log('$$$  > App > authUser() >');
     store.dispatch(authUser());
   }, []);
-  // useEffect(() => {
-  //   console.log(`$$$    setPageNow()`);
-  //   return <Redirect to={`/${pageNow}`} />;
-  // }, [pageNow]);
   //  Phylum Obj
   const PhylumObj = [
     { route: '/about', name: 'about', private: false, show: 'I N F O' },
