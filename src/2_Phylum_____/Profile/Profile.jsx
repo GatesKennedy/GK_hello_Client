@@ -1,5 +1,5 @@
 //  React
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 //  REDUX
@@ -7,13 +7,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
 //  STYLE
-import {
-  Row,
-  Btn,
-  Btn2,
-  FormLabel,
-  RowBottom,
-} from '../../Design/Styled_Common';
+
+import { BtnTight, RowFull } from '../../Design/Styled_aoe';
 import {
   ProfileCont,
   ProfileHead,
@@ -24,6 +19,7 @@ import {
   PersonalityShow,
   BodyCont,
   Note,
+  FormState,
 } from './Styled';
 
 //~~~~~~~~~~~~~~~~
@@ -41,6 +37,9 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
     img_url,
   } = profile;
   const [editingType, setEditingType] = useState();
+  useEffect(() => {
+    console.log('$$$ editingType: ', editingType);
+  }, [editingType]);
   //  ~~ FORM ~~
   const { register, handleSubmit, watch, reset, errors, formState } = useForm();
   const { touched, isValid, isSubmitting } = formState;
@@ -66,16 +65,21 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
         <ProfileHead>Profile Editing</ProfileHead>
         <ProfileBody className='bg-gry2'>
           <BodyCont onClick={() => setEditingType('identity')}>
-            <Row>
+            <RowFull>
               <h4>Identity</h4>
               {editingType === 'identity' && (
-                <form id='identity-form'>
-                  <Note className='txt-warn'>editing...</Note>
-                </form>
+                <FormState id='identity-form'>
+                  <form>
+                    <Note className='txt-warn'>editing...</Note>
+                  </form>
+                  <BtnTight onClick={() => setEditingType('personality')}>
+                    nvm
+                  </BtnTight>
+                </FormState>
               )}
-            </Row>
+            </RowFull>
 
-            <Row className='fill-full'>
+            <RowFull className='fill-full'>
               <IdentityCont>
                 <h5>name</h5>
                 <IdentityShow>{name}</IdentityShow>
@@ -90,8 +94,8 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
                 <h5>location</h5>
                 <IdentityShow>{location ? location : 'where?'}</IdentityShow>
               </IdentityCont>
-            </Row>
-            <Row className='fill-full'>
+            </RowFull>
+            <RowFull className='fill-full'>
               <IdentityCont>
                 <h5>email</h5>
 
@@ -107,14 +111,22 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
                 <h5>Image</h5>
                 <IdentityShow>{img_url ? img_url : `upload?`}</IdentityShow>
               </IdentityCont>
-            </Row>
+            </RowFull>
             {editingType === 'identity' && (
               <input type='submit' form='identity-form' value='Save' />
             )}
           </BodyCont>
           <BodyCont onClick={() => setEditingType('personality')}>
-            <h4>Personality</h4>
-            <Row className='fill-full'>
+            <RowFull>
+              <h4>Personality</h4>
+              {editingType === 'personality' && (
+                <FormState id='personality-form'>
+                  <Note className='txt-warn'>editing...</Note>
+                  <BtnTight>nvm</BtnTight>
+                </FormState>
+              )}
+            </RowFull>
+            <RowFull className='fill-full'>
               <PersonalityCont>
                 <h5>puzzle:</h5>
                 <PersonalityShow>{puzzle}</PersonalityShow>
@@ -123,7 +135,10 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
                 <h5>thought:</h5>
                 <PersonalityShow>{thought}</PersonalityShow>
               </PersonalityCont>
-            </Row>
+            </RowFull>
+            {editingType === 'personality' && (
+              <input type='submit' form='personality-form' value='Save' />
+            )}
           </BodyCont>
         </ProfileBody>
       </ProfileCont>

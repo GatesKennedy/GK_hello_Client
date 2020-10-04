@@ -13,6 +13,7 @@ export const ProfileCont = styled.section`
 export const ProfileHead = styled.h2`
   display: flex;
   flex-direction: column;
+  width: 100%;
   margin-top: 18px;
   padding: 8px 8px 0px 8px;
 `;
@@ -37,6 +38,7 @@ export const IdentityCont = styled.section`
 `;
 export const IdentityShow = styled.div`
   width: 80%;
+  color: #828282;
 `;
 export const IdentityForm = styled.input`
   width: 80%;
@@ -76,4 +78,12 @@ export const BodyCont = styled.section`
 //  EXTRA
 export const Note = styled.label`
   padding: 0px 6px;
+`;
+
+export const FormState = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 100%;
 `;

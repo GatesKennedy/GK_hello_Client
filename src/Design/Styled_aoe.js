@@ -38,6 +38,12 @@ export const Act = styled.div`
   }
 `;
 
+export const RowFull = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+`;
+
 export const ParaMed = styled.p`
   display: block;
   padding: 4px;
@@ -88,6 +94,17 @@ export const Btn2 = styled.button`
   width: 10vw;
   margin: 2px;
   padding: 0px 4px;
+`;
+export const BtnTight = styled.button`
+  text-align: center;
+  margin: 2px;
+  padding: 0px 4px;
+  width: fit-content;
+
+  &:hover {
+    transform: scale(1.02);
+    background-color: #bdbdbd;
+  }
 `;
 
 export const ImageMed = styled.img`
