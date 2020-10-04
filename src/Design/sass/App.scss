@@ -319,9 +319,10 @@ button {
 
 .txt-suggest {
   color: #1fcecb;
-  // color: #18a29f;
   font-size: 1.02rem;
-  // font-weight: 777;
+}
+.txt-warn {
+  color: $aoe-warn-2;
 }
 .txt-mine {
   padding: 0px 12px;

@@ -18,20 +18,18 @@ import {
   ProfileCont,
   ProfileHead,
   ProfileBody,
-  WhoCont,
-  WhoForm,
-  HowCont,
-  HowForm,
+  IdentityCont,
+  IdentityShow,
+  PersonalityCont,
+  PersonalityShow,
   BodyCont,
+  Note,
 } from './Styled';
 
 //~~~~~~~~~~~~~~~~
 //  MAIN
 //~~~~~~~~~~~~~~~~
 const Profile = ({ isAuthenticated, setAlert, profile }) => {
-  //  ~~ FORM ~~
-  const { register, handleSubmit, watch, reset, errors, formState } = useForm();
-  const { touched, isValid, isSubmitting } = formState;
   const {
     name,
     email,
@@ -42,6 +40,10 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
     web_url,
     img_url,
   } = profile;
+  const [editingType, setEditingType] = useState();
+  //  ~~ FORM ~~
+  const { register, handleSubmit, watch, reset, errors, formState } = useForm();
+  const { touched, isValid, isSubmitting } = formState;
 
   const onSubmit = async (data) => {
     console.log('FormData: ', data);
@@ -54,55 +56,73 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
 
   //==================
   // MAIN RETURN
-  if (profile.length <= 1) {
+  if (!isAuthenticated) {
+    return <Redirect to='/about' />;
+  } else if (profile.length <= 1) {
     return <div>Profile Error</div>;
   } else
     return (
       <ProfileCont className='txt-black'>
         <ProfileHead>Profile Editing</ProfileHead>
         <ProfileBody className='bg-gry2'>
-          <BodyCont>
-            Who:
+          <BodyCont onClick={() => setEditingType('identity')}>
+            <Row>
+              <h4>Identity</h4>
+              {editingType === 'identity' && (
+                <form id='identity-form'>
+                  <Note className='txt-warn'>editing...</Note>
+                </form>
+              )}
+            </Row>
+
             <Row className='fill-full'>
-              <WhoCont>
-                name:
-                {name}
-              </WhoCont>
-              <WhoCont>
-                company:
-                {entity}
-              </WhoCont>
-              <WhoCont>
-                location:
-                {location}
-              </WhoCont>
+              <IdentityCont>
+                <h5>name</h5>
+                <IdentityShow>{name}</IdentityShow>
+              </IdentityCont>
+              <IdentityCont>
+                <h5>company</h5>
+                <IdentityShow>
+                  {entity !== 'void' ? entity : 'who sent you?'}
+                </IdentityShow>
+              </IdentityCont>
+              <IdentityCont>
+                <h5>location</h5>
+                <IdentityShow>{location ? location : 'where?'}</IdentityShow>
+              </IdentityCont>
             </Row>
             <Row className='fill-full'>
-              <WhoCont>
-                Image:
-                {img_url}
-              </WhoCont>
-              <WhoCont>
-                history:
-                {web_url}
-              </WhoCont>
-              <WhoCont>
-                email:
-                {email}
-              </WhoCont>
+              <IdentityCont>
+                <h5>email</h5>
+
+                <IdentityShow>{email}</IdentityShow>
+              </IdentityCont>
+              <IdentityCont>
+                <h5>website</h5>
+                <IdentityShow>
+                  {web_url ? web_url : `what do you do?`}
+                </IdentityShow>
+              </IdentityCont>
+              <IdentityCont>
+                <h5>Image</h5>
+                <IdentityShow>{img_url ? img_url : `upload?`}</IdentityShow>
+              </IdentityCont>
             </Row>
+            {editingType === 'identity' && (
+              <input type='submit' form='identity-form' value='Save' />
+            )}
           </BodyCont>
-          <BodyCont>
-            How:
+          <BodyCont onClick={() => setEditingType('personality')}>
+            <h4>Personality</h4>
             <Row className='fill-full'>
-              <HowCont>
-                puzzle:
-                <HowForm>{puzzle}</HowForm>
-              </HowCont>
-              <HowCont>
-                thought:
-                <HowForm>{thought}</HowForm>
-              </HowCont>
+              <PersonalityCont>
+                <h5>puzzle:</h5>
+                <PersonalityShow>{puzzle}</PersonalityShow>
+              </PersonalityCont>
+              <PersonalityCont>
+                <h5>thought:</h5>
+                <PersonalityShow>{thought}</PersonalityShow>
+              </PersonalityCont>
             </Row>
           </BodyCont>
         </ProfileBody>

@@ -30,20 +30,26 @@ export const ProfileBody = styled.section`
     left: -24px;
   }
 `;
-//  PROFILE
-export const WhoCont = styled.section`
+//  Identity
+export const IdentityCont = styled.section`
   padding: 12px;
   min-width: calc(30% - 12px);
 `;
-export const WhoForm = styled.input`
+export const IdentityShow = styled.div`
   width: 80%;
 `;
-//  PROFILE
-export const HowCont = styled.section`
+export const IdentityForm = styled.input`
+  width: 80%;
+`;
+//  Personality
+export const PersonalityCont = styled.section`
   padding: 12px;
   min-width: calc(50% - 12px);
 `;
-export const HowForm = styled.div`
+export const PersonalityShow = styled.div`
+  height: 20vh;
+`;
+export const PersonalityForm = styled.div`
   height: 20vh;
 `;
 
@@ -65,4 +71,9 @@ export const BodyCont = styled.section`
   &:hover {
     background-color: #e7e7e7;
   }
+`;
+
+//  EXTRA
+export const Note = styled.label`
+  padding: 0px 6px;
 `;
