@@ -171,11 +171,34 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
             <RowFull className='fill-full'>
               <PersonalityCont>
                 <h5>Joke:</h5>
-                <PersonalityShow placeholder='Things that are funny...'></PersonalityShow>
+                <PersonalityShow placeholder='Things that are funny...'>
+                  {`It's easier to do
+In the moonlight
+And everyone you need
+Is alright
+
+And it doesn't take much to proof
+Everything is baby blue
+Everything is baby blue`}
+                </PersonalityShow>
               </PersonalityCont>
+
               <PersonalityCont>
                 <h5>Question:</h5>
-                <PersonalityShow placeholder='What thoroughly confuses you?'></PersonalityShow>
+                <PersonalityShow placeholder='What thoroughly confuses you?'>{`
+              Everyone you know is a baby
+              Everyone you know is blue
+              'Cause you live in a big, blue world
+              And everybody is jagged[?] and lazy
+              Everything is baby blue
+              And everybody is going crazy
+              Everything is baby blue
+              
+              'Cause we live in a big, blue world
+              Everything is baby blue
+              Baby blue
+              
+              `}</PersonalityShow>
               </PersonalityCont>
             </RowFull>
             {editingType === 'personality' && (
