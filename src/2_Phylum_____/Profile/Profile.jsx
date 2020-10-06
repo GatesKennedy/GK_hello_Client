@@ -40,6 +40,12 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
   useEffect(() => {
     console.log('$$$ editingType: ', editingType);
   }, [editingType]);
+  useEffect(() => {
+    if (!isAuthenticated) {
+      setAlert('You gotta log in for that...', 'Notice');
+      return <Redirect to='/' />;
+    }
+  }, [isAuthenticated]);
   //  ~~ FORM ~~
   const { register, handleSubmit, watch, reset, errors, formState } = useForm();
   const { touched, isValid, isSubmitting } = formState;
@@ -48,10 +54,6 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
     console.log('FormData: ', data);
   };
   //  Redirect (auth?)
-  if (!isAuthenticated) {
-    setAlert('You gotta log in for that...', 'Notice');
-    return <Redirect to='/' />;
-  }
 
   //==================
   // MAIN RETURN
@@ -63,8 +65,11 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
     return (
       <ProfileCont className='txt-black'>
         <ProfileHead>Profile Editing</ProfileHead>
-        <ProfileBody className='bg-gry2'>
-          <BodyCont onClick={() => setEditingType('identity')}>
+        <ProfileBody>
+          <BodyCont
+            onClick={() => setEditingType('identity')}
+            className={editingType === 'identity' ? ' bg-gry1' : ' bg-gry2'}
+          >
             <RowFull>
               <h4>Identity</h4>
               {editingType === 'identity' && (
@@ -113,10 +118,18 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
               </IdentityCont>
             </RowFull>
             {editingType === 'identity' && (
-              <input type='submit' form='identity-form' value='Save' />
+              <input
+                type='submit'
+                form='identity-form'
+                value='Save'
+                className='btn'
+              />
             )}
           </BodyCont>
-          <BodyCont onClick={() => setEditingType('personality')}>
+          <BodyCont
+            onClick={() => setEditingType('personality')}
+            className={editingType === 'personality' ? ' bg-gry1' : ' bg-gry2'}
+          >
             <RowFull>
               <h4>Personality</h4>
               {editingType === 'personality' && (
@@ -129,15 +142,49 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
             <RowFull className='fill-full'>
               <PersonalityCont>
                 <h5>puzzle:</h5>
-                <PersonalityShow>{puzzle}</PersonalityShow>
+                <PersonalityShow placeholder='Stump me...'>
+                  {puzzle}
+                  {`Everything you do
+                  Is magic
+                  And everywhere you go
+                  Is tragic
+
+                  And it's hard to believe it's true
+                  Everything is baby blue
+                  Everything is baby blue`}
+                </PersonalityShow>
               </PersonalityCont>
               <PersonalityCont>
                 <h5>thought:</h5>
-                <PersonalityShow>{thought}</PersonalityShow>
+                <PersonalityShow placeholder='What do YOU think about?'>
+                  {thought}
+                  {`Give a look up the street
+                  It's good
+                  Now give a look on the street
+                  It's bad
+                  'Cause the sun is ascending at noon
+                  You haven't even picked a tune`}
+                </PersonalityShow>
+              </PersonalityCont>
+            </RowFull>
+
+            <RowFull className='fill-full'>
+              <PersonalityCont>
+                <h5>Joke:</h5>
+                <PersonalityShow placeholder='Things that are funny...'></PersonalityShow>
+              </PersonalityCont>
+              <PersonalityCont>
+                <h5>Question:</h5>
+                <PersonalityShow placeholder='What thoroughly confuses you?'></PersonalityShow>
               </PersonalityCont>
             </RowFull>
             {editingType === 'personality' && (
-              <input type='submit' form='personality-form' value='Save' />
+              <input
+                type='submit'
+                form='personality-form'
+                value='Save'
+                className='btn'
+              />
             )}
           </BodyCont>
         </ProfileBody>

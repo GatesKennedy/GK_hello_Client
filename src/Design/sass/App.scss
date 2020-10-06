@@ -131,6 +131,11 @@ button {
 }
 
 .btn {
+  text-align: center;
+  width: fit-content;
+  margin: 2px 4px;
+  padding: 6px 6px 3px 6px;
+
   cursor: pointer;
   will-change: transform;
   transform: scale(1);

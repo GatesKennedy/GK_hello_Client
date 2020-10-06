@@ -79,7 +79,6 @@ export const BodyCont = styled.section`
 export const Note = styled.label`
   padding: 0px 6px;
 `;
-
 export const FormState = styled.div`
   display: flex;
   flex-direction: row;
