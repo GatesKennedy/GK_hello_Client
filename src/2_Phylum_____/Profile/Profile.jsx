@@ -196,7 +196,7 @@ Everything is baby blue`}
               
               'Cause we live in a big, blue world
               Everything is baby blue
-              Baby blue
+              Baby blue    
               
               `}</PersonalityShow>
               </PersonalityCont>
