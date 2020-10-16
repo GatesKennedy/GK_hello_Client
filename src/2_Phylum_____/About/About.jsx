@@ -11,7 +11,7 @@ import { AboutCont, AboutBody, BodyCont } from './Styled';
 import { ParaMed } from '../../Design/Styled_aoe';
 
 //  Asset
-import { introObj, softwareObj, personalObj } from './AboutObj';
+import { introObj, helloObj, softwareObj, personalObj } from './AboutObj';
 import Drop from '../../3_Class_____/Drop';
 import TitleHeader from '../../0_GenComps_____/TitleHeader';
 
@@ -19,16 +19,28 @@ import TitleHeader from '../../0_GenComps_____/TitleHeader';
 const About = () => {
   //  STATE
   const [openState, setOpenState] = useState(0);
+  const titleTxt0 = 'Intro:';
   const titleTxt1 = 'Hello, Friend...';
   const titleTxt2 = 'Software...';
   const titleTxt3 = 'Personal...';
   return (
     <AboutCont id='About-AboutCont' className='bg-gry2 txt-black'>
       {/* Intro */}
-      <TitleHeader id='About-TitleHeader1' _txt={titleTxt1} />
+      <TitleHeader id='About-TitleHeader1' _txt={titleTxt0} />
       <AboutBody id='About-AboutBody'>
         <BodyCont id='About-BodyCont'>
           {introObj.map((item, index) => (
+            <ParaMed key={index} id='About-ParaMed'>
+              {item}
+            </ParaMed>
+          ))}
+        </BodyCont>
+      </AboutBody>
+      {/* Hello */}
+      <TitleHeader id='About-TitleHeader1' _txt={titleTxt1} />
+      <AboutBody id='About-AboutBody'>
+        <BodyCont id='About-BodyCont'>
+          {helloObj.map((item, index) => (
             <ParaMed key={index} id='About-ParaMed'>
               {item}
             </ParaMed>

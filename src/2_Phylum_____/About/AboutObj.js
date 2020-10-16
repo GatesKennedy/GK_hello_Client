@@ -16,6 +16,11 @@ import PG13_2 from '../../Design/Images/PG-13_2.jpg';
 import PG13_4 from '../../Design/Images/PG-13_4.jpg';
 
 export const introObj = [
+  `Conor Gates Kennedy`,
+  `Software Engineer`,
+  `Exceedingly Curious`,
+];
+export const helloObj = [
   `I’ve been building things for as long as I can remember.`,
   `By age five, household items and my sisters’ toys would go missing because ‘Conor was making something again’ and by grade five, I
 had convinced my dad to purchase blueprints for a 6’x8’x32’ half-pipe.  As a general contractor, we agreed that he’d handle the cuts 
