@@ -10,15 +10,32 @@ import algorithm4 from '../../Design/Images/algorithm4.jpg';
 import esc_1 from '../../Design/Images/esc.png';
 import bridger from '../../Design/Images/BridgerBaby1.JPG';
 import ohnodamn from '../../Design/Images/ohnodamn.png';
+import conor from '../../Design/Images/conor.jpg';
 import PG13_0 from '../../Design/Images/PG-13_0.jpg';
 import PG13_1 from '../../Design/Images/PG-13_1.jpg';
 import PG13_2 from '../../Design/Images/PG-13_2.jpg';
 import PG13_4 from '../../Design/Images/PG-13_4.jpg';
 
 export const introObj = [
-  `Conor Gates Kennedy`,
-  `Software Engineer`,
-  `Exceedingly Curious`,
+  {
+    favRank: 9,
+    timeRank: 0,
+    title: `Conor Gates Kennedy`,
+    tech: [`Software Engineer`],
+    summary: `Exceedingly Curious`,
+    story: [
+      `I’ve been building things for as long as I can remember.`,
+      `By age five, household items and my sisters’ toys would go missing because ‘Conor was making something again’ and by grade five, I
+    had convinced my dad to purchase blueprints for a 6’x8’x32’ half-pipe.  As a general contractor, we agreed that he’d handle the cuts 
+    but I had to mark them out myself and do all other work. He taught me what all the symbols meant on the schematics, and by middle school I’d built it. `,
+      `Twenty years later I’m learning a different set of symbols and exploring how I can implement
+    them to build new things that I’ve now designed myself.`,
+      `Below are a collection of projects I feel are relevant to the reason you are here.`,
+      `Cheers`,
+    ],
+    titleImgUrl: conor,
+    storyImgUrls: ['void'],
+  },
 ];
 export const helloObj = [
   `I’ve been building things for as long as I can remember.`,
