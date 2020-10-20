@@ -29,18 +29,15 @@ const About = () => {
       {/* Hello */}
       <TitleHeader id='About-TitleHeader1' _txt={titleTxt1} />
       <AboutBody id='About-AboutBody'>
-        <BodyCont id='About-BodyCont'>
-          {introObj.map((item) => (
-            <DropMain
-              key={item.favRank}
-              _item={item}
-              _openStateState={openState}
-              _setOpenState={setOpenState}
-            />
-          ))}
-        </BodyCont>
+        {introObj.map((item) => (
+          <DropMain
+            key={item.favRank}
+            _item={item}
+            _openState={openState}
+            _setOpenState={setOpenState}
+          />
+        ))}
       </AboutBody>
-
       {/* Software */}
       <TitleHeader id='About-TitleHeader2' _txt={titleTxt2} />
       <AboutBody id='About-AboutBody'>

@@ -88,7 +88,7 @@ export const ItemTitle = styled.div`
 
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-size: large;
+  font-size: larger;
   font-weight: bold;
 `;
 export const ItemTech = styled.div`
@@ -102,6 +102,7 @@ export const ItemTech = styled.div`
 `;
 export const ItemSummary = styled.div`
   display: flex;
+  flex-direction: column;
   margin-bottom: 4px;
   width: 100%;
 
@@ -158,9 +159,6 @@ const DropMain = ({
   const handleToggle = () => {
     _openState === favRank ? _setOpenState(0) : _setOpenState(favRank);
   };
-  function changeBackground(e) {
-    if (_openState !== favRank) e.target.style.background = '#e7e7e7';
-  }
 
   return (
     <ItemCont
@@ -181,7 +179,7 @@ const DropMain = ({
       <InfoCont id='DropMain-InfoCont'>
         <ItemTitle id='DropMain-ItemTitle'>{title}</ItemTitle>
         <ItemTech id='DropMain-ItemTech'>
-          <SubTitle>Tech: </SubTitle>
+          <SubTitle>Titles: </SubTitle>
           <TechList id='DropMain-TechList'>
             {tech.map((item, index) => (
               <TechItem
@@ -196,7 +194,13 @@ const DropMain = ({
         </ItemTech>
         {_openState !== favRank ? (
           <SummaryCont id='DropMain-SummaryCont'>
-            <ItemSummary id='DropMain-ItemSummary'>{summary}</ItemSummary>
+            <ItemSummary id='DropMain-ItemSummary'>
+              {summary.map((paragraph, index) => (
+                <ParaSml key={index} id='DropMain-ParaSml'>
+                  {paragraph}
+                </ParaSml>
+              ))}
+            </ItemSummary>
             <Btn1 onClick={() => _setOpenState(favRank)}>
               more <RiArrowDropDownLine />
             </Btn1>
@@ -230,7 +234,7 @@ DropMain.propTypes = {
     tech: PropTypes.arrayOf(PropTypes.string).isRequired,
     favRank: PropTypes.number.isRequired,
     summary: PropTypes.arrayOf(PropTypes.string).isRequired,
-    story: PropTypes.string.isRequired,
+    story: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
   _openState: PropTypes.number.isRequired,
   _setOpenState: PropTypes.func.isRequired,

@@ -158,9 +158,6 @@ const DropProject = ({
   const handleToggle = () => {
     _openState === favRank ? _setOpenState(0) : _setOpenState(favRank);
   };
-  function changeBackground(e) {
-    if (_openState !== favRank) e.target.style.background = '#e7e7e7';
-  }
 
   return (
     <ItemCont
@@ -230,7 +227,7 @@ DropProject.propTypes = {
     tech: PropTypes.arrayOf(PropTypes.string).isRequired,
     favRank: PropTypes.number.isRequired,
     summary: PropTypes.arrayOf(PropTypes.string).isRequired,
-    story: PropTypes.string.isRequired,
+    story: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
   _openState: PropTypes.number.isRequired,
   _setOpenState: PropTypes.func.isRequired,

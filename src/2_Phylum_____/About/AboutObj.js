@@ -18,11 +18,18 @@ import PG13_4 from '../../Design/Images/PG-13_4.jpg';
 
 export const introObj = [
   {
-    favRank: 0,
-    timeRank: 0,
+    favRank: 1,
+    timeRank: 1,
     title: `Conor Gates Kennedy`,
-    tech: [`Software Engineer`],
-    summary: `Exceedingly Curious`,
+    tech: [`Software Engineer`, 'Mechanical Engineer', 'Artist'],
+    summary: [
+      `Hello,`,
+      `I'm a curious and driven full stack software engineer who enjoys working on highly motivated and cooperative engineering teams.`,
+      `I believe the only thing that seperates a problem from a puzzle is perspective and I'm excited to solve puzzles with skilled communicators!`,
+      ``,
+      `Below are a collection of projects I feel are relevant to the reason you are here.`,
+      `Cheers`,
+    ],
     story: [
       `I’ve been building things for as long as I can remember.`,
       `By age five, household items and my sisters’ toys would go missing because ‘Conor was making something again’ and by grade five, I
@@ -30,26 +37,15 @@ export const introObj = [
     but I had to mark them out myself and do all other work. He taught me what all the symbols meant on the schematics, and by middle school I’d built it. `,
       `Twenty years later I’m learning a different set of symbols and exploring how I can implement
     them to build new things that I’ve now designed myself.`,
-      `Below are a collection of projects I feel are relevant to the reason you are here.`,
-      `Cheers`,
     ],
     titleImgUrl: conor,
     storyImgUrls: ['void'],
   },
 ];
-export const helloObj = [
-  `I’ve been building things for as long as I can remember.`,
-  `By age five, household items and my sisters’ toys would go missing because ‘Conor was making something again’ and by grade five, I
-had convinced my dad to purchase blueprints for a 6’x8’x32’ half-pipe.  As a general contractor, we agreed that he’d handle the cuts 
-but I had to mark them out myself and do all other work. He taught me what all the symbols meant on the schematics, and by middle school I’d built it. `,
-  `Twenty years later I’m learning a different set of symbols and exploring how I can implement
-them to build new things that I’ve now designed myself.`,
-  `Below are a collection of projects I feel are relevant to the reason you are here.`,
-  `Cheers`,
-];
+
 export const softwareObj = [
   {
-    favRank: 1,
+    favRank: 2,
     timeRank: 5,
     title: 'Needle Drop Co.',
     tech: [
@@ -63,8 +59,9 @@ export const softwareObj = [
       'Heroku',
       'Jira Software',
     ],
-    summary:
+    summary: [
       'Application Software for a music licensing company in Portland, OR. Consumer and Enterprise systems.',
+    ],
     story: [
       `Needle Drop Co. is a music licensing company in Portland, Oregon. Having outgrown the functionality of their prior web presence, 
       they were seeking a web application that could help the user explore their product library and streamline inventory maintainence`,
@@ -79,7 +76,7 @@ export const softwareObj = [
   },
 
   {
-    favRank: 2,
+    favRank: 3,
     timeRank: 6,
     title: 'GK_Talk',
     tech: [
@@ -93,8 +90,9 @@ export const softwareObj = [
       'ExpressJS',
       'Heroku',
     ],
-    summary:
+    summary: [
       'GK_Talk is a text-based communication module designed for reuse across projects and microservice implementation.',
+    ],
     story: [
       `Designed for reuse across projects with and for later implementation as a microservice, GK_Talk is foundationally a messaging service.
       However, with a backend architecture that is flexibly suited for feature updates, GK_Talk features go beyond live chat and persisted conversation history. 
@@ -109,8 +107,9 @@ export const softwareObj = [
     timeRank: 1,
     title: 'Web Content Aggregator',
     tech: ['Django', 'mongoDB', 'Azure DevOps', 'Scrum', 'Beautiful Soup'],
-    summary:
+    summary: [
       'Final Project Instructor, Scrum Master, and Project Lead for web scraping application at a code school in Portland, OR. ',
+    ],
     story: [
       'Final Project Instructor, Scrum Master, and Project Lead for web scraping application at a code school in Portland, OR. ',
     ],
@@ -123,8 +122,9 @@ export const softwareObj = [
     timeRank: 2,
     title: 'Document Parsing Algorithm',
     tech: ['C#', 'Javascript', 'Google Apps Script'],
-    summary:
+    summary: [
       'A text parsing algorithm developed in C# to identify, isolate and organize 1200+ pages of course curriculum for automated field population.',
+    ],
     story: [
       `After leaving Escape Collective and pursuing software development as my primary focus, I found suprising overlap in skills. 
       The ability to stay calm and lead a team through long hours appeared to fit well with what I’d experience in the software industry. 
@@ -145,7 +145,9 @@ export const softwareObj = [
     timeRank: 3,
     title: 'GK_HBD-Bridger',
     tech: ['ReactJS', 'Heroku', 'C#', 'ASP.NET'],
-    summary: `"Happy Birthday Bridger" is a birthday gift to an old friend. The application generates 100,000+ permutations of a personalized adulation.[ripe with inside jokes..]`,
+    summary: [
+      `"Happy Birthday Bridger" is a birthday gift to an old friend. The application generates 100,000+ permutations of a personalized adulation.[ripe with inside jokes..]`,
+    ],
     story: [
       `Originally built with C# on ASP.NET, this application was basically a Mad Lib solution generator. 
       There was a predetermined paragraph structure with associated collections of nouns, verbs, adjectives, etc... that were randomized for each solution.`,
@@ -168,8 +170,9 @@ export const softwareObj = [
       'JavaScript',
       'Project Management',
     ],
-    summary:
+    summary: [
       'Co-Founder and Lead Design Engineer of a design and fabrication company in Portland, OR.',
+    ],
     story: [
       `Shortly after graduating with a degree in Mechanical Engineering from WSU, I chose to start a design and fabrication company with some talented friends in Portland called the Escape Collective. 
       I was the design engineer. 
@@ -204,8 +207,9 @@ export const personalObj = [
       'Synth',
       'Drums',
     ],
-    summary:
+    summary: [
       'A personal music project started in 2017 after 18yrs of experimentation.',
+    ],
     story: ['This is PG-13'],
     titleImgUrl: PG13_2,
     storyImgUrls: ['void'],
