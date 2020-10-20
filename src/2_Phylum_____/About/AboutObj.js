@@ -18,7 +18,7 @@ import PG13_4 from '../../Design/Images/PG-13_4.jpg';
 
 export const introObj = [
   {
-    favRank: 9,
+    favRank: 0,
     timeRank: 0,
     title: `Conor Gates Kennedy`,
     tech: [`Software Engineer`],

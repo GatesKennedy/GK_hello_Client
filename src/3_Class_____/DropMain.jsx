@@ -149,7 +149,7 @@ export const SubTitle = styled.div`
 `;
 
 //  MAIN
-const Drop = ({
+const DropMain = ({
   _item: { titleImgUrl, title, tech, favRank, timeRank, summary, story },
   _openState,
   _setOpenState,
@@ -164,24 +164,28 @@ const Drop = ({
 
   return (
     <ItemCont
-      id='Drop-ItemCont'
+      id='DropMain-ItemCont'
       className={_openState === favRank ? ' bg-gry1' : ' bg-gry2'}
       onClick={() => handleToggle()}
     >
       <ImgCont
-        id='Drop-ImgCont'
+        id='DropMain-ImgCont'
         className={_openState === favRank && ' bg-gry2'}
       >
-        <ImageMed id='Drop-ImageMed' src={titleImgUrl} alt='oops... bad link' />
+        <ImageMed
+          id='DropMain-ImageMed'
+          src={titleImgUrl}
+          alt='oops... bad link'
+        />
       </ImgCont>
-      <InfoCont id='Drop-InfoCont'>
-        <ItemTitle id='Drop-ItemTitle'>{title}</ItemTitle>
-        <ItemTech id='Drop-ItemTech'>
+      <InfoCont id='DropMain-InfoCont'>
+        <ItemTitle id='DropMain-ItemTitle'>{title}</ItemTitle>
+        <ItemTech id='DropMain-ItemTech'>
           <SubTitle>Tech: </SubTitle>
-          <TechList id='Drop-TechList'>
+          <TechList id='DropMain-TechList'>
             {tech.map((item, index) => (
               <TechItem
-                id='Drop-TechItem'
+                id='DropMain-TechItem'
                 key={index}
                 className={_openState !== favRank ? ' bg-gry1' : ' bg-gry2'}
               >
@@ -191,8 +195,8 @@ const Drop = ({
           </TechList>
         </ItemTech>
         {_openState !== favRank ? (
-          <SummaryCont id='Drop-SummaryCont'>
-            <ItemSummary id='Drop-ItemSummary'>{summary}</ItemSummary>
+          <SummaryCont id='DropMain-SummaryCont'>
+            <ItemSummary id='DropMain-ItemSummary'>{summary}</ItemSummary>
             <Btn1 onClick={() => _setOpenState(favRank)}>
               more <RiArrowDropDownLine />
             </Btn1>
@@ -201,7 +205,7 @@ const Drop = ({
           <StoryCont>
             <ItemStory>
               {story.map((paragraph, index) => (
-                <ParaSml key={index} id='Drop-ParaSml'>
+                <ParaSml key={index} id='DropMain-ParaSml'>
                   {paragraph}
                 </ParaSml>
               ))}
@@ -219,7 +223,7 @@ const Drop = ({
   );
 };
 
-Drop.propTypes = {
+DropMain.propTypes = {
   _item: PropTypes.shape({
     titleImgUrl: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
@@ -232,4 +236,4 @@ Drop.propTypes = {
   _setOpenState: PropTypes.func.isRequired,
 };
 
-export default Drop;
+export default DropMain;

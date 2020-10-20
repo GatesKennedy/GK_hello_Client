@@ -12,7 +12,8 @@ import { ParaMed } from '../../Design/Styled_aoe';
 
 //  Asset
 import { introObj, helloObj, softwareObj, personalObj } from './AboutObj';
-import Drop from '../../3_Class_____/Drop';
+import DropMain from '../../3_Class_____/DropMain';
+import DropProject from '../../3_Class_____/DropProject';
 import TitleHeader from '../../0_GenComps_____/TitleHeader';
 
 //  MAIN
@@ -25,12 +26,12 @@ const About = () => {
   const titleTxt3 = 'Personal...';
   return (
     <AboutCont id='About-AboutCont' className='bg-gry2 txt-black'>
-      {/* Intro */}
-      <TitleHeader id='About-TitleHeader1' _txt={titleTxt0} />
+      {/* Hello */}
+      <TitleHeader id='About-TitleHeader1' _txt={titleTxt1} />
       <AboutBody id='About-AboutBody'>
         <BodyCont id='About-BodyCont'>
           {introObj.map((item) => (
-            <Drop
+            <DropMain
               key={item.favRank}
               _item={item}
               _openStateState={openState}
@@ -39,22 +40,12 @@ const About = () => {
           ))}
         </BodyCont>
       </AboutBody>
-      {/* Hello */}
-      <TitleHeader id='About-TitleHeader1' _txt={titleTxt1} />
-      <AboutBody id='About-AboutBody'>
-        <BodyCont id='About-BodyCont'>
-          {helloObj.map((item, index) => (
-            <ParaMed key={index} id='About-ParaMed'>
-              {item}
-            </ParaMed>
-          ))}
-        </BodyCont>
-      </AboutBody>
+
       {/* Software */}
       <TitleHeader id='About-TitleHeader2' _txt={titleTxt2} />
       <AboutBody id='About-AboutBody'>
         {softwareObj.map((item) => (
-          <Drop
+          <DropProject
             key={item.favRank}
             _item={item}
             _openState={openState}
@@ -66,7 +57,7 @@ const About = () => {
       <TitleHeader id='About-TitleHeader3' _txt={titleTxt3} />
       <AboutBody id='About-AboutBody'>
         {personalObj.map((item) => (
-          <Drop
+          <DropProject
             key={item.favRank}
             _item={item}
             _openState={openState}
@@ -78,7 +69,7 @@ const About = () => {
   );
 };
 
-Drop.propTypes = {
+About.propTypes = {
   // introObj: PropTypes.arrayOf(PropTypes.string).isRequired,
   // softwareObj: PropTypes.shape({
   //   rank: PropTypes.number,
