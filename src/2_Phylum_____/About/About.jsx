@@ -28,16 +28,16 @@ const About = () => {
     <AboutCont id='About-AboutCont' className='bg-gry2 txt-black'>
       {/* Hello */}
       <TitleHeader id='About-TitleHeader1' _txt={titleTxt1} />
-      <AboutBody id='About-AboutBody'>
-        {introObj.map((item) => (
-          <DropMain
-            key={item.favRank}
-            _item={item}
-            _openState={openState}
-            _setOpenState={setOpenState}
-          />
-        ))}
-      </AboutBody>
+
+      {introObj.map((item) => (
+        <DropMain
+          key={item.favRank}
+          _item={item}
+          _openState={openState}
+          _setOpenState={setOpenState}
+        />
+      ))}
+
       {/* Software */}
       <TitleHeader id='About-TitleHeader2' _txt={titleTxt2} />
       <AboutBody id='About-AboutBody'>

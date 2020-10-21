@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 //  STYLE
 import styled from 'styled-components';
-import { Btn1, ImageMed, ParaSml } from '../Design/Styled_aoe';
+import { Btn1, ImageMed, ImageLrg, ParaSml } from '../Design/Styled_aoe';
 import { RiArrowDropDownLine, RiArrowUpSLine } from 'react-icons/ri';
 
 export const ItemCont = styled.section`
@@ -31,11 +31,11 @@ export const ImgCont = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
-  margin-left: 8px;
+  margin: 0px 8px 0px 16px;
   padding: 4px;
-  height: 104px;
+  /* height: 104px; */
   border-radius: 8px;
 
   @media only screen and (max-width: 600px) {
@@ -170,8 +170,8 @@ const DropMain = ({
         id='DropMain-ImgCont'
         className={_openState === favRank && ' bg-gry2'}
       >
-        <ImageMed
-          id='DropMain-ImageMed'
+        <ImageLrg
+          id='DropMain-ImageLrg'
           src={titleImgUrl}
           alt='oops... bad link'
         />
