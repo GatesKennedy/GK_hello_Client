@@ -6,7 +6,9 @@ import aggregate from '../../Design/Images/Aggregate.jpg';
 import algorithm from '../../Design/Images/algorithm.png';
 import algorithm2 from '../../Design/Images/algorithm2.png';
 import algorithm3 from '../../Design/Images/algorithm3.png';
-import algorithm4 from '../../Design/Images/algorithm4.jpg';
+import algorithm4 from '../../Design/Images/algorithm4.png';
+import algorithm5 from '../../Design/Images/algorithm5.jpg';
+
 import esc_1 from '../../Design/Images/esc.png';
 import bridger from '../../Design/Images/BridgerBaby1.JPG';
 import ohnodamn from '../../Design/Images/ohnodamn.png';
@@ -38,6 +40,7 @@ export const introObj = [
       `Twenty years later I’m learning a different set of symbols and exploring how I can implement
     them to build new things that I’ve now designed myself.`,
     ],
+    projectLink: '',
     titleImgUrl: conor,
     storyImgUrls: ['void'],
   },
@@ -71,6 +74,7 @@ export const softwareObj = [
       `Enterprise Software Features:`,
       `Library Managment, Filter Managment, Artist Managment, Playlist Managment, Purchase History and Trends`,
     ],
+    projectLink: '',
     titleImgUrl: 'https://www.needledrop.co/images/whitesmlogo.png',
     storyImgUrls: ['void'],
   },
@@ -78,6 +82,24 @@ export const softwareObj = [
   {
     favRank: 3,
     timeRank: 6,
+    title: 'GK_Hello',
+    tech: ['ReactJS', 'NodeJS', 'PostgreSQL', 'Axios', 'ExpressJS', 'Heroku'],
+    summary: [`You're here now. This is where you currently are... Welcome!`],
+    story: [
+      'GK_Hello is a digital portfolio and communication hub to meet potential clients and employers. If you log in and create an account, you can create a profile to tell me more about yourself and chat with me (Conor) directly using my messaging service, GK_Talk',
+      'Please explore and have fun!',
+      '',
+      '',
+      '...there might be secrets to find.',
+    ],
+    projectLink: '',
+    titleImgUrl: algorithm3,
+    storyImgUrls: ['void'],
+  },
+
+  {
+    favRank: 4,
+    timeRank: 7,
     title: 'GK_Talk',
     tech: [
       'ReactJS',
@@ -98,12 +120,13 @@ export const softwareObj = [
       However, with a backend architecture that is flexibly suited for feature updates, GK_Talk features go beyond live chat and persisted conversation history. 
       Along with AWS integration for media sharing, collaborative 'note' sections shared within the conversation feed can be edited by all parties and used for organizing shopping lists, camping trips or the weekend 'To-Do.'`,
     ],
-    titleImgUrl: algorithm3,
+    projectLink: '',
+    titleImgUrl: algorithm4,
     storyImgUrls: ['void'],
   },
 
   {
-    favRank: 4,
+    favRank: 5,
     timeRank: 1,
     title: 'Web Content Aggregator',
     tech: ['Django', 'mongoDB', 'Azure DevOps', 'Scrum', 'Beautiful Soup'],
@@ -113,12 +136,13 @@ export const softwareObj = [
     story: [
       'Final Project Instructor, Scrum Master, and Project Lead for web scraping application at a code school in Portland, OR. ',
     ],
-    titleImgUrl: algorithm2,
+    projectLink: '',
+    titleImgUrl: algorithm,
     storyImgUrls: ['void'],
   },
 
   {
-    favRank: 5,
+    favRank: 6,
     timeRank: 2,
     title: 'Document Parsing Algorithm',
     tech: ['C#', 'Javascript', 'Google Apps Script'],
@@ -136,12 +160,13 @@ export const softwareObj = [
       `,
       `This may sound like a nightmare but, again, I felt like I was discovering magic.`,
     ],
-    titleImgUrl: algorithm,
+    projectLink: '',
+    titleImgUrl: algorithm2,
     storyImgUrls: ['void'],
   },
 
   {
-    favRank: 6,
+    favRank: 7,
     timeRank: 3,
     title: 'GK_HBD-Bridger',
     tech: ['ReactJS', 'Heroku', 'C#', 'ASP.NET'],
@@ -154,12 +179,13 @@ export const softwareObj = [
       `The resulting application was capable of generating more than 100,000 permutations of the three sentence phrase. 
       I'm certain Bridger has yet to see the same joke twice.`,
     ],
+    projectLink: '',
     titleImgUrl: bridger,
     storyImgUrls: ['void'],
   },
 
   {
-    favRank: 7,
+    favRank: 8,
     timeRank: 1,
     title: 'Escape Collective',
     tech: [
@@ -187,6 +213,7 @@ export const softwareObj = [
       The amount of organization, communication, and planning involved with executing demanding fabrication and installation deadlines was very challenging and sleepless for the first few years, but I loved it. 
       `,
     ],
+    projectLink: '',
     titleImgUrl: esc_1,
     storyImgUrls: ['void'],
   },
@@ -194,7 +221,7 @@ export const softwareObj = [
 
 export const personalObj = [
   {
-    favRank: 8,
+    favRank: 9,
     timeRank: 1,
     title: 'PG-13 [band]',
     tech: [
@@ -211,6 +238,7 @@ export const personalObj = [
       'A personal music project started in 2017 after 18yrs of experimentation.',
     ],
     story: ['This is PG-13'],
+    projectLink: '',
     titleImgUrl: PG13_2,
     storyImgUrls: ['void'],
   },
