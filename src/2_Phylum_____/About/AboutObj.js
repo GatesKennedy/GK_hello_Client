@@ -40,7 +40,7 @@ export const introObj = [
       `Twenty years later I’m learning a different set of symbols and exploring how I can implement
     them to build new things that I’ve now designed myself.`,
     ],
-    projectLink: '',
+    projectLink: ``,
     repoLink: ``,
     titleImgUrl: conor,
     storyImgUrls: ['void'],
@@ -142,7 +142,7 @@ export const softwareObj = [
     story: [
       'Final Project Instructor, Scrum Master, and Project Lead for web scraping application at a code school in Portland, OR. ',
     ],
-    projectLink: '',
+    projectLink: ``,
     repoLink: ``,
     titleImgUrl: algorithm,
     storyImgUrls: ['void'],
@@ -248,7 +248,7 @@ export const personalObj = [
       'A personal music project started in 2017 after 18yrs of experimentation.',
     ],
     story: ['This is PG-13'],
-    projectLink: '',
+    projectLink: ``,
     repoLink: ``,
     titleImgUrl: PG13_2,
     storyImgUrls: ['void'],
