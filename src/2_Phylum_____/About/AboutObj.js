@@ -92,6 +92,8 @@ export const softwareObj = [
       'Please explore and have fun!',
       '',
       '',
+      '',
+      '',
       '...there might be secrets to find.',
     ],
     projectLink: `https://www.conor.website/about`,

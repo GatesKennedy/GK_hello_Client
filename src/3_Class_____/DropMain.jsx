@@ -35,7 +35,7 @@ export const ImgCont = styled.section`
 
   margin: 0px 8px 0px 16px;
   padding: 4px;
-  /* height: 104px; */
+  height: 136px;
   border-radius: 8px;
 
   @media only screen and (max-width: 600px) {
