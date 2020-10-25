@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 // import { logout } from '../Modules/User/rdx_axn/axn_auth';
 
 //  STYLE
-import { AboutCont, AboutBody, BodyCont } from './Styled';
+import { AboutCont, AboutBody, AboutIntro, BodyCont } from './Styled';
 import { ParaMed } from '../../Design/Styled_aoe';
 
 //  Asset
@@ -28,15 +28,16 @@ const About = () => {
     <AboutCont id='About-AboutCont' className='bg-gry2 txt-black'>
       {/* Hello */}
       <TitleHeader id='About-TitleHeader1' _txt={titleTxt1} />
-
-      {introObj.map((item) => (
-        <DropMain
-          key={item.favRank}
-          _item={item}
-          _openState={openState}
-          _setOpenState={setOpenState}
-        />
-      ))}
+      <AboutIntro id='About-AboutIntro'>
+        {introObj.map((item) => (
+          <DropMain
+            key={item.favRank}
+            _item={item}
+            _openState={openState}
+            _setOpenState={setOpenState}
+          />
+        ))}
+      </AboutIntro>
 
       {/* Software */}
       <TitleHeader id='About-TitleHeader2' _txt={titleTxt2} />

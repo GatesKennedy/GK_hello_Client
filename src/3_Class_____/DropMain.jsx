@@ -10,7 +10,7 @@ export const ItemCont = styled.section`
   flex-direction: row;
 
   min-height: 116px;
-  max-width: 960px;
+
   width: calc(100% + 16px);
   padding: 8px 0px;
   margin: 2px 0px 2px -8px;
