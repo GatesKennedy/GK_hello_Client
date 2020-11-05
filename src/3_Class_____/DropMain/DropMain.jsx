@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+//  COMPS
+import MediaCont from '../MediaDisplay/MediaCont';
 //  STYLE
 import { Btn1, ImageLrg, ImageIcon, ParaSml } from '../../Design/Styled_aoe';
 import { RiArrowDropDownLine, RiArrowUpSLine } from 'react-icons/ri';
@@ -15,7 +17,6 @@ import {
   ItemStory,
   TechList,
   TechItem,
-  SubIcon,
   SubItem,
   SubTitle,
 } from './styled';
@@ -81,15 +82,17 @@ const DropMain = ({
         {_openState === favRank && (
           <StoryCont>
             <ItemStory>
-              {story.map(({ id, imgUrl, text, media }) => (
+              {story.map(({ id, title, imgUrl, text, media }) => (
                 <ItemCont>
                   <ImageIcon src={imgUrl}></ImageIcon>
                   <SubItem key={id} id='DropMain-SubItem'>
+                    <SubTitle>{title}</SubTitle>
                     {text.map((paragraph, index) => (
                       <ParaSml key={index} id='DropMain-ParaSml'>
                         {paragraph}
                       </ParaSml>
                     ))}
+                    <MediaCont _media={media} _title={title} />
                   </SubItem>
                 </ItemCont>
               ))}

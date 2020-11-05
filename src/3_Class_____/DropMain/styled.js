@@ -151,7 +151,3 @@ export const SubItem = styled.div`
 
   width: 80%;
 `;
-export const SubIcon = styled.div`
-  display: flex;
-  width: 24px;
-`;

@@ -36,6 +36,7 @@ export const introObj = [
     story: [
       {
         id: 0,
+        title: 'Early',
         imgUrl: SubIcon0,
         text: [
           `I’ve been building things for as long as I can remember.`,
@@ -45,7 +46,31 @@ export const introObj = [
           `Twenty years later I’m learning a different set of symbols and exploring how I can implement
       them to build new things that I’ve now designed myself.`,
         ],
-        media: [{ type: 'void', url: 'void' }],
+        media: [],
+        link: 'void',
+      },
+      {
+        id: 1,
+        title: 'Profiles',
+        imgUrl: SubIcon0,
+        text: [],
+        media: [
+          {
+            id: 0,
+            type: 'link',
+            title: 'GitHub',
+            img: 'void',
+            url: 'https://github.com/GatesKennedy',
+          },
+          {
+            id: 1,
+            type: 'link',
+            title: 'LinkedIn',
+            img: 'void',
+            url: 'https://www.linkedin.com/in/conorgateskennedy/',
+          },
+        ],
+        link: 'void',
       },
     ],
     projectLink: ``,

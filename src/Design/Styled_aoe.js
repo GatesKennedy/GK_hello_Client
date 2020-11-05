@@ -145,6 +145,25 @@ export const ImageMed = styled.img`
     height: calc(16vw - 8px);
   }
 `;
+export const ImageSml = styled.img`
+  position: relative;
+  top: 0px;
+
+  clip-path: circle(50%);
+  overflow: hidden;
+  background-color: #262727;
+
+  height: 48px;
+  width: 48px;
+
+  @media only screen and (max-width: 600px) {
+    /* For desktop: */
+    position: relative;
+    top: 0px;
+    width: calc(16vw - 8px);
+    height: calc(16vw - 8px);
+  }
+`;
 export const ImageIcon = styled.img`
   position: relative;
   top: 3px;
