@@ -17,9 +17,8 @@ import {
 } from './Styled';
 
 //  ASSET
-import { IoMdLogIn, IoMdLogOut } from 'react-icons/io';
+import { IoMdLogIn, IoMdLogOut, IoMdPerson } from 'react-icons/io';
 import { FaHorseHead } from 'react-icons/fa';
-import { Gi3DStairs } from 'react-icons/gi';
 
 const Navi = ({ _phylumObj, setModal, profile, isAuthenticated }) => {
   //  STATE
@@ -47,12 +46,22 @@ const Navi = ({ _phylumObj, setModal, profile, isAuthenticated }) => {
             onClick={() => setNavNow('profile')}
             className='flex-row'
           >
-            <Btn>
-              <NaviImg src={profile.img_url} alt='img' />
-            </Btn>
-            <IconText id='Navi-IconText'>
-              <div className='txt-mine align-left'>{profile.name}</div>
-            </IconText>
+            <NaviLogo>
+              <Btn>
+                {profile.img_url === 'void' ? (
+                  <NaviImg src={profile.img_url} alt='img' />
+                ) : (
+                  <IoMdPerson
+                    id='navi-logo-user'
+                    style={iconStyle}
+                    className='hoverColor'
+                  />
+                )}
+              </Btn>
+              <IconText id='Navi-IconText'>
+                <div className='txt-mine align-left'>{profile.name}</div>
+              </IconText>
+            </NaviLogo>
           </Link>
         </LinkCont>
       ) : (
