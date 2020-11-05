@@ -23,3 +23,4 @@
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
+//  !!! For anyone who's gone around in circles about this issue, was resolved by defining the content type as image, it was missing from the server config.

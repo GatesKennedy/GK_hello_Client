@@ -1,12 +1,9 @@
 import { API } from '../../utils/API';
-
 //  REDUX
 import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
-import {
-  PROFILE_UPDATE,
-  PROFILE_CLEAR,
-  PROFILE_ERROR,
-} from '../../Redux/axn_types';
+import { PROFILE_UPDATE, PROFILE_ERROR } from '../../Redux/axn_types';
+//  UTILS
+import setAuthToken from '../../1_Kingdom_____/Auth/utils/setAuthToken';
 
 //  Update Profile (AUTH)
 //==========================
