@@ -8,12 +8,11 @@ export const NaviCont = styled.section`
   height: 42px;
   width: 100vw;
   min-height: 42px;
-  padding: 8px 2vw;
+  padding: 8px 1vw;
   top: 0px;
 `;
 export const NaviLogo = styled.div`
   display: flex;
-  justify-self: center;
   align-self: center;
 
   height: 24px;
@@ -49,7 +48,6 @@ export const LinkCont = styled.div`
   align-self: center;
 
   height: 24px;
-  width: 20vw;
 `;
 export const NaviBtns = styled.div`
   display: flex;
@@ -57,8 +55,6 @@ export const NaviBtns = styled.div`
   min-width: 30vw;
 `;
 export const IconText = styled.h5`
-  /* display: flex; */
-
   min-width: 20vw;
   padding: 4px;
 `;
