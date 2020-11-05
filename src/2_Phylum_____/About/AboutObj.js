@@ -8,6 +8,7 @@ import algorithm2 from '../../Design/Images/algorithm2.png';
 import algorithm3 from '../../Design/Images/algorithm3.png';
 import algorithm4 from '../../Design/Images/algorithm4.png';
 import algorithm5 from '../../Design/Images/algorithm5.jpg';
+import SubIcon0 from '../../Design/Images/SubIcon00000_invert.png';
 
 import esc_1 from '../../Design/Images/esc.png';
 import bridger from '../../Design/Images/BridgerBaby1.JPG';
@@ -33,12 +34,19 @@ export const introObj = [
       `Cheers`,
     ],
     story: [
-      `I’ve been building things for as long as I can remember.`,
-      `By age five, household items and my sisters’ toys would go missing because ‘Conor was making something again’ and by grade five, I
-    had convinced my dad to purchase blueprints for a 6’x8’x32’ half-pipe.  As a general contractor, we agreed that he’d handle the cuts 
-    but I had to mark them out myself and do all other work. He taught me what all the symbols meant on the schematics, and by middle school I’d built it. `,
-      `Twenty years later I’m learning a different set of symbols and exploring how I can implement
-    them to build new things that I’ve now designed myself.`,
+      {
+        id: 0,
+        imgUrl: SubIcon0,
+        text: [
+          `I’ve been building things for as long as I can remember.`,
+          `By age five, household items and my sisters’ toys would go missing because ‘Conor was making something again’ and by grade five, I
+      had convinced my dad to purchase blueprints for a 6’x8’x32’ half-pipe.  As a general contractor, we agreed that he’d handle the cuts 
+      but I had to mark them out myself and do all other work. He taught me what all the symbols meant on the schematics, and by middle school I’d built it. `,
+          `Twenty years later I’m learning a different set of symbols and exploring how I can implement
+      them to build new things that I’ve now designed myself.`,
+        ],
+        media: [{ type: 'void', url: 'void' }],
+      },
     ],
     projectLink: ``,
     repoLink: ``,
@@ -176,7 +184,7 @@ export const softwareObj = [
   {
     favRank: 7,
     timeRank: 3,
-    title: 'GK_HBD-Bridger',
+    title: 'HBD_Bridger',
     tech: ['ReactJS', 'Heroku', 'C#', 'ASP.NET'],
     summary: [
       `"Happy Birthday Bridger" is a birthday gift to an old friend. The application generates 100,000+ permutations of a personalized adulation.[ripe with inside jokes..]`,

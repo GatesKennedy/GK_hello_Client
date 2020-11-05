@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 //  REDUX
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import { logout } from '../Modules/User/rdx_axn/axn_auth';
 
 //  STYLE
 import { AboutCont, AboutBody, AboutIntro, BodyCont } from './Styled';
@@ -12,7 +11,7 @@ import { ParaMed } from '../../Design/Styled_aoe';
 
 //  Asset
 import { introObj, helloObj, softwareObj, personalObj } from './AboutObj';
-import DropMain from '../../3_Class_____/DropMain';
+import DropMain from '../../3_Class_____/DropMain/DropMain';
 import DropProject from '../../3_Class_____/DropProject';
 import TitleHeader from '../../0_GenComps_____/TitleHeader';
 
