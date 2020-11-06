@@ -1,3 +1,4 @@
+//  IMG Arts
 import mobiuss_1 from '../../Design/Images/LogoGk.jpg';
 import mobiuss_3 from '../../Design/Images/mobiuss_3.png';
 import mobiuss_4 from '../../Design/Images/mobiuss_4.png';
@@ -9,8 +10,7 @@ import algorithm3 from '../../Design/Images/algorithm3.png';
 import algorithm4 from '../../Design/Images/algorithm4.png';
 import algorithm5 from '../../Design/Images/algorithm5.jpg';
 import SubIcon0 from '../../Design/Images/SubIcon00000_invert.png';
-
-import esc_1 from '../../Design/Images/esc.png';
+//  IMG Personal
 import bridger from '../../Design/Images/BridgerBaby1.JPG';
 import ohnodamn from '../../Design/Images/ohnodamn.png';
 import conor from '../../Design/Images/conor.jpg';
@@ -18,6 +18,11 @@ import PG13_0 from '../../Design/Images/PG-13_0.jpg';
 import PG13_1 from '../../Design/Images/PG-13_1.jpg';
 import PG13_2 from '../../Design/Images/PG-13_2.jpg';
 import PG13_4 from '../../Design/Images/PG-13_4.jpg';
+//  VEX Brands
+import esc_1 from '../../Design/Images/esc.png';
+import esc_2 from '../../Design/Graphics/escape_collective_logo-circle.png';
+import gitHub from '../../Design/Graphics/GitHub-Mark-64px.png';
+import linkedIn from '../../Design/Graphics/Linkedin-Square-black-2016-cropped.png';
 
 export const introObj = [
   {
@@ -27,9 +32,8 @@ export const introObj = [
     tech: [`Software Engineer`, 'Mechanical Engineer', 'Artist'],
     summary: [
       `Hello,`,
-      `I'm a curious and driven full stack software engineer who enjoys working on highly motivated and cooperative engineering teams.`,
+      `I'm a curious and driven full stack software engineer who enjoys working on highly motivated and creative teams.`,
       `I believe the only thing that seperates a problem from a puzzle is perspective and I'm excited to solve puzzles with skilled communicators!`,
-      ``,
       `Below are a collection of projects I feel are relevant to the reason you are here.`,
       `Cheers`,
     ],
@@ -50,8 +54,20 @@ export const introObj = [
         link: 'void',
       },
       {
+        id: 0,
+        title: 'Lately',
+        imgUrl: SubIcon0,
+        text: [
+          `By age five, household items and my sisters’ toys would go missing because ‘Conor was making something again’ and by grade five, I
+      had convinced my dad to purchase blueprints for a 6’x8’x32’ half-pipe.  As a general contractor, we agreed that he’d handle the cuts 
+      but I had to mark them out myself and do all other work. He taught me what all the symbols meant on the schematics, and by middle school I’d built it. `,
+        ],
+        media: [],
+        link: 'void',
+      },
+      {
         id: 1,
-        title: 'Profiles',
+        title: 'Presence',
         imgUrl: SubIcon0,
         text: [],
         media: [
@@ -59,15 +75,22 @@ export const introObj = [
             id: 0,
             type: 'link',
             title: 'GitHub',
-            img: 'void',
+            img: gitHub,
             url: 'https://github.com/GatesKennedy',
           },
           {
             id: 1,
             type: 'link',
             title: 'LinkedIn',
-            img: 'void',
+            img: linkedIn,
             url: 'https://www.linkedin.com/in/conorgateskennedy/',
+          },
+          {
+            id: 1,
+            type: 'link',
+            title: 'Escape Collective',
+            img: esc_2,
+            url: 'https://esccollective.com/',
           },
         ],
         link: 'void',

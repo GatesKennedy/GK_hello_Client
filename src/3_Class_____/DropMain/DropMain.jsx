@@ -31,6 +31,9 @@ const DropMain = ({
   const handleToggle = () => {
     _openState === favRank ? _setOpenState(0) : _setOpenState(favRank);
   };
+  const stayOpen = (stateNow) => {
+    setTimeout(_setOpenState(stateNow), 1000);
+  };
 
   return (
     <ItemCont
@@ -92,7 +95,12 @@ const DropMain = ({
                         {paragraph}
                       </ParaSml>
                     ))}
-                    <MediaCont _media={media} _title={title} />
+                    <MediaCont
+                      // onClick={() => _setOpenState(favRank)}
+                      onClick={() => stayOpen(favRank)}
+                      _media={media}
+                      _title={title}
+                    />
                   </SubItem>
                 </ItemCont>
               ))}

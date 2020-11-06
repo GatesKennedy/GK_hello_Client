@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+//  Create Axios Instance
 const NewApi = () => {
   const API = axios.create({
     baseURL: process.env.REACT_APP_API_URL,

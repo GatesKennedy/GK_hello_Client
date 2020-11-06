@@ -164,6 +164,23 @@ export const ImageSml = styled.img`
     height: calc(16vw - 8px);
   }
 `;
+export const ImageLogo = styled.img`
+  position: relative;
+  top: 0px;
+
+  overflow: hidden;
+
+  height: 36px;
+  width: 36px;
+
+  @media only screen and (max-width: 600px) {
+    /* For desktop: */
+    position: relative;
+    top: 0px;
+    width: calc(16vw - 8px);
+    height: calc(16vw - 8px);
+  }
+`;
 export const ImageIcon = styled.img`
   position: relative;
   top: 3px;
