@@ -183,8 +183,8 @@ export const ImageLogo = styled.img`
 `;
 export const ImageIcon = styled.img`
   position: relative;
-  top: 3px;
-  left: -8px;
+  top: 1px;
+  left: -11px;
 
   clip-path: circle(50%);
   overflow: hidden;

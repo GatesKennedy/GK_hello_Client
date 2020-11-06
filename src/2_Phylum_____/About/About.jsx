@@ -12,7 +12,7 @@ import { ParaMed } from '../../Design/Styled_aoe';
 //  Asset
 import { introObj, helloObj, softwareObj, personalObj } from './AboutObj';
 import DropMain from '../../3_Class_____/DropMain/DropMain';
-import DropProject from '../../3_Class_____/DropProject';
+import DropProject from '../../3_Class_____/DropProject/DropProject';
 import TitleHeader from '../../0_GenComps_____/TitleHeader';
 
 //  MAIN

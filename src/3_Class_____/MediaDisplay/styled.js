@@ -6,7 +6,7 @@ export const MediaRow = styled.div`
 `;
 export const MediaItem = styled.div`
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   padding: 4px 8px;
 `;
 export const MediaTitle = styled.h4`

@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-//  COMPS
-import MediaCont from '../MediaDisplay/MediaCont';
 //  STYLE
-import { Btn1, ImageLrg, ImageIcon, ParaSml } from '../../Design/Styled_aoe';
+import styled from 'styled-components';
+import { Btn1, ImageMed, ParaSml } from '../../Design/Styled_aoe';
 import { RiArrowDropDownLine, RiArrowUpSLine } from 'react-icons/ri';
+
 import {
   ItemCont,
   ImgCont,
@@ -21,9 +21,8 @@ import {
   SubItem,
   SubTitle,
 } from './styled';
-
 //  MAIN
-const DropMain = ({
+const DropProject = ({
   _item: { titleImgUrl, title, tech, favRank, timeRank, summary, story },
   _openState,
   _setOpenState,
@@ -32,34 +31,31 @@ const DropMain = ({
   const handleToggle = () => {
     _openState === favRank ? _setOpenState(0) : _setOpenState(favRank);
   };
-  const stayOpen = (stateNow) => {
-    setTimeout(_setOpenState(stateNow), 1000);
-  };
 
   return (
     <ItemCont
-      id='DropMain-ItemCont'
+      id='DropProject-ItemCont'
       className={_openState === favRank ? ' bg-gry1' : ' bg-gry2'}
       onClick={() => handleToggle()}
     >
       <ImgCont
-        id='DropMain-ImgCont'
+        id='DropProject-ImgCont'
         className={_openState === favRank && ' bg-gry2'}
       >
-        <ImageLrg
-          id='DropMain-ImageLrg'
+        <ImageMed
+          id='DropProject-ImageMed'
           src={titleImgUrl}
           alt='oops... bad link'
         />
       </ImgCont>
-      <InfoCont id='DropMain-InfoCont'>
-        <ItemTitle id='DropMain-ItemTitle'>{title}</ItemTitle>
-        <ItemTech id='DropMain-ItemTech'>
-          <SubTitle>Titles: </SubTitle>
-          <TechList id='DropMain-TechList'>
+      <InfoCont id='DropProject-InfoCont'>
+        <ItemTitle id='DropProject-ItemTitle'>{title}</ItemTitle>
+        <ItemTech id='DropProject-ItemTech'>
+          <SubTitle>Tech: </SubTitle>
+          <TechList id='DropProject-TechList'>
             {tech.map((item, index) => (
               <TechItem
-                id='DropMain-TechItem'
+                id='DropProject-TechItem'
                 key={index}
                 className={_openState !== favRank ? ' bg-gry1' : ' bg-gry2'}
               >
@@ -68,49 +64,26 @@ const DropMain = ({
             ))}
           </TechList>
         </ItemTech>
-        <SummaryCont id='DropMain-SummaryCont'>
-          <ItemSummary id='DropMain-ItemSummary'>
-            {summary.map((paragraph, index) => (
-              <ParaSml key={index} id='DropMain-ParaSml'>
-                {paragraph}
-              </ParaSml>
-            ))}
-          </ItemSummary>
-          <ToggleCont id='DropMain-ToggleCont'>
-            {_openState !== favRank && (
+        {_openState !== favRank ? (
+          <SummaryCont id='DropProject-SummaryCont'>
+            <ItemSummary id='DropProject-ItemSummary'>{summary}</ItemSummary>
+            <ToggleCont>
               <Btn1 onClick={() => _setOpenState(favRank)}>
                 more <RiArrowDropDownLine />
               </Btn1>
-            )}
-          </ToggleCont>
-        </SummaryCont>
-
-        {_openState === favRank && (
-          <StoryCont id='DropMain-StoryCont'>
-            <ItemStory id='DropMain-ItemStory'>
-              {story.map(({ id, title, imgUrl, text, media }) => (
-                <ItemCont id='DropMain-ItemCont'>
-                  <ImageIcon id='DropMain-ImageIcon' src={imgUrl}></ImageIcon>
-                  <SubItem id='DropMain-SubItem' key={id}>
-                    <SubTitle id='DropMain-SubTitle'>{title}</SubTitle>
-                    {text.map((paragraph, index) => (
-                      <ParaSml id='DropMain-ParaSml' key={index}>
-                        {paragraph}
-                      </ParaSml>
-                    ))}
-                    <MediaCont
-                      id='DropMain-MediaCont'
-                      onClick={() => stayOpen(favRank)}
-                      _media={media}
-                      _title={title}
-                    />
-                  </SubItem>
-                </ItemCont>
+            </ToggleCont>
+          </SummaryCont>
+        ) : (
+          <StoryCont>
+            <ItemStory>
+              {story.map((paragraph, index) => (
+                <ParaSml key={index} id='DropProject-ParaSml'>
+                  {paragraph}
+                </ParaSml>
               ))}
             </ItemStory>
             <ToggleCont>
               <Btn1
-                id='DropMain-Btn1'
                 onClick={() => _setOpenState(0)}
                 className={_openState === favRank && 'bg-gry3-5 txt-white'}
               >
@@ -124,7 +97,7 @@ const DropMain = ({
   );
 };
 
-DropMain.propTypes = {
+DropProject.propTypes = {
   _item: PropTypes.shape({
     titleImgUrl: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
@@ -137,4 +110,4 @@ DropMain.propTypes = {
   _setOpenState: PropTypes.func.isRequired,
 };
 
-export default DropMain;
+export default DropProject;
