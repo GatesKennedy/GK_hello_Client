@@ -29,7 +29,12 @@ export const introObj = [
     favRank: 1,
     timeRank: 1,
     title: `Conor Gates Kennedy`,
-    tech: [`Software Engineer`, 'Mechanical Engineer', 'Artist'],
+    tech: [
+      `Software Engineer`,
+      'Mechanical Engineer',
+      'Music Producer',
+      'Artist',
+    ],
     summary: [
       `Hello,`,
       `I'm a curious and driven full stack software engineer who enjoys working on highly motivated and creative teams.`,

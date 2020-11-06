@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const MediaRow = styled.div`
   display: flex;
   flex-direction: row;
-  padding-left: 12px;
+  justify-content: center;
+  /* padding-left: 12px; */
 `;
 export const MediaItem = styled.div`
   display: flex;

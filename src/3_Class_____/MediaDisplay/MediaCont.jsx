@@ -17,7 +17,7 @@ const MediaCont = ({ _media, _title }) => {
           ({ id, type, title, img, url }) =>
             type === 'link' && (
               <MediaItem key={id} onClick={() => openNewTab(url)}>
-                <Tooltip title={title} placement='bottom-start'>
+                <Tooltip title={title} placement='bottom'>
                   <ImageLogo src={img} />
                   {/* <MediaTitle>{title}</MediaTitle> */}
                 </Tooltip>

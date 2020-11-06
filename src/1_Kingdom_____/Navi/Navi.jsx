@@ -69,21 +69,23 @@ const Navi = ({ _phylumObj, setModal, profile, isAuthenticated }) => {
           </Tooltip>
         </LinkCont>
       ) : (
-        <NaviLogo
-          id='Navi-NaviLogo'
-          onClick={() =>
-            setModal(true, 'auth', 'You like horses too?? ...Who are you?')
-          }
-        >
-          <Btn>
-            <FaHorseHead
-              id='navi-logo-horse'
-              style={iconStyle}
-              className='hoverColor'
-            />
-          </Btn>{' '}
-          <IconText id='Navi-IconText'></IconText>
-        </NaviLogo>
+        <Tooltip title='Horses?' placement='bottom-start'>
+          <NaviLogo
+            id='Navi-NaviLogo'
+            onClick={() =>
+              setModal(true, 'auth', 'You like horses too?? ...Who are you?')
+            }
+          >
+            <Btn>
+              <FaHorseHead
+                id='navi-logo-horse'
+                style={iconStyle}
+                className='hoverColor'
+              />
+            </Btn>{' '}
+            <IconText id='Navi-IconText'></IconText>
+          </NaviLogo>
+        </Tooltip>
       )}
 
       <NaviBtns id='navi-btns'>
