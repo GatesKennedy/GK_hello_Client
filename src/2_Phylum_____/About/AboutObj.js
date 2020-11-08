@@ -23,6 +23,7 @@ import esc_1 from '../../Design/Images/esc.png';
 import esc_2 from '../../Design/Graphics/escape_collective_logo-circle.png';
 import gitHub from '../../Design/Graphics/GitHub-Mark-64px.png';
 import linkedIn from '../../Design/Graphics/Linkedin-Square-black-2016-cropped.png';
+import spotify from '../../Design/Graphics/Spotify_Icon_RGB_Black.png';
 
 export const introObj = [
   {
@@ -91,11 +92,18 @@ export const introObj = [
             url: 'https://www.linkedin.com/in/conorgateskennedy/',
           },
           {
-            id: 1,
+            id: 2,
             type: 'link',
             title: 'Escape Collective',
             img: esc_2,
             url: 'https://esccollective.com/',
+          },
+          {
+            id: 3,
+            type: 'link',
+            title: 'Spotify Playlists',
+            img: spotify,
+            url: 'https://open.spotify.com/user/ohnodamn/playlists',
           },
         ],
         link: 'void',
