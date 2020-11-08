@@ -24,6 +24,8 @@ import esc_2 from '../../Design/Graphics/escape_collective_logo-circle.png';
 import gitHub from '../../Design/Graphics/GitHub-Mark-64px.png';
 import linkedIn from '../../Design/Graphics/Linkedin-Square-black-2016-cropped.png';
 import spotify from '../../Design/Graphics/Spotify_Icon_RGB_Black.png';
+import instagram from '../../Design/Graphics/instagram-icon.png';
+import nope from '../../Design/Graphics/Blank_space.png';
 
 export const introObj = [
   {
@@ -73,8 +75,8 @@ export const introObj = [
       },
       {
         id: 1,
-        title: 'Presence',
-        imgUrl: SubIcon0,
+        title: '',
+        imgUrl: nope,
         text: [],
         media: [
           {
@@ -105,6 +107,13 @@ export const introObj = [
             img: spotify,
             url: 'https://open.spotify.com/user/ohnodamn/playlists',
           },
+          // {
+          //   id: 4,
+          //   type: 'link',
+          //   title: 'Instagram (Band)',
+          //   img: instagram,
+          //   url: 'https://www.instagram.com/pg._.13/',
+          // },
         ],
         link: 'void',
       },

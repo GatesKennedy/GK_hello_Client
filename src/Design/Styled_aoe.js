@@ -73,7 +73,6 @@ export const NavBtn = styled.button`
   text-align: center;
   width: 20vw;
 `;
-
 export const Btn1 = styled.button`
   text-align: center;
 
@@ -188,7 +187,6 @@ export const ImageIcon = styled.img`
 
   clip-path: circle(50%);
   overflow: hidden;
-  background-color: #262727;
 
   height: 18px;
   width: 18px;
