@@ -9,7 +9,6 @@ import { MediaRow, MediaItem, MediaTitle } from './styled';
 import { openNewTab } from '../../utils/Routing';
 
 const MediaCont = ({ _media, _title }) => {
-  console.log(`MEDIA CHK: ${_title} media length: `, _media.length);
   return (
     <MediaRow>
       {_media.length > 0 &&

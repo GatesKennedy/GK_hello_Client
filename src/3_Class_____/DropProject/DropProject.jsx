@@ -1,6 +1,10 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { CSSTransition } from 'react-transition-group';
+//  COMPS
+import MediaCont from '../MediaDisplay/MediaCont';
 //  STYLE
+import '../../Design/animate.css';
 import styled from 'styled-components';
 import { Btn1, ImageMed, ParaSml } from '../../Design/Styled_aoe';
 import { RiArrowDropDownLine, RiArrowUpSLine } from 'react-icons/ri';
@@ -27,9 +31,16 @@ const DropProject = ({
   _openState,
   _setOpenState,
 }) => {
+  //  STATE
+  const [showStory, setShowStory] = useState(false);
+  useEffect(() => {
+    if (_openState !== favRank) setShowStory(false);
+  }, [_openState, favRank]);
   //  FXN
   const handleToggle = () => {
+    console.log('DropMain.jsx > handleToggle() > favRank = ', favRank);
     _openState === favRank ? _setOpenState(0) : _setOpenState(favRank);
+    _openState === favRank ? setShowStory(false) : setShowStory(true);
   };
 
   return (
@@ -64,34 +75,36 @@ const DropProject = ({
             ))}
           </TechList>
         </ItemTech>
-        {_openState !== favRank ? (
-          <SummaryCont id='DropProject-SummaryCont'>
-            <ItemSummary id='DropProject-ItemSummary'>{summary}</ItemSummary>
-            <ToggleCont>
-              <Btn1 onClick={() => _setOpenState(favRank)}>
-                more <RiArrowDropDownLine />
-              </Btn1>
-            </ToggleCont>
-          </SummaryCont>
-        ) : (
-          <StoryCont>
-            <ItemStory>
-              {story.map((paragraph, index) => (
-                <ParaSml key={index} id='DropProject-ParaSml'>
-                  {paragraph}
-                </ParaSml>
-              ))}
-            </ItemStory>
-            <ToggleCont>
-              <Btn1
-                onClick={() => _setOpenState(0)}
-                className={_openState === favRank && 'bg-gry3-5 txt-white'}
-              >
-                less <RiArrowUpSLine />
-              </Btn1>
-            </ToggleCont>
-          </StoryCont>
-        )}
+        <CSSTransition>
+          {_openState !== favRank ? (
+            <SummaryCont id='DropProject-SummaryCont'>
+              <ItemSummary id='DropProject-ItemSummary'>{summary}</ItemSummary>
+              <ToggleCont>
+                <Btn1 onClick={() => _setOpenState(favRank)}>
+                  more <RiArrowDropDownLine />
+                </Btn1>
+              </ToggleCont>
+            </SummaryCont>
+          ) : (
+            <StoryCont>
+              <ItemStory>
+                {story.map((paragraph, index) => (
+                  <ParaSml key={index} id='DropProject-ParaSml'>
+                    {paragraph}
+                  </ParaSml>
+                ))}
+              </ItemStory>
+              <ToggleCont>
+                <Btn1
+                  onClick={() => _setOpenState(0)}
+                  className={_openState === favRank && 'bg-gry3-5 txt-white'}
+                >
+                  less <RiArrowUpSLine />
+                </Btn1>
+              </ToggleCont>
+            </StoryCont>
+          )}
+        </CSSTransition>
       </InfoCont>
     </ItemCont>
   );

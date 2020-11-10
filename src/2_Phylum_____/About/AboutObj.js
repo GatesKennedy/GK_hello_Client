@@ -62,7 +62,7 @@ export const introObj = [
         link: 'void',
       },
       {
-        id: 0,
+        id: 1,
         title: 'Lately',
         imgUrl: SubIcon0,
         text: [
@@ -74,7 +74,7 @@ export const introObj = [
         link: 'void',
       },
       {
-        id: 1,
+        id: 2,
         title: '',
         imgUrl: nope,
         text: [],

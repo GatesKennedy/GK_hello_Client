@@ -1,9 +1,11 @@
+//=================
+//  Fldr: DropMain
 import styled from 'styled-components';
 
 export const ItemCont = styled.section`
   display: flex;
   flex-direction: row;
-
+  height: initial;
   width: calc(100% + 16px);
   padding: 8px 0px;
   margin: 2px 0px 2px -8px;
@@ -14,6 +16,8 @@ export const ItemCont = styled.section`
   &:hover {
     background-color: #e7e7e7;
   }
+
+  transition: height 1s linear 0s;
 
   @media only screen and (max-width: 600px) {
     /* For desktop: */
@@ -45,10 +49,12 @@ export const InfoCont = styled.section`
   justify-content: flex-start;
   justify-items: flex-start;
 
-  height: calc(100% + 6px);
+  height: inherit;
   width: 90%;
   padding: 0px 8px;
   margin-top: -6px;
+
+  transition: height 1s linear 0s;
 
   @media only screen and (max-width: 600px) {
     /* For desktop: */
@@ -60,8 +66,6 @@ export const SummaryCont = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
-  height: 100%;
 `;
 export const StoryCont = styled.section`
   display: flex;
@@ -69,6 +73,9 @@ export const StoryCont = styled.section`
   justify-content: flex-start;
   justify-items: flex-start;
   padding: 8px;
+
+  /* transform: translateX(-45%); */
+  transition: height 0.4s ease-in-out;
 `;
 export const ToggleCont = styled.div`
   /* margin: 12px 0px 0px 0px; */

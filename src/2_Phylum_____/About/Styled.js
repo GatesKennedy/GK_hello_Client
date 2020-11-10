@@ -1,6 +1,7 @@
+//=================
+//  Fldr: About
 import styled from 'styled-components';
 
-//  Comp
 export const AboutCont = styled.section`
   display: flex;
   flex-direction: column;

@@ -1,0 +1,52 @@
+/*   Drop Down   */
+
+.drop-enter {
+  position: relative;
+  overflow: hidden;
+  height: auto;
+}
+.drop-enter-active {
+  position: relative;
+  overflow: hidden;
+  /* height: auto; */
+  transition: height 0.4s ease-in-out;
+}
+.drop-exit {
+  position: relative;
+  overflow: hidden;
+  height: auto;
+}
+.drop-exit-active {
+  position: relative;
+  overflow: hidden;
+  /* height: auto; */
+  transition: height 0.4s ease-in-out;
+}
+
+/* 
+.drop-enter {
+  position: relative;
+  top: -100px;
+  opacity: 0;
+  transform: rotateX(90deg);
+}
+.drop-enter-active {
+  position: relative;
+  top: 0px;
+  opacity: 1;
+  transform: rotateX(0deg);
+  transition: top 300ms, opacity 200ms, transform 300ms;
+}
+.drop-exit {
+  position: relative;
+  top: 0px;
+  opacity: 1;
+}
+.drop-exit-active {
+  position: relative;
+  top: -100px;
+  opacity: 0;
+  transform: rotateX(90deg);
+  transition: top 300ms, opacity 200ms, transform 300ms;
+}
+ */
