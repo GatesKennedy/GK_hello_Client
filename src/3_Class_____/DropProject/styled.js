@@ -20,6 +20,8 @@ export const ItemCont = styled.section`
     /* For desktop: */
     width: calc(100% + 32px);
   }
+
+  transition: height 0.4s ease-in-out;
 `;
 export const ImgCont = styled.section`
   display: flex;

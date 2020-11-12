@@ -35,30 +35,29 @@ const DropMain = ({
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    console.log('$$$ > itemHeight = ', itemHeight);
-    console.log('$$$ > =========================');
+    function calcHeight() {
+      const closeHeight = document.getElementById('DropMain-ItemCont')
+        .offsetHeight;
+      const dropHeight = document.getElementById('DropMain-StoryCont')
+        .offsetHeight;
+      const btnHeight = document.getElementById('DropMain-ToggleCont')
+        .offsetHeight;
+      _openState === favRank
+        ? setItemHeight(closeHeight + dropHeight + btnHeight)
+        : setItemHeight(closeHeight - dropHeight - btnHeight);
+    }
     _openState === favRank ? setIsOpen(true) : setIsOpen(false);
     calcHeight();
-  }, [_openState, favRank, itemHeight]);
+  }, [_openState, favRank]);
 
+  useEffect(() => {
+    console.log('$$$ > itemHeight = ', itemHeight);
+    console.log('$$$ > =========================');
+  }, [itemHeight]);
   //  FXN
   const handleToggle = async () => {
     _openState === favRank ? _setOpenState(0) : _setOpenState(favRank);
-
-    calcHeight();
   };
-
-  function calcHeight() {
-    const closeHeight = document.getElementById('DropMain-ItemCont')
-      .offsetHeight;
-    const dropHeight = document.getElementById('DropMain-StoryCont')
-      .offsetHeight;
-    const btnHeight = document.getElementById('DropMain-ToggleCont')
-      .offsetHeight;
-    _openState === favRank
-      ? setItemHeight(closeHeight + dropHeight + btnHeight)
-      : setItemHeight(closeHeight - dropHeight - btnHeight);
-  }
 
   return (
     <ItemCont
