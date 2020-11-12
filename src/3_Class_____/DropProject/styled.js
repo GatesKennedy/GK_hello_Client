@@ -48,7 +48,6 @@ export const InfoCont = styled.section`
   justify-content: flex-start;
   justify-items: flex-start;
 
-  height: calc(100% + 6px);
   width: 90%;
   padding: 0px 8px;
   margin-top: -6px;

@@ -6,7 +6,13 @@ import MediaCont from '../MediaDisplay/MediaCont';
 //  STYLE
 import '../../Design/animate.css';
 import { ImageIcon, ParaSml } from '../../Design/Styled_aoe';
-import { ItemCont, StoryCont, ItemStory, SubItem, SubTitle } from './styled';
+import {
+  ItemCont,
+  StoryCont,
+  ItemStory,
+  SubItem,
+  SubTitle,
+} from '../DropMain/styled';
 
 const DropAdd = ({ favRank, story, _openState }) => {
   const [menuHeight, setMenuHeight] = useState(null);

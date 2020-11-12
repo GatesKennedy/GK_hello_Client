@@ -109,7 +109,7 @@ const DropMain = ({
               ? { opacity: 0, transition: 'all 0.2s ease' }
               : {
                   opacity: 1,
-                  transition: 'all 0.8s ease-in-out 0.2s',
+                  transition: 'all 1s ease-in-out 0.2s',
                 }
           }
         >

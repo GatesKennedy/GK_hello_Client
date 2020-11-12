@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 //  COMPS
 import MediaCont from '../MediaDisplay/MediaCont';
+import DropSwitch from '../DropTypes/DropSwitch';
 //  STYLE
 import '../../Design/animate.css';
-import styled from 'styled-components';
 import { Btn1, ImageMed, ParaSml } from '../../Design/Styled_aoe';
 import { RiArrowDropDownLine, RiArrowUpSLine } from 'react-icons/ri';
 
@@ -25,6 +25,7 @@ import {
   SubItem,
   SubTitle,
 } from './styled';
+
 //  MAIN
 const DropProject = ({
   _item: { titleImgUrl, title, tech, favRank, timeRank, summary, story },
@@ -33,31 +34,24 @@ const DropProject = ({
 }) => {
   //  STATE
   const [itemHeight, setItemHeight] = useState(null);
+  const [infoHeight, setInfoHeight] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     _openState === favRank ? setIsOpen(true) : setIsOpen(false);
-    calcHeight();
+    // calcHeight();
   }, [_openState, favRank]);
+
+  useEffect(() => {
+    console.log(`itemHeight #${favRank} = `, itemHeight);
+  }, [itemHeight, favRank]);
 
   //  FXN
   const handleToggle = async () => {
     _openState === favRank ? _setOpenState(0) : _setOpenState(favRank);
     _openState === favRank ? setIsOpen(false) : setIsOpen(true);
-    calcHeight();
+    // calcHeight();
   };
-
-  function calcHeight() {
-    const closeHeight = document.getElementById('DropProject-InfoCont')
-      .offsetHeight;
-    // const dropHeight = document.getElementById('DropProject-StoryCont')
-    //   .offsetHeight;
-    const btnHeight = document.getElementById('DropProject-ToggleCont')
-      .offsetHeight;
-    _openState === favRank
-      ? setItemHeight(closeHeight)
-      : setItemHeight(closeHeight);
-  }
 
   return (
     <ItemCont
@@ -92,35 +86,45 @@ const DropProject = ({
             ))}
           </TechList>
         </ItemTech>
+        <DropSwitch
+          isActive={isOpen}
+          itemHeight={infoHeight}
+          setItemHeight={setInfoHeight}
+          favRank={favRank}
+          restContent={summary}
+          activeContent={story}
+        />
 
-        {_openState !== favRank ? (
-          <SummaryCont id='DropProject-StoryCont'>
-            <ItemSummary id='DropProject-ItemSummary'>{summary}</ItemSummary>
-            <ToggleCont id='DropProject-ToggleCont'>
-              <Btn1 onClick={() => _setOpenState(favRank)}>
-                more <RiArrowDropDownLine />
-              </Btn1>
-            </ToggleCont>
-          </SummaryCont>
+        {/* {_openState !== favRank ? (
+          <Summary />
         ) : (
-          <StoryCont id='DropProject-StoryCont'>
-            <ItemStory id='DropProject-ItemStory'>
-              {story.map((paragraph, index) => (
-                <ParaSml key={index} id='DropProject-ParaSml'>
-                  {paragraph}
-                </ParaSml>
-              ))}
-            </ItemStory>
-            <ToggleCont id='DropProject-ToggleCont'>
-              <Btn1
-                onClick={() => _setOpenState(0)}
-                className={_openState === favRank && 'bg-gry3-5 txt-white'}
-              >
-                less <RiArrowUpSLine />
-              </Btn1>
-            </ToggleCont>
-          </StoryCont>
-        )}
+          // <SummaryCont id='DropProject-StoryCont'>
+          //   <ItemSummary id='DropProject-ItemSummary'>{summary}</ItemSummary>
+          //   <ToggleCont id='DropProject-ToggleCont'>
+          //     <Btn1 onClick={() => _setOpenState(favRank)}>
+          //       more <RiArrowDropDownLine />
+          //     </Btn1>
+          //   </ToggleCont>
+          // </SummaryCont>
+          <Story />
+          // <Story id='DropProject-StoryCont'>
+          //   <ItemStory id='DropProject-ItemStory'>
+          //     {story.map((paragraph, index) => (
+          //       <ParaSml key={index} id='DropProject-ParaSml'>
+          //         {paragraph}
+          //       </ParaSml>
+          //     ))}
+          //   </ItemStory>
+          //   <ToggleCont id='DropProject-ToggleCont'>
+          //     <Btn1
+          //       onClick={() => _setOpenState(0)}
+          //       className={_openState === favRank && 'bg-gry3-5 txt-white'}
+          //     >
+          //       less <RiArrowUpSLine />
+          //     </Btn1>
+          //   </ToggleCont>
+          // </Story>
+        )} */}
       </InfoCont>
     </ItemCont>
   );
