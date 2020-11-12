@@ -40,6 +40,7 @@ export const ImgCont = styled.section`
     width: 16vw;
     height: 16vw;
   }
+  transition: all 0.4s ease-in-out;
 `;
 export const InfoCont = styled.section`
   display: flex;
