@@ -31,31 +31,40 @@ const DropMain = ({
   _setOpenState,
 }) => {
   //  STATE
-  const [showStory, setShowStory] = useState(false);
-  useEffect(() => {
-    if (_openState !== favRank) setShowStory(false);
-  }, [_openState, favRank]);
-  const [menuHeight, setMenuHeight] = useState(null);
-  const DropdownRef = useRef(null);
+  const [itemHeight, setItemHeight] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    setMenuHeight(DropdownRef.current?.firstChild.offsetHeight);
-  }, []);
+    console.log('$$$ > itemHeight = ', itemHeight);
+    console.log('$$$ > =========================');
+    _openState === favRank ? setIsOpen(true) : setIsOpen(false);
+    calcHeight();
+  }, [_openState, favRank, itemHeight]);
+
   //  FXN
-  const handleToggle = () => {
-    console.log('DropMain.jsx > handleToggle() > favRank = ', favRank);
+  const handleToggle = async () => {
     _openState === favRank ? _setOpenState(0) : _setOpenState(favRank);
-    _openState === favRank ? setShowStory(false) : setShowStory(true);
+
+    calcHeight();
   };
-  function calcHeight(el) {
-    const height = el.offsetHeight;
-    setMenuHeight(height);
+
+  function calcHeight() {
+    const closeHeight = document.getElementById('DropMain-ItemCont')
+      .offsetHeight;
+    const dropHeight = document.getElementById('DropMain-StoryCont')
+      .offsetHeight;
+    const btnHeight = document.getElementById('DropMain-ToggleCont')
+      .offsetHeight;
+    _openState === favRank
+      ? setItemHeight(closeHeight + dropHeight + btnHeight)
+      : setItemHeight(closeHeight - dropHeight - btnHeight);
   }
 
   return (
     <ItemCont
       id='DropMain-ItemCont'
-      className={_openState === favRank ? ' bg-gry1' : ' bg-gry2'}
+      style={{ height: itemHeight }}
+      className={_openState === favRank ? ' activeItem ' : ' inactiveItem '}
       onClick={() => handleToggle()}
     >
       <ImgCont
@@ -94,98 +103,61 @@ const DropMain = ({
           </ItemSummary>
         </SummaryCont>
 
-        <CSSTransition
-          in={showStory}
-          timeout={300}
-          classNames='drop'
-          onEnter={calcHeight}
-          unmountOnExit
+        <ToggleCont
+          id='DropMain-ToggleCont'
+          style={
+            isOpen
+              ? { opacity: 0, transition: 'all 0.2s ease' }
+              : {
+                  opacity: 1,
+                  transition: 'all 0.8s ease-in-out 0.2s',
+                }
+          }
         >
-          {_openState === favRank ? (
-            <StoryCont
-              id='DropMain-StoryCont'
-              variant='primary'
-              dismissible
-              onClose={() => setShowStory(!showStory)}
-              style={{ height: menuHeight }}
-              ref={DropdownRef}
-            >
-              <ItemStory id='DropMain-ItemStory'>
-                {story.map(({ id, title, imgUrl, text, media }) => (
-                  <ItemCont id='DropMain-ItemCont' key={id}>
-                    <ImageIcon id='DropMain-ImageIcon' src={imgUrl}></ImageIcon>
-                    <SubItem id='DropMain-SubItem' key={id}>
-                      <SubTitle id='DropMain-SubTitle'>{title}</SubTitle>
-                      {text.map((paragraph, index) => (
-                        <ParaSml id='DropMain-ParaSml' key={index}>
-                          {paragraph}
-                        </ParaSml>
-                      ))}
-                      <MediaCont
-                        id='DropMain-MediaCont'
-                        _media={media}
-                        _title={title}
-                      />
-                    </SubItem>
-                  </ItemCont>
-                ))}
-              </ItemStory>
-            </StoryCont>
-          ) : (
-            <div></div>
-          )}
-        </CSSTransition>
-        <ToggleCont id='DropMain-ToggleCont'>
-          <Btn1
-            id='DropMain-Btn1'
-            className={_openState === favRank && 'bg-gry3-5 txt-white'}
-          >
-            {showStory ? (
-              <Fragment>
-                less <RiArrowUpSLine />
-              </Fragment>
-            ) : (
-              <Fragment>
-                more <RiArrowDropDownLine />
-              </Fragment>
-            )}
+          <Btn1 id='DropMain-Btn1'>
+            more <RiArrowDropDownLine />
           </Btn1>
         </ToggleCont>
-        {/* 
-        {_openState === favRank && (
-          <StoryCont id='DropMain-StoryCont'>
-            <ItemStory id='DropMain-ItemStory'>
-              {story.map(({ id, title, imgUrl, text, media }) => (
-                <ItemCont id='DropMain-ItemCont'>
-                  <ImageIcon id='DropMain-ImageIcon' src={imgUrl}></ImageIcon>
-                  <SubItem id='DropMain-SubItem' key={id}>
-                    <SubTitle id='DropMain-SubTitle'>{title}</SubTitle>
-                    {text.map((paragraph, index) => (
-                      <ParaSml id='DropMain-ParaSml' key={index}>
-                        {paragraph}
-                      </ParaSml>
-                    ))}
-                    <MediaCont
-                      id='DropMain-MediaCont'
-                      onClick={() => stayOpen(favRank)}
-                      _media={media}
-                      _title={title}
-                    />
-                  </SubItem>
-                </ItemCont>
-              ))}
-            </ItemStory>
-            <ToggleCont>
-              <Btn1
-                id='DropMain-Btn1'
-                onClick={() => _setOpenState(0)}
-                className={_openState === favRank && 'bg-gry3-5 txt-white'}
-              >
-                less <RiArrowUpSLine />
-              </Btn1>
-            </ToggleCont>
-          </StoryCont>
-        )} */}
+        <StoryCont
+          id='DropMain-StoryCont'
+          style={isOpen ? { opacity: 1 } : { opacity: 0 }}
+        >
+          <ItemStory id='DropMain-ItemStory'>
+            {story.map(({ id, title, imgUrl, text, media }) => (
+              <ItemCont id='DropMain-ItemCont' key={id}>
+                <ImageIcon id='DropMain-ImageIcon' src={imgUrl}></ImageIcon>
+                <SubItem id='DropMain-SubItem' key={id}>
+                  <SubTitle id='DropMain-SubTitle'>{title}</SubTitle>
+                  {text.map((paragraph, index) => (
+                    <ParaSml id='DropMain-ParaSml' key={index}>
+                      {paragraph}
+                    </ParaSml>
+                  ))}
+                  <MediaCont
+                    id='DropMain-MediaCont'
+                    _media={media}
+                    _title={title}
+                  />
+                </SubItem>
+              </ItemCont>
+            ))}
+          </ItemStory>
+        </StoryCont>
+        <ToggleCont
+          id='DropMain-ToggleCont'
+          style={
+            !isOpen
+              ? { opacity: 0, transition: 'all 0.2s ease' }
+              : {
+                  opacity: 1,
+                  transition: 'all 1s ease-in-out 0.2s',
+                }
+          }
+        >
+          <Btn1 id='DropMain-Btn1' className={'bg-gry2'}>
+            less <RiArrowUpSLine />
+          </Btn1>
+        </ToggleCont>
       </InfoCont>
     </ItemCont>
   );

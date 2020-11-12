@@ -75,7 +75,6 @@ export const NavBtn = styled.button`
 `;
 export const Btn1 = styled.button`
   text-align: center;
-
   width: 64px;
   max-width: 64px;
   max-height: 16px;
@@ -87,6 +86,7 @@ export const Btn1 = styled.button`
     transform: scale(1.02);
     background-color: #bdbdbd;
   }
+  /* transition: all 0.4s ease-in-out; */
 `;
 export const Btn2 = styled.button`
   text-align: center;

@@ -5,24 +5,22 @@ import styled from 'styled-components';
 export const ItemCont = styled.section`
   display: flex;
   flex-direction: row;
-  height: initial;
+
   width: calc(100% + 16px);
   padding: 8px 0px;
   margin: 2px 0px 2px -8px;
   border-radius: 12px;
+  overflow: hidden;
 
   cursor: pointer;
-
-  &:hover {
-    background-color: #e7e7e7;
-  }
-
-  transition: height 1s linear 0s;
 
   @media only screen and (max-width: 600px) {
     /* For desktop: */
     width: calc(100% + 32px);
   }
+
+  /* transition: height 0.2s ease-in-out; */
+  transition: all 0.2s ease-in-out;
 `;
 export const ImgCont = styled.section`
   display: flex;
@@ -49,33 +47,30 @@ export const InfoCont = styled.section`
   justify-content: flex-start;
   justify-items: flex-start;
 
-  height: inherit;
   width: 90%;
   padding: 0px 8px;
   margin-top: -6px;
-
-  transition: height 1s linear 0s;
 
   @media only screen and (max-width: 600px) {
     /* For desktop: */
     /* position: relative;
     max-width: calc(100% + 6px); */
   }
+  transition: all 0.4s ease-in-out;
 `;
 export const SummaryCont = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `;
-export const StoryCont = styled.section`
+export const StoryCont = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   justify-items: flex-start;
-  padding: 8px;
+  padding: 0px 8px;
 
-  /* transform: translateX(-45%); */
-  transition: height 0.4s ease-in-out;
+  transition: inherit;
 `;
 export const ToggleCont = styled.div`
   /* margin: 12px 0px 0px 0px; */
@@ -102,6 +97,8 @@ export const ItemTech = styled.div`
 
   margin-bottom: 4px;
   font-size: smaller;
+
+  transition: inherit;
 `;
 export const ItemSummary = styled.div`
   display: flex;
@@ -129,6 +126,8 @@ export const TechList = styled.ul`
 
   font-size: smaller;
   width: 80vw;
+
+  transition: inherit;
 `;
 export const TechItem = styled.li`
   display: flex;
@@ -143,6 +142,8 @@ export const TechItem = styled.li`
   padding: 1px 4px;
 
   font-size: smaller;
+
+  transition: inherit;
 `;
 
 export const SubTitle = styled.div`
