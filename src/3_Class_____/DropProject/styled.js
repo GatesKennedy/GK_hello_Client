@@ -68,18 +68,27 @@ export const TextCont = styled.div`
   justify-content: flex-start;
 
   overflow: hidden;
+
+  position: relative;
+  transition: all 0.4s ease-in-out;
 `;
 export const SummaryCont = styled.div`
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
+
+  position: relative;
+
+  transition: all 0.4s ease-in-out;
 `;
 export const StoryCont = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 
+  position: relative;
   padding: 8px;
+
+  transition: all 0.4s ease-in-out;
 `;
 export const ToggleCont = styled.div`
   margin: 8px 0px 0px 0px;
@@ -111,6 +120,7 @@ export const ItemSummary = styled.div`
   display: flex;
   margin-bottom: 4px;
   width: 100%;
+  height: 3em;
 
   font-size: smaller;
 `;

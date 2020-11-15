@@ -1,5 +1,5 @@
 //  React
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 //  REDUX
 import { connect } from 'react-redux';
@@ -23,6 +23,9 @@ const About = () => {
   const titleTxt1 = 'Hello, Friend...';
   const titleTxt2 = 'Software...';
   const titleTxt3 = 'Personal...';
+  useEffect(() => {
+    console.log(`$$$ openState = `, openState);
+  }, [openState]);
   return (
     <AboutCont id='About-AboutCont' className='bg-gry2 txt-black'>
       {/* Hello */}

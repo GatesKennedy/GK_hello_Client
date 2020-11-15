@@ -35,36 +35,34 @@ const DropSwitch = ({
   }, [isActive, setItemHeight, favRank, itemHeight]);
   return (
     <DropCont style={{ height: itemHeight }}>
-      {!isActive ? (
-        <DropItem id='DropItem'>
-          <SummaryCont id='DropSwitch-StoryCont'>
-            <ItemSummary id='DropSwitch-ItemSummary'>{restContent}</ItemSummary>
-            <ToggleCont id='DropSwitch-ToggleCont'>
-              <Btn1>
-                more <RiArrowDropDownLine />
-              </Btn1>
-            </ToggleCont>
-          </SummaryCont>
-        </DropItem>
-      ) : (
-        <DropItem id='DropItem'>
-          <StoryCont id='DropSwitch-StoryCont'>
-            <ItemStory id='DropSwitch-ItemStory'>
-              {activeContent &&
-                activeContent.map((paragraph, index) => (
-                  <ParaSml key={index} id='DropSwitch-ParaSml'>
-                    {paragraph}
-                  </ParaSml>
-                ))}
-            </ItemStory>
-            <ToggleCont id='DropSwitch-ToggleCont'>
-              <Btn1 className={isActive && 'bg-gry3-5 txt-white'}>
-                less <RiArrowUpSLine />
-              </Btn1>
-            </ToggleCont>
-          </StoryCont>
-        </DropItem>
-      )}
+      <DropItem id='DropItem'>
+        <SummaryCont id='DropSwitch-StoryCont'>
+          <ItemSummary id='DropSwitch-ItemSummary'>{restContent}</ItemSummary>
+          <ToggleCont id='DropSwitch-ToggleCont'>
+            <Btn1>
+              more <RiArrowDropDownLine />
+            </Btn1>
+          </ToggleCont>
+        </SummaryCont>
+      </DropItem>
+
+      <DropItem id='DropItem'>
+        <StoryCont id='DropSwitch-StoryCont'>
+          <ItemStory id='DropSwitch-ItemStory'>
+            {activeContent &&
+              activeContent.map((paragraph, index) => (
+                <ParaSml key={index} id='DropSwitch-ParaSml'>
+                  {paragraph}
+                </ParaSml>
+              ))}
+          </ItemStory>
+          <ToggleCont id='DropSwitch-ToggleCont'>
+            <Btn1 className={isActive && 'bg-gry3-5 txt-white'}>
+              less <RiArrowUpSLine />
+            </Btn1>
+          </ToggleCont>
+        </StoryCont>
+      </DropItem>
     </DropCont>
   );
 };

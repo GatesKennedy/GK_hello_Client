@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 //  COMPS
@@ -33,29 +33,42 @@ const DropProject = ({
   _setOpenState,
 }) => {
   //  STATE
-  const [infoHeight, setInfoHeight] = useState(null);
+  const [infoHeight, setInfoHeight] = useState(110);
+  const [topPosition, setTopPosition] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    function calcHeight() {
-      const storyHeight = document.getElementById('DropMain-StoryCont')
-        .offsetHeight;
-      if (_openState === favRank) {
-        setInfoHeight(storyHeight);
-        console.log('IS OPEN');
-        console.log('storyHeight = ', storyHeight);
-      } else {
-        setInfoHeight(110);
-        console.log('IS CLOSED');
-        console.log(`itemHeight #${favRank} = `, infoHeight);
-      }
+  const calcHeight = useCallback(() => {
+    const infoHeight = document.getElementById('DropProject-InfoCont')
+      .offsetHeight;
+    const summaryHeight = document.getElementById('DropProject-SummaryCont')
+      .offsetHeight;
+    const storyHeight = document.getElementById('DropProject-StoryCont')
+      .offsetHeight;
+    console.log(`$$$ infoHeight #${favRank} = `, infoHeight);
+    console.log(`$$$ summaryHeight #${favRank} = `, summaryHeight);
+    console.log(`$$$ storyHeight #${favRank} = `, storyHeight);
+    if (isOpen) {
+      setInfoHeight(infoHeight + storyHeight - 46);
+      setTopPosition(-3);
+      console.log(`IS OPEN`);
+    } else {
+      setInfoHeight(110);
+      setTopPosition(0);
+      console.log(`IS CLOSED`);
     }
+  }, [isOpen, favRank]);
+  useEffect(() => {
     _openState === favRank ? setIsOpen(true) : setIsOpen(false);
+    console.log(
+      `$$$ favRank: ${favRank}, _openState: ${_openState}, isOpen: ${isOpen}`
+    );
     calcHeight();
-  }, [infoHeight, _openState, favRank]);
+  }, [_openState, favRank, isOpen, calcHeight]);
+
+  useEffect(() => {}, [isOpen]);
 
   //  FXN
-  const handleToggle = async () => {
+
+  const handleToggle = () => {
     isOpen ? _setOpenState(0) : _setOpenState(favRank);
   };
 
@@ -64,7 +77,6 @@ const DropProject = ({
       id='DropProject-ItemCont'
       className={isOpen ? ' activeItem ' : ' inactiveItem '}
       onClick={() => handleToggle()}
-      // style={{ height: itemHeight }}
     >
       <ImgCont id='DropProject-ImgCont' className={isOpen && ' bg-gry2'}>
         <ImageMed
@@ -90,10 +102,16 @@ const DropProject = ({
           </TechList>
         </ItemTech>
         <TextCont id='DropProject-TextCont'>
-          <SummaryCont id='DropProject-SummaryCont'>
+          <SummaryCont
+            id='DropProject-SummaryCont'
+            style={{ top: `${topPosition}em` }}
+          >
             <ItemSummary id='DropProject-ItemSummary'>{summary}</ItemSummary>
           </SummaryCont>
-          <StoryCont id='DropProject-StoryCont'>
+          <StoryCont
+            id='DropProject-StoryCont'
+            style={{ top: `${topPosition}em` }}
+          >
             <ItemStory id='DropProject-ItemStory'>
               {story.map((paragraph, index) => (
                 <ParaSml key={index} id='DropProject-ParaSml'>
@@ -101,7 +119,7 @@ const DropProject = ({
                 </ParaSml>
               ))}
             </ItemStory>
-          </StoryCont>{' '}
+          </StoryCont>
         </TextCont>
         <ToggleCont id='DropProject-ToggleCont'>
           {!isOpen ? (
