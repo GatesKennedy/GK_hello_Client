@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 //  COMPS
 import MediaCont from '../MediaDisplay/MediaCont';
-import DropSwitch from '../DropTypes/DropSwitch';
 //  STYLE
 import '../../Design/animate.css';
 import { Btn1, ImageMed, ParaSml } from '../../Design/Styled_aoe';
@@ -13,6 +12,7 @@ import {
   ItemCont,
   ImgCont,
   InfoCont,
+  TextCont,
   SummaryCont,
   StoryCont,
   ToggleCont,
@@ -33,44 +33,47 @@ const DropProject = ({
   _setOpenState,
 }) => {
   //  STATE
-  const [itemHeight, setItemHeight] = useState(null);
   const [infoHeight, setInfoHeight] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
+    function calcHeight() {
+      const storyHeight = document.getElementById('DropMain-StoryCont')
+        .offsetHeight;
+      if (_openState === favRank) {
+        setInfoHeight(storyHeight);
+        console.log('IS OPEN');
+        console.log('storyHeight = ', storyHeight);
+      } else {
+        setInfoHeight(110);
+        console.log('IS CLOSED');
+        console.log(`itemHeight #${favRank} = `, infoHeight);
+      }
+    }
     _openState === favRank ? setIsOpen(true) : setIsOpen(false);
-    // calcHeight();
-  }, [_openState, favRank]);
-
-  useEffect(() => {
-    console.log(`itemHeight #${favRank} = `, itemHeight);
-  }, [itemHeight, favRank]);
+    calcHeight();
+  }, [infoHeight, _openState, favRank]);
 
   //  FXN
   const handleToggle = async () => {
-    _openState === favRank ? _setOpenState(0) : _setOpenState(favRank);
-    _openState === favRank ? setIsOpen(false) : setIsOpen(true);
-    // calcHeight();
+    isOpen ? _setOpenState(0) : _setOpenState(favRank);
   };
 
   return (
     <ItemCont
       id='DropProject-ItemCont'
-      style={{ height: itemHeight }}
       className={isOpen ? ' activeItem ' : ' inactiveItem '}
       onClick={() => handleToggle()}
+      // style={{ height: itemHeight }}
     >
-      <ImgCont
-        id='DropProject-ImgCont'
-        className={_openState === favRank && ' bg-gry2'}
-      >
+      <ImgCont id='DropProject-ImgCont' className={isOpen && ' bg-gry2'}>
         <ImageMed
           id='DropProject-ImageMed'
           src={titleImgUrl}
           alt='oops... bad link'
         />
       </ImgCont>
-      <InfoCont id='DropProject-InfoCont'>
+      <InfoCont id='DropProject-InfoCont' style={{ height: infoHeight }}>
         <ItemTitle id='DropProject-ItemTitle'>{title}</ItemTitle>
         <ItemTech id='DropProject-ItemTech'>
           <SubTitle>Tech: </SubTitle>
@@ -86,45 +89,34 @@ const DropProject = ({
             ))}
           </TechList>
         </ItemTech>
-        <DropSwitch
-          isActive={isOpen}
-          itemHeight={infoHeight}
-          setItemHeight={setInfoHeight}
-          favRank={favRank}
-          restContent={summary}
-          activeContent={story}
-        />
-
-        {/* {_openState !== favRank ? (
-          <Summary />
-        ) : (
-          // <SummaryCont id='DropProject-StoryCont'>
-          //   <ItemSummary id='DropProject-ItemSummary'>{summary}</ItemSummary>
-          //   <ToggleCont id='DropProject-ToggleCont'>
-          //     <Btn1 onClick={() => _setOpenState(favRank)}>
-          //       more <RiArrowDropDownLine />
-          //     </Btn1>
-          //   </ToggleCont>
-          // </SummaryCont>
-          <Story />
-          // <Story id='DropProject-StoryCont'>
-          //   <ItemStory id='DropProject-ItemStory'>
-          //     {story.map((paragraph, index) => (
-          //       <ParaSml key={index} id='DropProject-ParaSml'>
-          //         {paragraph}
-          //       </ParaSml>
-          //     ))}
-          //   </ItemStory>
-          //   <ToggleCont id='DropProject-ToggleCont'>
-          //     <Btn1
-          //       onClick={() => _setOpenState(0)}
-          //       className={_openState === favRank && 'bg-gry3-5 txt-white'}
-          //     >
-          //       less <RiArrowUpSLine />
-          //     </Btn1>
-          //   </ToggleCont>
-          // </Story>
-        )} */}
+        <TextCont id='DropProject-TextCont'>
+          <SummaryCont id='DropProject-SummaryCont'>
+            <ItemSummary id='DropProject-ItemSummary'>{summary}</ItemSummary>
+          </SummaryCont>
+          <StoryCont id='DropProject-StoryCont'>
+            <ItemStory id='DropProject-ItemStory'>
+              {story.map((paragraph, index) => (
+                <ParaSml key={index} id='DropProject-ParaSml'>
+                  {paragraph}
+                </ParaSml>
+              ))}
+            </ItemStory>
+          </StoryCont>{' '}
+        </TextCont>
+        <ToggleCont id='DropProject-ToggleCont'>
+          {!isOpen ? (
+            <Btn1 onClick={() => _setOpenState(favRank)}>
+              more <RiArrowDropDownLine />
+            </Btn1>
+          ) : (
+            <Btn1
+              onClick={() => _setOpenState(0)}
+              className={isOpen && 'bg-gry3-5 txt-white'}
+            >
+              less <RiArrowUpSLine />
+            </Btn1>
+          )}
+        </ToggleCont>
       </InfoCont>
     </ItemCont>
   );

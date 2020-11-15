@@ -4,13 +4,14 @@ export const ItemCont = styled.section`
   display: flex;
   flex-direction: row;
 
-  min-height: 116px;
+  /* min-height: 116px; */
   width: calc(100% + 16px);
   padding: 8px 0px;
   margin: 2px 0px 2px -8px;
   border-radius: 12px;
 
   cursor: pointer;
+  overflow: hidden;
 
   &:hover {
     background-color: #e7e7e7;
@@ -21,7 +22,7 @@ export const ItemCont = styled.section`
     width: calc(100% + 32px);
   }
 
-  transition: height 0.4s ease-in-out;
+  transition: height 0.2s ease-in-out;
 `;
 export const ImgCont = styled.section`
   display: flex;
@@ -42,6 +43,7 @@ export const ImgCont = styled.section`
     height: 16vw;
   }
 `;
+
 export const InfoCont = styled.section`
   display: flex;
   flex-direction: column;
@@ -51,25 +53,32 @@ export const InfoCont = styled.section`
   width: 90%;
   padding: 0px 8px;
   margin-top: -6px;
+  overflow: hidden;
 
   @media only screen and (max-width: 600px) {
     /* For desktop: */
     /* position: relative;
     max-width: calc(100% + 6px); */
   }
+  transition: height 0.2s ease-in-out;
 `;
-export const SummaryCont = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-  height: 100%;
-`;
-export const StoryCont = styled.section`
+export const TextCont = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  justify-items: flex-start;
+
+  overflow: hidden;
+`;
+export const SummaryCont = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+`;
+export const StoryCont = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
   padding: 8px;
 `;
 export const ToggleCont = styled.div`
