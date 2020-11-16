@@ -64,10 +64,7 @@ const DropProject = ({
     calcHeight();
   }, [_openState, favRank, isOpen, calcHeight]);
 
-  useEffect(() => {}, [isOpen]);
-
   //  FXN
-
   const handleToggle = () => {
     isOpen ? _setOpenState(0) : _setOpenState(favRank);
   };

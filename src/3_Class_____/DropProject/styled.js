@@ -3,9 +3,10 @@ import styled from 'styled-components';
 export const ItemCont = styled.section`
   display: flex;
   flex-direction: row;
+  position: relative;
 
   /* min-height: 116px; */
-  width: calc(100% + 16px);
+  width: 88vw;
   padding: 8px 0px;
   margin: 2px 0px 2px -8px;
   border-radius: 12px;
@@ -30,7 +31,7 @@ export const ImgCont = styled.section`
   align-items: center;
   justify-content: center;
 
-  margin-left: 8px;
+  margin: 0px 8px 0px 8px;
   padding: 4px;
   height: 104px;
   border-radius: 8px;
@@ -42,15 +43,16 @@ export const ImgCont = styled.section`
     width: 16vw;
     height: 16vw;
   }
+
+  transition: all 0.4s ease-in-out;
 `;
 
 export const InfoCont = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  justify-items: flex-start;
 
-  width: 90%;
+  width: 100%;
   padding: 0px 8px;
   margin-top: -6px;
   overflow: hidden;
@@ -86,7 +88,7 @@ export const StoryCont = styled.div`
   justify-content: flex-start;
 
   position: relative;
-  padding: 8px;
+  padding: 8px 0px;
 
   transition: all 0.4s ease-in-out;
 `;
@@ -127,7 +129,6 @@ export const ItemSummary = styled.div`
 export const ItemStory = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0px 8px;
 
   width: 100%;
   font-size: smaller;

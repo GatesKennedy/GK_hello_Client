@@ -10,7 +10,7 @@ import { AboutCont, AboutBody, AboutIntro, BodyCont } from './Styled';
 import { ParaMed } from '../../Design/Styled_aoe';
 
 //  Asset
-import { introObj, helloObj, softwareObj, personalObj } from './AboutObj';
+import { introObj, softwareObj, personalObj } from './AboutObj';
 import DropMain from '../../3_Class_____/DropMain/DropMain';
 import DropProject from '../../3_Class_____/DropProject/DropProject';
 import TitleHeader from '../../0_GenComps_____/TitleHeader';
@@ -19,7 +19,6 @@ import TitleHeader from '../../0_GenComps_____/TitleHeader';
 const About = () => {
   //  STATE
   const [openState, setOpenState] = useState(0);
-  const titleTxt0 = 'Intro:';
   const titleTxt1 = 'Hello, Friend...';
   const titleTxt2 = 'Software...';
   const titleTxt3 = 'Personal...';

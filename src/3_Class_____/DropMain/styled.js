@@ -2,11 +2,12 @@
 //  Fldr: DropMain
 import styled from 'styled-components';
 
-export const ItemCont = styled.section`
+export const ItemCont = styled.div`
   display: flex;
   flex-direction: row;
+  position: relative;
 
-  width: calc(100% + 16px);
+  max-width: 88vw;
   padding: 8px 0px;
   margin: 2px 0px 2px -8px;
   border-radius: 12px;
@@ -28,9 +29,9 @@ export const ImgCont = styled.section`
   align-items: center;
   justify-content: flex-start;
 
-  margin: 0px 8px 0px 16px;
+  margin: 0px 8px 0px 8px;
   padding: 4px;
-  height: 136px;
+  height: 104px;
   border-radius: 8px;
 
   @media only screen and (max-width: 600px) {
@@ -49,13 +50,15 @@ export const InfoCont = styled.section`
   justify-items: flex-start;
 
   width: 90%;
+  height: calc(100% + 10px);
   padding: 0px 8px;
   margin-top: -6px;
+  overflow: hidden;
 
   @media only screen and (max-width: 600px) {
     /* For desktop: */
-    /* position: relative;
-    max-width: calc(100% + 6px); */
+    position: relative;
+    max-width: calc(100% + 6px);
   }
   transition: all 0.4s ease-in-out;
 `;

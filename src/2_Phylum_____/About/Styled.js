@@ -20,8 +20,9 @@ export const AboutHead = styled.section`
 export const AboutIntro = styled.section`
   display: flex;
   flex-direction: column;
+  width: 100%;
 
-  margin-right: 6vw;
+  margin: 0vw 6vw;
   padding: 8px;
   border-radius: 12px;
 
@@ -34,6 +35,7 @@ export const AboutIntro = styled.section`
 export const AboutBody = styled.section`
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   margin: 0px 6vw;
   padding: 8px;
