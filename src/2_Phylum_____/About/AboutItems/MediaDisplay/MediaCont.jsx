@@ -10,15 +10,18 @@ import { openNewTab } from '../../../../utils/Routing';
 
 const MediaCont = ({ _media, _title }) => {
   return (
-    <MediaRow>
+    <MediaRow id='MediaCont-MediaRow'>
       {_media.length > 0 &&
         _media.map(
           ({ id, type, title, img, url }) =>
             type === 'link' && (
-              <MediaItem key={id} onClick={() => openNewTab(url)}>
+              <MediaItem
+                id='MediaCont-MediaItem'
+                key={id}
+                onClick={() => openNewTab(url)}
+              >
                 <Tooltip title={title} placement='bottom'>
-                  <ImageLogo src={img} />
-                  {/* <MediaTitle>{title}</MediaTitle> */}
+                  <ImageLogo id='MediaCont-ImageLogo' src={img} />
                 </Tooltip>
               </MediaItem>
             )

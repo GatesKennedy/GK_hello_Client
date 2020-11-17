@@ -4,11 +4,10 @@ import PropTypes from 'prop-types';
 import MediaCont from './MediaDisplay/MediaCont';
 import ImageItem from './ImageItem';
 //  STYLE
-import { Btn1, ImageLrg, ImageIcon, ParaSml } from '../../../Design/Styled_aoe';
+import { Btn1, ImageIcon, ParaSml } from '../../../Design/Styled_aoe';
 import { RiArrowDropDownLine, RiArrowUpSLine } from 'react-icons/ri';
 import {
   ItemCont,
-  ImgCont,
   InfoCont,
   TextCont,
   SummaryCont,
@@ -120,7 +119,7 @@ const AboutItem = ({
             <ItemStory id='AboutItem-ItemStory'>
               {story.map(({ id, title, imgUrl, text, media }) => (
                 <ItemCont id='AboutItem-ItemCont' key={id}>
-                  <ImageIcon id='AboutItem-ImageIcon' src={imgUrl}></ImageIcon>
+                  {/* <ImageIcon id='AboutItem-ImageIcon' src={imgUrl}></ImageIcon> */}
                   <SubItem id='AboutItem-SubItem' key={id}>
                     <SubTitle id='AboutItem-SubTitle'>{title}</SubTitle>
                     {text.map((paragraph, index) => (

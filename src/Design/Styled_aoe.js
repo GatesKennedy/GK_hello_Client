@@ -169,29 +169,29 @@ export const ImageLogo = styled.img`
 
   overflow: hidden;
 
-  height: 36px;
   width: 36px;
+  height: 36px;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (min-width: 600px) {
     /* For desktop: */
     position: relative;
     top: 0px;
-    width: calc(16vw - 8px);
-    height: calc(16vw - 8px);
+    width: 36px;
+    height: 36px;
   }
 `;
 export const ImageIcon = styled.img`
   position: relative;
   top: 1px;
-  left: -11px;
+  left: -4px;
 
   clip-path: circle(50%);
   overflow: hidden;
 
-  height: 18px;
-  width: 18px;
+  height: 2vw;
+  width: auto;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (min-width: 600px) {
     /* For desktop: */
     position: relative;
     top: 0px;

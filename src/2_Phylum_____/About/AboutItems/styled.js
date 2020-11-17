@@ -76,7 +76,7 @@ export const TextCont = styled.div`
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
-
+    width: 100%;
     left: 0vw;
   }
 
@@ -92,7 +92,7 @@ export const StoryCont = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   justify-items: flex-start;
-  padding: 0px 8px;
+  padding-left: 16px;
 
   transition: inherit;
 `;
@@ -135,7 +135,7 @@ export const ItemSummary = styled.div`
 export const ItemStory = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0px 24px 8px 24px;
+  padding: 0px 0px 8px 8px;
 
   width: 100%;
   font-size: smaller;
@@ -181,6 +181,5 @@ export const SubItem = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0px 8px;
-
-  width: 80%;
+  width: 100%;
 `;
