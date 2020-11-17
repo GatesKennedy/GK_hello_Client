@@ -5,7 +5,6 @@ import styled from 'styled-components';
 export const ItemCont = styled.div`
   display: flex;
   flex-direction: row;
-  position: relative;
 
   max-width: 88vw;
   padding: 8px 0px;
@@ -31,7 +30,7 @@ export const ImgCont = styled.section`
 
   margin: 0px 8px 0px 8px;
   padding: 4px;
-  height: 104px;
+  height: 136px;
   border-radius: 8px;
 
   @media only screen and (max-width: 600px) {
@@ -53,13 +52,29 @@ export const InfoCont = styled.section`
   height: calc(100% + 10px);
   padding: 0px 8px;
   margin-top: -6px;
-  overflow: hidden;
 
   @media only screen and (max-width: 600px) {
     /* For desktop: */
     position: relative;
     max-width: calc(100% + 6px);
   }
+  transition: all 0.4s ease-in-out;
+`;
+export const TextCont = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  overflow: hidden;
+  position: relative;
+  left: -18vw;
+
+  @media only screen and (min-width: 600px) {
+    /* For desktop: */
+
+    left: 0vw;
+  }
+
   transition: all 0.4s ease-in-out;
 `;
 export const SummaryCont = styled.section`

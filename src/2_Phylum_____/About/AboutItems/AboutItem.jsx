@@ -1,12 +1,10 @@
 import React, { Fragment, useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { CSSTransition } from 'react-transition-group';
 //  COMPS
-import MediaCont from '../MediaDisplay/MediaCont';
-import ImageItem from '../../2_Phylum_____/About/AboutItems/ImageItem';
+import MediaCont from './MediaDisplay/MediaCont';
+import ImageItem from './ImageItem';
 //  STYLE
-import '../../Design/animate.css';
-import { Btn1, ImageLrg, ImageIcon, ParaSml } from '../../Design/Styled_aoe';
+import { Btn1, ImageLrg, ImageIcon, ParaSml } from '../../../Design/Styled_aoe';
 import { RiArrowDropDownLine, RiArrowUpSLine } from 'react-icons/ri';
 import {
   ItemCont,
@@ -27,7 +25,7 @@ import {
 } from './styled';
 
 //  MAIN
-const DropMain = ({
+const AboutItem = ({
   _item: { titleImgUrl, title, tech, favRank, timeRank, summary, story },
   _openState,
   _setOpenState,
@@ -38,11 +36,11 @@ const DropMain = ({
 
   useEffect(() => {
     function calcHeight() {
-      const closeHeight = document.getElementById('DropMain-ItemCont')
+      const closeHeight = document.getElementById('AboutItem-ItemCont')
         .offsetHeight;
-      const dropHeight = document.getElementById('DropMain-StoryCont')
+      const dropHeight = document.getElementById('AboutItem-StoryCont')
         .offsetHeight;
-      const btnHeight = document.getElementById('DropMain-ToggleCont')
+      const btnHeight = document.getElementById('AboutItem-ToggleCont')
         .offsetHeight;
       _openState === favRank
         ? setItemHeight(closeHeight + dropHeight + btnHeight)
@@ -63,7 +61,7 @@ const DropMain = ({
 
   return (
     <ItemCont
-      id='DropMain-ItemCont'
+      id='AboutItem-ItemCont'
       style={{ height: itemHeight }}
       className={_openState === favRank ? ' activeItem ' : ' inactiveItem '}
       onClick={() => handleToggle()}
@@ -74,14 +72,14 @@ const DropMain = ({
         titleImgUrl={titleImgUrl}
         imageSize={'large'}
       />
-      <InfoCont id='DropMain-InfoCont'>
-        <ItemTitle id='DropMain-ItemTitle'>{title}</ItemTitle>
-        <ItemTech id='DropMain-ItemTech'>
+      <InfoCont id='AboutItem-InfoCont'>
+        <ItemTitle id='AboutItem-ItemTitle'>{title}</ItemTitle>
+        <ItemTech id='AboutItem-ItemTech'>
           <SubTitle>Titles: </SubTitle>
-          <TechList id='DropMain-TechList'>
+          <TechList id='AboutItem-TechList'>
             {tech.map((item, index) => (
               <TechItem
-                id='DropMain-TechItem'
+                id='AboutItem-TechItem'
                 key={index}
                 className={_openState !== favRank ? ' bg-gry1' : ' bg-gry2'}
               >
@@ -90,18 +88,18 @@ const DropMain = ({
             ))}
           </TechList>
         </ItemTech>
-        <TextCont>
-          <SummaryCont id='DropMain-SummaryCont'>
-            <ItemSummary id='DropMain-ItemSummary'>
+        <TextCont id='AboutItem-TextCont'>
+          <SummaryCont id='AboutItem-SummaryCont'>
+            <ItemSummary id='AboutItem-ItemSummary'>
               {summary.map((paragraph, index) => (
-                <ParaSml key={index} id='DropMain-ParaSml'>
+                <ParaSml key={index} id='AboutItem-ParaSml'>
                   {paragraph}
                 </ParaSml>
               ))}
             </ItemSummary>
           </SummaryCont>
           <ToggleCont
-            id='DropMain-ToggleCont'
+            id='AboutItem-ToggleCont'
             style={
               isOpen
                 ? { opacity: 0, transition: 'all 0.2s ease' }
@@ -111,27 +109,27 @@ const DropMain = ({
                   }
             }
           >
-            <Btn1 id='DropMain-Btn1'>
+            <Btn1 id='AboutItem-Btn1'>
               more <RiArrowDropDownLine />
             </Btn1>
           </ToggleCont>
           <StoryCont
-            id='DropMain-StoryCont'
+            id='AboutItem-StoryCont'
             style={isOpen ? { opacity: 1 } : { opacity: 0 }}
           >
-            <ItemStory id='DropMain-ItemStory'>
+            <ItemStory id='AboutItem-ItemStory'>
               {story.map(({ id, title, imgUrl, text, media }) => (
-                <ItemCont id='DropMain-ItemCont' key={id}>
-                  <ImageIcon id='DropMain-ImageIcon' src={imgUrl}></ImageIcon>
-                  <SubItem id='DropMain-SubItem' key={id}>
-                    <SubTitle id='DropMain-SubTitle'>{title}</SubTitle>
+                <ItemCont id='AboutItem-ItemCont' key={id}>
+                  <ImageIcon id='AboutItem-ImageIcon' src={imgUrl}></ImageIcon>
+                  <SubItem id='AboutItem-SubItem' key={id}>
+                    <SubTitle id='AboutItem-SubTitle'>{title}</SubTitle>
                     {text.map((paragraph, index) => (
-                      <ParaSml id='DropMain-ParaSml' key={index}>
+                      <ParaSml id='AboutItem-ParaSml' key={index}>
                         {paragraph}
                       </ParaSml>
                     ))}
                     <MediaCont
-                      id='DropMain-MediaCont'
+                      id='AboutItem-MediaCont'
                       _media={media}
                       _title={title}
                     />
@@ -141,7 +139,7 @@ const DropMain = ({
             </ItemStory>
           </StoryCont>
           <ToggleCont
-            id='DropMain-ToggleCont'
+            id='AboutItem-ToggleCont'
             style={
               !isOpen
                 ? { opacity: 0, transition: 'all 0.2s ease' }
@@ -151,7 +149,7 @@ const DropMain = ({
                   }
             }
           >
-            <Btn1 id='DropMain-Btn1' className={'bg-gry2'}>
+            <Btn1 id='AboutItem-Btn1' className={'bg-gry2'}>
               less <RiArrowUpSLine />
             </Btn1>
           </ToggleCont>
@@ -161,7 +159,7 @@ const DropMain = ({
   );
 };
 
-DropMain.propTypes = {
+AboutItem.propTypes = {
   _item: PropTypes.shape({
     titleImgUrl: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
@@ -174,4 +172,4 @@ DropMain.propTypes = {
   _setOpenState: PropTypes.func.isRequired,
 };
 
-export default DropMain;
+export default AboutItem;

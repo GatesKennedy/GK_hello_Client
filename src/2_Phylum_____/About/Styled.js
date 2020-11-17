@@ -20,16 +20,18 @@ export const AboutHead = styled.section`
 export const AboutIntro = styled.section`
   display: flex;
   flex-direction: column;
-  width: 100%;
 
-  margin: 0vw 6vw;
+  margin: 0vw 0vw 0vw 4vw;
   padding: 8px;
   border-radius: 12px;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (min-width: 600px) {
     /* For desktop: */
     position: relative;
     left: -24px;
+    width: calc(100% - 8vw);
+
+    margin: 0vw 4vw;
   }
 `;
 export const AboutBody = styled.section`
@@ -37,14 +39,15 @@ export const AboutBody = styled.section`
   flex-direction: column;
   width: 100%;
 
-  margin: 0px 6vw;
+  margin: 0px 4vw;
   padding: 8px;
   border-radius: 12px;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (min-width: 600px) {
     /* For desktop: */
     position: relative;
     left: -24px;
+    width: calc(100% - 8vw);
   }
 `;
 
@@ -57,7 +60,7 @@ export const IntroCont = styled.section`
   margin: 2px 0px 2px -8px;
   border-radius: 12px;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (min-width: 600px) {
     /* For desktop: */
     width: calc(100% + 32px);
   }
@@ -76,7 +79,7 @@ export const BodyCont = styled.section`
   margin: 2px 0px 2px -8px;
   border-radius: 12px;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (min-width: 600px) {
     /* For desktop: */
     width: calc(100% + 32px);
   }
