@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 //  STYLE
 import { ParaSml } from '../../../Design/Styled_aoe';
 import MediaCont from './MediaDisplay/MediaCont';
 import { ItemCont, StoryCont, ItemStory, SubItem, SubTitle } from './styled';
 
-const StoryItem = ({ isOpen, story, offset }) => {
-  console.log(`StoryItem > offset: `, offset);
-
+const StoryItem = ({ favRank, isOpen, story, offset, setStoryHeight }) => {
+  useEffect(() => {
+    const storyHeight = document.getElementById(`StoryItem-StoryCont${favRank}`)
+      .offsetHeight;
+    setStoryHeight(storyHeight);
+  }, [setStoryHeight]);
   return (
     <StoryCont
-      id='StoryItem-StoryCont'
+      id={`StoryItem-StoryCont${favRank}`}
       style={
         isOpen
           ? { opacity: 1, top: `${offset}em` }

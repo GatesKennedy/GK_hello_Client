@@ -370,7 +370,7 @@ export const softwareObj = [
         link: 'void',
       },
       {
-        id: 1,
+        id: 2,
         title: `Design Engineering:`,
         imgUrl: SubIcon0,
         text: [
@@ -384,7 +384,7 @@ export const softwareObj = [
         link: 'void',
       },
       {
-        id: 1,
+        id: 3,
         title: `Project Management:`,
         imgUrl: SubIcon0,
         text: [

@@ -23,9 +23,7 @@ const About = () => {
   const titleTxt1 = 'Hello, Friend...';
   const titleTxt2 = 'Software...';
   const titleTxt3 = 'Personal...';
-  useEffect(() => {
-    console.log(`$$$ openState = `, openState);
-  }, [openState]);
+
   return (
     <AboutCont id='About-AboutCont' className='bg-gry2 txt-black'>
       {/* Hello */}

@@ -71,14 +71,9 @@ const AboutItem = ({
         </ItemTech>
         {dropType === 'add' ? (
           <DropAdd
-            preFrame={<SummaryItem summary={summary} offset={topOffset} />}
-            postFrame={
-              <StoryItem
-                story={story}
-                isOpen={_openState === favRank}
-                offset={topOffset}
-              />
-            }
+            summary={summary}
+            story={story}
+            topOffset={topOffset}
             _openState={_openState}
             _setOpenState={_setOpenState}
             setTopOffset={setTopOffset}
@@ -86,14 +81,9 @@ const AboutItem = ({
           />
         ) : (
           <DropSwitch
-            preFrame={<SummaryItem summary={summary} offset={topOffset} />}
-            postFrame={
-              <StoryItem
-                story={story}
-                isOpen={_openState === favRank}
-                offset={topOffset}
-              />
-            }
+            summary={summary}
+            story={story}
+            topOffset={topOffset}
             _openState={_openState}
             _setOpenState={_setOpenState}
             setTopOffset={setTopOffset}

@@ -24,7 +24,7 @@ export const ItemCont = styled.div`
   /* transition: height 0.2s ease-in-out; */
   transition: all 0.2s ease-in-out;
 `;
-export const ImgCont = styled.section`
+export const ImgContLrg = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,6 +41,50 @@ export const ImgCont = styled.section`
     /* For desktop: */
     width: 142px;
     height: 138px;
+    position: relative;
+    top: 0px;
+  }
+  transition: all 0.4s ease-in-out;
+`;
+export const ImgContMed = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0px 8px 0px 8px;
+  padding: 4px;
+  width: 16vw;
+  height: calc(16vw - 0px);
+
+  border-radius: 8px;
+
+  @media only screen and (min-width: 600px) {
+    /* For desktop: */
+    width: 108px;
+    height: 104px;
+    position: relative;
+    top: 0px;
+  }
+  transition: all 0.4s ease-in-out;
+`;
+export const ImgContSml = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0px 8px 0px 8px;
+  padding: 4px;
+  width: 16vw;
+  height: calc(16vw - 0px);
+
+  border-radius: 8px;
+
+  @media only screen and (min-width: 600px) {
+    /* For desktop: */
+    width: 84px;
+    height: 80px;
     position: relative;
     top: 0px;
   }

@@ -2,14 +2,19 @@ import React, { Fragment, useEffect, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 //  COMPS
 import ToggleItem from './ToggleItem';
+import SummaryItem from '../../2_Phylum_____/About/AboutItems/SummaryItem';
+import StoryItem from '../../2_Phylum_____/About/AboutItems/StoryItem';
 //  STYLE
 import { DropCont } from './styled';
 import { RiArrowDropDownLine, RiArrowUpSLine } from 'react-icons/ri';
 
 const DropAdd = ({
   favRank,
+  summary,
+  story,
   preFrame,
   postFrame,
+  topOffset,
   _openState,
   _setOpenState,
   itemHeight,
@@ -17,40 +22,44 @@ const DropAdd = ({
 }) => {
   //  STATE
   const [dropHeight, setDropHeight] = useState(null);
+  const [summaryHeight, setSummaryHeight] = useState(null);
+  const [storyHeight, setStoryHeight] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   //  CALLBACK
   const calcHeight = useCallback(() => {
     const dropHeight = document.getElementById('DropAdd-DropCont').offsetHeight;
-    const summaryHeight = document.getElementById('SummaryItem-SummaryCont')
-      .offsetHeight;
-    const storyHeight = document.getElementById('StoryItem-StoryCont')
-      .offsetHeight;
+    // const summaryHeight = document.getElementById('SummaryItem-SummaryCont')
+    //   .offsetHeight;
+    // const storyHeight = document.getElementById('StoryItem-StoryCont')
+    //   .offsetHeight;
     const toggleHeight = document.getElementById('ToggleItem-ToggleCont')
       .offsetHeight;
-    console.log(`$$$ dropHeight #${favRank} = `, dropHeight);
-    console.log(`$$$ summaryHeight #${favRank} = `, summaryHeight);
-    console.log(`$$$ storyHeight #${favRank} = `, storyHeight);
-    console.log(`$$$ toggleHeight #${favRank} = `, toggleHeight);
+
     if (isOpen) {
       setDropHeight(summaryHeight + storyHeight + 2 * toggleHeight + 4);
-      console.log(`IS OPEN`);
+      console.log(`=============`);
+      console.log(`DropAdd   #${favRank} IS OPEN`);
     } else {
       setDropHeight(summaryHeight + toggleHeight);
-      console.log(`IS CLOSED`);
+      console.log(`=============`);
+      console.log(`DropAdd   #${favRank} IS CLOSED`);
     }
   }, [isOpen, favRank]);
   //  EFFECT
   useEffect(() => {
     _openState === favRank ? setIsOpen(true) : setIsOpen(false);
-    console.log(
-      `$$$ favRank: ${favRank}, _openState: ${_openState}, isOpen: ${isOpen}`
-    );
+
     calcHeight();
   }, [_openState, favRank, isOpen, calcHeight]);
   //  RETURN
   return (
     <DropCont id='DropAdd-DropCont' style={{ height: dropHeight }}>
-      {preFrame}
+      <SummaryItem
+        summary={summary}
+        offset={topOffset}
+        setSummaryHeight={setSummaryHeight}
+      />
+
       <ToggleItem
         isOpen={_openState === favRank}
         _setOpenState={_setOpenState}
@@ -65,7 +74,13 @@ const DropAdd = ({
               }
         }
       />
-      {postFrame}
+      <StoryItem
+        story={story}
+        isOpen={isOpen}
+        offset={topOffset}
+        setStoryHeight={setStoryHeight}
+      />
+
       <ToggleItem
         isOpen={_openState === favRank}
         _setOpenState={_setOpenState}

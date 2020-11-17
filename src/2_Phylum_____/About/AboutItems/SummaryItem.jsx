@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 //  STYLE
 import { ParaSml } from '../../../Design/Styled_aoe';
 import { SummaryCont, ItemSummary } from './styled';
 
-const SummaryItem = ({ summary, offset }) => {
-  console.log(`SummaryItem > offset: `, offset);
+const SummaryItem = ({ favRank, summary, offset, setSummaryHeight }) => {
+  useEffect(() => {
+    const summaryHeight = document.getElementById(
+      `SummaryItem-SummaryCont${favRank}`
+    ).offsetHeight;
+    setSummaryHeight(summaryHeight);
+  }, [setSummaryHeight]);
   return (
-    <SummaryCont id='SummaryItem-SummaryCont' style={{ top: `${offset}em` }}>
+    <SummaryCont
+      id={`SummaryItem-SummaryCont${favRank}`}
+      style={{ top: `${offset}em` }}
+    >
       <ItemSummary id='SummaryItem-ItemSummary'>
         {summary.map((paragraph, index) => (
           <ParaSml key={index} id='SummaryItem-ParaSml'>
