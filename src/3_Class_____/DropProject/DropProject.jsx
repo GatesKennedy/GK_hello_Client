@@ -43,24 +43,24 @@ const DropProject = ({
       .offsetHeight;
     const storyHeight = document.getElementById('DropProject-StoryCont')
       .offsetHeight;
-    console.log(`$$$ infoHeight #${favRank} = `, infoHeight);
-    console.log(`$$$ summaryHeight #${favRank} = `, summaryHeight);
-    console.log(`$$$ storyHeight #${favRank} = `, storyHeight);
+    // console.log(`$$$ infoHeight #${favRank} = `, infoHeight);
+    // console.log(`$$$ summaryHeight #${favRank} = `, summaryHeight);
+    // console.log(`$$$ storyHeight #${favRank} = `, storyHeight);
     if (isOpen) {
       setInfoHeight(infoHeight + storyHeight - 46);
       setTopPosition(-3);
-      console.log(`IS OPEN`);
+      // console.log(`IS OPEN`);
     } else {
       setInfoHeight(110);
       setTopPosition(0);
-      console.log(`IS CLOSED`);
+      // console.log(`IS CLOSED`);
     }
   }, [isOpen, favRank]);
   useEffect(() => {
     _openState === favRank ? setIsOpen(true) : setIsOpen(false);
-    console.log(
-      `$$$ favRank: ${favRank}, _openState: ${_openState}, isOpen: ${isOpen}`
-    );
+    // console.log(
+    //   `$$$ favRank: ${favRank}, _openState: ${_openState}, isOpen: ${isOpen}`
+    // );
     calcHeight();
   }, [_openState, favRank, isOpen, calcHeight]);
 
