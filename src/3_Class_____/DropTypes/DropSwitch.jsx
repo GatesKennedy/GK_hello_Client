@@ -1,72 +1,90 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
+//  COMPS
+import ToggleItem from './ToggleItem';
 //  STYLE
-import { Btn1, ParaSml } from '../../Design/Styled_aoe';
+import { DropCont } from './styled';
 import { RiArrowDropDownLine, RiArrowUpSLine } from 'react-icons/ri';
-import { DropCont, DropItem } from './styled';
-import {
-  SummaryCont,
-  StoryCont,
-  ToggleCont,
-  ItemSummary,
-  ItemStory,
-} from '../DropProject/styled';
 
 const DropSwitch = ({
-  isActive,
+  favRank,
+  preFrame,
+  postFrame,
+  _openState,
+  _setOpenState,
+  setTopOffset,
   itemHeight,
   setItemHeight,
-  favRank,
-  restContent,
-  activeContent,
 }) => {
-  //  EFFECT
-  useEffect(() => {
-    function calcHeight() {
-      const restHeight = document.getElementById('DropItem').offsetHeight;
-      // const activeHeight = document.getElementById('active').offsetHeight;
-      // isActive ? setItemHeight(activeHeight) : setItemHeight(restHeight);
-      setItemHeight(restHeight);
-      console.log(`itemHeight #${favRank} = `, itemHeight);
-      console.log(`restHeight #${favRank} = `, restHeight);
-      // console.log(`actiHeight #${favRank} = `, activeHeight);
-    }
-    calcHeight();
-  }, [isActive, setItemHeight, favRank, itemHeight]);
-  return (
-    <DropCont style={{ height: itemHeight }}>
-      <DropItem id='DropItem'>
-        <SummaryCont id='DropSwitch-StoryCont'>
-          <ItemSummary id='DropSwitch-ItemSummary'>{restContent}</ItemSummary>
-          <ToggleCont id='DropSwitch-ToggleCont'>
-            <Btn1>
-              more <RiArrowDropDownLine />
-            </Btn1>
-          </ToggleCont>
-        </SummaryCont>
-      </DropItem>
+  //  STATE
+  const [dropHeight, setDropHeight] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
-      <DropItem id='DropItem'>
-        <StoryCont id='DropSwitch-StoryCont'>
-          <ItemStory id='DropSwitch-ItemStory'>
-            {activeContent &&
-              activeContent.map((paragraph, index) => (
-                <ParaSml key={index} id='DropSwitch-ParaSml'>
-                  {paragraph}
-                </ParaSml>
-              ))}
-          </ItemStory>
-          <ToggleCont id='DropSwitch-ToggleCont'>
-            <Btn1 className={isActive && 'bg-gry3-5 txt-white'}>
-              less <RiArrowUpSLine />
-            </Btn1>
-          </ToggleCont>
-        </StoryCont>
-      </DropItem>
+  const calcHeight = useCallback(() => {
+    const dropHeight = document.getElementById('DropSwitch-DropCont')
+      .offsetHeight;
+    const summaryHeight = document.getElementById('SummaryItem-SummaryCont')
+      .offsetHeight;
+    const storyHeight = document.getElementById('StoryItem-StoryCont')
+      .offsetHeight;
+    const toggleHeight = document.getElementById('ToggleItem-ToggleCont')
+      .offsetHeight;
+    console.log(`$$$ dropHeight #${favRank} = `, dropHeight);
+    console.log(`$$$ summaryHeight #${favRank} = `, summaryHeight);
+    console.log(`$$$ storyHeight #${favRank} = `, storyHeight);
+    if (isOpen) {
+      setDropHeight(storyHeight + toggleHeight + 4);
+      setTopOffset(-3);
+      console.log(`IS OPEN`);
+    } else {
+      setDropHeight(summaryHeight + toggleHeight);
+      setTopOffset(0);
+      console.log(`IS CLOSED`);
+    }
+  }, [isOpen, favRank]);
+
+  useEffect(() => {
+    _openState === favRank ? setIsOpen(true) : setIsOpen(false);
+    console.log(
+      `$$$ favRank: ${favRank}, _openState: ${_openState}, isOpen: ${isOpen}`
+    );
+    calcHeight();
+  }, [_openState, favRank, isOpen, calcHeight]);
+
+  return (
+    <DropCont id='DropSwitch-DropCont' style={{ height: dropHeight }}>
+      {preFrame}
+      <ToggleItem
+        isOpen={_openState === favRank}
+        _setOpenState={_setOpenState}
+        text={'more'}
+        icon={<RiArrowDropDownLine />}
+        style={
+          isOpen
+            ? { opacity: 0, transition: 'all 0.3s ease-in-out' }
+            : {
+                opacity: 1,
+                transition: 'all 1s ease-in-out 0.4s',
+              }
+        }
+      />
+      {postFrame}
+      <ToggleItem
+        isOpen={_openState === favRank}
+        _setOpenState={_setOpenState}
+        text='less'
+        icon={<RiArrowUpSLine />}
+        style={
+          !isOpen
+            ? { opacity: 0, transition: 'all 0.3s ease-in-out' }
+            : {
+                opacity: 1,
+                transition: 'all 1s ease-in-out 0.4s',
+              }
+        }
+      />
     </DropCont>
   );
 };
-
-DropSwitch.propTypes = {};
 
 export default DropSwitch;

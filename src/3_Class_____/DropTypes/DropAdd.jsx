@@ -18,22 +18,7 @@ const DropAdd = ({
   //  STATE
   const [dropHeight, setDropHeight] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
-
-  // useEffect(() => {
-  //   function calcHeight() {
-  //     const summaryHeight = document.getElementById('AboutItem-SummaryCont')
-  //       .offsetHeight;
-  //     const storyHeight = document.getElementById('AboutItem-StoryCont')
-  //       .offsetHeight;
-  //     const btnHeight = document.getElementById('AboutItem-ToggleCont')
-  //       .offsetHeight;
-  //     _openState === favRank
-  //       ? setDropHeight(summaryHeight + storyHeight + btnHeight)
-  //       : setDropHeight(summaryHeight - storyHeight - btnHeight);
-  //   }
-  //   _openState === favRank ? setIsOpen(true) : setIsOpen(false);
-  //   calcHeight();
-  // }, [_openState, favRank]);
+  //  CALLBACK
   const calcHeight = useCallback(() => {
     const dropHeight = document.getElementById('DropAdd-DropCont').offsetHeight;
     const summaryHeight = document.getElementById('SummaryItem-SummaryCont')
@@ -54,7 +39,7 @@ const DropAdd = ({
       console.log(`IS CLOSED`);
     }
   }, [isOpen, favRank]);
-
+  //  EFFECT
   useEffect(() => {
     _openState === favRank ? setIsOpen(true) : setIsOpen(false);
     console.log(
@@ -62,7 +47,7 @@ const DropAdd = ({
     );
     calcHeight();
   }, [_openState, favRank, isOpen, calcHeight]);
-
+  //  RETURN
   return (
     <DropCont id='DropAdd-DropCont' style={{ height: dropHeight }}>
       {preFrame}

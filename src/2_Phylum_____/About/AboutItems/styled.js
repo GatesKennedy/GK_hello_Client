@@ -83,11 +83,17 @@ export const TextCont = styled.div`
   transition: all 0.4s ease-in-out;
 `;
 export const SummaryCont = styled.section`
+  position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  transition: inherit;
 `;
 export const StoryCont = styled.div`
+  position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

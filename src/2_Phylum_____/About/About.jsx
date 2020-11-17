@@ -34,6 +34,7 @@ const About = () => {
         {introObj.map((item) => (
           <AboutItem
             key={item.favRank}
+            dropType='add'
             _item={item}
             _openState={openState}
             _setOpenState={setOpenState}
@@ -45,8 +46,9 @@ const About = () => {
       <TitleHeader id='About-TitleHeader2' _txt={titleTxt2} />
       <AboutBody id='About-AboutBody'>
         {softwareObj.map((item) => (
-          <DropProject
+          <AboutItem
             key={item.favRank}
+            dropType='switch'
             _item={item}
             _openState={openState}
             _setOpenState={setOpenState}
@@ -57,8 +59,9 @@ const About = () => {
       <TitleHeader id='About-TitleHeader3' _txt={titleTxt3} />
       <AboutBody id='About-AboutBody'>
         {personalObj.map((item) => (
-          <DropProject
+          <AboutItem
             key={item.favRank}
+            dropType='switch'
             _item={item}
             _openState={openState}
             _setOpenState={setOpenState}

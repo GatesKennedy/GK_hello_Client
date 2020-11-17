@@ -5,13 +5,19 @@ import { ParaSml } from '../../../Design/Styled_aoe';
 import MediaCont from './MediaDisplay/MediaCont';
 import { ItemCont, StoryCont, ItemStory, SubItem, SubTitle } from './styled';
 
-const StoryItem = ({ isOpen, story }) => {
+const StoryItem = ({ isOpen, story, offset }) => {
+  console.log(`StoryItem > offset: `, offset);
+
   return (
     <StoryCont
       id='StoryItem-StoryCont'
-      style={isOpen ? { opacity: 1 } : { opacity: 0 }}
+      style={
+        isOpen
+          ? { opacity: 1, top: `${offset}em` }
+          : { opacity: 0, top: `${offset}em` }
+      }
     >
-      <ItemStory id='StoryItem-ItemStory'>
+      <ItemStory id='StoryItem-ItemStory' style={{}}>
         {story.map(({ id, title, imgUrl, text, media }) => (
           <ItemCont id='StoryItem-ItemCont' key={id}>
             {/* <ImageIcon id='StoryItem-ImageIcon' src={imgUrl}></ImageIcon> */}

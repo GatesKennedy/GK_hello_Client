@@ -107,13 +107,6 @@ export const introObj = [
             img: spotify,
             url: 'https://open.spotify.com/user/ohnodamn/playlists',
           },
-          // {
-          //   id: 4,
-          //   type: 'link',
-          //   title: 'Instagram (Band)',
-          //   img: instagram,
-          //   url: 'https://www.instagram.com/pg._.13/',
-          // },
         ],
         link: 'void',
       },
@@ -145,13 +138,46 @@ export const softwareObj = [
       'Application Software for a music licensing company in Portland, OR. Consumer and Enterprise systems.',
     ],
     story: [
-      `Needle Drop Co. is a music licensing company in Portland, Oregon. Having outgrown the functionality of their prior web presence, 
+      {
+        id: 1,
+        title: 'Overview:',
+        imgUrl: SubIcon0,
+        text: [
+          `Needle Drop Co. is a music licensing company in Portland, Oregon. Having outgrown the functionality of their prior web presence, 
       they were seeking a web application that could help the user explore their product library and streamline inventory maintainence`,
-      `While working closely with the client a solution was reached that offers a powerful customer experience and a comprehensive catalogue management system.`,
-      `Consumer Software Features: `,
-      `Library browsing by filters or search, User playlists and favorites, Currated playlists by Needle Drop, Artist discovery and Artist Profiles, Secure payment system for obtaining licenses`,
-      `Enterprise Software Features:`,
-      `Library Managment, Filter Managment, Artist Managment, Playlist Managment, Purchase History and Trends`,
+          `While working closely with the client a solution was reached that offers a powerful customer experience and a comprehensive catalogue management system.`,
+        ],
+        media: [],
+        link: 'void',
+      },
+      {
+        id: 2,
+        title: 'Architecture:',
+        imgUrl: SubIcon0,
+        text: [],
+        media: [],
+        link: 'void',
+      },
+      {
+        id: 3,
+        title: `Consumer Features: `,
+        imgUrl: SubIcon0,
+        text: [
+          `Library browsing by filters or search, User playlists and favorites, Currated playlists by Needle Drop, Artist discovery and Artist Profiles, Secure payment system for obtaining licenses`,
+        ],
+        media: [],
+        link: 'void',
+      },
+      {
+        id: 4,
+        title: `Enterprise Features:`,
+        imgUrl: SubIcon0,
+        text: [
+          `Library Managment, Filter Managment, Artist Managment, Playlist Managment, Purchase History and Trends`,
+        ],
+        media: [],
+        link: 'void',
+      },
     ],
     projectLink: 'void',
     repoLink: ``,
@@ -166,13 +192,22 @@ export const softwareObj = [
     tech: ['ReactJS', 'NodeJS', 'PostgreSQL', 'Axios', 'ExpressJS', 'Heroku'],
     summary: [`You're here now. This is where you currently are... Welcome!`],
     story: [
-      'GK_Hello is a digital portfolio and communication hub to meet potential clients and employers. If you log in and create an account, you can create a profile to tell me more about yourself and chat with me (Conor) directly using my messaging service, GK_Talk',
-      'Please explore and have fun!',
-      '',
-      '',
-      '',
-      '',
-      '...there might be secrets to find.',
+      {
+        id: 1,
+        title: `Overview:`,
+        imgUrl: SubIcon0,
+        text: [
+          'GK_Hello is a digital portfolio and communication hub to meet potential clients and employers. If you log in and create an account, you can create a profile to tell me more about yourself and chat with me (Conor) directly using my messaging service, GK_Talk',
+          'Please explore and have fun!',
+          '',
+          '',
+          '',
+          '',
+          '...there might be secrets to find.',
+        ],
+        media: [],
+        link: 'void',
+      },
     ],
     projectLink: `https://www.conor.website/about`,
     repoLink: ``,
@@ -199,9 +234,18 @@ export const softwareObj = [
       'GK_Talk is a text-based communication module designed for reuse across projects and microservice implementation.',
     ],
     story: [
-      `Designed for reuse across projects with and for later implementation as a microservice, GK_Talk is foundationally a messaging service.
+      {
+        id: 1,
+        title: `Overview:`,
+        imgUrl: SubIcon0,
+        text: [
+          `Designed for reuse across projects with and for later implementation as a microservice, GK_Talk is foundationally a messaging service.
       However, with a backend architecture that is flexibly suited for feature updates, GK_Talk features go beyond live chat and persisted conversation history. 
       Along with AWS integration for media sharing, collaborative 'note' sections shared within the conversation feed can be edited by all parties and used for organizing shopping lists, camping trips or the weekend 'To-Do.'`,
+        ],
+        media: [],
+        link: 'void',
+      },
     ],
     projectLink: `https://www.conor.website/talk`,
     repoLink: ``,
@@ -218,7 +262,16 @@ export const softwareObj = [
       'Final Project Instructor, Scrum Master, and Project Lead for web scraping application at a code school in Portland, OR. ',
     ],
     story: [
-      'Final Project Instructor, Scrum Master, and Project Lead for web scraping application at a code school in Portland, OR. ',
+      {
+        id: 1,
+        title: `Overview:`,
+        imgUrl: SubIcon0,
+        text: [
+          'Final Project Instructor, Scrum Master, and Project Lead for web scraping application at a code school in Portland, OR. ',
+        ],
+        media: [],
+        link: 'void',
+      },
     ],
     projectLink: ``,
     repoLink: ``,
@@ -235,15 +288,24 @@ export const softwareObj = [
       'A text parsing algorithm developed in C# to identify, isolate and organize 1200+ pages of course curriculum for automated field population.',
     ],
     story: [
-      `After leaving Escape Collective and pursuing software development as my primary focus, I found suprising overlap in skills. 
+      {
+        id: 1,
+        title: `Overview:`,
+        imgUrl: SubIcon0,
+        text: [
+          `After leaving Escape Collective and pursuing software development as my primary focus, I found suprising overlap in skills. 
       The ability to stay calm and lead a team through long hours appeared to fit well with what I’d experience in the software industry. 
       On the first day of my first job, a crippling situation with the company’s database occurred.`,
-      `I suddenly found myself deputized.`,
-      `I served as the liaison to the fraught development team while tracking the progress of seperate team tasked with manually repopulating an inhuman amount of data.
+          `I suddenly found myself deputized.`,
+          `I served as the liaison to the fraught development team while tracking the progress of seperate team tasked with manually repopulating an inhuman amount of data.
       By the second day I was able to project my observations and saw it was likely the Monday deadline would be missed, so I decided to develop a script for the task after hours.
       I ended up with a parsing algorithm that could translate any amount of raw data (following the established format) from Google Documents and repopulate the damaged system. 
       `,
-      `This may sound like a nightmare but, again, I felt like I was discovering magic.`,
+          `This may sound like a nightmare but, again, I felt like I was discovering magic.`,
+        ],
+        media: [],
+        link: 'void',
+      },
     ],
     projectLink: 'void',
     repoLink: ``,
@@ -260,10 +322,19 @@ export const softwareObj = [
       `"Happy Birthday Bridger" is a birthday gift to an old friend. The application generates 100,000+ permutations of a personalized adulation.[ripe with inside jokes..]`,
     ],
     story: [
-      `Originally built with C# on ASP.NET, this application was basically a Mad Lib solution generator. 
+      {
+        id: 1,
+        title: `Overview:`,
+        imgUrl: SubIcon0,
+        text: [
+          `Originally built with C# on ASP.NET, this application was basically a Mad Lib solution generator. 
       There was a predetermined paragraph structure with associated collections of nouns, verbs, adjectives, etc... that were randomized for each solution.`,
-      `The resulting application was capable of generating more than 100,000 permutations of the three sentence phrase. 
+          `The resulting application was capable of generating more than 100,000 permutations of the three sentence phrase. 
       I'm certain Bridger has yet to see the same joke twice.`,
+        ],
+        media: [],
+        link: 'void',
+      },
     ],
     projectLink: 'www.bridgerbaby.com',
     repoLink: ``,
@@ -287,18 +358,44 @@ export const softwareObj = [
       'Co-Founder and Lead Design Engineer of a design and fabrication company in Portland, OR.',
     ],
     story: [
-      `Shortly after graduating with a degree in Mechanical Engineering from WSU, I chose to start a design and fabrication company with some talented friends in Portland called the Escape Collective. 
-      I was the design engineer. 
-      My early roles were focused on calculating, analyzing and explaining the frame and cover designs for 36’ diameter geodesic domes. 
+      {
+        id: 1,
+        title: `Overview:`,
+        imgUrl: SubIcon0,
+        text: [
+          `Shortly after graduating with a degree in Mechanical Engineering from WSU, I chose to start a design and fabrication company with some talented friends in Portland called the Escape Collective. 
+      I was the design engineer. `,
+        ],
+        media: [],
+        link: 'void',
+      },
+      {
+        id: 1,
+        title: `Design Engineering:`,
+        imgUrl: SubIcon0,
+        text: [
+          `My early roles were focused on calculating, analyzing and explaining the frame and cover designs for 36’ diameter geodesic domes. 
       This is where I remember really experiencing programming in a powerful way for the first time. 
       I’d learned and implemented Matlab, EES and similar engineering tools, but this was different. 
       I found a python script off a blog of an Australian aerospace engineer that tackled most of the math published by Buckminster Fuller in regards to the linear approximation of spherical geodesics. 
       With some quick python study and a few modifications, I had a functional script that took in radius, frequency (degree of subdivisions) and returned to me an order list of every ‘beam’ in CSV format.`,
-
-      `In Escape Collective, as with all start-ups, no one person could afford to play a single role. 
+        ],
+        media: [],
+        link: 'void',
+      },
+      {
+        id: 1,
+        title: `Project Management:`,
+        imgUrl: SubIcon0,
+        text: [
+          `In Escape Collective, as with all start-ups, no one person could afford to play a single role. 
       I found myself project managing event installations, leading build teams on remote event sites around the country and interfacing with on-site civil engineers all while making sure the client representatives for Nike, Corona, or DocuSign were satisfied. 
       The amount of organization, communication, and planning involved with executing demanding fabrication and installation deadlines was very challenging and sleepless for the first few years, but I loved it. 
       `,
+        ],
+        media: [],
+        link: 'void',
+      },
     ],
     projectLink: `www.esccollective.com`,
     repoLink: ``,
@@ -325,7 +422,16 @@ export const personalObj = [
     summary: [
       'A personal music project started in 2017 after 18yrs of experimentation.',
     ],
-    story: ['This is PG-13'],
+    story: [
+      {
+        id: 1,
+        title: `Overview:`,
+        imgUrl: SubIcon0,
+        text: ['This is PG-13'],
+        media: [],
+        link: 'void',
+      },
+    ],
     projectLink: ``,
     repoLink: ``,
     titleImgUrl: PG13_2,

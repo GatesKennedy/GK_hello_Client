@@ -28,35 +28,14 @@ import {
 
 //  MAIN
 const AboutItem = ({
+  dropType,
   _item: { titleImgUrl, title, tech, favRank, timeRank, summary, story },
   _openState,
   _setOpenState,
 }) => {
-  // //  STATE
-  // const [itemHeight, setItemHeight] = useState(null);
-  // const [isOpen, setIsOpen] = useState(false);
-
-  // useEffect(() => {
-  //   function calcHeight() {
-  //     const closeHeight = document.getElementById('AboutItem-ItemCont')
-  //       .offsetHeight;
-  //     const dropHeight = document.getElementById('AboutItem-StoryCont')
-  //       .offsetHeight;
-  //     const btnHeight = document.getElementById('AboutItem-ToggleCont')
-  //       .offsetHeight;
-  //     _openState === favRank
-  //       ? setItemHeight(closeHeight + dropHeight + btnHeight)
-  //       : setItemHeight(closeHeight - dropHeight - btnHeight);
-  //   }
-  //   _openState === favRank ? setIsOpen(true) : setIsOpen(false);
-  //   calcHeight();
-  // }, [_openState, favRank]);
-
-  // useEffect(() => {
-  //   console.log('$$$ > itemHeight = ', itemHeight);
-  //   console.log('$$$ > =========================');
-  // }, [itemHeight]);
-  // //  FXN
+  //  STATE
+  const [topOffset, setTopOffset] = useState(0);
+  //  FXN
   const handleToggle = async () => {
     _openState === favRank ? _setOpenState(0) : _setOpenState(favRank);
   };
@@ -72,7 +51,7 @@ const AboutItem = ({
         _openState={_openState}
         favRank={favRank}
         titleImgUrl={titleImgUrl}
-        imageSize={'large'}
+        imageSize={favRank === 1 ? 'large' : 'medium'}
       />
       <InfoCont id='AboutItem-InfoCont'>
         <ItemTitle id='AboutItem-ItemTitle'>{title}</ItemTitle>
@@ -90,21 +69,51 @@ const AboutItem = ({
             ))}
           </TechList>
         </ItemTech>
-        <DropAdd
-          preFrame={<SummaryItem summary={summary} />}
-          postFrame={
-            <StoryItem story={story} isOpen={_openState === favRank} />
-          }
-          _openState={_openState}
-          _setOpenState={_setOpenState}
-          favRank={favRank}
-          // itemHeight={itemHeight}
-          // setItemHeight={setItemHeight}
-        ></DropAdd>
-        {/* <ToggleItem
-          isOpen={_openState === favRank}
-          _setOpenState={_setOpenState}
-        /> */}
+        {dropType === 'add' ? (
+          <DropAdd
+            preFrame={<SummaryItem summary={summary} offset={topOffset} />}
+            postFrame={
+              <StoryItem
+                story={story}
+                isOpen={_openState === favRank}
+                offset={topOffset}
+              />
+            }
+            _openState={_openState}
+            _setOpenState={_setOpenState}
+            setTopOffset={setTopOffset}
+            favRank={favRank}
+          />
+        ) : (
+          <DropSwitch
+            preFrame={<SummaryItem summary={summary} offset={topOffset} />}
+            postFrame={
+              <StoryItem
+                story={story}
+                isOpen={_openState === favRank}
+                offset={topOffset}
+              />
+            }
+            _openState={_openState}
+            _setOpenState={_setOpenState}
+            setTopOffset={setTopOffset}
+            favRank={favRank}
+          />
+        )}
+        {/* <ToggleCont id='DropProject-ToggleCont'>
+          {!_openState === favRank ? (
+            <Btn1 onClick={() => _setOpenState(favRank)}>
+              more <RiArrowDropDownLine />
+            </Btn1>
+          ) : (
+            <Btn1
+              onClick={() => _setOpenState(0)}
+              className={_openState === favRank && 'bg-gry3-5 txt-white'}
+            >
+              less <RiArrowUpSLine />
+            </Btn1>
+          )}
+        </ToggleCont> */}
       </InfoCont>
     </ItemCont>
   );
