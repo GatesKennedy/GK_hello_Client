@@ -2,27 +2,17 @@ import React, { Fragment, useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 //  COMPS
 import ImageItem from './ImageItem';
-import SummaryItem from './SummaryItem';
-import StoryItem from './StoryItem';
 import DropAdd from '../../../3_Class_____/DropTypes/DropAdd';
 import DropSwitch from '../../../3_Class_____/DropTypes/DropSwitch';
 //  STYLE
-import { Btn1, ImageIcon, ParaSml } from '../../../Design/Styled_aoe';
-import { RiArrowDropDownLine, RiArrowUpSLine } from 'react-icons/ri';
+
 import {
   ItemCont,
   InfoCont,
-  TextCont,
-  SummaryCont,
-  StoryCont,
-  ToggleCont,
   ItemTitle,
   ItemTech,
-  ItemSummary,
-  ItemStory,
   TechList,
   TechItem,
-  SubItem,
   SubTitle,
 } from './styled';
 
@@ -43,7 +33,6 @@ const AboutItem = ({
   return (
     <ItemCont
       id='AboutItem-ItemCont'
-      // style={{ height: itemHeight }}
       className={_openState === favRank ? ' activeItem ' : ' inactiveItem '}
       onClick={() => handleToggle()}
     >
@@ -90,20 +79,6 @@ const AboutItem = ({
             favRank={favRank}
           />
         )}
-        {/* <ToggleCont id='DropProject-ToggleCont'>
-          {!_openState === favRank ? (
-            <Btn1 onClick={() => _setOpenState(favRank)}>
-              more <RiArrowDropDownLine />
-            </Btn1>
-          ) : (
-            <Btn1
-              onClick={() => _setOpenState(0)}
-              className={_openState === favRank && 'bg-gry3-5 txt-white'}
-            >
-              less <RiArrowUpSLine />
-            </Btn1>
-          )}
-        </ToggleCont> */}
       </InfoCont>
     </ItemCont>
   );

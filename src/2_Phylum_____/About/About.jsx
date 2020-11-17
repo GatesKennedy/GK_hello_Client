@@ -6,14 +6,11 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 //  STYLE
-import { AboutCont, AboutBody, AboutIntro, BodyCont } from './Styled';
-import { ParaMed } from '../../Design/Styled_aoe';
+import { AboutCont, AboutBody, AboutIntro } from './Styled';
 
 //  Asset
 import { introObj, softwareObj, personalObj } from './AboutObj';
 import AboutItem from './AboutItems/AboutItem';
-import DropMain from '../../3_Class_____/DropMain/DropMain';
-import DropProject from '../../3_Class_____/DropProject/DropProject';
 import TitleHeader from '../../0_GenComps_____/TitleHeader';
 
 //  MAIN

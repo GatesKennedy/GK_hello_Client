@@ -55,7 +55,7 @@ const ImageItem = ({ _openState, favRank, titleImgUrl, imageSize }) => {
 };
 
 ImageItem.propTypes = {
-  _openState: PropTypes.bool.isRequired,
+  _openState: PropTypes.number.isRequired,
   favRank: PropTypes.number.isRequired,
   titleImgUrl: PropTypes.string.isRequired,
   imageSize: PropTypes.string,
