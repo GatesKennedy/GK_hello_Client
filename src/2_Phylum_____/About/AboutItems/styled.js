@@ -9,16 +9,18 @@ export const ItemCont = styled.div`
   width: 100%;
 
   padding: 8px 0px;
-  margin: 2px 0px 2px -8px;
+  margin: 4px 0px 4px -8px;
   border-radius: 12px;
   overflow: hidden;
 
+  /* background-color: #e7e7e7; */
   cursor: pointer;
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
-
     width: 100%;
+    margin: 2px 0px 2px -8px;
+    /* background-color: #e0e0e0; */
   }
 
   /* transition: height 0.2s ease-in-out; */

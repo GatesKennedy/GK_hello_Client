@@ -256,7 +256,7 @@ export const softwareObj = [
   {
     favRank: 5,
     timeRank: 1,
-    title: 'Web Content Aggregator',
+    title: 'Content Aggregator',
     tech: ['Django', 'mongoDB', 'Azure DevOps', 'Scrum', 'Beautiful Soup'],
     summary: [
       'Final Project Instructor, Scrum Master, and Project Lead for web scraping application at a code school in Portland, OR. ',
@@ -282,7 +282,7 @@ export const softwareObj = [
   {
     favRank: 6,
     timeRank: 2,
-    title: 'Document Parsing Algorithm',
+    title: 'Parsing Algorithm',
     tech: ['C#', 'Javascript', 'Google Apps Script'],
     summary: [
       'A text parsing algorithm developed in C# to identify, isolate and organize 1200+ pages of course curriculum for automated field population.',
