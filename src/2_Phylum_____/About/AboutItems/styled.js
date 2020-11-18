@@ -6,7 +6,7 @@ export const ItemCont = styled.div`
   display: flex;
   flex-direction: row;
 
-  max-width: calc(100% + 32px);
+  width: 100%;
 
   padding: 8px 0px;
   margin: 2px 0px 2px -8px;
@@ -17,8 +17,8 @@ export const ItemCont = styled.div`
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
-    max-width: 100%;
-    width: calc(100% + 32px);
+
+    width: 100%;
   }
 
   /* transition: height 0.2s ease-in-out; */

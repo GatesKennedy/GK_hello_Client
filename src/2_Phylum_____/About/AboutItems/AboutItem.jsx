@@ -45,7 +45,7 @@ const AboutItem = ({
       <InfoCont id='AboutItem-InfoCont'>
         <ItemTitle id='AboutItem-ItemTitle'>{title}</ItemTitle>
         <ItemTech id='AboutItem-ItemTech'>
-          <SubTitle>Titles: </SubTitle>
+          <SubTitle>{favRank === 1 ? 'Titles:' : 'Tech:'}</SubTitle>
           <TechList id='AboutItem-TechList'>
             {tech.map((item, index) => (
               <TechItem

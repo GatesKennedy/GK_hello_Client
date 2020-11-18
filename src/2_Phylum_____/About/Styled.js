@@ -21,7 +21,8 @@ export const AboutIntro = styled.section`
   display: flex;
   flex-direction: column;
 
-  margin: 0vw 0vw 0vw 4vw;
+  width: calc(100% - 1vw);
+  margin: 0vw 0vw 0vw 2vw;
   padding: 8px;
   border-radius: 12px;
 
@@ -29,15 +30,15 @@ export const AboutIntro = styled.section`
     /* For desktop: */
     position: relative;
     left: -24px;
-    width: calc(100% - 8vw);
+    width: calc(100% - 6vw);
 
-    margin: 0vw 4vw;
+    margin: 0vw 4vw 0vw 2vw;
   }
 `;
 export const AboutBody = styled.section`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: calc(100% - 4vw);
 
   margin: 0px 4vw;
   padding: 8px;
