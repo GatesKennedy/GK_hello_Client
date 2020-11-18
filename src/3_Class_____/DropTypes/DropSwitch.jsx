@@ -43,7 +43,7 @@ const DropSwitch = ({
       setTopOffset(0);
       console.log(`DropSwitch #${favRank} IS CLOSED`);
     }
-  }, [isOpen, favRank]);
+  }, [isOpen, favRank, summaryHeight, storyHeight, setTopOffset]);
 
   useEffect(() => {
     _openState === favRank ? setIsOpen(true) : setIsOpen(false);

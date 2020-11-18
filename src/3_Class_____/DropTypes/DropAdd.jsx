@@ -25,26 +25,45 @@ const DropAdd = ({
   const [summaryHeight, setSummaryHeight] = useState(null);
   const [storyHeight, setStoryHeight] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  // setSummaryHeight(
+  //   document.getElementById(`SummaryItem-SummaryCont${favRank}`).offsetHeight
+  // );
+  // setStoryHeight(
+  //   document.getElementById(`StoryItem-StoryCont${favRank}`).offsetHeight
+  // );
   //  CALLBACK
   const calcHeight = useCallback(() => {
+    // if (summaryHeight === null || storyHeight === null) {
+    //   setSummaryHeight(
+    //     document.getElementById(`SummaryItem-SummaryCont${favRank}`)
+    //       .offsetHeight
+    //   );
+    //   setStoryHeight(
+    //     document.getElementById(`StoryItem-StoryCont${favRank}`).offsetHeight
+    //   );
+    // }
     const dropHeight = document.getElementById('DropAdd-DropCont').offsetHeight;
-    // const summaryHeight = document.getElementById('SummaryItem-SummaryCont')
-    //   .offsetHeight;
-    // const storyHeight = document.getElementById('StoryItem-StoryCont')
-    //   .offsetHeight;
+
     const toggleHeight = document.getElementById('ToggleItem-ToggleCont')
       .offsetHeight;
 
     if (isOpen) {
       setDropHeight(summaryHeight + storyHeight + 2 * toggleHeight + 4);
       console.log(`=============`);
-      console.log(`DropAdd   #${favRank} IS OPEN`);
+      console.log(`DropAdd    #${favRank} IS OPEN > dropHeight: `, dropHeight);
     } else {
       setDropHeight(summaryHeight + toggleHeight);
       console.log(`=============`);
-      console.log(`DropAdd   #${favRank} IS CLOSED`);
+      console.log(
+        `DropAdd    #${favRank} IS CLOSED > dropHeight: `,
+        dropHeight
+      );
     }
-  }, [isOpen, favRank]);
+    // **********
+    // isOpen
+    // ? setDropHeight(summaryHeight + storyHeight + 2 * toggleHeight + 4)
+    // : setDropHeight(summaryHeight + toggleHeight);
+  }, [isOpen, favRank, summaryHeight, storyHeight]);
   //  EFFECT
   useEffect(() => {
     _openState === favRank ? setIsOpen(true) : setIsOpen(false);

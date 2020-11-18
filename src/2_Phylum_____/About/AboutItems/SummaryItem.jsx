@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 //  STYLE
 import { ParaSml } from '../../../Design/Styled_aoe';
@@ -10,7 +10,7 @@ const SummaryItem = ({ favRank, summary, offset, setSummaryHeight }) => {
       `SummaryItem-SummaryCont${favRank}`
     ).offsetHeight;
     setSummaryHeight(summaryHeight);
-  }, [setSummaryHeight]);
+  }, [setSummaryHeight, favRank]);
   return (
     <SummaryCont
       id={`SummaryItem-SummaryCont${favRank}`}
