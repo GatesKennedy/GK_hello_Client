@@ -169,6 +169,7 @@ export const ItemTech = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 
+  min-height: 3em;
   margin-bottom: 4px;
   font-size: smaller;
 

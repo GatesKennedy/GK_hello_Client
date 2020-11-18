@@ -10,11 +10,12 @@ const SummaryItem = ({ favRank, summary, offset, setSummaryHeight }) => {
       `SummaryItem-SummaryCont${favRank}`
     ).offsetHeight;
     setSummaryHeight(summaryHeight);
+    console.log(`SummaryItem${favRank} > summaryHeight = `, summaryHeight);
   }, [setSummaryHeight, favRank]);
   return (
     <SummaryCont
       id={`SummaryItem-SummaryCont${favRank}`}
-      style={{ top: `${offset}em` }}
+      // style={{ top: `${offset}em` }}
     >
       <ItemSummary id='SummaryItem-ItemSummary'>
         {summary.map((paragraph, index) => (

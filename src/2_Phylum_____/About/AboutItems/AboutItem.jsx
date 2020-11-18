@@ -62,9 +62,9 @@ const AboutItem = ({
           <DropAdd
             summary={summary}
             story={story}
-            topOffset={topOffset}
             _openState={_openState}
             _setOpenState={_setOpenState}
+            topOffset={topOffset}
             setTopOffset={setTopOffset}
             favRank={favRank}
           />
@@ -72,9 +72,9 @@ const AboutItem = ({
           <DropSwitch
             summary={summary}
             story={story}
-            topOffset={topOffset}
             _openState={_openState}
             _setOpenState={_setOpenState}
+            topOffset={topOffset}
             setTopOffset={setTopOffset}
             favRank={favRank}
           />

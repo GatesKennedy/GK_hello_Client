@@ -15,9 +15,9 @@ const StoryItem = ({ favRank, isOpen, story, offset, setStoryHeight }) => {
     <StoryCont
       id={`StoryItem-StoryCont${favRank}`}
       style={
-        isOpen
-          ? { opacity: 1, top: `${offset}em` }
-          : { opacity: 0, top: `${offset}em` }
+        isOpen ? { opacity: 1 } : { opacity: 0 }
+        // ? { opacity: 1, top: `${offset}em` }
+        // : { opacity: 0, top: `${offset}em` }
       }
     >
       <ItemStory id='StoryItem-ItemStory' style={{}}>

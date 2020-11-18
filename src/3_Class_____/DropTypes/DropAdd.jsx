@@ -12,38 +12,19 @@ const DropAdd = ({
   favRank,
   summary,
   story,
-  preFrame,
-  postFrame,
   topOffset,
   _openState,
   _setOpenState,
-  itemHeight,
-  setItemHeight,
 }) => {
   //  STATE
   const [dropHeight, setDropHeight] = useState(null);
   const [summaryHeight, setSummaryHeight] = useState(null);
   const [storyHeight, setStoryHeight] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
-  // setSummaryHeight(
-  //   document.getElementById(`SummaryItem-SummaryCont${favRank}`).offsetHeight
-  // );
-  // setStoryHeight(
-  //   document.getElementById(`StoryItem-StoryCont${favRank}`).offsetHeight
-  // );
   //  CALLBACK
   const calcHeight = useCallback(() => {
-    // if (summaryHeight === null || storyHeight === null) {
-    //   setSummaryHeight(
-    //     document.getElementById(`SummaryItem-SummaryCont${favRank}`)
-    //       .offsetHeight
-    //   );
-    //   setStoryHeight(
-    //     document.getElementById(`StoryItem-StoryCont${favRank}`).offsetHeight
-    //   );
-    // }
-    const dropHeight = document.getElementById('DropAdd-DropCont').offsetHeight;
-
+    const dropHeight = document.getElementById(`DropAdd-DropCont${favRank}`)
+      .offsetHeight;
     const toggleHeight = document.getElementById('ToggleItem-ToggleCont')
       .offsetHeight;
 
@@ -72,7 +53,7 @@ const DropAdd = ({
   }, [_openState, favRank, isOpen, calcHeight]);
   //  RETURN
   return (
-    <DropCont id='DropAdd-DropCont' style={{ height: dropHeight }}>
+    <DropCont id={`DropAdd-DropCont${favRank}`} style={{ height: dropHeight }}>
       <SummaryItem
         summary={summary}
         offset={topOffset}
