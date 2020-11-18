@@ -24,22 +24,16 @@ const DropSwitch = ({
   const [isOpen, setIsOpen] = useState(false);
 
   const calcHeight = useCallback(() => {
-    const dropHeight = document.getElementById(`DropSwitch-DropCont${favRank}`)
-      .offsetHeight;
     const toggleHeight = document.getElementById('ToggleItem-ToggleCont')
       .offsetHeight;
     if (isOpen) {
       setDropHeight(storyHeight + toggleHeight);
       setTopOffset(summaryHeight + toggleHeight);
-      console.log(`DropSwitch #${favRank} > summaryHeight = `, summaryHeight);
-      console.log(`DropSwitch #${favRank} IS OPEN`);
     } else {
       setDropHeight(summaryHeight + toggleHeight);
       setTopOffset(0);
-      console.log(`DropSwitch #${favRank} > summaryHeight = `, summaryHeight);
-      console.log(`DropSwitch #${favRank} IS CLOSED`);
     }
-  }, [isOpen, favRank, summaryHeight, storyHeight, setTopOffset]);
+  }, [isOpen, summaryHeight, storyHeight, setTopOffset]);
 
   useEffect(() => {
     _openState === favRank ? setIsOpen(true) : setIsOpen(false);

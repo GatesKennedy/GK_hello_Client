@@ -27,23 +27,9 @@ const DropAdd = ({
       .offsetHeight;
     const toggleHeight = document.getElementById('ToggleItem-ToggleCont')
       .offsetHeight;
-
-    if (isOpen) {
-      setDropHeight(summaryHeight + storyHeight + 2 * toggleHeight + 4);
-      console.log(`=============`);
-      console.log(`DropAdd    #${favRank} IS OPEN > dropHeight: `, dropHeight);
-    } else {
-      setDropHeight(summaryHeight + toggleHeight);
-      console.log(`=============`);
-      console.log(
-        `DropAdd    #${favRank} IS CLOSED > dropHeight: `,
-        dropHeight
-      );
-    }
-    // **********
-    // isOpen
-    // ? setDropHeight(summaryHeight + storyHeight + 2 * toggleHeight + 4)
-    // : setDropHeight(summaryHeight + toggleHeight);
+    isOpen
+      ? setDropHeight(summaryHeight + storyHeight + 2 * toggleHeight + 4)
+      : setDropHeight(summaryHeight + toggleHeight);
   }, [isOpen, favRank, summaryHeight, storyHeight]);
   //  EFFECT
   useEffect(() => {
