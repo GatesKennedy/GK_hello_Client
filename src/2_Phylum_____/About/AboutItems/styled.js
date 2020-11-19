@@ -219,6 +219,13 @@ export const TechItem = styled.li`
   transition: inherit;
 `;
 
+export const SubItem = styled.div`
+  display: flex;
+  flex-direction: row;
+  /* align-content: center; */
+  padding: 8px;
+  width: 100%;
+`;
 export const SubTitle = styled.div`
   display: flex;
   align-self: flex-start;
@@ -226,7 +233,7 @@ export const SubTitle = styled.div`
   font-size: 14px;
   font-weight: bold;
 `;
-export const SubItem = styled.div`
+export const SubText = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0px 8px;

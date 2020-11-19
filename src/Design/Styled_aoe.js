@@ -106,6 +106,25 @@ export const BtnTight = styled.button`
   }
 `;
 
+export const ImageInfo = styled.img`
+  position: relative;
+  top: 0px;
+
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #262727;
+
+  height: auto;
+  width: 100%;
+
+  @media only screen and (max-width: 600px) {
+    /* For desktop: */
+    position: relative;
+    top: 0px;
+    width: calc(16vw - 8px);
+    height: calc(16vw - 8px);
+  }
+`;
 export const ImageLrg = styled.img`
   position: relative;
   top: 0px;

@@ -12,6 +12,7 @@ const DropAdd = ({
   favRank,
   summary,
   story,
+  storyImgUrls,
   topOffset,
   _openState,
   _setOpenState,
@@ -61,7 +62,9 @@ const DropAdd = ({
         }
       />
       <StoryItem
+        favRank={favRank}
         story={story}
+        storyImgUrls={storyImgUrls}
         isOpen={isOpen}
         offset={topOffset}
         setStoryHeight={setStoryHeight}

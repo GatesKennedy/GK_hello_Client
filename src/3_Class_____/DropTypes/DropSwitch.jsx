@@ -12,11 +12,13 @@ const DropSwitch = ({
   favRank,
   summary,
   story,
+  storyImgUrls,
   topOffset,
   _openState,
   _setOpenState,
   setTopOffset,
 }) => {
+  console.log(`#${favRank} `, storyImgUrls.length);
   //  STATE
   const [dropHeight, setDropHeight] = useState(null);
   const [summaryHeight, setSummaryHeight] = useState(null);
@@ -80,6 +82,7 @@ const DropSwitch = ({
         <StoryItem
           favRank={favRank}
           story={story}
+          storyImgUrls={storyImgUrls}
           isOpen={isOpen}
           offset={topOffset}
           setStoryHeight={setStoryHeight}

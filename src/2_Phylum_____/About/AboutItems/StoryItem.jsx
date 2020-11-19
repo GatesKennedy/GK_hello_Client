@@ -3,9 +3,24 @@ import PropTypes from 'prop-types';
 //  STYLE
 import { ParaSml } from '../../../Design/Styled_aoe';
 import MediaCont from './MediaDisplay/MediaCont';
-import { ItemCont, StoryCont, ItemStory, SubItem, SubTitle } from './styled';
+import {
+  ItemCont,
+  StoryCont,
+  ItemStory,
+  SubItem,
+  SubTitle,
+  SubText,
+} from './styled';
 
-const StoryItem = ({ favRank, isOpen, story, offset, setStoryHeight }) => {
+const StoryItem = ({
+  favRank,
+  isOpen,
+  story,
+  storyImgUrls,
+  offset,
+  setStoryHeight,
+}) => {
+  console.log(`#${favRank} `, storyImgUrls.length);
   useEffect(() => {
     const storyHeight = document.getElementById(`StoryItem-StoryCont${favRank}`)
       .offsetHeight;
@@ -25,17 +40,27 @@ const StoryItem = ({ favRank, isOpen, story, offset, setStoryHeight }) => {
           <ItemCont id='StoryItem-ItemCont' key={id}>
             {/* <ImageIcon id='StoryItem-ImageIcon' src={imgUrl}></ImageIcon> */}
             <SubItem id='StoryItem-SubItem' key={id}>
-              <SubTitle id='StoryItem-SubTitle'>{title}</SubTitle>
-              {text.map((paragraph, index) => (
-                <ParaSml id='StoryItem-ParaSml' key={index}>
-                  {paragraph}
-                </ParaSml>
-              ))}
-              <MediaCont
-                id='StoryItem-MediaCont'
-                _media={media}
-                _title={title}
-              />
+              <SubText id='StoryItem-SubText'>
+                <SubTitle id='StoryItem-SubTitle'>{title}</SubTitle>
+                <SubItem>
+                  {text.length !== 0 && (
+                    <SubText>
+                      {text.map((paragraph, index) => (
+                        <ParaSml id='StoryItem-ParaSml' key={index}>
+                          {paragraph}
+                        </ParaSml>
+                      ))}
+                    </SubText>
+                  )}
+                  {media.length !== 0 && (
+                    <MediaCont
+                      id='StoryItem-MediaCont'
+                      _media={media}
+                      _title={title}
+                    />
+                  )}
+                </SubItem>
+              </SubText>
             </SubItem>
           </ItemCont>
         ))}

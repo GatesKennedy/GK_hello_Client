@@ -18,6 +18,8 @@ import PG13_0 from '../../Design/Images/PG-13_0.jpg';
 import PG13_1 from '../../Design/Images/PG-13_1.jpg';
 import PG13_2 from '../../Design/Images/PG-13_2.jpg';
 import PG13_4 from '../../Design/Images/PG-13_4.jpg';
+//  IMG Inform
+import architecture from '../../Design/Images/Architecture.jpg';
 //  VEX Brands
 import esc_1 from '../../Design/Images/esc.png';
 import esc_2 from '../../Design/Graphics/escape_collective_logo-circle.png';
@@ -53,7 +55,7 @@ export const introObj = [
         text: [
           `I’ve been building things for as long as I can remember.`,
           `By age five, household items and my sisters’ toys would go missing because ‘Conor was making something again’ and by grade five, I
-      had convinced my dad to purchase blueprints for a 6’x8’x32’ half-pipe.  As a general contractor, we agreed that he’d handle the cuts 
+      had convinced my dad to purchase blueprints for a 6’x8’x32’ half-pipe.  We agreed that he’d handle the cuts 
       but I had to mark them out myself and do all other work. He taught me what all the symbols meant on the schematics, and by middle school I’d built it. `,
           `Twenty years later I’m learning a different set of symbols and exploring how I can implement
       them to build new things that I’ve now designed myself.`,
@@ -66,9 +68,15 @@ export const introObj = [
         title: 'Lately',
         imgUrl: SubIcon0,
         text: [
-          `By age five, household items and my sisters’ toys would go missing because ‘Conor was making something again’ and by grade five, I
-      had convinced my dad to purchase blueprints for a 6’x8’x32’ half-pipe.  As a general contractor, we agreed that he’d handle the cuts 
-      but I had to mark them out myself and do all other work. He taught me what all the symbols meant on the schematics, and by middle school I’d built it. `,
+          `Shortly after graduating with a degree in Mechanical Engineering from WSU, I chose to start a design and
+          fabrication company with some talented friends in Portland, OR called the Escape Collective. I served as
+          the team's design engineer.  As time went on, my organization and communication skills were invaluable while
+          leading build teams on remote event sites around the country and interfacing with on-site civil engineers
+          all while making sure the client representatives for Nike, Corona, or DocuSign were satisfied.`,
+
+          `After leaving Escape Collective and pursuing software development as my primary focus, I found
+          surprising overlap in skills. The ability to stay calm and lead a team through long hours appeared
+          to fit well with what I’d experience in the software industry.`,
         ],
         media: [],
         link: 'void',
@@ -114,7 +122,7 @@ export const introObj = [
     projectLink: ``,
     repoLink: ``,
     titleImgUrl: conor,
-    storyImgUrls: ['void'],
+    storyImgUrls: [],
   },
 ];
 
@@ -147,6 +155,7 @@ export const softwareObj = [
       they were seeking a web application that could help the user explore their product library and streamline inventory maintainence`,
           `While working closely with the client a solution was reached that offers a powerful customer experience and a comprehensive catalogue management system.`,
         ],
+        story: [],
         media: [],
         link: 'void',
       },
@@ -155,7 +164,51 @@ export const softwareObj = [
         title: 'Architecture:',
         imgUrl: SubIcon0,
         text: [],
-        media: [],
+        story: [
+          {
+            id: 1,
+            title: 'Client:',
+            imgUrl: SubIcon0,
+            text: [
+              `Client info CLIENT INFO client info CLIENT INFO client info CLIENT INFO client info CLIENT INFO client info CLIENT INFO`,
+              `more info. MORE good. more info. MORE good.`,
+            ],
+            media: [],
+            link: 'void',
+          },
+          {
+            id: 2,
+            title: 'Server:',
+            imgUrl: SubIcon0,
+            text: [
+              `server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info 
+              SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO `,
+              `more info. MORE good. more info. MORE good.`,
+            ],
+            media: [],
+            link: 'void',
+          },
+          {
+            id: 3,
+            title: `Data:`,
+            imgUrl: SubIcon0,
+            text: [
+              `Data? Is that the best name for this section? You're sooo minimal conor. ugh`,
+              `Postgres Stuff, AWS S3, Stripe transactions`,
+            ],
+            media: [],
+            link: 'void',
+          },
+        ],
+        media: [
+          {
+            id: 0,
+            type: 'img',
+            title: 'Needle Drop Software',
+            img: architecture,
+            url: 'void',
+          },
+        ],
         link: 'void',
       },
       {
@@ -165,6 +218,7 @@ export const softwareObj = [
         text: [
           `Library browsing by filters or search, User playlists and favorites, Currated playlists by Needle Drop, Artist discovery and Artist Profiles, Secure payment system for obtaining licenses`,
         ],
+        story: [],
         media: [],
         link: 'void',
       },
@@ -174,7 +228,9 @@ export const softwareObj = [
         imgUrl: SubIcon0,
         text: [
           `Library Managment, Filter Managment, Artist Managment, Playlist Managment, Purchase History and Trends`,
+          `Good news boys`,
         ],
+        story: [],
         media: [],
         link: 'void',
       },
@@ -182,7 +238,15 @@ export const softwareObj = [
     projectLink: 'void',
     repoLink: ``,
     titleImgUrl: 'https://www.needledrop.co/images/whitesmlogo.png',
-    storyImgUrls: ['void'],
+    storyImgUrls: [
+      {
+        id: 0,
+        type: 'img',
+        title: 'Needle Drop Software',
+        img: architecture,
+        url: 'void',
+      },
+    ],
   },
 
   {
@@ -212,7 +276,7 @@ export const softwareObj = [
     projectLink: `https://www.conor.website/about`,
     repoLink: ``,
     titleImgUrl: algorithm3,
-    storyImgUrls: ['void'],
+    storyImgUrls: [],
   },
 
   {
@@ -250,7 +314,7 @@ export const softwareObj = [
     projectLink: `https://www.conor.website/talk`,
     repoLink: ``,
     titleImgUrl: algorithm4,
-    storyImgUrls: ['void'],
+    storyImgUrls: [],
   },
 
   {
@@ -276,7 +340,7 @@ export const softwareObj = [
     projectLink: ``,
     repoLink: ``,
     titleImgUrl: algorithm,
-    storyImgUrls: ['void'],
+    storyImgUrls: [],
   },
 
   {
@@ -310,7 +374,7 @@ export const softwareObj = [
     projectLink: 'void',
     repoLink: ``,
     titleImgUrl: algorithm2,
-    storyImgUrls: ['void'],
+    storyImgUrls: [],
   },
 
   {
@@ -339,7 +403,7 @@ export const softwareObj = [
     projectLink: 'www.bridgerbaby.com',
     repoLink: ``,
     titleImgUrl: bridger,
-    storyImgUrls: ['void'],
+    storyImgUrls: [],
   },
 
   {
@@ -400,7 +464,7 @@ export const softwareObj = [
     projectLink: `www.esccollective.com`,
     repoLink: ``,
     titleImgUrl: esc_1,
-    storyImgUrls: ['void'],
+    storyImgUrls: [],
   },
 ];
 
@@ -435,6 +499,6 @@ export const personalObj = [
     projectLink: ``,
     repoLink: ``,
     titleImgUrl: PG13_2,
-    storyImgUrls: ['void'],
+    storyImgUrls: [],
   },
 ];
