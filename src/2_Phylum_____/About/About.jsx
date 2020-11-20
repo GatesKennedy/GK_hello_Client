@@ -76,7 +76,7 @@ About.propTypes = {
   //   summary: PropTypes.string,
   //   story: PropTypes.arrayOf(PropTypes.string),
   //   titleImgUrl: PropTypes.string,
-  //   storyImgUrls: PropTypes.arrayOf(PropTypes.string),
+  //   media: PropTypes.arrayOf(PropTypes.string),
   // }).isRequired,
   // personalObj: PropTypes.shape({
   //   rank: PropTypes.number,
@@ -85,7 +85,7 @@ About.propTypes = {
   //   summary: PropTypes.string,
   //   story: PropTypes.arrayOf(PropTypes.string),
   //   titleImgUrl: PropTypes.string,
-  //   storyImgUrls: PropTypes.arrayOf(PropTypes.string),
+  //   media: PropTypes.arrayOf(PropTypes.string),
   // }).isRequired,
 };
 

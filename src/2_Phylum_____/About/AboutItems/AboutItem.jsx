@@ -19,16 +19,7 @@ import {
 //  MAIN
 const AboutItem = ({
   dropType,
-  _item: {
-    titleImgUrl,
-    title,
-    tech,
-    favRank,
-    timeRank,
-    summary,
-    story,
-    storyImgUrls,
-  },
+  _item: { titleImgUrl, title, tech, favRank, timeRank, summary, story, media },
   _openState,
   _setOpenState,
 }) => {
@@ -71,7 +62,7 @@ const AboutItem = ({
           <DropAdd
             summary={summary}
             story={story}
-            storyImgUrls={storyImgUrls}
+            media={media}
             _openState={_openState}
             _setOpenState={_setOpenState}
             topOffset={topOffset}
@@ -82,7 +73,7 @@ const AboutItem = ({
           <DropSwitch
             summary={summary}
             story={story}
-            storyImgUrls={storyImgUrls}
+            media={media}
             _openState={_openState}
             _setOpenState={_setOpenState}
             topOffset={topOffset}

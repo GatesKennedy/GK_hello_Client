@@ -1,8 +1,12 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import DropSub from '../../../3_Class_____/DropTypes/DropSub';
+import StorySub from './StorySub';
 //  STYLE
 import { ParaSml } from '../../../Design/Styled_aoe';
 import MediaCont from './MediaDisplay/MediaCont';
+import ToggleItem from '../../../3_Class_____/DropTypes/ToggleItem';
+
 import {
   ItemCont,
   StoryCont,
@@ -16,41 +20,56 @@ const StoryItem = ({
   favRank,
   isOpen,
   story,
-  storyImgUrls,
+  media,
   offset,
   setStoryHeight,
 }) => {
-  console.log(`#${favRank} `, storyImgUrls.length);
   useEffect(() => {
     const storyHeight = document.getElementById(`StoryItem-StoryCont${favRank}`)
       .offsetHeight;
     setStoryHeight(storyHeight);
   }, [setStoryHeight]);
+
   return (
     <StoryCont
       id={`StoryItem-StoryCont${favRank}`}
-      style={
-        isOpen ? { opacity: 1 } : { opacity: 0 }
-        // ? { opacity: 1, top: `${offset}em` }
-        // : { opacity: 0, top: `${offset}em` }
-      }
+      style={isOpen ? { opacity: 1 } : { opacity: 0 }}
     >
-      <ItemStory id='StoryItem-ItemStory' style={{}}>
-        {story.map(({ id, title, imgUrl, text, media }) => (
+      <ItemStory id='StoryItem-ItemStory'>
+        {story.map(({ id, title, imgUrl, summary, story, media }) => (
           <ItemCont id='StoryItem-ItemCont' key={id}>
-            {/* <ImageIcon id='StoryItem-ImageIcon' src={imgUrl}></ImageIcon> */}
-            <SubItem id='StoryItem-SubItem' key={id}>
+            <SubItem id='StoryItem-SubItem'>
               <SubText id='StoryItem-SubText'>
                 <SubTitle id='StoryItem-SubTitle'>{title}</SubTitle>
+
+                {summary.length !== 0 && (
+                  <SubText>
+                    {summary.map((paragraph, index) => (
+                      <ParaSml id='StoryItem-ParaSml' key={index}>
+                        {paragraph}
+                      </ParaSml>
+                    ))}
+                    <ToggleItem
+                      isOpen={isOpen}
+                      // _setOpenState={_setOpenState}
+                      type='less'
+                      style={
+                        !isOpen
+                          ? {
+                              opacity: 0,
+                              transition: 'opacity 0.3s ease-in-out',
+                            }
+                          : {
+                              opacity: 1,
+                              transition: 'opacity 1s ease-in-out 0.4s',
+                            }
+                      }
+                    />
+                  </SubText>
+                )}
                 <SubItem>
-                  {text.length !== 0 && (
-                    <SubText>
-                      {text.map((paragraph, index) => (
-                        <ParaSml id='StoryItem-ParaSml' key={index}>
-                          {paragraph}
-                        </ParaSml>
-                      ))}
-                    </SubText>
+                  {story.length !== 0 && (
+                    <StorySub story={story} favRank={favRank} isOpen={isOpen} />
                   )}
                   {media.length !== 0 && (
                     <MediaCont

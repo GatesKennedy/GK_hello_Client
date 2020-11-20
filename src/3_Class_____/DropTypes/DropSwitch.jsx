@@ -6,19 +6,17 @@ import SummaryItem from '../../2_Phylum_____/About/AboutItems/SummaryItem';
 import StoryItem from '../../2_Phylum_____/About/AboutItems/StoryItem';
 //  STYLE
 import { DropCont } from './styled';
-import { RiArrowDropDownLine, RiArrowUpSLine } from 'react-icons/ri';
 
 const DropSwitch = ({
   favRank,
   summary,
   story,
-  storyImgUrls,
+  media,
   topOffset,
   _openState,
   _setOpenState,
   setTopOffset,
 }) => {
-  console.log(`#${favRank} `, storyImgUrls.length);
   //  STATE
   const [dropHeight, setDropHeight] = useState(null);
   const [summaryHeight, setSummaryHeight] = useState(null);
@@ -63,26 +61,23 @@ const DropSwitch = ({
         <ToggleItem
           isOpen={_openState === favRank}
           _setOpenState={_setOpenState}
-          text={'more'}
-          icon={<RiArrowDropDownLine />}
+          type={'more'}
           style={
             isOpen
               ? {
                   opacity: 0,
                   transition: 'opacity 0.3s ease-in-out',
-                  // top: `${topOffset}em`,
                 }
               : {
                   opacity: 1,
                   transition: 'opacity 1s ease-in-out 0.4s',
-                  // top: `${topOffset}em`,
                 }
           }
         />
         <StoryItem
           favRank={favRank}
           story={story}
-          storyImgUrls={storyImgUrls}
+          media={media}
           isOpen={isOpen}
           offset={topOffset}
           setStoryHeight={setStoryHeight}
@@ -90,21 +85,16 @@ const DropSwitch = ({
         <ToggleItem
           isOpen={isOpen}
           _setOpenState={_setOpenState}
-          text='less'
-          icon={<RiArrowUpSLine />}
+          type='less'
           style={
             !isOpen
               ? {
                   opacity: 0,
                   transition: 'opacity 0.3s ease-in-out',
-                  // top: topOffset,
-                  // // top: `${topOffset}em`,
                 }
               : {
                   opacity: 1,
                   transition: 'opacity 1s ease-in-out 0.4s',
-                  // top: topOffset,
-                  // // top: `${topOffset}em`,
                 }
           }
         />

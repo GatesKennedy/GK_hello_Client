@@ -61,14 +61,16 @@ const DropAdd = ({
               }
         }
       />
-      <StoryItem
-        favRank={favRank}
-        story={story}
-        media={media}
-        isOpen={isOpen}
-        offset={topOffset}
-        setStoryHeight={setStoryHeight}
-      />
+      {story.length !== 0 && (
+        <StoryItem
+          favRank={favRank}
+          story={story}
+          media={media}
+          isOpen={isOpen}
+          offset={topOffset}
+          setStoryHeight={setStoryHeight}
+        />
+      )}
 
       <ToggleItem
         isOpen={_openState === favRank}

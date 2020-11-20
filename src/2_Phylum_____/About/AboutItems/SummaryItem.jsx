@@ -10,7 +10,6 @@ const SummaryItem = ({ favRank, summary, offset, setSummaryHeight }) => {
       `SummaryItem-SummaryCont${favRank}`
     ).offsetHeight;
     setSummaryHeight(summaryHeight);
-    console.log(`SummaryItem${favRank} > summaryHeight = `, summaryHeight);
   }, [setSummaryHeight, favRank]);
   return (
     <SummaryCont

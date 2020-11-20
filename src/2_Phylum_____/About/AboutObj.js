@@ -52,7 +52,7 @@ export const introObj = [
         id: 0,
         title: 'Early',
         imgUrl: SubIcon0,
-        text: [
+        summary: [
           `I’ve been building things for as long as I can remember.`,
           `By age five, household items and my sisters’ toys would go missing because ‘Conor was making something again’ and by grade five, I
       had convinced my dad to purchase blueprints for a 6’x8’x32’ half-pipe.  We agreed that he’d handle the cuts 
@@ -60,6 +60,7 @@ export const introObj = [
           `Twenty years later I’m learning a different set of symbols and exploring how I can implement
       them to build new things that I’ve now designed myself.`,
         ],
+        story: [],
         media: [],
         link: 'void',
       },
@@ -67,7 +68,7 @@ export const introObj = [
         id: 1,
         title: 'Lately',
         imgUrl: SubIcon0,
-        text: [
+        summary: [
           `Shortly after graduating with a degree in Mechanical Engineering from WSU, I chose to start a design and
           fabrication company with some talented friends in Portland, OR called the Escape Collective. I served as
           the team's design engineer.  As time went on, my organization and communication skills were invaluable while
@@ -78,6 +79,7 @@ export const introObj = [
           surprising overlap in skills. The ability to stay calm and lead a team through long hours appeared
           to fit well with what I’d experience in the software industry.`,
         ],
+        story: [],
         media: [],
         link: 'void',
       },
@@ -85,7 +87,8 @@ export const introObj = [
         id: 2,
         title: '',
         imgUrl: nope,
-        text: [],
+        summary: [],
+        story: [],
         media: [
           {
             id: 0,
@@ -122,7 +125,7 @@ export const introObj = [
     projectLink: ``,
     repoLink: ``,
     titleImgUrl: conor,
-    storyImgUrls: [],
+    media: [],
   },
 ];
 
@@ -150,7 +153,7 @@ export const softwareObj = [
         id: 1,
         title: 'Overview:',
         imgUrl: SubIcon0,
-        text: [
+        summary: [
           `Needle Drop Co. is a music licensing company in Portland, Oregon. Having outgrown the functionality of their prior web presence, 
       they were seeking a web application that could help the user explore their product library and streamline inventory maintainence`,
           `While working closely with the client a solution was reached that offers a powerful customer experience and a comprehensive catalogue management system.`,
@@ -163,16 +166,17 @@ export const softwareObj = [
         id: 2,
         title: 'Architecture:',
         imgUrl: SubIcon0,
-        text: [],
+        summary: [`High level look at system components.`],
         story: [
           {
             id: 1,
             title: 'Client:',
             imgUrl: SubIcon0,
-            text: [
+            summary: [
               `Client info CLIENT INFO client info CLIENT INFO client info CLIENT INFO client info CLIENT INFO client info CLIENT INFO`,
               `more info. MORE good. more info. MORE good.`,
             ],
+            story: [],
             media: [],
             link: 'void',
           },
@@ -180,11 +184,11 @@ export const softwareObj = [
             id: 2,
             title: 'Server:',
             imgUrl: SubIcon0,
-            text: [
-              `server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info 
-              SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO `,
+            summary: [
+              `server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO `,
               `more info. MORE good. more info. MORE good.`,
             ],
+            story: [],
             media: [],
             link: 'void',
           },
@@ -192,10 +196,11 @@ export const softwareObj = [
             id: 3,
             title: `Data:`,
             imgUrl: SubIcon0,
-            text: [
+            summary: [
               `Data? Is that the best name for this section? You're sooo minimal conor. ugh`,
               `Postgres Stuff, AWS S3, Stripe transactions`,
             ],
+            story: [],
             media: [],
             link: 'void',
           },
@@ -215,7 +220,7 @@ export const softwareObj = [
         id: 3,
         title: `Consumer Features: `,
         imgUrl: SubIcon0,
-        text: [
+        summary: [
           `Library browsing by filters or search, User playlists and favorites, Currated playlists by Needle Drop, Artist discovery and Artist Profiles, Secure payment system for obtaining licenses`,
         ],
         story: [],
@@ -226,7 +231,7 @@ export const softwareObj = [
         id: 4,
         title: `Enterprise Features:`,
         imgUrl: SubIcon0,
-        text: [
+        summary: [
           `Library Managment, Filter Managment, Artist Managment, Playlist Managment, Purchase History and Trends`,
           `Good news boys`,
         ],
@@ -238,7 +243,7 @@ export const softwareObj = [
     projectLink: 'void',
     repoLink: ``,
     titleImgUrl: 'https://www.needledrop.co/images/whitesmlogo.png',
-    storyImgUrls: [
+    media: [
       {
         id: 0,
         type: 'img',
@@ -260,7 +265,7 @@ export const softwareObj = [
         id: 1,
         title: `Overview:`,
         imgUrl: SubIcon0,
-        text: [
+        summary: [
           'GK_Hello is a digital portfolio and communication hub to meet potential clients and employers. If you log in and create an account, you can create a profile to tell me more about yourself and chat with me (Conor) directly using my messaging service, GK_Talk',
           'Please explore and have fun!',
           '',
@@ -269,6 +274,7 @@ export const softwareObj = [
           '',
           '...there might be secrets to find.',
         ],
+        story: [],
         media: [],
         link: 'void',
       },
@@ -276,7 +282,7 @@ export const softwareObj = [
     projectLink: `https://www.conor.website/about`,
     repoLink: ``,
     titleImgUrl: algorithm3,
-    storyImgUrls: [],
+    media: [],
   },
 
   {
@@ -302,11 +308,12 @@ export const softwareObj = [
         id: 1,
         title: `Overview:`,
         imgUrl: SubIcon0,
-        text: [
+        summary: [
           `Designed for reuse across projects with and for later implementation as a microservice, GK_Talk is foundationally a messaging service.
       However, with a backend architecture that is flexibly suited for feature updates, GK_Talk features go beyond live chat and persisted conversation history. 
       Along with AWS integration for media sharing, collaborative 'note' sections shared within the conversation feed can be edited by all parties and used for organizing shopping lists, camping trips or the weekend 'To-Do.'`,
         ],
+        story: [],
         media: [],
         link: 'void',
       },
@@ -314,7 +321,7 @@ export const softwareObj = [
     projectLink: `https://www.conor.website/talk`,
     repoLink: ``,
     titleImgUrl: algorithm4,
-    storyImgUrls: [],
+    media: [],
   },
 
   {
@@ -330,9 +337,10 @@ export const softwareObj = [
         id: 1,
         title: `Overview:`,
         imgUrl: SubIcon0,
-        text: [
+        summary: [
           'Final Project Instructor, Scrum Master, and Project Lead for web scraping application at a code school in Portland, OR. ',
         ],
+        story: [],
         media: [],
         link: 'void',
       },
@@ -340,7 +348,7 @@ export const softwareObj = [
     projectLink: ``,
     repoLink: ``,
     titleImgUrl: algorithm,
-    storyImgUrls: [],
+    media: [],
   },
 
   {
@@ -356,7 +364,7 @@ export const softwareObj = [
         id: 1,
         title: `Overview:`,
         imgUrl: SubIcon0,
-        text: [
+        summary: [
           `After leaving Escape Collective and pursuing software development as my primary focus, I found suprising overlap in skills. 
       The ability to stay calm and lead a team through long hours appeared to fit well with what I’d experience in the software industry. 
       On the first day of my first job, a crippling situation with the company’s database occurred.`,
@@ -367,6 +375,7 @@ export const softwareObj = [
       `,
           `This may sound like a nightmare but, again, I felt like I was discovering magic.`,
         ],
+        story: [],
         media: [],
         link: 'void',
       },
@@ -374,7 +383,7 @@ export const softwareObj = [
     projectLink: 'void',
     repoLink: ``,
     titleImgUrl: algorithm2,
-    storyImgUrls: [],
+    media: [],
   },
 
   {
@@ -390,12 +399,13 @@ export const softwareObj = [
         id: 1,
         title: `Overview:`,
         imgUrl: SubIcon0,
-        text: [
+        summary: [
           `Originally built with C# on ASP.NET, this application was basically a Mad Lib solution generator. 
-      There was a predetermined paragraph structure with associated collections of nouns, verbs, adjectives, etc... that were randomized for each solution.`,
+          There was a predetermined paragraph structure with associated collections of nouns, verbs, adjectives, etc... that were randomized for each solution.`,
           `The resulting application was capable of generating more than 100,000 permutations of the three sentence phrase. 
-      I'm certain Bridger has yet to see the same joke twice.`,
+          I'm certain Bridger has yet to see the same joke twice.`,
         ],
+        story: [],
         media: [],
         link: 'void',
       },
@@ -403,7 +413,7 @@ export const softwareObj = [
     projectLink: 'www.bridgerbaby.com',
     repoLink: ``,
     titleImgUrl: bridger,
-    storyImgUrls: [],
+    media: [],
   },
 
   {
@@ -426,10 +436,11 @@ export const softwareObj = [
         id: 1,
         title: `Overview:`,
         imgUrl: SubIcon0,
-        text: [
+        summary: [
           `Shortly after graduating with a degree in Mechanical Engineering from WSU, I chose to start a design and fabrication company with some talented friends in Portland called the Escape Collective. 
-      I was the design engineer. `,
+          I was the design engineer. `,
         ],
+        story: [],
         media: [],
         link: 'void',
       },
@@ -437,13 +448,14 @@ export const softwareObj = [
         id: 2,
         title: `Design Engineering:`,
         imgUrl: SubIcon0,
-        text: [
+        summary: [
           `My early roles were focused on calculating, analyzing and explaining the frame and cover designs for 36’ diameter geodesic domes. 
       This is where I remember really experiencing programming in a powerful way for the first time. 
       I’d learned and implemented Matlab, EES and similar engineering tools, but this was different. 
       I found a python script off a blog of an Australian aerospace engineer that tackled most of the math published by Buckminster Fuller in regards to the linear approximation of spherical geodesics. 
       With some quick python study and a few modifications, I had a functional script that took in radius, frequency (degree of subdivisions) and returned to me an order list of every ‘beam’ in CSV format.`,
         ],
+        story: [],
         media: [],
         link: 'void',
       },
@@ -451,12 +463,13 @@ export const softwareObj = [
         id: 3,
         title: `Project Management:`,
         imgUrl: SubIcon0,
-        text: [
+        summary: [
           `In Escape Collective, as with all start-ups, no one person could afford to play a single role. 
       I found myself project managing event installations, leading build teams on remote event sites around the country and interfacing with on-site civil engineers all while making sure the client representatives for Nike, Corona, or DocuSign were satisfied. 
       The amount of organization, communication, and planning involved with executing demanding fabrication and installation deadlines was very challenging and sleepless for the first few years, but I loved it. 
       `,
         ],
+        story: [],
         media: [],
         link: 'void',
       },
@@ -464,7 +477,7 @@ export const softwareObj = [
     projectLink: `www.esccollective.com`,
     repoLink: ``,
     titleImgUrl: esc_1,
-    storyImgUrls: [],
+    media: [],
   },
 ];
 
@@ -491,7 +504,8 @@ export const personalObj = [
         id: 1,
         title: `Overview:`,
         imgUrl: SubIcon0,
-        text: ['This is PG-13'],
+        summary: ['This is PG-13'],
+        story: [],
         media: [],
         link: 'void',
       },
@@ -499,6 +513,6 @@ export const personalObj = [
     projectLink: ``,
     repoLink: ``,
     titleImgUrl: PG13_2,
-    storyImgUrls: [],
+    media: [],
   },
 ];
