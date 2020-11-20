@@ -52,24 +52,18 @@ const StoryItem = ({
                     <ToggleItem isOpen={isOpen} />
                   </SubText>
                 )}
-                {isOpen && (
-                  <SubItem>
-                    {story.length !== 0 && (
-                      <StorySub
-                        story={story}
-                        favRank={favRank}
-                        isOpen={isOpen}
-                      />
-                    )}
-                    {media.length !== 0 && (
-                      <MediaCont
-                        id='StoryItem-MediaCont'
-                        _media={media}
-                        _title={title}
-                      />
-                    )}
-                  </SubItem>
-                )}
+                <SubItem>
+                  {story.length !== 0 && isOpen && (
+                    <StorySub story={story} favRank={favRank} isOpen={isOpen} />
+                  )}
+                  {media.length !== 0 && (
+                    <MediaCont
+                      id='StoryItem-MediaCont'
+                      _media={media}
+                      _title={title}
+                    />
+                  )}
+                </SubItem>
               </SubText>
             </SubItem>
           </ItemCont>
