@@ -1,26 +1,24 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 //  STYLE
-import { Btn1 } from '../../Design/Styled_aoe';
 import { RiArrowDropDownLine, RiArrowUpSLine } from 'react-icons/ri';
+import { Btn1 } from '../../Design/Styled_aoe';
 import { ToggleCont } from './styled';
-import { useEffect } from 'react';
-import { useState } from 'react';
 
-const ToggleItem = ({ isOpen, style, type }) => {
-  // const [text, setText] = useState(null);
-  // const [icon, setIcon] = useState(null);
-  // useEffect(() => {
-  //   if (type === 'less') {
-  //     setText('less');
-  //     setIcon(<RiArrowUpSLine />);
-  //   } else {
-  //     setText('more');
-  //     setIcon(<RiArrowDropDownLine />);
-  //   }
-  // }, [type]);
+const ToggleItem = ({ isOpen }) => {
+  const togStyle = () =>
+    !isOpen
+      ? {
+          opacity: 0,
+          transition: 'opacity 0.3s ease-in-out',
+        }
+      : {
+          opacity: 1,
+          transition: 'opacity 1s ease-in-out 0.4s',
+        };
+
   return (
-    <ToggleCont id='ToggleItem-ToggleCont' style={style}>
+    <ToggleCont id='ToggleItem-ToggleCont' style={togStyle}>
       <Btn1 id='ToggleItem-Btn1' className={isOpen && 'bg-gry2'}>
         {isOpen ? (
           <Fragment>
@@ -36,6 +34,8 @@ const ToggleItem = ({ isOpen, style, type }) => {
   );
 };
 
-ToggleItem.propTypes = {};
+ToggleItem.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+};
 
 export default ToggleItem;

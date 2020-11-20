@@ -49,36 +49,27 @@ const StoryItem = ({
                         {paragraph}
                       </ParaSml>
                     ))}
-                    <ToggleItem
-                      isOpen={isOpen}
-                      // _setOpenState={_setOpenState}
-                      type='less'
-                      style={
-                        !isOpen
-                          ? {
-                              opacity: 0,
-                              transition: 'opacity 0.3s ease-in-out',
-                            }
-                          : {
-                              opacity: 1,
-                              transition: 'opacity 1s ease-in-out 0.4s',
-                            }
-                      }
-                    />
+                    <ToggleItem isOpen={isOpen} />
                   </SubText>
                 )}
-                <SubItem>
-                  {story.length !== 0 && (
-                    <StorySub story={story} favRank={favRank} isOpen={isOpen} />
-                  )}
-                  {media.length !== 0 && (
-                    <MediaCont
-                      id='StoryItem-MediaCont'
-                      _media={media}
-                      _title={title}
-                    />
-                  )}
-                </SubItem>
+                {isOpen && (
+                  <SubItem>
+                    {story.length !== 0 && (
+                      <StorySub
+                        story={story}
+                        favRank={favRank}
+                        isOpen={isOpen}
+                      />
+                    )}
+                    {media.length !== 0 && (
+                      <MediaCont
+                        id='StoryItem-MediaCont'
+                        _media={media}
+                        _title={title}
+                      />
+                    )}
+                  </SubItem>
+                )}
               </SubText>
             </SubItem>
           </ItemCont>
