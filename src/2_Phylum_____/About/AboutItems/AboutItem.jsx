@@ -25,6 +25,7 @@ const AboutItem = ({
 }) => {
   //  STATE
   const [topOffset, setTopOffset] = useState(0);
+  const [infoHeight, setInfoHeight] = useState(0);
   //  FXN
   const handleToggle = async () => {
     _openState === favRank ? _setOpenState(0) : _setOpenState(favRank);
@@ -42,6 +43,7 @@ const AboutItem = ({
         titleImgUrl={titleImgUrl}
         imageSize={favRank === 1 ? 'large' : 'medium'}
       />
+      {/* <InfoCont id='AboutItem-InfoCont' style={{ height: infoHeight }}> */}
       <InfoCont id='AboutItem-InfoCont'>
         <ItemTitle id='AboutItem-ItemTitle'>{title}</ItemTitle>
         <ItemTech id='AboutItem-ItemTech'>
@@ -76,8 +78,9 @@ const AboutItem = ({
             media={media}
             _openState={_openState}
             _setOpenState={_setOpenState}
+            _setTopOffset={setTopOffset}
+            _setInfoHeight={setInfoHeight}
             topOffset={topOffset}
-            setTopOffset={setTopOffset}
             favRank={favRank}
           />
         )}

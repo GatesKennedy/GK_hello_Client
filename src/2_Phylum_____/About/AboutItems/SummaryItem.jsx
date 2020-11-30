@@ -11,6 +11,7 @@ const SummaryItem = ({ favRank, summary, offset, setSummaryHeight }) => {
     ).offsetHeight;
     setSummaryHeight(summaryHeight);
   }, [setSummaryHeight, favRank]);
+
   return (
     <SummaryCont
       id={`SummaryItem-SummaryCont${favRank}`}
