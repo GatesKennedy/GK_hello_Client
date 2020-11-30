@@ -27,7 +27,7 @@ const AboutItem = ({
   const [topOffset, setTopOffset] = useState(0);
   const [infoHeight, setInfoHeight] = useState(0);
   //  FXN
-  const handleToggle = async () => {
+  const handleToggle = () => {
     _openState === favRank ? _setOpenState(0) : _setOpenState(favRank);
   };
 

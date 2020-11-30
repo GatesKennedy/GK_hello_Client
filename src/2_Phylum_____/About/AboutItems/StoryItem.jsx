@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import DropSub from '../../../3_Class_____/DropTypes/DropSub';
 import StorySub from './StorySub';
@@ -24,6 +24,11 @@ const StoryItem = ({
   offset,
   _setStoryHeight,
 }) => {
+  //  STATE
+  const [openId, setOpenId] = useState(null);
+  const [isSubOpen, setIsSubOpen] = useState(false);
+  const [subHeight, setSubHeight] = useState(null);
+
   useEffect(() => {
     const storyHeight = document.getElementById(`StoryItem-StoryCont${favRank}`)
       .offsetHeight;
@@ -34,6 +39,11 @@ const StoryItem = ({
 
     _setStoryHeight(storyHeight);
   }, [_setStoryHeight, favRank]);
+  //  FXN
+  const handleToggle = () => {};
+  const handleSub = (id) => {
+    openId === id ? setOpenId(0) : setOpenId(id);
+  };
 
   return (
     <StoryCont
@@ -54,24 +64,35 @@ const StoryItem = ({
                         {paragraph}
                       </ParaSml>
                     ))}
-                    <ToggleItem isOpen={isOpen} />
+
+                    {story.length !== 0 && (
+                      <div onClick={() => handleSub(id)}>
+                        <ToggleItem
+                          isOpen={isSubOpen}
+                          __handleToggle={handleToggle}
+                        />
+                      </div>
+                    )}
                   </SubText>
                 )}
                 <SubItem id='StoryItem-SubItem-Story'>
-                  {story.length !== 0 && isOpen && (
-                    <StorySub
-                      id='StoryItem-StorySub'
-                      story={story}
-                      favRank={favRank}
-                      isOpen={isOpen}
-                    />
-                  )}
-                  {media.length !== 0 && (
-                    <MediaCont
-                      id='StoryItem-MediaCont'
-                      _media={media}
-                      _title={title}
-                    />
+                  {id === openId && (
+                    <Fragment>
+                      <StorySub
+                        id='StoryItem-StorySub'
+                        story={story}
+                        favRank={favRank}
+                        __isOpen={isOpen}
+                        _isSubOpen={isSubOpen}
+                      />
+                      {media.length !== 0 && (
+                        <MediaCont
+                          id='StoryItem-MediaCont'
+                          _media={media}
+                          _title={title}
+                        />
+                      )}
+                    </Fragment>
                   )}
                 </SubItem>
               </SubText>

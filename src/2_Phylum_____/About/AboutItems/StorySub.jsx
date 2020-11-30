@@ -13,13 +13,13 @@ import {
   SubText,
 } from './styled';
 
-const StorySub = ({ favRank, isOpen, story }) => {
+const StorySub = ({ favRank, story, __isOpen, _isSubOpen }) => {
   console.log(`${favRank} story: `, story);
 
   return (
     <StoryCont
       id={`StorySub-StoryCont${favRank}`}
-      style={isOpen ? { opacity: 1 } : { opacity: 0 }}
+      style={__isOpen ? { opacity: 1 } : { opacity: 0 }}
     >
       <ItemStory id='StorySub-ItemStory'>
         {story.map(({ id, title, imgUrl, summary, story, media }) => (

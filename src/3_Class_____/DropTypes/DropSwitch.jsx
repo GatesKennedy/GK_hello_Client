@@ -32,7 +32,6 @@ const DropSwitch = ({
     const fullHeight = document.getElementById(
       `DropSwitch-OffsetCont${favRank}`
     ).offsetHeight;
-    const openHeight = storyHeight + 2 * toggleHeight;
     const shutHeight = summaryHeight + toggleHeight;
     const offset = summaryHeight + 2 * toggleHeight;
 
