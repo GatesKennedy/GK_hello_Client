@@ -17,6 +17,8 @@ const DropSwitch = ({
   _setOpenState,
   _handleToggle,
   setTopOffset,
+  _setTopOffset,
+  _setInfoHeight,
 }) => {
   //  STATE
   const [dropHeight, setDropHeight] = useState(null);
@@ -27,14 +29,21 @@ const DropSwitch = ({
   const calcHeight = useCallback(() => {
     const toggleHeight = document.getElementById('ToggleItem-ToggleCont')
       .offsetHeight;
+    const fullHeight = document.getElementById(
+      `DropSwitch-OffsetCont${favRank}`
+    ).offsetHeight;
+    const openHeight = storyHeight + 2 * toggleHeight;
+    const shutHeight = summaryHeight + toggleHeight;
+    const offset = summaryHeight + 2 * toggleHeight;
+
     if (isOpen) {
-      setDropHeight(storyHeight + toggleHeight);
-      setTopOffset(summaryHeight + toggleHeight);
+      setDropHeight(fullHeight - shutHeight - toggleHeight);
+      _setTopOffset(offset);
     } else {
-      setDropHeight(summaryHeight + toggleHeight);
-      setTopOffset(0);
+      setDropHeight(shutHeight);
+      _setTopOffset(0);
     }
-  }, [isOpen, summaryHeight, storyHeight, setTopOffset]);
+  }, [isOpen, summaryHeight, storyHeight, _setTopOffset, _setInfoHeight]);
 
   useEffect(() => {
     _openState === favRank ? setIsOpen(true) : setIsOpen(false);
@@ -47,6 +56,7 @@ const DropSwitch = ({
       style={{ height: dropHeight }}
     >
       <div
+        id={`DropSwitch-OffsetCont${favRank}`}
         style={{
           position: 'relative',
           top: `-${topOffset}px`,
@@ -83,7 +93,7 @@ const DropSwitch = ({
           media={media}
           isOpen={isOpen}
           offset={topOffset}
-          setStoryHeight={setStoryHeight}
+          _setStoryHeight={setStoryHeight}
         />
         <ToggleItem
           isOpen={isOpen}

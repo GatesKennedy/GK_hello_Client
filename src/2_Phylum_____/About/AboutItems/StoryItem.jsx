@@ -22,13 +22,18 @@ const StoryItem = ({
   story,
   media,
   offset,
-  setStoryHeight,
+  _setStoryHeight,
 }) => {
   useEffect(() => {
     const storyHeight = document.getElementById(`StoryItem-StoryCont${favRank}`)
       .offsetHeight;
-    setStoryHeight(storyHeight);
-  }, [setStoryHeight]);
+    console.log(
+      `%c StoryItem${favRank}-StoryCont Height: ${storyHeight}`,
+      'color: blue'
+    );
+
+    _setStoryHeight(storyHeight);
+  }, [_setStoryHeight, favRank]);
 
   return (
     <StoryCont
@@ -43,7 +48,7 @@ const StoryItem = ({
                 <SubTitle id='StoryItem-SubTitle'>{title}</SubTitle>
 
                 {summary.length !== 0 && (
-                  <SubText>
+                  <SubText id='StoryItem-SubText'>
                     {summary.map((paragraph, index) => (
                       <ParaSml id='StoryItem-ParaSml' key={index}>
                         {paragraph}
@@ -52,9 +57,14 @@ const StoryItem = ({
                     <ToggleItem isOpen={isOpen} />
                   </SubText>
                 )}
-                <SubItem>
+                <SubItem id='StoryItem-SubItem-Story'>
                   {story.length !== 0 && isOpen && (
-                    <StorySub story={story} favRank={favRank} isOpen={isOpen} />
+                    <StorySub
+                      id='StoryItem-StorySub'
+                      story={story}
+                      favRank={favRank}
+                      isOpen={isOpen}
+                    />
                   )}
                   {media.length !== 0 && (
                     <MediaCont
@@ -73,6 +83,8 @@ const StoryItem = ({
   );
 };
 
-StoryItem.propTypes = {};
+StoryItem.propTypes = {
+  _setStoryHeight: PropTypes.func.isRequired,
+};
 
 export default StoryItem;

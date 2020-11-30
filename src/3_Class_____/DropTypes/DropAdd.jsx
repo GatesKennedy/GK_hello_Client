@@ -70,7 +70,7 @@ const DropAdd = ({
         media={media}
         isOpen={isOpen}
         offset={topOffset}
-        setStoryHeight={setStoryHeight}
+        _setStoryHeight={setStoryHeight}
       />
 
       <ToggleItem
