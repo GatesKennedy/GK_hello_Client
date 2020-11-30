@@ -16,6 +16,7 @@ const DropAdd = ({
   topOffset,
   _openState,
   _setOpenState,
+  _handleToggle,
 }) => {
   //  STATE
   const [dropHeight, setDropHeight] = useState(null);
@@ -45,11 +46,13 @@ const DropAdd = ({
         summary={summary}
         offset={topOffset}
         setSummaryHeight={setSummaryHeight}
+        __handleToggle={_handleToggle}
       />
 
       <ToggleItem
         isOpen={_openState === favRank}
         _setOpenState={_setOpenState}
+        __handleToggle={_handleToggle}
         text={'more'}
         icon={<RiArrowDropDownLine />}
         style={
@@ -73,6 +76,7 @@ const DropAdd = ({
       <ToggleItem
         isOpen={_openState === favRank}
         _setOpenState={_setOpenState}
+        __handleToggle={_handleToggle}
         text='less'
         icon={<RiArrowUpSLine />}
         style={
@@ -86,6 +90,10 @@ const DropAdd = ({
       />
     </DropCont>
   );
+};
+
+DropAdd.propTypes = {
+  _handleToggle: PropTypes.func.isRequired,
 };
 
 export default DropAdd;

@@ -28,6 +28,8 @@ body {
 
   background-color: $white-2;
   color: $black-1;
+
+  cursor: default;
 }
 
 .chat {
@@ -79,6 +81,11 @@ a {
 .align-left {
   text-align: left;
 }
+// Buttons
+.pointer {
+  cursor: pointer;
+}
+
 // ANIMATE
 .styleIcon {
   @media only screen and (max-width: 600px) {

@@ -5,7 +5,7 @@ import { RiArrowDropDownLine, RiArrowUpSLine } from 'react-icons/ri';
 import { Btn1 } from '../../Design/Styled_aoe';
 import { ToggleCont } from './styled';
 
-const ToggleItem = ({ isOpen }) => {
+const ToggleItem = ({ isOpen, __handleToggle }) => {
   const togStyle = () =>
     !isOpen
       ? {
@@ -18,7 +18,12 @@ const ToggleItem = ({ isOpen }) => {
         };
 
   return (
-    <ToggleCont id='ToggleItem-ToggleCont' style={togStyle}>
+    <ToggleCont
+      id='ToggleItem-ToggleCont'
+      style={togStyle}
+      className='pointer'
+      onClick={() => __handleToggle()}
+    >
       <Btn1 id='ToggleItem-Btn1' className={isOpen && 'bg-gry2'}>
         {isOpen ? (
           <Fragment>
@@ -36,6 +41,7 @@ const ToggleItem = ({ isOpen }) => {
 
 ToggleItem.propTypes = {
   isOpen: PropTypes.bool.isRequired,
+  __handleToggle: PropTypes.func.isRequired,
 };
 
 export default ToggleItem;

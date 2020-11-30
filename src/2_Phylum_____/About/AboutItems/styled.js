@@ -14,7 +14,6 @@ export const ItemCont = styled.div`
   overflow: hidden;
 
   /* background-color: #e7e7e7; */
-  cursor: pointer;
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */

@@ -34,17 +34,19 @@ const AboutItem = ({
     <ItemCont
       id='AboutItem-ItemCont'
       className={_openState === favRank ? ' activeItem ' : ' inactiveItem '}
-      onClick={() => handleToggle()}
     >
       <ImageItem
         _openState={_openState}
+        _handleToggle={handleToggle}
         favRank={favRank}
         titleImgUrl={titleImgUrl}
         imageSize={favRank === 1 ? 'large' : 'medium'}
       />
       <InfoCont id='AboutItem-InfoCont'>
-        <ItemTitle id='AboutItem-ItemTitle'>{title}</ItemTitle>
-        <ItemTech id='AboutItem-ItemTech'>
+        <ItemTitle id='AboutItem-ItemTitle' onClick={() => handleToggle()}>
+          {title}
+        </ItemTitle>
+        <ItemTech id='AboutItem-ItemTech' onClick={() => handleToggle()}>
           <SubTitle>{favRank === 1 ? 'Titles:' : 'Tech:'}</SubTitle>
           <TechList id='AboutItem-TechList'>
             {tech.map((item, index) => (
@@ -65,6 +67,7 @@ const AboutItem = ({
             media={media}
             _openState={_openState}
             _setOpenState={_setOpenState}
+            _handleToggle={handleToggle}
             topOffset={topOffset}
             setTopOffset={setTopOffset}
             favRank={favRank}
@@ -76,6 +79,7 @@ const AboutItem = ({
             media={media}
             _openState={_openState}
             _setOpenState={_setOpenState}
+            _handleToggle={handleToggle}
             topOffset={topOffset}
             setTopOffset={setTopOffset}
             favRank={favRank}

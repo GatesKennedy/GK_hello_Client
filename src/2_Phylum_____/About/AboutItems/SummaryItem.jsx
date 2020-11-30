@@ -4,7 +4,13 @@ import PropTypes from 'prop-types';
 import { ParaSml } from '../../../Design/Styled_aoe';
 import { SummaryCont, ItemSummary } from './styled';
 
-const SummaryItem = ({ favRank, summary, offset, setSummaryHeight }) => {
+const SummaryItem = ({
+  favRank,
+  summary,
+  offset,
+  setSummaryHeight,
+  __handleToggle,
+}) => {
   useEffect(() => {
     const summaryHeight = document.getElementById(
       `SummaryItem-SummaryCont${favRank}`
@@ -14,7 +20,8 @@ const SummaryItem = ({ favRank, summary, offset, setSummaryHeight }) => {
   return (
     <SummaryCont
       id={`SummaryItem-SummaryCont${favRank}`}
-      // style={{ top: `${offset}em` }}
+      className='pointer'
+      onClick={() => __handleToggle()}
     >
       <ItemSummary id='SummaryItem-ItemSummary'>
         {summary.map((paragraph, index) => (

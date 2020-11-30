@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 //  COMPS
 import ToggleItem from './ToggleItem';
@@ -15,6 +15,7 @@ const DropSwitch = ({
   topOffset,
   _openState,
   _setOpenState,
+  _handleToggle,
   setTopOffset,
 }) => {
   //  STATE
@@ -57,10 +58,12 @@ const DropSwitch = ({
           summary={summary}
           offset={topOffset}
           setSummaryHeight={setSummaryHeight}
+          __handleToggle={_handleToggle}
         />
         <ToggleItem
           isOpen={_openState === favRank}
           _setOpenState={_setOpenState}
+          __handleToggle={_handleToggle}
           type={'more'}
           style={
             isOpen
@@ -85,6 +88,7 @@ const DropSwitch = ({
         <ToggleItem
           isOpen={isOpen}
           _setOpenState={_setOpenState}
+          __handleToggle={_handleToggle}
           type='less'
           style={
             !isOpen
@@ -101,6 +105,10 @@ const DropSwitch = ({
       </div>
     </DropCont>
   );
+};
+
+DropSwitch.propTypes = {
+  _handleToggle: PropTypes.func.isRequired,
 };
 
 export default DropSwitch;
