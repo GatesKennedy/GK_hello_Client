@@ -20,6 +20,8 @@ import PG13_2 from '../../Design/Images/PG-13_2.jpg';
 import PG13_4 from '../../Design/Images/PG-13_4.jpg';
 //  IMG Inform
 import architecture from '../../Design/Images/Architecture.jpg';
+import Arch_NDS from '../../Design/Graphics/Arch_NDS.png';
+import Arch_GK_Hello from '../../Design/Graphics/Arch_GK_Hello.png';
 //  VEX Brands
 import esc_1 from '../../Design/Images/esc.png';
 import esc_2 from '../../Design/Graphics/escape_collective_logo-circle.png';
@@ -210,7 +212,7 @@ export const softwareObj = [
             id: 0,
             type: 'img',
             title: 'Needle Drop Software',
-            img: architecture,
+            img: Arch_NDS,
             url: 'void',
           },
         ],
@@ -276,6 +278,26 @@ export const softwareObj = [
         ],
         story: [],
         media: [],
+        link: 'void',
+      },
+      {
+        id: 1,
+        title: `Architecture:`,
+        imgUrl: SubIcon0,
+        summary: [
+          'GK_Hello is a digital portfolio and communication hub to meet potential clients and employers. If you log in and create an account, you can create a profile to tell me more about yourself and chat with me (Conor) directly using my messaging service, GK_Talk',
+          'Please explore and have fun!',
+        ],
+        story: [],
+        media: [
+          {
+            id: 0,
+            type: 'img',
+            title: 'Needle Drop Software',
+            img: Arch_GK_Hello,
+            url: 'void',
+          },
+        ],
         link: 'void',
       },
     ],
