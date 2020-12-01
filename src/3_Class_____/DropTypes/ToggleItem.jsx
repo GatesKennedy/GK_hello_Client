@@ -18,13 +18,9 @@ const ToggleItem = ({ isOpen, isShown, type, __handleToggle }) => {
         };
   const bgStyle = () => {
     if (isOpen) {
-      const bgClass = type === 'sub' ? ' bg-gry3' : ' bg-gry2';
-      console.log('bgClass: ', bgClass);
-      return bgClass;
+      return type === 'sub' ? ' bg-gry2 left-red' : ' bg-gry2';
     } else {
-      const bgClass = type === 'sub' ? ' bg-gry2' : '';
-      console.log('bgClass: ', bgClass);
-      return bgClass;
+      return type === 'sub' ? ' bg-gry2 left-blue' : '';
     }
   };
   return (
