@@ -34,7 +34,7 @@ const StorySub = ({ favRank, story, __isOpen, _isSubOpen }) => {
                     </ParaSml>
                   ))}
                 <SubItem>
-                  {media && (
+                  {media.length !== 0 && (
                     <MediaCont
                       id='StorySub-MediaCont'
                       _media={media}

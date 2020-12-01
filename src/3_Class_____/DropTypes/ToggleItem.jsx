@@ -5,32 +5,36 @@ import { RiArrowDropDownLine, RiArrowUpSLine } from 'react-icons/ri';
 import { Btn1 } from '../../Design/Styled_aoe';
 import { ToggleCont } from './styled';
 
-const ToggleItem = ({ isOpen, isShown, __handleToggle }) => {
-  console.log('isOpen: ', isOpen);
-  console.log('isShown: ', isShown);
+const ToggleItem = ({ isOpen, isShown, type, __handleToggle }) => {
   const togStyle = () =>
-    !isShown
+    isShown
       ? {
-          opacity: 0,
-          transition: 'opacity 0.3s ease-in-out',
-        }
-      : {
           opacity: 1,
           transition: 'opacity 1s ease-in-out 0.3s',
+        }
+      : {
+          opacity: 0,
+          transition: 'opacity 0.3s ease-in-out',
         };
-
+  const bgStyle = () => {
+    if (isOpen) {
+      const bgClass = type === 'sub' ? ' bg-gry3' : ' bg-gry2';
+      console.log('bgClass: ', bgClass);
+      return bgClass;
+    } else {
+      const bgClass = type === 'sub' ? ' bg-gry2' : '';
+      console.log('bgClass: ', bgClass);
+      return bgClass;
+    }
+  };
   return (
     <ToggleCont
       id='ToggleItem-ToggleCont'
       style={togStyle()}
-      className='pointer'
+      // className='pointer'
       onClick={() => __handleToggle()}
     >
-      <Btn1
-        id='ToggleItem-Btn1'
-        className={isOpen && 'bg-gry2'}
-        style={togStyle}
-      >
+      <Btn1 id='ToggleItem-Btn1' className={bgStyle()} style={togStyle}>
         {isOpen ? (
           <Fragment>
             less <RiArrowUpSLine />

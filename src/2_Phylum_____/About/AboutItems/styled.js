@@ -145,6 +145,7 @@ export const StoryCont = styled.div`
 `;
 export const ToggleCont = styled.div`
   /* margin: 12px 0px 0px 0px; */
+  /* cursor: pointer; */
 `;
 
 export const ItemTitle = styled.div`
@@ -218,11 +219,14 @@ export const TechItem = styled.li`
   transition: inherit;
 `;
 
+export const SubToggleCont = styled.div`
+  margin-top: 8px;
+`;
+
 export const SubItem = styled.div`
   display: flex;
   flex-direction: row;
   /* align-content: center; */
-  padding: 8px;
   width: 100%;
 `;
 export const SubTitle = styled.div`

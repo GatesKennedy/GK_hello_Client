@@ -112,7 +112,7 @@ export const ImageInfo = styled.img`
 
   border-radius: 12px;
   overflow: hidden;
-  background-color: #262727;
+  /* background-color: #262727; */
 
   height: auto;
   width: 100%;

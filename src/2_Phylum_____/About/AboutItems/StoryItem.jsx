@@ -14,6 +14,7 @@ import {
   SubItem,
   SubTitle,
   SubText,
+  SubToggleCont,
 } from './styled';
 
 const StoryItem = ({
@@ -43,6 +44,7 @@ const StoryItem = ({
   const handleToggle = () => {};
   const handleSub = (id) => {
     openId === id ? setOpenId(0) : setOpenId(id);
+    console.log('openId: ', openId);
   };
 
   return (
@@ -66,15 +68,18 @@ const StoryItem = ({
                     ))}
 
                     {story.length !== 0 && (
-                      <div onClick={() => handleSub(id)}>
+                      <SubToggleCont onClick={() => handleSub(id)}>
                         <ToggleItem
-                          isOpen={isSubOpen}
+                          isShown={true}
+                          isOpen={id === openId}
+                          type='sub'
                           __handleToggle={handleToggle}
                         />
-                      </div>
+                      </SubToggleCont>
                     )}
                   </SubText>
                 )}
+
                 <SubItem id='StoryItem-SubItem-Story'>
                   {id === openId && (
                     <Fragment>
