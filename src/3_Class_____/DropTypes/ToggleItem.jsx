@@ -5,26 +5,32 @@ import { RiArrowDropDownLine, RiArrowUpSLine } from 'react-icons/ri';
 import { Btn1 } from '../../Design/Styled_aoe';
 import { ToggleCont } from './styled';
 
-const ToggleItem = ({ isOpen, __handleToggle }) => {
+const ToggleItem = ({ isOpen, isShown, __handleToggle }) => {
+  console.log('isOpen: ', isOpen);
+  console.log('isShown: ', isShown);
   const togStyle = () =>
-    !isOpen
+    !isShown
       ? {
           opacity: 0,
           transition: 'opacity 0.3s ease-in-out',
         }
       : {
           opacity: 1,
-          transition: 'opacity 1s ease-in-out 0.4s',
+          transition: 'opacity 1s ease-in-out 0.3s',
         };
 
   return (
     <ToggleCont
       id='ToggleItem-ToggleCont'
-      style={togStyle}
+      style={togStyle()}
       className='pointer'
       onClick={() => __handleToggle()}
     >
-      <Btn1 id='ToggleItem-Btn1' className={isOpen && 'bg-gry2'}>
+      <Btn1
+        id='ToggleItem-Btn1'
+        className={isOpen && 'bg-gry2'}
+        style={togStyle}
+      >
         {isOpen ? (
           <Fragment>
             less <RiArrowUpSLine />
@@ -41,6 +47,7 @@ const ToggleItem = ({ isOpen, __handleToggle }) => {
 
 ToggleItem.propTypes = {
   isOpen: PropTypes.bool.isRequired,
+  isShown: PropTypes.bool.isRequired,
   __handleToggle: PropTypes.func.isRequired,
 };
 

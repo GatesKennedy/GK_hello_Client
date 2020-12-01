@@ -85,49 +85,40 @@ export const introObj = [
         media: [],
         link: 'void',
       },
-      {
-        id: 2,
-        title: '',
-        imgUrl: nope,
-        summary: [],
-        story: [],
-        media: [
-          {
-            id: 0,
-            type: 'link',
-            title: 'GitHub',
-            img: gitHub,
-            url: 'https://github.com/GatesKennedy',
-          },
-          {
-            id: 1,
-            type: 'link',
-            title: 'LinkedIn',
-            img: linkedIn,
-            url: 'https://www.linkedin.com/in/conorgateskennedy/',
-          },
-          {
-            id: 2,
-            type: 'link',
-            title: 'Escape Collective',
-            img: esc_2,
-            url: 'https://esccollective.com/',
-          },
-          {
-            id: 3,
-            type: 'link',
-            title: 'Spotify Playlists',
-            img: spotify,
-            url: 'https://open.spotify.com/user/ohnodamn/playlists',
-          },
-        ],
-        link: 'void',
-      },
     ],
     projectLink: ``,
     repoLink: ``,
     titleImgUrl: conor,
-    media: [],
+    media: [
+      {
+        id: 0,
+        type: 'link',
+        title: 'GitHub',
+        img: gitHub,
+        url: 'https://github.com/GatesKennedy',
+      },
+      {
+        id: 1,
+        type: 'link',
+        title: 'LinkedIn',
+        img: linkedIn,
+        url: 'https://www.linkedin.com/in/conorgateskennedy/',
+      },
+      {
+        id: 2,
+        type: 'link',
+        title: 'Escape Collective',
+        img: esc_2,
+        url: 'https://esccollective.com/',
+      },
+      {
+        id: 3,
+        type: 'link',
+        title: 'Spotify Playlists',
+        img: spotify,
+        url: 'https://open.spotify.com/user/ohnodamn/playlists',
+      },
+    ],
   },
 ];
 
@@ -245,15 +236,7 @@ export const softwareObj = [
     projectLink: 'void',
     repoLink: ``,
     titleImgUrl: 'https://www.needledrop.co/images/whitesmlogo.png',
-    media: [
-      {
-        id: 0,
-        type: 'img',
-        title: 'Needle Drop Software',
-        img: architecture,
-        url: 'void',
-      },
-    ],
+    media: [],
   },
 
   {

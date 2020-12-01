@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ImageItem from './ImageItem';
 import DropAdd from '../../../3_Class_____/DropTypes/DropAdd';
 import DropSwitch from '../../../3_Class_____/DropTypes/DropSwitch';
+import MediaCont from './MediaDisplay/MediaCont';
 //  STYLE
 
 import {
@@ -87,6 +88,9 @@ const AboutItem = ({
             topOffset={topOffset}
             favRank={favRank}
           />
+        )}
+        {media.length !== 0 && (
+          <MediaCont id='StoryItem-MediaCont' _media={media} _title={title} />
         )}
       </InfoCont>
     </ItemCont>

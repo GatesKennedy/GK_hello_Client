@@ -48,22 +48,12 @@ const DropAdd = ({
         setSummaryHeight={setSummaryHeight}
         __handleToggle={_handleToggle}
       />
-
       <ToggleItem
         isOpen={_openState === favRank}
-        _setOpenState={_setOpenState}
+        isShown={_openState !== favRank}
         __handleToggle={_handleToggle}
-        text={'more'}
-        icon={<RiArrowDropDownLine />}
-        style={
-          isOpen
-            ? { opacity: 0, transition: 'all 0.3s ease-in-out' }
-            : {
-                opacity: 1,
-                transition: 'all 1s ease-in-out 0.4s',
-              }
-        }
       />
+
       <StoryItem
         favRank={favRank}
         story={story}
@@ -72,21 +62,10 @@ const DropAdd = ({
         offset={topOffset}
         _setStoryHeight={setStoryHeight}
       />
-
       <ToggleItem
         isOpen={_openState === favRank}
-        _setOpenState={_setOpenState}
+        isShown={_openState === favRank}
         __handleToggle={_handleToggle}
-        text='less'
-        icon={<RiArrowUpSLine />}
-        style={
-          !isOpen
-            ? { opacity: 0, transition: 'all 0.3s ease-in-out' }
-            : {
-                opacity: 1,
-                transition: 'all 1s ease-in-out 0.4s',
-              }
-        }
       />
     </DropCont>
   );
