@@ -6,6 +6,7 @@ import SummaryItem from '../../2_Phylum_____/About/AboutItems/SummaryItem';
 import StoryItem from '../../2_Phylum_____/About/AboutItems/StoryItem';
 //  STYLE
 import { DropCont } from './styled';
+import { StoryCont } from '../../2_Phylum_____/About/AboutItems/styled';
 import { RiArrowDropDownLine, RiArrowUpSLine } from 'react-icons/ri';
 
 const DropAdd = ({
@@ -53,15 +54,16 @@ const DropAdd = ({
         isShown={_openState !== favRank}
         __handleToggle={_handleToggle}
       />
-
-      <StoryItem
-        favRank={favRank}
-        story={story}
-        media={media}
-        isOpen={isOpen}
-        offset={topOffset}
-        _setStoryHeight={setStoryHeight}
-      />
+      <StoryCont>
+        <StoryItem
+          favRank={favRank}
+          story={story}
+          media={media}
+          isOpen={isOpen}
+          offset={topOffset}
+          _setStoryHeight={setStoryHeight}
+        />
+      </StoryCont>
       <ToggleItem
         isOpen={_openState === favRank}
         isShown={_openState === favRank}

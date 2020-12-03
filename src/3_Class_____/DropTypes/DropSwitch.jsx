@@ -42,7 +42,7 @@ const DropSwitch = ({
       setDropHeight(shutHeight);
       _setTopOffset(0);
     }
-  }, [isOpen, summaryHeight, storyHeight, _setTopOffset, _setInfoHeight]);
+  }, [isOpen, summaryHeight, _setTopOffset, favRank]);
 
   useEffect(() => {
     _openState === favRank ? setIsOpen(true) : setIsOpen(false);

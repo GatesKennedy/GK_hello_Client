@@ -8,7 +8,7 @@ export const ItemCont = styled.div`
 
   width: 100%;
 
-  padding: 8px 0px;
+  padding: 8px 0px 0px 8px;
   margin: 4px 0px 4px -8px;
   border-radius: 12px;
   overflow: hidden;
@@ -139,8 +139,9 @@ export const StoryCont = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   justify-items: flex-start;
-  padding-left: 16px;
-
+  padding: 0px 0px 8px 16px;
+  width: 100%;
+  font-size: smaller;
   transition: inherit;
 `;
 export const ToggleCont = styled.div`
@@ -181,14 +182,7 @@ export const ItemSummary = styled.div`
 
   font-size: smaller;
 `;
-export const ItemStory = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 0px 0px 8px 8px;
-
-  width: 100%;
-  font-size: smaller;
-`;
+export const ItemStory = styled.div``;
 
 export const TechList = styled.ul`
   display: flex;
