@@ -1,3 +1,52 @@
+
+======================================================
+Recursive Structure
+======================================================
+
+<About>
+    <Title>
+        map(AboutItem)
+        -------------
+        <AboutItem>
+            <Image>
+            <InfoGroup>          ~~~ Recursive Component ~~~
+                <Title/>         |   Lvl1: Unique
+                <Tech/>
+                <BodyCont>  (horz)
+                    <Media/>
+                    <TextCont>  (vert)
+                        <Summary/>              |   
+                        <Story>                 |   switch > {offset, height}
+                            map(InfoGroup)
+                            -------------
+                            <InfoGroup>         ~~~ Recursive Component ~~~
+                                <Title/>        |   Lvl2: Unique
+                                <Tech/>
+                                <BodyCont>  (horz)
+                                    <Media/>
+                                    <TextCont>  (vert)
+                                        <Summary/>              |   
+                                        <Story>                 |   switch > {offset, height}
+                                            map(InfoGroup)
+                                                -------------
+                                                <InfoGroup>     ~~~ Recursive Component ~~~
+                                                    ...etc      |   Lvl3: Unique
+                                                </InfoGroup>
+                                                -------------
+                                        </Story>
+                                    </TextCont>
+                                </BodyCont>
+                            </InfoGroup>
+                            -------------
+                        </Story>
+                    </TextCont>
+                <BodyCont/>
+            </InfoCont>
+
+
+======================================================
+Old Dumb Structure
+======================================================
 About.jsx
     <Title>
         map()
@@ -21,32 +70,4 @@ About.jsx
                             <Summary>
                             <Story>
                                 map()
-                                -------------
-
-======================================================
-
-About.jsx
-    <Title>
-        map()
-        -------------
-        AboutItem.jsx
-            <Image>
-            <InfoCont>          |   Recursive Component
-                <Title>
-                <Tech>
-                <Summary>           |   
-                <Story>             |   switch > {offset, height}
-                    map()
-                    -------------
-                    <Title>
-                    <Tech>
-                    <Summary>           |   
-                    <Story>             |   add > {height}
-                        map()
-                        -------------
-                        <Title>
-                        <Tech>
-                        <Summary>           |
-                        <Story>             |   add > {height}
-                            map()
                                 -------------
