@@ -19,4 +19,34 @@ About.jsx
                             -------------
                             <Title>
                             <Summary>
-                            <
+                            <Story>
+                                map()
+                                -------------
+
+======================================================
+
+About.jsx
+    <Title>
+        map()
+        -------------
+        AboutItem.jsx
+            <Image>
+            <InfoCont>          |   Recursive Component
+                <Title>
+                <Tech>
+                <Summary>           |   
+                <Story>             |   switch > {offset, height}
+                    map()
+                    -------------
+                    <Title>
+                    <Tech>
+                    <Summary>           |   
+                    <Story>             |   add > {height}
+                        map()
+                        -------------
+                        <Title>
+                        <Tech>
+                        <Summary>           |
+                        <Story>             |   add > {height}
+                            map()
+                                -------------
