@@ -29,7 +29,7 @@ const DropSub = ({ favRank, openId, story, __isOpen, _isSubOpen }) => {
                 <SubTitle id='DropSub-SubTitle'>{title}</SubTitle>
                 {summary.length !== 0 &&
                   summary.map((paragraph, index) => (
-                    <ParaSml id='StoryItem-ParaSml' key={index}>
+                    <ParaSml id='DropSub-ParaSml' key={index}>
                       {paragraph}
                     </ParaSml>
                   ))}

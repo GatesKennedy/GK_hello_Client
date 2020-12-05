@@ -90,7 +90,7 @@ const AboutItem = ({
           />
         )}
         {media.length !== 0 && (
-          <MediaCont id='StoryItem-MediaCont' _media={media} _title={title} />
+          <MediaCont id='AboutItem-MediaCont' _media={media} _title={title} />
         )}
       </InfoCont>
     </ItemCont>

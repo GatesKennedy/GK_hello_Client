@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 //  COMPS
 import ToggleItem from './ToggleItem';
 import SummaryItem from '../../2_Phylum_____/About/AboutItems/SummaryItem';
-import StoryItem from '../../2_Phylum_____/About/AboutItems/StoryItem';
+import StoryGroup from '../../2_Phylum_____/About/AboutItems/StoryGroup';
 //  STYLE
 import { DropCont } from './styled';
 import { StoryCont } from '../../2_Phylum_____/About/AboutItems/styled';
@@ -54,16 +54,22 @@ const DropAdd = ({
         isShown={_openState !== favRank}
         __handleToggle={_handleToggle}
       />
+
       <StoryCont>
-        <StoryItem
-          favRank={favRank}
-          story={story}
-          media={media}
-          isOpen={isOpen}
-          offset={topOffset}
-          _setStoryHeight={setStoryHeight}
-        />
+        {story.length !== 0 &&
+          story.map((storyObj, index) => (
+            <StoryGroup
+              key={index}
+              favRank={favRank}
+              story={storyObj}
+              media={media}
+              isOpen={isOpen}
+              offset={topOffset}
+              _setStoryHeight={setStoryHeight}
+            />
+          ))}
       </StoryCont>
+
       <ToggleItem
         isOpen={_openState === favRank}
         isShown={_openState === favRank}

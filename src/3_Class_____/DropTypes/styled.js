@@ -20,6 +20,17 @@ export const DropCont = styled.div`
   transition: all 0.4s ease-in-out;
 `;
 
+export const StoryCont = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  justify-items: flex-start;
+  padding: 0px 0px 8px 16px;
+  width: 100%;
+  font-size: smaller;
+  transition: inherit;
+`;
+
 export const DropItem = styled.div`
   display: flex;
   flex-direction: column;
