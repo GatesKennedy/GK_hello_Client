@@ -4,44 +4,310 @@ Recursive Structure
 ======================================================
 
 <About>
-    <Title>
+    <Title id='IntroTitle'/>
+    <AboutBody>
         map(AboutItem)
         -------------
-        <AboutItem>
+        <AboutItem id='IntroItem-1'>
             <Image>
-            <InfoGroup>          ~~~ Recursive Component ~~~
+            <InfoGroup>          ~~~ Recursive (ADD) ~~~
                 <Title/>         |   Lvl1: Unique
                 <Tech/>
                 <BodyCont>  (horz)
-                    <Media/>
                     <TextCont>  (vert)
                         <Summary/>              |   
-                        <Story>                 |   switch > {offset, height}
+                        <Story>                 |   ADD > {height}
                             map(InfoGroup)
                             -------------
-                            <InfoGroup>         ~~~ Recursive Component ~~~
-                                <Title/>        |   Lvl2: Unique
-                                <Tech/>
-                                <BodyCont>  (horz)
-                                    <Media/>
-                                    <TextCont>  (vert)
-                                        <Summary/>              |   
-                                        <Story>                 |   switch > {offset, height}
-                                            map(InfoGroup)
-                                                -------------
-                                                <InfoGroup>     ~~~ Recursive Component ~~~
-                                                    ...etc      |   Lvl3: Unique
-                                                </InfoGroup>
-                                                -------------
-                                        </Story>
-                                    </TextCont>
-                                </BodyCont>
-                            </InfoGroup>
+                                END
                             -------------
                         </Story>
                     </TextCont>
+                    <Media/>
                 <BodyCont/>
-            </InfoCont>
+            </InfoGroup>
+        </AboutItem>
+
+        <AboutItem id='IntroItem-2'>
+            <Image>
+            <InfoGroup>          ~~~ Recursive (ADD) ~~~
+                <Title/>         |   Lvl1: Unique
+                <Tech/>
+                <BodyCont>  (horz)
+                    <TextCont>  (vert)
+                        <Summary/>              |   
+                        <Story>                 |   ADD > {height}
+                            map(InfoGroup)
+                            -------------
+                                END
+                            -------------
+                        </Story>
+                    </TextCont>
+                    <Media/>
+                <BodyCont/>
+            </InfoGroup>
+        </AboutItem>
+        -------------
+    </AboutBody>
+
+    <Title id='SoftwareTitle'/>
+    <AboutBody>
+        map(AboutItem)
+        --------------
+        <AboutItem id='SoftwareItem-1'>
+            <Image>
+            -----------------------------------------------------------
+            <InfoGroup>                         ~~~ Recursive (SWITCH) ~~~
+                <Title/>                        |   Lvl1: Unique
+                <Tech/>
+                <BodyCont>                          (horz)
+                    <TextCont>                      (vert)
+                        <Summary/>              |   
+                        <Story>                 |   SWITCH > {offset, height}
+                            map(InfoGroup)
+                            -----------------------------------------------------------
+                            <InfoGroup>                         ~~~ Recursive (ADD) ~~~
+                                <Title/>                        |   Lvl2: Unique
+                                <Tech/>
+                                <BodyCont>                          (horz)
+                                    <TextCont>                      (vert)
+                                        <Summary/>              |   
+                                        <Story>                 |   ADD > {height}
+                                            map(InfoGroup)
+                                                -----------------------------------------------------------
+                                                <InfoGroup>                         ~~~ Recursive (ADD) ~~~
+                                                    <Title/>                        |   Lvl3: Unique
+                                                    <Tech/>
+                                                    <BodyCont>                          (horz)
+                                                        <TextCont>                      (vert)
+                                                            <Summary/>              |   
+                                                            <Story>                 |   ADD > {height}
+                                                                map(InfoGroup)
+                                                                    -------------
+                                                                        END
+                                                                    -------------
+                                                            </Story>
+                                                        </TextCont>
+                                                        <Media/>
+                                                    </BodyCont>
+                                                </InfoGroup>
+                                                -----------------------------------------------------------
+                                        </Story>
+                                    </TextCont>
+                                    <Media/>
+                                </BodyCont>
+                            </InfoGroup>
+                            -----------------------------------------------------------
+                        </Story>
+                    </TextCont>
+                    <Media/>
+                <BodyCont/>
+            </InfoGroup>
+        </AboutItem>
+
+        <AboutItem id='SoftwareItem-2'>
+            <Image>
+            -----------------------------------------------------------
+            <InfoGroup>                         ~~~ Recursive (SWITCH) ~~~
+                <Title/>                        |   Lvl1: Unique
+                <Tech/>
+                <BodyCont>                          (horz)
+                    <TextCont>                      (vert)
+                        <Summary/>              |   
+                        <Story>                 |   SWITCH > {offset, height}
+                            map(InfoGroup)
+                            -----------------------------------------------------------
+                            <InfoGroup>                         ~~~ Recursive (ADD) ~~~
+                                <Title/>                        |   Lvl2: Unique
+                                <Tech/>
+                                <BodyCont>                          (horz)
+                                    <TextCont>                      (vert)
+                                        <Summary/>              |   
+                                        <Story>                 |   ADD > {height}
+                                            map(InfoGroup)
+                                                -----------------------------------------------------------
+                                                <InfoGroup>                         ~~~ Recursive (ADD) ~~~
+                                                    <Title/>                        |   Lvl3: Unique
+                                                    <Tech/>
+                                                    <BodyCont>                          (horz)
+                                                        <TextCont>                      (vert)
+                                                            <Summary/>              |   
+                                                            <Story>                 |   ADD > {height}
+                                                                map(InfoGroup)
+                                                                    -------------
+                                                                        END
+                                                                    -------------
+                                                            </Story>
+                                                        </TextCont>
+                                                        <Media/>
+                                                    </BodyCont>
+                                                </InfoGroup>
+                                                -----------------------------------------------------------
+                                        </Story>
+                                    </TextCont>
+                                    <Media/>
+                                </BodyCont>
+                            </InfoGroup>
+                            -----------------------------------------------------------
+                        </Story>
+                    </TextCont>
+                    <Media/>
+                <BodyCont/>
+            </InfoGroup>
+        </AboutItem>
+
+        <AboutItem id='SoftwareItem-3'>
+            <Image>
+            -----------------------------------------------------------
+            <InfoGroup>                         ~~~ Recursive (SWITCH) ~~~
+                <Title/>                        |   Lvl1: Unique
+                <Tech/>
+                <BodyCont>                          (horz)
+                    <TextCont>                      (vert)
+                        <Summary/>              |   
+                        <Story>                 |   SWITCH > {offset, height}
+                            map(InfoGroup)
+                            -----------------------------------------------------------
+                            <InfoGroup>                         ~~~ Recursive (ADD) ~~~
+                                <Title/>                        |   Lvl2: Unique
+                                <Tech/>
+                                <BodyCont>                          (horz)
+                                    <TextCont>                      (vert)
+                                        <Summary/>              |   
+                                        <Story>                 |   ADD > {height}
+                                            map(InfoGroup)
+                                                -----------------------------------------------------------
+                                                <InfoGroup>                         ~~~ Recursive (ADD) ~~~
+                                                    <Title/>                        |   Lvl3: Unique
+                                                    <Tech/>
+                                                    <BodyCont>                          (horz)
+                                                        <TextCont>                      (vert)
+                                                            <Summary/>              |   
+                                                            <Story>                 |   ADD > {height}
+                                                                map(InfoGroup)
+                                                                    -------------
+                                                                        END
+                                                                    -------------
+                                                            </Story>
+                                                        </TextCont>
+                                                        <Media/>
+                                                    </BodyCont>
+                                                </InfoGroup>
+                                                -----------------------------------------------------------
+                                        </Story>
+                                    </TextCont>
+                                    <Media/>
+                                </BodyCont>
+                            </InfoGroup>
+                            -----------------------------------------------------------
+                        </Story>
+                    </TextCont>
+                    <Media/>
+                <BodyCont/>
+            </InfoGroup>
+        </AboutItem>
+
+        [...]
+
+        <AboutItem id='SoftwareItem-n'>
+            <Image>
+            -----------------------------------------------------------
+            <InfoGroup>                         ~~~ Recursive (SWITCH) ~~~
+                <Title/>                        |   Lvl1: Unique
+                <Tech/>
+                <BodyCont>                          (horz)
+                    <TextCont>                      (vert)
+                        <Summary/>              |   
+                        <Story>                 |   SWITCH > {offset, height}
+                            map(InfoGroup)
+                            -----------------------------------------------------------
+                            <InfoGroup>                         ~~~ Recursive (ADD) ~~~
+                                <Title/>                        |   Lvl2: Unique
+                                <Tech/>
+                                <BodyCont>                          (horz)
+                                    <TextCont>                      (vert)
+                                        <Summary/>              |   
+                                        <Story>                 |   ADD > {height}
+                                            map(InfoGroup)
+                                                -----------------------------------------------------------
+                                                <InfoGroup>                         ~~~ Recursive (ADD) ~~~
+                                                    <Title/>                        |   Lvl3: Unique
+                                                    <Tech/>
+                                                    <BodyCont>                          (horz)
+                                                        <TextCont>                      (vert)
+                                                            <Summary/>              |   
+                                                            <Story>                 |   ADD > {height}
+                                                                map(InfoGroup)
+                                                                    -------------
+                                                                        END
+                                                                    -------------
+                                                            </Story>
+                                                        </TextCont>
+                                                        <Media/>
+                                                    </BodyCont>
+                                                </InfoGroup>
+                                                -----------------------------------------------------------
+                                        </Story>
+                                    </TextCont>
+                                    <Media/>
+                                </BodyCont>
+                            </InfoGroup>
+                            -----------------------------------------------------------
+                        </Story>
+                    </TextCont>
+                    <Media/>
+                <BodyCont/>
+            </InfoGroup>
+        </AboutItem>
+        -----------------------------------------------------------
+    </AboutBody>
+
+    <Title id='PersonalTitle'/>
+    <AboutBody>
+        map(AboutItem)
+        -------------
+        <AboutItem id='PersonalItem-1'>
+            <Image>
+            <InfoGroup>          ~~~ Recursive (SWITCH) ~~~
+                <Title/>         |   Lvl1: Unique
+                <Tech/>
+                <BodyCont>  (horz)
+                    <TextCont>  (vert)
+                        <Summary/>              |   
+                        <Story>                 |   SWITCH > {offset, height}
+                            map(InfoGroup)
+                            -------------
+                                END
+                            -------------
+                        </Story>
+                    </TextCont>
+                    <Media/>
+                <BodyCont/>
+            </InfoGroup>
+        </AboutItem>
+        
+        <AboutItem id='PersonalItem-2'>
+            <Image>
+            <InfoGroup>          ~~~ Recursive (SWITCH) ~~~
+                <Title/>         |   Lvl1: Unique
+                <Tech/>
+                <BodyCont>  (horz)
+                    <TextCont>  (vert)
+                        <Summary/>              |   
+                        <Story>                 |   SWITCH > {offset, height}
+                            map(InfoGroup)
+                            -------------
+                                END
+                            -------------
+                        </Story>
+                    </TextCont>
+                    <Media/>
+                <BodyCont/>
+            </InfoGroup>
+        </AboutItem>
+        -------------
+    </AboutBody>
+<About/>
 
 
 ======================================================
