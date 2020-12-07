@@ -16,11 +16,13 @@ import {
 
 const InfoGroup = ({
   favRank,
-  _openItem,
-  _setOpenItem,
   _itemHeight,
   _setItemHeight,
   _handleToggle,
+  _openInfo,
+  _setOpenInfo,
+  __openItem,
+  __setOpenItem,
   __item,
   __item: { id, title, tech, summary, story, media, link },
   __dropType,
@@ -34,23 +36,30 @@ const InfoGroup = ({
   const [topOffset, setTopOffset] = useState(0);
   //  CALLBACK
   const calcHeight = useCallback(() => {
-    const dropHeight = document.getElementById(`InfoGroup-InfoCont${favRank}`)
+    const fullHeight = document.getElementById(`InfoGroup-InfoCont${favRank}`)
       .offsetHeight;
+    const childrenHeight = document.getElementById(
+      `InfoGroup-Children${favRank}`
+    ).offsetHeight;
     isOpen
-      ? setInfoHeight(summaryHeight + storyHeight + 2 * toggleHeight + 4)
+      ? setInfoHeight(summaryHeight + childrenHeight + 2 * toggleHeight + 4)
       : setInfoHeight(summaryHeight + toggleHeight);
-  }, [isOpen, favRank, summaryHeight, storyHeight, toggleHeight]);
+  }, [isOpen, favRank, summaryHeight, toggleHeight]);
 
   //  EFFECT
   useEffect(() => {
-    _openItem === favRank ? setIsOpen(true) : setIsOpen(false);
+    __openItem === favRank ? setIsOpen(true) : setIsOpen(false);
     calcHeight();
-  }, [_openItem, favRank, isOpen, calcHeight]);
+    console.log('%c InfoGroup:', 'color: goldenRod');
+    console.log(`group ${favRank}:
+        isOpen: ${isOpen}
+        infoHeight: ${infoHeight}`);
+  }, [__openItem, favRank, isOpen, calcHeight, infoHeight]);
 
+  useEffect(() => {
+    _setItemHeight(infoHeight);
+  }, [_setItemHeight, infoHeight]);
   //  FXN
-  const handleToggle = () => {
-    _openItem === id ? _setOpenItem(0) : _setOpenItem(id);
-  };
 
   return (
     <InfoCont
@@ -67,7 +76,7 @@ const InfoGroup = ({
             <TechItem
               id='InfoGroup-TechItem'
               key={index}
-              className={_openItem !== favRank ? ' bg-gry1' : ' bg-gry2'}
+              className={__openItem !== favRank ? ' bg-gry1' : ' bg-gry2'}
             >
               {item}
             </TechItem>
@@ -90,12 +99,22 @@ const InfoGroup = ({
             _setToggleHeight={setToggleHeight}
             __handleToggle={_handleToggle}
           />
+          {story[0].summary.length > 0 && (
+            <div
+              id={`InfoGroup-Children${favRank}`}
+              style={{ height: isOpen ? '100px' : '0px' }}
+            >
+              {story[0].summary.map((para, index) => (
+                <div key={index}>{para}</div>
+              ))}
+            </div>
+          )}
           {/* <DropAdd
         dropType={dropType}
         summary={summary}
         story={story}
         media={media}
-        _openItem={_openItem}
+        __openItem={__openItem}
         _setOpenState={_setOpenState}
         _topOffset={topOffset}
         _handleToggle={handleToggle}

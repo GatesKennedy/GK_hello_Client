@@ -38,7 +38,6 @@ const ToggleItem = ({
     <ToggleCont
       id='ToggleItem-ToggleCont'
       style={togStyle()}
-      // className='pointer'
       onClick={() => __handleToggle()}
     >
       <Btn1 id='ToggleItem-Btn1' className={bgStyle()} style={togStyle}>
