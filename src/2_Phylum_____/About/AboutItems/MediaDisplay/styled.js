@@ -7,7 +7,7 @@ export const MediaRow = styled.div`
   align-content: center;
 
   width: 100%;
-  /* padding-left: 12px; */
+  margin: 12px;
 `;
 export const MediaTitle = styled.h4`
   display: flex;

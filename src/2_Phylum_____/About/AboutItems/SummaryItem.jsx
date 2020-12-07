@@ -4,23 +4,23 @@ import PropTypes from 'prop-types';
 import { ParaSml } from '../../../Design/Styled_aoe';
 import { SummaryCont, ItemSummary } from './styled';
 
-const SummaryItem = ({ id, summary, setSummaryHeight, __handleToggle }) => {
+const SummaryItem = ({ _id, _summary, _setSummaryHeight, __handleSelect }) => {
   useEffect(() => {
     const summaryHeight = document.getElementById(
-      `SummaryItem-SummaryCont${id}`
+      `SummaryItem-SummaryCont${_id}`
     ).offsetHeight;
 
-    setSummaryHeight(summaryHeight);
-  }, [setSummaryHeight, id]);
+    _setSummaryHeight(summaryHeight);
+  }, [_setSummaryHeight, _id]);
 
   return (
     <SummaryCont
-      id={`SummaryItem-SummaryCont${id}`}
+      id={`SummaryItem-SummaryCont${_id}`}
       className='pointer'
-      onClick={() => __handleToggle()}
+      onClick={() => __handleSelect()}
     >
       <ItemSummary id='SummaryItem-ItemSummary'>
-        {summary.map((paragraph, index) => (
+        {_summary.map((paragraph, index) => (
           <ParaSml key={index} id='SummaryItem-ParaSml'>
             {paragraph}
           </ParaSml>
@@ -31,10 +31,10 @@ const SummaryItem = ({ id, summary, setSummaryHeight, __handleToggle }) => {
 };
 
 SummaryItem.propTypes = {
-  id: PropTypes.number.isRequired,
-  summary: PropTypes.array.isRequired,
-  setSummaryHeight: PropTypes.func.isRequired,
-  __handleToggle: PropTypes.func.isRequired,
+  _id: PropTypes.number.isRequired,
+  _summary: PropTypes.array.isRequired,
+  _setSummaryHeight: PropTypes.func.isRequired,
+  __handleSelect: PropTypes.func.isRequired,
 };
 
 export default SummaryItem;

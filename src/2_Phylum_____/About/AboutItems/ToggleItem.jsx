@@ -10,7 +10,7 @@ const ToggleItem = ({
   isShown,
   type,
   _setToggleHeight,
-  __handleToggle,
+  __handleSelect,
 }) => {
   useEffect(() => {
     _setToggleHeight(
@@ -38,7 +38,7 @@ const ToggleItem = ({
     <ToggleCont
       id='ToggleItem-ToggleCont'
       style={togStyle()}
-      onClick={() => __handleToggle()}
+      onClick={() => __handleSelect()}
     >
       <Btn1 id='ToggleItem-Btn1' className={bgStyle()} style={togStyle}>
         {isOpen ? (
@@ -58,7 +58,7 @@ const ToggleItem = ({
 ToggleItem.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   isShown: PropTypes.bool.isRequired,
-  __handleToggle: PropTypes.func.isRequired,
+  __handleSelect: PropTypes.func.isRequired,
 };
 
 export default ToggleItem;

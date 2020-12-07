@@ -101,6 +101,8 @@ export const InfoCont = styled.section`
   padding: 0px 8px;
   margin-top: -6px;
 
+  overflow: hidden;
+
   @media only screen and (min-width: 600px) {
     /* For desktop: */
     position: relative;
@@ -144,9 +146,16 @@ export const StoryCont = styled.div`
   font-size: smaller;
   transition: inherit;
 `;
+export const BodyCont = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  transition: all 0.4s ease-in-out;
+`;
+
 export const ToggleCont = styled.div`
   transition: all 0.4s ease-in-out;
-  /* margin: 12px 0px 0px 0px; */
+  margin: 12px 0px 8px 0px;
   /* cursor: pointer; */
 `;
 

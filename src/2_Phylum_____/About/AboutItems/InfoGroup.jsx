@@ -12,13 +12,14 @@ import {
   TechList,
   TechItem,
   SubTitle,
+  BodyCont,
 } from './styled';
 
 const InfoGroup = ({
   favRank,
   _itemHeight,
   _setItemHeight,
-  _handleToggle,
+  _handleSelect,
   _openInfo,
   _setOpenInfo,
   __openItem,
@@ -30,46 +31,88 @@ const InfoGroup = ({
   //  STATE
   const [isOpen, setIsOpen] = useState(false);
   const [infoHeight, setInfoHeight] = useState(null);
+  const [displayHeight, setDisplayHeight] = useState(null);
+  const [titleHeight, setTitleHeight] = useState(null);
   const [summaryHeight, setSummaryHeight] = useState(null);
   const [storyHeight, setStoryHeight] = useState(null);
   const [toggleHeight, setToggleHeight] = useState(0);
   const [topOffset, setTopOffset] = useState(0);
   //  CALLBACK
   const calcHeight = useCallback(() => {
-    const fullHeight = document.getElementById(`InfoGroup-InfoCont${favRank}`)
+    favRank === 1 && console.log('%c GroupCallback', 'color: darkseagreen');
+    const titleHt = document.getElementById(`InfoGroup-ItemTitle${id}`)
       .offsetHeight;
-    const childrenHeight = document.getElementById(
-      `InfoGroup-Children${favRank}`
-    ).offsetHeight;
+    const techHt = document.getElementById(`InfoGroup-ItemTech${id}`)
+      .offsetHeight;
+    setTitleHeight(titleHt + techHt);
+    setStoryHeight(
+      document.getElementById(`InfoGroup-Story${favRank}`).offsetHeight
+    );
+    setInfoHeight(summaryHeight + storyHeight);
     isOpen
-      ? setInfoHeight(summaryHeight + childrenHeight + 2 * toggleHeight + 4)
-      : setInfoHeight(summaryHeight + toggleHeight);
-  }, [isOpen, favRank, summaryHeight, toggleHeight]);
+      ? setDisplayHeight(titleHeight + infoHeight - toggleHeight)
+      : setDisplayHeight(
+          titleHeight + infoHeight - storyHeight - 2 * toggleHeight
+        );
+  }, [
+    id,
+    isOpen,
+    favRank,
+    titleHeight,
+    summaryHeight,
+    storyHeight,
+    infoHeight,
+    toggleHeight,
+  ]);
 
   //  EFFECT
   useEffect(() => {
-    __openItem === favRank ? setIsOpen(true) : setIsOpen(false);
-    calcHeight();
-    console.log('%c InfoGroup:', 'color: goldenRod');
-    console.log(`group ${favRank}:
-        isOpen: ${isOpen}
-        infoHeight: ${infoHeight}`);
-  }, [__openItem, favRank, isOpen, calcHeight, infoHeight]);
+    favRank === 1 &&
+      console.log(`GroupCallBack ${favRank}
+    summaryHeight:  ${summaryHeight}
+    storyHeight:    ${storyHeight}
+    toggleHeight:    ${toggleHeight}
+    -------------------------
+    _itemHeight:    ${_itemHeight}
+    infoHeight:     ${infoHeight}
+    displayHeight:  ${displayHeight}
+      `);
+  }, [
+    favRank,
+    _itemHeight,
+    displayHeight,
+    summaryHeight,
+    storyHeight,
+    toggleHeight,
+    infoHeight,
+  ]);
 
   useEffect(() => {
-    _setItemHeight(infoHeight);
-  }, [_setItemHeight, infoHeight]);
+    favRank === 1 &&
+      console.log(
+        '%c GroupEffect > setIsOpen() > calcHeight()',
+        'color: goldenRod'
+      );
+    __openItem === favRank ? setIsOpen(true) : setIsOpen(false);
+
+    calcHeight();
+  }, [__openItem, favRank, calcHeight]);
+
   //  FXN
+  const handleDrop = () => {
+    _handleSelect(favRank);
+    calcHeight();
+  };
 
   return (
-    <InfoCont
-      id={`InfoGroup-InfoCont${favRank}`}
-      style={{ height: infoHeight }}
-    >
-      <ItemTitle id='InfoGroup-ItemTitle' onClick={() => _handleToggle()}>
+    <InfoCont id={`InfoGroup-InfoCont${favRank}`}>
+      <ItemTitle
+        id={`InfoGroup-ItemTitle${id}`}
+        onClick={() => _handleSelect()}
+      >
         {title}
       </ItemTitle>
-      <ItemTech id='InfoGroup-ItemTech' onClick={() => _handleToggle()}>
+      <ItemTech id={`InfoGroup-ItemTech${id}`} onClick={() => _handleSelect()}>
         <SubTitle>{favRank === 1 ? 'Titles:' : 'Tech:'}</SubTitle>
         <TechList id='InfoGroup-TechList'>
           {tech.map((item, index) => (
@@ -84,31 +127,35 @@ const InfoGroup = ({
         </TechList>
       </ItemTech>
 
-      <div id='InfoGroup-BodyCont'>
-        <div id='InfoGroup-TextCont'>
+      <BodyCont
+        id={`InfoGroup-BodyCont${favRank}`}
+        style={{ height: displayHeight }}
+      >
+        <div id={`InfoGroup-TextCont${favRank}`}>
           <SummaryItem
-            id={id}
-            summary={summary}
-            setSummaryHeight={setSummaryHeight}
-            __handleToggle={_handleToggle}
+            _id={id}
+            _summary={summary}
+            _setSummaryHeight={setSummaryHeight}
+            __handleSelect={_handleSelect}
           />
           <ToggleItem
             isOpen={isOpen}
             isShown={true}
             type={'main'} // or 'sub'
             _setToggleHeight={setToggleHeight}
-            __handleToggle={_handleToggle}
+            __handleSelect={_handleSelect}
           />
-          {story[0].summary.length > 0 && (
-            <div
-              id={`InfoGroup-Children${favRank}`}
-              style={{ height: isOpen ? '100px' : '0px' }}
-            >
-              {story[0].summary.map((para, index) => (
-                <div key={index}>{para}</div>
-              ))}
-            </div>
-          )}
+          <div id={`InfoGroup-Story${favRank}`}>
+            {story.map(({ summary, title, id }) => (
+              <div key={id}>
+                <div>{title}</div>
+                {summary.length > 0 &&
+                  story[0].summary.map((para, index) => (
+                    <div key={index}>{para}</div>
+                  ))}
+              </div>
+            ))}
+          </div>
           {/* <DropAdd
         dropType={dropType}
         summary={summary}
@@ -117,14 +164,15 @@ const InfoGroup = ({
         __openItem={__openItem}
         _setOpenState={_setOpenState}
         _topOffset={topOffset}
-        _handleToggle={handleToggle}
+        _handleSelect={handleToggle}
         _setTopOffset={setTopOffset}
         _setInfoHeight={setInfoHeight}
         favRank={favRank}
       /> */}
         </div>
+
         <MediaCont id='InfoGroup-MediaCont' _media={media} />
-      </div>
+      </BodyCont>
     </InfoCont>
   );
 };
