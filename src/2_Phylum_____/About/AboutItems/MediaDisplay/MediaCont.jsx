@@ -8,9 +8,12 @@ import { MediaRow, MediaItem, MediaTitle } from './styled';
 //  UTILS
 import { openNewTab } from '../../../../utils/Routing';
 
-const MediaCont = ({ _media, _title }) => {
+const MediaCont = ({ _media }) => {
   return (
-    <MediaRow id='MediaCont-MediaRow'>
+    <MediaRow
+      id='MediaCont-MediaRow'
+      style={{ width: _media.length > 0 ? '40%' : '0px' }}
+    >
       {_media.length > 0 &&
         _media.map(({ id, type, title, img, url }) =>
           type === 'link' ? (

@@ -16,10 +16,14 @@ import TitleHeader from '../../0_GenComps_____/TitleHeader';
 //  MAIN
 const About = () => {
   //  STATE
-  const [openState, setOpenState] = useState(0);
+  const [openItem, setOpenItem] = useState(0);
   const titleTxt1 = 'Hello, Friend...';
   const titleTxt2 = 'Software...';
   const titleTxt3 = 'Personal...';
+  //  EFFECT
+  useEffect(() => {
+    console.log('Open Now > openItem: ', openItem);
+  }, [openItem]);
 
   return (
     <AboutCont id='About-AboutCont' className='bg-gry2 txt-black'>
@@ -31,8 +35,8 @@ const About = () => {
             key={item.favRank}
             dropType='add'
             _item={item}
-            _openState={openState}
-            _setOpenState={setOpenState}
+            _openItem={openItem}
+            _setOpenItem={setOpenItem}
           />
         ))}
       </AboutIntro>
@@ -45,8 +49,8 @@ const About = () => {
             key={item.favRank}
             dropType='switch'
             _item={item}
-            _openState={openState}
-            _setOpenState={setOpenState}
+            _openItem={openItem}
+            _setOpenItem={setOpenItem}
           />
         ))}
       </AboutBody>
@@ -58,8 +62,8 @@ const About = () => {
             key={item.favRank}
             dropType='switch'
             _item={item}
-            _openState={openState}
-            _setOpenState={setOpenState}
+            _openItem={openItem}
+            _setOpenItem={setOpenItem}
           />
         ))}
       </AboutBody>

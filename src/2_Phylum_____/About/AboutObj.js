@@ -33,6 +33,7 @@ import nope from '../../Design/Graphics/Blank_space.png';
 
 export const introObj = [
   {
+    id: 1,
     favRank: 1,
     timeRank: 1,
     title: `Conor Gates Kennedy`,
@@ -124,6 +125,7 @@ export const introObj = [
 
 export const softwareObj = [
   {
+    id: 2,
     favRank: 2,
     timeRank: 5,
     title: 'Needle Drop Co.',
@@ -240,6 +242,7 @@ export const softwareObj = [
   },
 
   {
+    id: 3,
     favRank: 3,
     timeRank: 6,
     title: 'GK_Hello',
@@ -291,6 +294,7 @@ export const softwareObj = [
   },
 
   {
+    id: 4,
     favRank: 4,
     timeRank: 7,
     title: 'GK_Talk',
@@ -330,6 +334,7 @@ export const softwareObj = [
   },
 
   {
+    id: 5,
     favRank: 5,
     timeRank: 1,
     title: 'Content Aggregator',
@@ -357,6 +362,7 @@ export const softwareObj = [
   },
 
   {
+    id: 6,
     favRank: 6,
     timeRank: 2,
     title: 'Parsing Algorithm',
@@ -392,6 +398,7 @@ export const softwareObj = [
   },
 
   {
+    id: 7,
     favRank: 7,
     timeRank: 3,
     title: 'HBD_Bridger',
@@ -422,6 +429,7 @@ export const softwareObj = [
   },
 
   {
+    id: 8,
     favRank: 8,
     timeRank: 1,
     title: 'Escape Collective',
@@ -488,6 +496,7 @@ export const softwareObj = [
 
 export const personalObj = [
   {
+    id: 9,
     favRank: 9,
     timeRank: 1,
     title: 'PG-13 [band]',

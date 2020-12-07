@@ -4,23 +4,18 @@ import PropTypes from 'prop-types';
 import { ParaSml } from '../../../Design/Styled_aoe';
 import { SummaryCont, ItemSummary } from './styled';
 
-const SummaryItem = ({
-  favRank,
-  summary,
-  offset,
-  setSummaryHeight,
-  __handleToggle,
-}) => {
+const SummaryItem = ({ id, summary, setSummaryHeight, __handleToggle }) => {
   useEffect(() => {
     const summaryHeight = document.getElementById(
-      `SummaryItem-SummaryCont${favRank}`
+      `SummaryItem-SummaryCont${id}`
     ).offsetHeight;
+
     setSummaryHeight(summaryHeight);
-  }, [setSummaryHeight, favRank]);
+  }, [setSummaryHeight, id]);
 
   return (
     <SummaryCont
-      id={`SummaryItem-SummaryCont${favRank}`}
+      id={`SummaryItem-SummaryCont${id}`}
       className='pointer'
       onClick={() => __handleToggle()}
     >
@@ -35,6 +30,11 @@ const SummaryItem = ({
   );
 };
 
-SummaryItem.propTypes = {};
+SummaryItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  summary: PropTypes.array.isRequired,
+  setSummaryHeight: PropTypes.func.isRequired,
+  __handleToggle: PropTypes.func.isRequired,
+};
 
 export default SummaryItem;
