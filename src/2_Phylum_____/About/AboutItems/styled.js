@@ -4,14 +4,13 @@ import styled from 'styled-components';
 
 export const ItemCont = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 
-  width: 100%;
+  width: calc(100% + 8px);
 
-  padding: 8px 0px 0px 8px;
+  padding: 4px 0px 0px 4px;
   margin: 4px 0px 4px -8px;
   border-radius: 12px;
-  overflow: hidden;
 
   /* background-color: #e7e7e7; */
 
@@ -91,15 +90,41 @@ export const ImgContSml = styled.section`
   }
   transition: all 0.4s ease-in-out;
 `;
+export const TitleCont = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const StatsCont = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  width: calc(100% - 16vw - 16px);
+`;
+export const GroupCont = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  justify-items: flex-start;
+
+  width: calc(100% - 16px);
+  padding: 0px 8px;
+
+  @media only screen and (min-width: 600px) {
+    /* For desktop: */
+    position: relative;
+    max-width: calc(100% + 6px);
+  }
+  transition: all 0.4s ease-in-out;
+`;
 export const InfoCont = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   justify-items: flex-start;
 
-  width: calc(100% - 16vw - 16px);
-  padding: 0px 8px;
-  margin-top: -6px;
+  width: calc(100%);
+  padding: 0px 8px 0px 18px;
 
   overflow: hidden;
 
@@ -110,16 +135,16 @@ export const InfoCont = styled.section`
   }
   transition: all 0.4s ease-in-out;
 `;
+
 export const TextCont = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 
-  width: calc(100% + 18vw);
+  width: calc(100%);
 
   overflow: hidden;
   position: relative;
-  left: -18vw;
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
@@ -150,13 +175,22 @@ export const BodyCont = styled.div`
   display: flex;
   flex-direction: row;
 
+  width: 100%;
+
   transition: all 0.4s ease-in-out;
 `;
-
 export const ToggleCont = styled.div`
   transition: all 0.4s ease-in-out;
   margin: 12px 0px 8px 0px;
   /* cursor: pointer; */
+`;
+
+export const ItemInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  width: 80%;
 `;
 
 export const ItemTitle = styled.div`

@@ -21,8 +21,8 @@ export const AboutIntro = styled.section`
   display: flex;
   flex-direction: column;
 
-  width: calc(100% - 1vw);
-  margin: 0vw 0vw 0vw 2vw;
+  width: calc(100%);
+  margin: 0vw 0vw 0vw 0vw;
   padding: 8px;
   border-radius: 12px;
 

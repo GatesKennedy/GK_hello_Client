@@ -6,7 +6,7 @@ import { ImageLrg, ImageMed, ImageSml } from '../../../Design/Styled_aoe';
 
 const ImageItem = ({
   _openState,
-  _handleToggle,
+  __handleToggle,
   favRank,
   titleImgUrl,
   imageSize,
@@ -18,7 +18,7 @@ const ImageItem = ({
           <ImgContLrg
             id='DropMain-ImgCont'
             className={_openState === favRank ? ' bg-gry2 pointer' : 'pointer'}
-            onClick={() => _handleToggle()}
+            onClick={() => __handleToggle()}
           >
             <ImageLrg
               id='DropMain-ImageLrg'
@@ -32,7 +32,7 @@ const ImageItem = ({
           <ImgContSml
             id='DropMain-ImgCont'
             className={_openState === favRank && ' bg-gry2'}
-            onClick={() => _handleToggle()}
+            onClick={() => __handleToggle()}
           >
             <ImageSml
               id='DropMain-ImageSml'
@@ -48,7 +48,7 @@ const ImageItem = ({
           <ImgContMed
             id='DropMain-ImgCont'
             className={_openState === favRank && ' bg-gry2'}
-            onClick={() => _handleToggle()}
+            onClick={() => __handleToggle()}
           >
             <ImageMed
               id='DropMain-ImageMed'
@@ -65,7 +65,7 @@ const ImageItem = ({
 
 ImageItem.propTypes = {
   _openState: PropTypes.number.isRequired,
-  _handleToggle: PropTypes.func.isRequired,
+  __handleToggle: PropTypes.func.isRequired,
   favRank: PropTypes.number.isRequired,
   titleImgUrl: PropTypes.string.isRequired,
   imageSize: PropTypes.string,

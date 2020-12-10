@@ -54,6 +54,7 @@ export const introObj = [
       {
         id: 0,
         title: 'Early',
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `I’ve been building things for as long as I can remember.`,
@@ -70,6 +71,7 @@ export const introObj = [
       {
         id: 1,
         title: 'Lately',
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `Shortly after graduating with a degree in Mechanical Engineering from WSU, I chose to start a design and
@@ -96,6 +98,7 @@ export const introObj = [
         id: 0,
         type: 'link',
         title: 'GitHub',
+        tech: [],
         img: gitHub,
         url: 'https://github.com/GatesKennedy',
       },
@@ -103,6 +106,7 @@ export const introObj = [
         id: 1,
         type: 'link',
         title: 'LinkedIn',
+        tech: [],
         img: linkedIn,
         url: 'https://www.linkedin.com/in/conorgateskennedy/',
       },
@@ -110,6 +114,7 @@ export const introObj = [
         id: 2,
         type: 'link',
         title: 'Escape Collective',
+        tech: [],
         img: esc_2,
         url: 'https://esccollective.com/',
       },
@@ -117,6 +122,7 @@ export const introObj = [
         id: 3,
         type: 'link',
         title: 'Spotify Playlists',
+        tech: [],
         img: spotify,
         url: 'https://open.spotify.com/user/ohnodamn/playlists',
       },
@@ -148,6 +154,7 @@ export const softwareObj = [
       {
         id: 1,
         title: 'Overview:',
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `Needle Drop Co. is a music licensing company in Portland, Oregon. Having outgrown the functionality of their prior web presence, 
@@ -161,12 +168,14 @@ export const softwareObj = [
       {
         id: 2,
         title: 'Architecture:',
+        tech: [],
         imgUrl: SubIcon0,
         summary: [`High level look at system components.`],
         story: [
           {
             id: 1,
             title: 'Client:',
+            tech: [],
             imgUrl: SubIcon0,
             summary: [
               `Client info CLIENT INFO client info CLIENT INFO client info CLIENT INFO client info CLIENT INFO client info CLIENT INFO`,
@@ -179,6 +188,7 @@ export const softwareObj = [
           {
             id: 2,
             title: 'Server:',
+            tech: [],
             imgUrl: SubIcon0,
             summary: [
               `server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO `,
@@ -191,6 +201,7 @@ export const softwareObj = [
           {
             id: 3,
             title: `Data:`,
+            tech: [],
             imgUrl: SubIcon0,
             summary: [
               `Data? Is that the best name for this section? You're sooo minimal conor. ugh`,
@@ -206,6 +217,7 @@ export const softwareObj = [
             id: 0,
             type: 'img',
             title: 'Needle Drop Software',
+            tech: [],
             img: Arch_NDS,
             url: 'void',
           },
@@ -215,6 +227,7 @@ export const softwareObj = [
       {
         id: 3,
         title: `Consumer Features: `,
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `Library browsing by filters or search, User playlists and favorites, Currated playlists by Needle Drop, Artist discovery and Artist Profiles, Secure payment system for obtaining licenses`,
@@ -226,6 +239,7 @@ export const softwareObj = [
       {
         id: 4,
         title: `Enterprise Features:`,
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `Library Managment, Filter Managment, Artist Managment, Playlist Managment, Purchase History and Trends`,
@@ -254,6 +268,7 @@ export const softwareObj = [
       {
         id: 1,
         title: `Overview:`,
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           'GK_Hello is a digital portfolio and communication hub to meet potential clients and employers. If you log in and create an account, you can create a profile to tell me more about yourself and chat with me (Conor) directly using my messaging service, GK_Talk',
@@ -271,6 +286,7 @@ export const softwareObj = [
       {
         id: 1,
         title: `Architecture:`,
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           'GK_Hello is a digital portfolio and communication hub to meet potential clients and employers. If you log in and create an account, you can create a profile to tell me more about yourself and chat with me (Conor) directly using my messaging service, GK_Talk',
@@ -282,6 +298,7 @@ export const softwareObj = [
             id: 0,
             type: 'img',
             title: 'Needle Drop Software',
+            tech: [],
             img: Arch_GK_Hello,
             url: 'void',
           },
@@ -319,6 +336,7 @@ export const softwareObj = [
       {
         id: 1,
         title: `Overview:`,
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `Designed for reuse across projects with and for later implementation as a microservice, GK_Talk is foundationally a messaging service.
@@ -350,6 +368,7 @@ export const softwareObj = [
       {
         id: 1,
         title: `Overview:`,
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           'Final Project Instructor, Scrum Master, and Project Lead for web scraping application at a code school in Portland, OR. ',
@@ -379,6 +398,7 @@ export const softwareObj = [
       {
         id: 1,
         title: `Overview:`,
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `After leaving Escape Collective and pursuing software development as my primary focus, I found suprising overlap in skills. 
@@ -416,6 +436,7 @@ export const softwareObj = [
       {
         id: 1,
         title: `Overview:`,
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `Originally built with C# on ASP.NET, this application was basically a Mad Lib solution generator. 
@@ -455,6 +476,7 @@ export const softwareObj = [
       {
         id: 1,
         title: `Overview:`,
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `Shortly after graduating with a degree in Mechanical Engineering from WSU, I chose to start a design and fabrication company with some talented friends in Portland called the Escape Collective. 
@@ -467,6 +489,7 @@ export const softwareObj = [
       {
         id: 2,
         title: `Design Engineering:`,
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `My early roles were focused on calculating, analyzing and explaining the frame and cover designs for 36’ diameter geodesic domes. 
@@ -482,6 +505,7 @@ export const softwareObj = [
       {
         id: 3,
         title: `Project Management:`,
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `In Escape Collective, as with all start-ups, no one person could afford to play a single role. 
@@ -525,6 +549,7 @@ export const personalObj = [
       {
         id: 1,
         title: `Overview:`,
+        tech: [],
         imgUrl: SubIcon0,
         summary: ['This is PG-13'],
         story: [],

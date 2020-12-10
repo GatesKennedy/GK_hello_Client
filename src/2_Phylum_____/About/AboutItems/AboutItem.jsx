@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 //  COMPS
-import ImageItem from './ImageItem';
+import TitleGroup from './TitleGroup';
 import InfoGroup from './InfoGroup';
 import LinkGroup from './MediaDisplay/LinkGroup';
 //  STYLE
-import { ItemCont, InfoCont } from './styled';
+import { ItemCont, GroupCont } from './styled';
 //  MAIN
 const AboutItem = ({
   _dropType,
@@ -30,30 +30,28 @@ const AboutItem = ({
     <ItemCont
       id={`AboutItem-ItemCont${favRank}`}
       className={_openItem === favRank ? ' activeItem ' : ' inactiveItem '}
-      // style={{ height: itemHeight ? itemHeight : 'auto' }}
     >
-      <ImageItem
+      <TitleGroup
+        __item={_item}
         _openItem={_openItem}
         _handleSelect={handleSelect}
         favRank={favRank}
         titleImgUrl={titleImgUrl}
-        imageSize={favRank === 1 ? 'large' : 'medium'}
       />
-      <InfoCont>
-        <InfoGroup
-          favRank={favRank}
-          _itemHeight={itemHeight}
-          _setItemHeight={setItemHeight}
-          _handleSelect={handleSelect}
-          _openInfo={openInfo}
-          _setOpenInfo={setOpenInfo}
-          __dropType={_dropType}
-          __item={_item}
-          __openItem={_openItem}
-          __setOpenItem={_setOpenItem}
-        />
-        <LinkGroup id='AboutItem-LinkGroup' _links={links} />
-      </InfoCont>
+
+      <InfoGroup
+        favRank={favRank}
+        _itemHeight={itemHeight}
+        _setItemHeight={setItemHeight}
+        _handleSelect={handleSelect}
+        _openInfo={openInfo}
+        _setOpenInfo={setOpenInfo}
+        __dropType={_dropType}
+        __item={_item}
+        __openItem={_openItem}
+        __setOpenItem={_setOpenItem}
+      />
+      <LinkGroup id='AboutItem-LinkGroup' _links={links} />
     </ItemCont>
   );
 };
