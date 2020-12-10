@@ -22,14 +22,14 @@ export const AboutIntro = styled.section`
   flex-direction: column;
 
   width: calc(100%);
-  margin: 0vw 0vw 0vw 0vw;
+
   padding: 8px;
   border-radius: 12px;
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
     position: relative;
-    left: -24px;
+    left: 13px;
     width: calc(100% - 6vw);
 
     margin: 0vw 4vw 0vw 2vw;

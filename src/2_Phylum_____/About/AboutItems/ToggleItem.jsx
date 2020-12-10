@@ -9,14 +9,9 @@ const ToggleItem = ({
   isOpen,
   isShown,
   type,
-  _setToggleHeight,
+
   __handleSelect,
 }) => {
-  useEffect(() => {
-    _setToggleHeight(
-      document.getElementById('ToggleItem-ToggleCont').offsetHeight
-    );
-  }, [_setToggleHeight]);
   const togStyle = () =>
     isShown
       ? {

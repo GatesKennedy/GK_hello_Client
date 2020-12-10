@@ -26,14 +26,19 @@ const InfoGroup = ({
   //  CALLBACK
   const calcHeight = useCallback(() => {
     favRank === 1 && console.log('%c GroupCallback', 'color: darkseagreen');
-
+    setToggleHeight(38);
     setStoryHeight(
       document.getElementById(`InfoGroup-Story${favRank}`).offsetHeight
     );
     setInfoHeight(summaryHeight + storyHeight);
+    if (id === 1) {
+      console.log(`calcHeight() > summaryHeight${id}: `, summaryHeight);
+      console.log(`calcHeight() > storyHeight${id}: `, storyHeight);
+      console.log(`calcHeight() > InfoHeight${id}: `, infoHeight);
+    }
     isOpen
       ? setDisplayHeight(infoHeight - toggleHeight)
-      : setDisplayHeight(infoHeight - storyHeight - 2 * toggleHeight);
+      : setDisplayHeight(summaryHeight + toggleHeight);
   }, [isOpen, favRank, summaryHeight, storyHeight, infoHeight, toggleHeight]);
 
   //  EFFECT
@@ -50,7 +55,6 @@ const InfoGroup = ({
       `);
   }, [
     favRank,
-    // _itemHeight,
     displayHeight,
     summaryHeight,
     storyHeight,
@@ -92,7 +96,6 @@ const InfoGroup = ({
             isOpen={isOpen}
             isShown={true}
             type={'main'} // or 'sub'
-            _setToggleHeight={setToggleHeight}
             __handleSelect={_handleSelect}
           />
           <div id={`InfoGroup-Story${favRank}`}>

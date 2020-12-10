@@ -118,7 +118,6 @@ export const InfoGroupCont = styled.section`
   }
   transition: all 0.4s ease-in-out;
 `;
-
 export const InfoCont = styled.section`
   display: flex;
   flex-direction: column;
@@ -138,7 +137,6 @@ export const InfoCont = styled.section`
   }
   transition: all 0.4s ease-in-out;
 `;
-
 export const TextCont = styled.div`
   display: flex;
   flex-direction: column;
@@ -195,7 +193,6 @@ export const ItemInfo = styled.div`
 
   width: 80%;
 `;
-
 export const ItemTitle = styled.div`
   display: flex;
   flex-direction: row;

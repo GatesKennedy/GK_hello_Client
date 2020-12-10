@@ -8,6 +8,14 @@ export const MediaRow = styled.div`
 
   width: 100%;
   padding: 12px;
+  @media only screen and (min-width: 600px) {
+    /* For desktop: */
+    position: relative;
+    max-width: calc(100% - 13vw);
+    position: relative;
+    top: -24px;
+    left: 7vw;
+  }
 `;
 export const MediaTitle = styled.h4`
   display: flex;
