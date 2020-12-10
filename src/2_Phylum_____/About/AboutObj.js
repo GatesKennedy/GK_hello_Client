@@ -152,7 +152,7 @@ export const softwareObj = [
     ],
     story: [
       {
-        id: 1,
+        id: 21,
         title: 'Overview:',
         tech: [],
         imgUrl: SubIcon0,
@@ -166,14 +166,14 @@ export const softwareObj = [
         links: [],
       },
       {
-        id: 2,
+        id: 22,
         title: 'Architecture:',
         tech: [],
         imgUrl: SubIcon0,
         summary: [`High level look at system components.`],
         story: [
           {
-            id: 1,
+            id: 221,
             title: 'Client:',
             tech: [],
             imgUrl: SubIcon0,
@@ -186,7 +186,7 @@ export const softwareObj = [
             links: [],
           },
           {
-            id: 2,
+            id: 222,
             title: 'Server:',
             tech: [],
             imgUrl: SubIcon0,
@@ -199,7 +199,7 @@ export const softwareObj = [
             links: [],
           },
           {
-            id: 3,
+            id: 223,
             title: `Data:`,
             tech: [],
             imgUrl: SubIcon0,
@@ -214,7 +214,7 @@ export const softwareObj = [
         ],
         media: [
           {
-            id: 0,
+            id: 221,
             type: 'img',
             title: 'Needle Drop Software',
             tech: [],
@@ -225,7 +225,7 @@ export const softwareObj = [
         links: [],
       },
       {
-        id: 3,
+        id: 23,
         title: `Consumer Features: `,
         tech: [],
         imgUrl: SubIcon0,
@@ -237,7 +237,7 @@ export const softwareObj = [
         links: [],
       },
       {
-        id: 4,
+        id: 24,
         title: `Enterprise Features:`,
         tech: [],
         imgUrl: SubIcon0,
@@ -266,7 +266,7 @@ export const softwareObj = [
     summary: [`You're here now. This is where you currently are... Welcome!`],
     story: [
       {
-        id: 1,
+        id: 31,
         title: `Overview:`,
         tech: [],
         imgUrl: SubIcon0,
@@ -284,7 +284,7 @@ export const softwareObj = [
         links: [],
       },
       {
-        id: 1,
+        id: 32,
         title: `Architecture:`,
         tech: [],
         imgUrl: SubIcon0,
@@ -295,7 +295,7 @@ export const softwareObj = [
         story: [],
         media: [
           {
-            id: 0,
+            id: 321,
             type: 'img',
             title: 'Needle Drop Software',
             tech: [],
@@ -334,7 +334,7 @@ export const softwareObj = [
     ],
     story: [
       {
-        id: 1,
+        id: 41,
         title: `Overview:`,
         tech: [],
         imgUrl: SubIcon0,
@@ -366,7 +366,7 @@ export const softwareObj = [
     ],
     story: [
       {
-        id: 1,
+        id: 51,
         title: `Overview:`,
         tech: [],
         imgUrl: SubIcon0,
@@ -396,7 +396,7 @@ export const softwareObj = [
     ],
     story: [
       {
-        id: 1,
+        id: 61,
         title: `Overview:`,
         tech: [],
         imgUrl: SubIcon0,
@@ -434,7 +434,7 @@ export const softwareObj = [
     ],
     story: [
       {
-        id: 1,
+        id: 71,
         title: `Overview:`,
         tech: [],
         imgUrl: SubIcon0,
@@ -474,7 +474,7 @@ export const softwareObj = [
     ],
     story: [
       {
-        id: 1,
+        id: 81,
         title: `Overview:`,
         tech: [],
         imgUrl: SubIcon0,
@@ -487,7 +487,7 @@ export const softwareObj = [
         links: [],
       },
       {
-        id: 2,
+        id: 82,
         title: `Design Engineering:`,
         tech: [],
         imgUrl: SubIcon0,
@@ -503,7 +503,7 @@ export const softwareObj = [
         links: [],
       },
       {
-        id: 3,
+        id: 83,
         title: `Project Management:`,
         tech: [],
         imgUrl: SubIcon0,
@@ -547,7 +547,7 @@ export const personalObj = [
     ],
     story: [
       {
-        id: 1,
+        id: 91,
         title: `Overview:`,
         tech: [],
         imgUrl: SubIcon0,
