@@ -23,11 +23,10 @@ const TitleGroup = ({
   return (
     <TitleCont id={`TitleGroup-TitleCont${id}`}>
       <ImageItem
-        _openItem={_openItem}
-        __handleSelect={_handleSelect}
-        favRank={favRank}
+        isOpen={favRank === _openItem}
         titleImgUrl={titleImgUrl}
         imageSize={favRank === 1 ? 'large' : 'medium'}
+        __handleSelect={_handleSelect}
       />
       <StatsCont id={`TitleGroup-StatsCont${id}`}>
         <ItemTitle

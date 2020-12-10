@@ -5,7 +5,7 @@ import SummaryItem from './SummaryItem';
 import MediaCont from './MediaDisplay/MediaCont';
 import ToggleItem from './ToggleItem';
 //  STYLE
-import { InfoCont, TextCont, BodyCont } from './styled';
+import { InfoCont, TextCont, BodyCont, TitleItem } from './styled';
 
 const InfoGroup = ({
   favRank,
@@ -94,19 +94,24 @@ const InfoGroup = ({
           />
           <ToggleItem
             isOpen={isOpen}
-            isShown={true}
+            isShown={story.length > 0}
             type={'main'} // or 'sub'
             __handleSelect={_handleSelect}
           />
           <div id={`InfoGroup-Story${favRank}`}>
             {story.map((item) => (
-              <InfoGroup
-                favRank={item.id}
-                __handleSelect={handleDrop}
-                __openItem={openStory}
-                __item={item}
-                _handleSelect={handleDrop}
-              />
+              <Fragment>
+                <TitleItem id={`InfoGroup-TitleItem${item.id}`}>
+                  {item.title}
+                </TitleItem>
+                <InfoGroup
+                  favRank={item.id}
+                  __handleSelect={handleDrop}
+                  __openItem={openStory}
+                  __item={item}
+                  _handleSelect={handleDrop}
+                />
+              </Fragment>
             ))}
           </div>
         </TextCont>

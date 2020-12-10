@@ -12,16 +12,18 @@ export const ItemCont = styled.div`
   margin: 4px 0px 4px -8px;
   border-radius: 12px;
 
-  /* background-color: #e7e7e7; */
+  background-color: #e7e7e7;
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
     width: 100%;
     margin: 2px 0px 2px -8px;
+    height: calc(initial - 24px);
     /* background-color: #e0e0e0; */
+    &:hover {
+      background-color: #f2f2f2;
+    }
   }
-
-  /* transition: height 0.2s ease-in-out; */
   transition: all 0.2s ease-in-out;
 `;
 export const ImgContLrg = styled.section`
@@ -30,7 +32,7 @@ export const ImgContLrg = styled.section`
   align-items: center;
   justify-content: center;
 
-  margin: 0px 8px 0px 8px;
+  margin: 2px;
   padding: 4px;
   width: 16vw;
   height: calc(16vw - 0px);
@@ -42,7 +44,8 @@ export const ImgContLrg = styled.section`
     width: 142px;
     height: 138px;
     position: relative;
-    top: 0px;
+    margin: 0px 8px;
+    top: 8px;
   }
   transition: all 0.4s ease-in-out;
 `;
@@ -99,6 +102,7 @@ export const StatsCont = styled.div`
   flex-direction: column;
 
   width: calc(100% - 16vw - 16px);
+  padding: 4px;
   @media only screen and (min-width: 600px) {
     /* For desktop: */
 
@@ -186,6 +190,19 @@ export const ToggleCont = styled.div`
   /* cursor: pointer; */
 `;
 
+export const TitleItem = styled.div`
+  display: flex;
+
+  padding: 0px 8px 0px 18px;
+
+  @media only screen and (min-width: 600px) {
+    /* For desktop: */
+    position: relative;
+    max-width: calc(100% - 1vw);
+    margin-left: 1vw;
+  }
+`;
+
 export const ItemInfo = styled.div`
   display: flex;
   flex-direction: column;
@@ -213,7 +230,7 @@ export const ItemTech = styled.div`
   align-items: flex-start;
 
   min-height: 3em;
-  margin-bottom: 4px;
+
   font-size: smaller;
 
   transition: inherit;

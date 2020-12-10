@@ -52,7 +52,7 @@ export const introObj = [
     ],
     story: [
       {
-        id: 0,
+        id: 10,
         title: 'Early',
         tech: [],
         imgUrl: SubIcon0,
@@ -69,7 +69,7 @@ export const introObj = [
         links: [],
       },
       {
-        id: 1,
+        id: 11,
         title: 'Lately',
         tech: [],
         imgUrl: SubIcon0,

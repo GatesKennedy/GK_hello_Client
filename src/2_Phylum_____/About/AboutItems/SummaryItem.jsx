@@ -11,13 +11,16 @@ const SummaryItem = ({ _id, _summary, _setSummaryHeight, __handleSelect }) => {
     ).offsetHeight;
 
     _setSummaryHeight(summaryHeight);
+    console.log(`SummaryItem > summaryCont${_id}.height = `, summaryHeight);
   }, [_setSummaryHeight, _id]);
 
   return (
     <SummaryCont
       id={`SummaryItem-SummaryCont${_id}`}
       className='pointer'
-      onClick={() => __handleSelect()}
+      onClick={() => {
+        _id === 1 && __handleSelect();
+      }}
     >
       <ItemSummary id='SummaryItem-ItemSummary'>
         {_summary.map((paragraph, index) => (
