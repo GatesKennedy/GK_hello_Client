@@ -1,12 +1,10 @@
 //  React
-import React, { Fragment, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 //  REDUX
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 //  STYLE
-import { AboutCont, AboutBody, AboutIntro } from './Styled';
+import { AboutCont, AboutBody } from './Styled';
 
 //  Asset
 import { introObj, softwareObj, personalObj } from './AboutObj';
@@ -29,7 +27,7 @@ const About = () => {
     <AboutCont id='About-AboutCont' className='bg-gry2 txt-black'>
       {/* Hello */}
       <TitleHeader id='About-TitleHeader1' _txt={titleTxt1} />
-      <AboutIntro id='About-AboutIntro'>
+      <AboutBody id='About-AboutBody'>
         {introObj.map((item) => (
           <AboutItem
             key={item.favRank}
@@ -39,7 +37,7 @@ const About = () => {
             _setOpenItem={setOpenItem}
           />
         ))}
-      </AboutIntro>
+      </AboutBody>
 
       {/* Software */}
       <TitleHeader id='About-TitleHeader2' _txt={titleTxt2} />
