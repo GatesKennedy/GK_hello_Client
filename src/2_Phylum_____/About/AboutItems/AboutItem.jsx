@@ -40,7 +40,7 @@ const AboutItem = ({
       />
       <InfoGroupCont id={`AboutItem-InfoGroupCont${_item.id}`}>
         <InfoGroup
-          favRank={favRank}
+          _favRank={favRank}
           _itemHeight={itemHeight}
           _setItemHeight={setItemHeight}
           _handleSelect={handleSelect}

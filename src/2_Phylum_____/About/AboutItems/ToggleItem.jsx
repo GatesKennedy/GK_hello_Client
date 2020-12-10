@@ -16,11 +16,11 @@ const ToggleItem = ({
     isShown
       ? {
           opacity: 1,
-          transition: 'opacity 1s ease-in-out 0.3s',
+          transition: 'all 0.5s ease-in-out ',
         }
       : {
           opacity: 0,
-          transition: 'opacity 0.3s ease-in-out',
+          transition: 'all 0.3s ease-in-out',
         };
   const bgStyle = () => {
     if (isOpen) {
@@ -35,7 +35,7 @@ const ToggleItem = ({
       style={togStyle()}
       onClick={() => __handleSelect()}
     >
-      <Btn1 id='ToggleItem-Btn1' className={bgStyle()} style={togStyle}>
+      <Btn1 id='ToggleItem-Btn1' className={bgStyle()} style={togStyle()}>
         {isOpen ? (
           <Fragment>
             less <RiArrowUpSLine />

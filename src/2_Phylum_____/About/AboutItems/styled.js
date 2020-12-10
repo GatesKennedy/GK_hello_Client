@@ -96,6 +96,8 @@ export const ImgContSml = styled.section`
 export const TitleCont = styled.div`
   display: flex;
   flex-direction: row;
+
+  transition: inherit;
 `;
 export const StatsCont = styled.div`
   display: flex;
@@ -108,6 +110,7 @@ export const StatsCont = styled.div`
 
     justify-content: center;
   }
+  transition: inherit;
 `;
 export const InfoGroupCont = styled.section`
   display: flex;
@@ -187,7 +190,8 @@ export const BodyCont = styled.div`
 export const ToggleCont = styled.div`
   transition: all 0.4s ease-in-out;
   margin: 12px 0px 8px 0px;
-  /* cursor: pointer; */
+
+  cursor: pointer;
 `;
 
 export const TitleItem = styled.div`

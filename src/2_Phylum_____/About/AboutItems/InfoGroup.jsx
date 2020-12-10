@@ -8,7 +8,7 @@ import ToggleItem from './ToggleItem';
 import { InfoCont, TextCont, BodyCont, TitleItem } from './styled';
 
 const InfoGroup = ({
-  favRank,
+  _favRank,
   _handleSelect,
   __openItem,
   __item: { id, title, tech, summary, story, media, links },
@@ -25,10 +25,11 @@ const InfoGroup = ({
   const [topOffset, setTopOffset] = useState(0);
   //  CALLBACK
   const calcHeight = useCallback(() => {
-    favRank === 1 && console.log('%c GroupCallback', 'color: darkseagreen');
+    _favRank === 1 &&
+      console.log('%c InfoGroup > calcHeight() ', 'color: darkseagreen');
     setToggleHeight(38);
     setStoryHeight(
-      document.getElementById(`InfoGroup-Story${favRank}`).offsetHeight
+      document.getElementById(`InfoGroup-Story${_favRank}`).offsetHeight
     );
     setInfoHeight(summaryHeight + storyHeight);
     if (id === 1) {
@@ -39,12 +40,21 @@ const InfoGroup = ({
     isOpen
       ? setDisplayHeight(infoHeight - toggleHeight)
       : setDisplayHeight(summaryHeight + toggleHeight);
-  }, [isOpen, favRank, summaryHeight, storyHeight, infoHeight, toggleHeight]);
+  }, [
+    isOpen,
+    _favRank,
+    id,
+    summaryHeight,
+    storyHeight,
+    infoHeight,
+    toggleHeight,
+  ]);
 
   //  EFFECT
   useEffect(() => {
-    favRank === 1 &&
-      console.log(`GroupCallBack ${favRank}
+    if (_favRank === 1) {
+      console.log('%c InfoGroup > log heights', 'color: goldenRod');
+      console.log(`
     summaryHeight:  ${summaryHeight}
     storyHeight:    ${storyHeight}
     toggleHeight:    ${toggleHeight}
@@ -53,8 +63,9 @@ const InfoGroup = ({
     infoHeight:     ${infoHeight}
     displayHeight:  ${displayHeight}
       `);
+    }
   }, [
-    favRank,
+    _favRank,
     displayHeight,
     summaryHeight,
     storyHeight,
@@ -63,29 +74,30 @@ const InfoGroup = ({
   ]);
 
   useEffect(() => {
-    favRank === 1 &&
-      console.log(
-        '%c GroupEffect > setIsOpen() > calcHeight()',
-        'color: goldenRod'
-      );
-    __openItem === favRank ? setIsOpen(true) : setIsOpen(false);
+    _favRank === 1 &&
+      console.log('%c InfoGroup > setIsOpen() > ', 'color: goldenRod');
+    __openItem === _favRank ? setIsOpen(true) : setIsOpen(false);
+    _favRank === 1 &&
+      console.log('%c InfoGroup > calcHeight() > ', 'color: goldenRod');
 
     calcHeight();
-  }, [__openItem, favRank, calcHeight]);
+  }, [__openItem, _favRank, calcHeight]);
 
   //  FXN
   const handleDrop = () => {
-    openStory === favRank ? setOpenStory(0) : setOpenStory(favRank);
+    _favRank === 1 &&
+      console.log('%c InfoGroup > handleDrop()', 'color: darkseagreen');
+    openStory === _favRank ? setOpenStory(0) : setOpenStory(_favRank);
     calcHeight();
   };
 
   return (
     <InfoCont
-      id={`InfoGroup-InfoCont${favRank}`}
+      id={`InfoGroup-InfoCont${_favRank}`}
       style={{ height: displayHeight }}
     >
-      <BodyCont id={`InfoGroup-BodyCont${favRank}`}>
-        <TextCont id={`InfoGroup-TextCont${favRank}`}>
+      <BodyCont id={`InfoGroup-BodyCont${_favRank}`}>
+        <TextCont id={`InfoGroup-TextCont${_favRank}`}>
           <SummaryItem
             _id={id}
             _summary={summary}
@@ -95,17 +107,17 @@ const InfoGroup = ({
           <ToggleItem
             isOpen={isOpen}
             isShown={story.length > 0}
-            type={'main'} // or 'sub'
+            type={'sub'} // or 'sub'
             __handleSelect={_handleSelect}
           />
-          <div id={`InfoGroup-Story${favRank}`}>
+          <div id={`InfoGroup-Story${_favRank}`}>
             {story.map((item) => (
               <Fragment>
                 <TitleItem id={`InfoGroup-TitleItem${item.id}`}>
                   {item.title}
                 </TitleItem>
                 <InfoGroup
-                  favRank={item.id}
+                  _favRank={item.id}
                   __handleSelect={handleDrop}
                   __openItem={openStory}
                   __item={item}
