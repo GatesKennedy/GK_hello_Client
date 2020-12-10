@@ -76,11 +76,11 @@ const InfoGroup = ({
   };
 
   return (
-    <InfoCont id={`InfoGroup-InfoCont${favRank}`}>
-      <BodyCont
-        id={`InfoGroup-BodyCont${favRank}`}
-        style={{ height: displayHeight }}
-      >
+    <InfoCont
+      id={`InfoGroup-InfoCont${favRank}`}
+      style={{ height: displayHeight }}
+    >
+      <BodyCont id={`InfoGroup-BodyCont${favRank}`}>
         <TextCont id={`InfoGroup-TextCont${favRank}`}>
           <SummaryItem
             _id={id}

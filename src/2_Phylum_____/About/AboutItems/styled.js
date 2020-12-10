@@ -94,29 +94,31 @@ export const TitleCont = styled.div`
   display: flex;
   flex-direction: row;
 `;
-
 export const StatsCont = styled.div`
   display: flex;
   flex-direction: column;
 
   width: calc(100% - 16vw - 16px);
-`;
-export const GroupCont = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  justify-items: flex-start;
+  @media only screen and (min-width: 600px) {
+    /* For desktop: */
 
-  width: calc(100% - 16px);
-  padding: 0px 8px;
+    justify-content: center;
+  }
+`;
+export const InfoGroupCont = styled.section`
+  display: flex;
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
     position: relative;
-    max-width: calc(100% + 6px);
+    max-width: calc(100% - 13vw);
+    position: relative;
+    top: -24px;
+    left: 7vw;
   }
   transition: all 0.4s ease-in-out;
 `;
+
 export const InfoCont = styled.section`
   display: flex;
   flex-direction: column;
@@ -131,7 +133,8 @@ export const InfoCont = styled.section`
   @media only screen and (min-width: 600px) {
     /* For desktop: */
     position: relative;
-    max-width: calc(100% + 6px);
+    max-width: calc(100% - 2vw);
+    margin-left: 2vw;
   }
   transition: all 0.4s ease-in-out;
 `;

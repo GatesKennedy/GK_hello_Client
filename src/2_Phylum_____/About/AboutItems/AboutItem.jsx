@@ -5,7 +5,7 @@ import TitleGroup from './TitleGroup';
 import InfoGroup from './InfoGroup';
 import LinkGroup from './MediaDisplay/LinkGroup';
 //  STYLE
-import { ItemCont, GroupCont } from './styled';
+import { ItemCont, InfoGroupCont } from './styled';
 //  MAIN
 const AboutItem = ({
   _dropType,
@@ -38,19 +38,20 @@ const AboutItem = ({
         favRank={favRank}
         titleImgUrl={titleImgUrl}
       />
-
-      <InfoGroup
-        favRank={favRank}
-        _itemHeight={itemHeight}
-        _setItemHeight={setItemHeight}
-        _handleSelect={handleSelect}
-        _openInfo={openInfo}
-        _setOpenInfo={setOpenInfo}
-        __dropType={_dropType}
-        __item={_item}
-        __openItem={_openItem}
-        __setOpenItem={_setOpenItem}
-      />
+      <InfoGroupCont id={`AboutItem-InfoGroupCont${_item.id}`}>
+        <InfoGroup
+          favRank={favRank}
+          _itemHeight={itemHeight}
+          _setItemHeight={setItemHeight}
+          _handleSelect={handleSelect}
+          _openInfo={openInfo}
+          _setOpenInfo={setOpenInfo}
+          __dropType={_dropType}
+          __item={_item}
+          __openItem={_openItem}
+          __setOpenItem={_setOpenItem}
+        />
+      </InfoGroupCont>
       <LinkGroup id='AboutItem-LinkGroup' _links={links} />
     </ItemCont>
   );
