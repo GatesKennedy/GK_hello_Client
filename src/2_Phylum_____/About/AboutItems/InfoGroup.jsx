@@ -27,11 +27,9 @@ const InfoGroup = ({
   const [topOffset, setTopOffset] = useState(0);
   //  CALLBACK
   const calcHeight = useCallback(() => {
-    _favRank === 1 &&
-      console.log('%c InfoGroup > calcHeight() ', 'color: darkseagreen');
     setToggleHeight(38);
     setStoryHeight(
-      document.getElementById(`InfoGroup-Story${_favRank}`).offsetHeight
+      document.getElementById(`InfoGroup-Story${id}`).offsetHeight
     );
     isMore
       ? setInfoHeight(summaryHeight + storyHeight + toggleHeight)
@@ -46,7 +44,6 @@ const InfoGroup = ({
       : setDisplayHeight(infoHeight - storyHeight);
   }, [
     id,
-    _favRank,
     isOpen,
     isMore,
     summaryHeight,
@@ -57,42 +54,31 @@ const InfoGroup = ({
 
   //  EFFECT
   useEffect(() => {
-    if (_favRank === 1) {
-      console.log('%c InfoGroup > log heights', 'color: goldenRod');
-      console.log(`
-    summaryHeight:  ${summaryHeight}
-    storyHeight:    ${storyHeight}
-    toggleHeight:    ${toggleHeight}
-    -------------------------
-
-    infoHeight:     ${infoHeight}
-    displayHeight:  ${displayHeight}
-      `);
-    }
-  }, [
-    _favRank,
-    displayHeight,
-    summaryHeight,
-    storyHeight,
-    toggleHeight,
-    infoHeight,
-  ]);
-
-  useEffect(() => {
-    _favRank === 1 &&
-      console.log('%c InfoGroup > setIsOpen() > ', 'color: goldenRod');
     __openItem === _favRank ? setIsOpen(true) : setIsOpen(false);
-    _favRank === 1 &&
-      console.log('%c InfoGroup > calcHeight() > ', 'color: goldenRod');
-
     calcHeight();
   }, [__openItem, _favRank, calcHeight]);
 
+  useEffect(() => {
+    console.log(`
+    summaryHeight${id}:  ${summaryHeight}
+    storyHeight${id}:    ${storyHeight}
+    toggleHeight${id}:    ${toggleHeight}
+    -------------------------
+
+    infoHeight${id}:     ${infoHeight}
+    displayHeight${id}:  ${displayHeight}
+      `);
+  }, [id, displayHeight, summaryHeight, storyHeight, toggleHeight, infoHeight]);
+
   //  FXN
   const handleDrop = () => {
-    _favRank === 1 &&
-      console.log('%c InfoGroup > handleDrop()', 'color: darkseagreen');
-    openStory === _favRank ? setOpenStory(0) : setOpenStory(_favRank);
+    if (id === _topId) {
+      _handleSelect();
+      __openItem === _favRank ? setIsOpen(true) : setIsOpen(false);
+    } else {
+      setIsOpen(!isOpen);
+      openStory === _favRank ? setOpenStory(0) : setOpenStory(_favRank);
+    }
     calcHeight();
   };
 
@@ -116,8 +102,8 @@ const InfoGroup = ({
             <ToggleItem
               isOpen={isOpen}
               isMore={isMore}
-              type={'sub'} // or 'sub'
-              __handleSelect={_handleSelect}
+              type={'sub'} // 'main' or 'sub'
+              __handleSelect={handleDrop}
             />
           )}
           <div id={`InfoGroup-Story${id}`}>
@@ -130,7 +116,7 @@ const InfoGroup = ({
                   _favRank={item.id}
                   _topId={_topId}
                   // !!!
-                  _handleSelect={handleDrop}
+                  _handleSelect={_handleSelect}
                   __openItem={openStory}
                   __item={item}
                 />

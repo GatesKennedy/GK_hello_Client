@@ -15,21 +15,20 @@ const AboutItem = ({
   _setOpenItem,
 }) => {
   //  STATE
-  const [openInfo, setOpenInfo] = useState(0);
+  const [isTopOpen, setIsTopOpen] = useState(false);
   const [topId, setTopId] = useState(favRank);
-  const [itemHeight, setItemHeight] = useState(null);
   //  EFFECT
   useEffect(() => {
-    favRank === 1 && console.log(`ItemEffect > ItemHeight: `, itemHeight);
-  }, [itemHeight, favRank]);
+    _openItem === topId ? setIsTopOpen(true) : setIsTopOpen(false);
+  }, [topId, _openItem]);
   //  FXN
   const handleSelect = () => {
-    _openItem === favRank ? _setOpenItem(0) : _setOpenItem(favRank);
+    _openItem === topId ? _setOpenItem(0) : _setOpenItem(topId);
   };
 
   return (
     <ItemCont
-      id={`AboutItem-ItemCont${favRank}`}
+      id={`AboutItem-ItemCont${topId}`}
       className={_openItem === favRank ? ' activeItem ' : ' inactiveItem '}
     >
       <TitleGroup
@@ -42,11 +41,9 @@ const AboutItem = ({
       <InfoGroupCont id={`AboutItem-InfoGroupCont${_item.id}`}>
         <InfoGroup
           _favRank={favRank}
-          _itemHeight={itemHeight}
-          _setItemHeight={setItemHeight}
           _handleSelect={handleSelect}
-          _openInfo={openInfo}
-          _setOpenInfo={setOpenInfo}
+          _isTopOpen={isTopOpen}
+          _setIsTopOpen={setIsTopOpen}
           _topId={topId}
           __dropType={_dropType}
           __item={_item}
