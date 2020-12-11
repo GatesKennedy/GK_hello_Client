@@ -21,6 +21,12 @@ const AboutItem = ({
   useEffect(() => {
     _openItem === topId ? setIsTopOpen(true) : setIsTopOpen(false);
   }, [topId, _openItem]);
+
+  useEffect(() => {
+    console.log('%c---------', 'color: darkseagreen');
+    console.log('AboutItem > isTopOpen: ', isTopOpen);
+    console.log('AboutItem > topId: ', topId);
+  }, [topId, isTopOpen]);
   //  FXN
   const handleSelect = () => {
     _openItem === topId ? _setOpenItem(0) : _setOpenItem(topId);
@@ -40,15 +46,11 @@ const AboutItem = ({
       />
       <InfoGroupCont id={`AboutItem-InfoGroupCont${_item.id}`}>
         <InfoGroup
-          _favRank={favRank}
           _handleSelect={handleSelect}
-          _isTopOpen={isTopOpen}
-          _setIsTopOpen={setIsTopOpen}
+          _isOpen={isTopOpen}
           _topId={topId}
           __dropType={_dropType}
           __item={_item}
-          __openItem={_openItem}
-          __setOpenItem={_setOpenItem}
         />
       </InfoGroupCont>
       <LinkGroup id='AboutItem-LinkGroup' _links={links} />

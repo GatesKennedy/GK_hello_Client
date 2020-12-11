@@ -20,7 +20,9 @@ const About = () => {
   const titleTxt3 = 'Personal...';
   //  EFFECT
   useEffect(() => {
-    console.log('Open Now > openItem: ', openItem);
+    console.log('%c--------', 'color: goldenrod');
+
+    console.log('About     > openItem:    ', openItem);
   }, [openItem]);
 
   return (

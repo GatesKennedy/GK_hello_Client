@@ -8,15 +8,14 @@ import ToggleItem from './ToggleItem';
 import { InfoCont, TextCont, BodyCont, TitleItem } from './styled';
 
 const InfoGroup = ({
-  _favRank,
   _handleSelect,
+  _isOpen,
   _topId,
-  __openItem,
-  __item: { id, title, tech, summary, story, media, links },
+  __item: { id, summary, story, media, links },
 }) => {
   //  STATE
   const isMore = story.length > 0;
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(_isOpen);
   const [openStory, setOpenStory] = useState(0);
   const [infoHeight, setInfoHeight] = useState(null);
   const [displayHeight, setDisplayHeight] = useState(null);
@@ -54,10 +53,9 @@ const InfoGroup = ({
 
   //  EFFECT
   useEffect(() => {
-    __openItem === _favRank ? setIsOpen(true) : setIsOpen(false);
+    openStory === id ? setIsOpen(true) : setIsOpen(false);
     calcHeight();
-  }, [__openItem, _favRank, calcHeight]);
-
+  }, [id, openStory, calcHeight]);
   useEffect(() => {
     console.log(`
     summaryHeight${id}:  ${summaryHeight}
@@ -72,14 +70,8 @@ const InfoGroup = ({
 
   //  FXN
   const handleDrop = () => {
-    if (id === _topId) {
-      _handleSelect();
-      __openItem === _favRank ? setIsOpen(true) : setIsOpen(false);
-    } else {
-      setIsOpen(!isOpen);
-      openStory === _favRank ? setOpenStory(0) : setOpenStory(_favRank);
-    }
-    calcHeight();
+    id === _topId && _handleSelect();
+    openStory === id ? setOpenStory(0) : setOpenStory(id);
   };
 
   return (
@@ -113,11 +105,9 @@ const InfoGroup = ({
                   {item.title}
                 </TitleItem>
                 <InfoGroup
-                  _favRank={item.id}
                   _topId={_topId}
                   // !!!
                   _handleSelect={_handleSelect}
-                  __openItem={openStory}
                   __item={item}
                 />
               </Fragment>
