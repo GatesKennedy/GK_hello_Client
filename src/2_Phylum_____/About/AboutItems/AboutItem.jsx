@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 //  COMPS
 import TitleGroup from './TitleGroup';
@@ -66,7 +66,6 @@ AboutItem.propTypes = {
     summary: PropTypes.arrayOf(PropTypes.string).isRequired,
     story: PropTypes.arrayOf(PropTypes.object).isRequired,
   }).isRequired,
-
   _openItem: PropTypes.number.isRequired,
   _setOpenItem: PropTypes.func.isRequired,
 };

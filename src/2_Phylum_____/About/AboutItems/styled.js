@@ -10,7 +10,7 @@ export const ItemCont = styled.div`
 
   padding: 4px 0px 0px 4px;
   margin: 4px 0px 4px -8px;
-  border-radius: 12px;
+  border-radius: 32px;
 
   background-color: #e7e7e7;
 
@@ -37,7 +37,7 @@ export const ImgContLrg = styled.section`
   width: 16vw;
   height: calc(16vw - 0px);
 
-  border-radius: 8px;
+  border-radius: 24px;
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
@@ -45,7 +45,7 @@ export const ImgContLrg = styled.section`
     height: 138px;
     position: relative;
     margin: 0px 8px;
-    top: 8px;
+    top: 4px;
   }
   transition: all 0.4s ease-in-out;
 `;
@@ -60,14 +60,15 @@ export const ImgContMed = styled.section`
   width: 16vw;
   height: calc(16vw - 0px);
 
-  border-radius: 8px;
+  border-radius: 24px;
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
     width: 108px;
     height: 104px;
     position: relative;
-    top: 0px;
+    margin: 0px 8px;
+    top: 4px;
   }
   transition: all 0.4s ease-in-out;
 `;
@@ -149,15 +150,11 @@ export const TextCont = styled.div`
   flex-direction: column;
   justify-content: flex-start;
 
-  width: calc(100%);
-
   overflow: hidden;
   position: relative;
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
-    width: 100%;
-    left: 0vw;
   }
 
   transition: all 0.4s ease-in-out;
@@ -192,6 +189,8 @@ export const ToggleCont = styled.div`
   margin: 12px 0px 8px 0px;
 
   cursor: pointer;
+
+  transition: inherit;
 `;
 
 export const TitleItem = styled.div`

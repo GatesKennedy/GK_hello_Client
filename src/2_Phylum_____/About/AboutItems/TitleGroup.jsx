@@ -21,7 +21,7 @@ const TitleGroup = ({
   __item: { id, title, tech, summary, story, media, links },
 }) => {
   return (
-    <TitleCont id={`TitleGroup-TitleCont${id}`}>
+    <TitleCont id={`TitleGroup-TitleCont${id}`} className=' pointer'>
       <ImageItem
         isOpen={favRank === _openItem}
         titleImgUrl={titleImgUrl}

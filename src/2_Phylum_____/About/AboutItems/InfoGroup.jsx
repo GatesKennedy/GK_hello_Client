@@ -31,19 +31,22 @@ const InfoGroup = ({
     setStoryHeight(
       document.getElementById(`InfoGroup-Story${_favRank}`).offsetHeight
     );
-    setInfoHeight(summaryHeight + storyHeight);
+    story.length > 0
+      ? setInfoHeight(summaryHeight + storyHeight + toggleHeight)
+      : setInfoHeight(summaryHeight + storyHeight);
     if (id === 1) {
       console.log(`calcHeight() > summaryHeight${id}: `, summaryHeight);
       console.log(`calcHeight() > storyHeight${id}: `, storyHeight);
       console.log(`calcHeight() > InfoHeight${id}: `, infoHeight);
     }
     isOpen
-      ? setDisplayHeight(infoHeight - toggleHeight)
-      : setDisplayHeight(summaryHeight + toggleHeight);
+      ? setDisplayHeight(infoHeight)
+      : setDisplayHeight(infoHeight - storyHeight);
   }, [
-    isOpen,
-    _favRank,
     id,
+    story,
+    _favRank,
+    isOpen,
     summaryHeight,
     storyHeight,
     infoHeight,
@@ -92,24 +95,26 @@ const InfoGroup = ({
   };
 
   return (
-    <InfoCont
-      id={`InfoGroup-InfoCont${_favRank}`}
-      style={{ height: displayHeight }}
-    >
+    <InfoCont id={`InfoGroup-InfoCont${_favRank}`}>
       <BodyCont id={`InfoGroup-BodyCont${_favRank}`}>
-        <TextCont id={`InfoGroup-TextCont${_favRank}`}>
+        <TextCont
+          id={`InfoGroup-TextCont${_favRank}`}
+          style={{ height: displayHeight }}
+        >
           <SummaryItem
             _id={id}
             _summary={summary}
             _setSummaryHeight={setSummaryHeight}
             __handleSelect={_handleSelect}
           />
-          <ToggleItem
-            isOpen={isOpen}
-            isShown={story.length > 0}
-            type={'sub'} // or 'sub'
-            __handleSelect={_handleSelect}
-          />
+          {story.length > 0 && (
+            <ToggleItem
+              isOpen={isOpen}
+              isMore={story.length > 0}
+              type={'sub'} // or 'sub'
+              __handleSelect={_handleSelect}
+            />
+          )}
           <div id={`InfoGroup-Story${_favRank}`}>
             {story.map((item) => (
               <Fragment>

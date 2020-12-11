@@ -4,15 +4,17 @@ import PropTypes from 'prop-types';
 import { ImgContLrg, ImgContMed, ImgContSml } from './styled';
 import { ImageLrg, ImageMed, ImageSml } from '../../../Design/Styled_aoe';
 
-const ImageItem = ({ imageSize, isOpen, titleImgUrl, __handleToggle }) => {
+const ImageItem = ({ imageSize, isOpen, titleImgUrl, __handleSelect }) => {
   const ImageElement = (inputSize) => {
     switch (inputSize) {
       case 'large':
         return (
           <ImgContLrg
             id='DropMain-ImgCont'
-            className={isOpen ? ' bg-gry2 pointer' : 'pointer'}
-            onClick={() => __handleToggle()}
+            className={
+              isOpen ? ' bg-gry2 shadow-less pointer' : ' shadow-more pointer'
+            }
+            onClick={() => __handleSelect()}
           >
             <ImageLrg
               id='DropMain-ImageLrg'
@@ -26,7 +28,7 @@ const ImageItem = ({ imageSize, isOpen, titleImgUrl, __handleToggle }) => {
           <ImgContSml
             id='DropMain-ImgCont'
             className={isOpen && ' bg-gry2'}
-            onClick={() => __handleToggle()}
+            onClick={() => __handleSelect()}
           >
             <ImageSml
               id='DropMain-ImageSml'
@@ -41,8 +43,10 @@ const ImageItem = ({ imageSize, isOpen, titleImgUrl, __handleToggle }) => {
         return (
           <ImgContMed
             id='DropMain-ImgCont'
-            className={isOpen && ' bg-gry2'}
-            onClick={() => __handleToggle()}
+            className={
+              isOpen ? ' bg-gry2 shadow-less pointer' : ' shadow-more pointer'
+            }
+            onClick={() => __handleSelect()}
           >
             <ImageMed
               id='DropMain-ImageMed'
@@ -59,7 +63,7 @@ const ImageItem = ({ imageSize, isOpen, titleImgUrl, __handleToggle }) => {
 
 ImageItem.propTypes = {
   _openState: PropTypes.number.isRequired,
-  __handleToggle: PropTypes.func.isRequired,
+  __handleSelect: PropTypes.func.isRequired,
   favRank: PropTypes.number.isRequired,
   titleImgUrl: PropTypes.string.isRequired,
   imageSize: PropTypes.string,
