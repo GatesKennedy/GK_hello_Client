@@ -4,7 +4,14 @@ import PropTypes from 'prop-types';
 import { ParaSml } from '../../../Design/Styled_aoe';
 import { SummaryCont, ItemSummary } from './styled';
 
-const SummaryItem = ({ _id, _summary, _setSummaryHeight, __handleSelect }) => {
+const SummaryItem = ({
+  isMore,
+  _id,
+  _summary,
+  _setSummaryHeight,
+  __handleSelect,
+  __topId,
+}) => {
   useEffect(() => {
     const summaryHeight = document.getElementById(
       `SummaryItem-SummaryCont${_id}`
@@ -12,14 +19,17 @@ const SummaryItem = ({ _id, _summary, _setSummaryHeight, __handleSelect }) => {
 
     _setSummaryHeight(summaryHeight);
     console.log(`SummaryItem > summaryCont${_id}.height = `, summaryHeight);
-  }, [_setSummaryHeight, _id]);
+    console.log(`SummaryItem > 
+        id: ${_id}
+        fR: ${__topId}`);
+  }, [_setSummaryHeight, _id, __topId]);
 
   return (
     <SummaryCont
       id={`SummaryItem-SummaryCont${_id}`}
-      className='pointer'
+      className={isMore && ' pointer'}
       onClick={() => {
-        _id === 1 && __handleSelect();
+        isMore && __handleSelect();
       }}
     >
       <ItemSummary id='SummaryItem-ItemSummary'>

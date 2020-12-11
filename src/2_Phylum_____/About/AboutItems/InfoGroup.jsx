@@ -10,10 +10,12 @@ import { InfoCont, TextCont, BodyCont, TitleItem } from './styled';
 const InfoGroup = ({
   _favRank,
   _handleSelect,
+  _topId,
   __openItem,
   __item: { id, title, tech, summary, story, media, links },
 }) => {
   //  STATE
+  const isMore = story.length > 0;
   const [isOpen, setIsOpen] = useState(false);
   const [openStory, setOpenStory] = useState(0);
   const [infoHeight, setInfoHeight] = useState(null);
@@ -31,7 +33,7 @@ const InfoGroup = ({
     setStoryHeight(
       document.getElementById(`InfoGroup-Story${_favRank}`).offsetHeight
     );
-    story.length > 0
+    isMore
       ? setInfoHeight(summaryHeight + storyHeight + toggleHeight)
       : setInfoHeight(summaryHeight + storyHeight);
     if (id === 1) {
@@ -44,9 +46,9 @@ const InfoGroup = ({
       : setDisplayHeight(infoHeight - storyHeight);
   }, [
     id,
-    story,
     _favRank,
     isOpen,
+    isMore,
     summaryHeight,
     storyHeight,
     infoHeight,
@@ -95,27 +97,30 @@ const InfoGroup = ({
   };
 
   return (
-    <InfoCont id={`InfoGroup-InfoCont${_favRank}`}>
-      <BodyCont id={`InfoGroup-BodyCont${_favRank}`}>
+    <InfoCont id={`InfoGroup-InfoCont${id}`}>
+      <BodyCont id={`InfoGroup-BodyCont${id}`}>
         <TextCont
-          id={`InfoGroup-TextCont${_favRank}`}
+          id={`InfoGroup-TextCont${id}`}
           style={{ height: displayHeight }}
         >
           <SummaryItem
+            isMore={isMore}
+            // isMore={isMore}
             _id={id}
             _summary={summary}
             _setSummaryHeight={setSummaryHeight}
             __handleSelect={_handleSelect}
+            __topId={_topId}
           />
-          {story.length > 0 && (
+          {isMore && (
             <ToggleItem
               isOpen={isOpen}
-              isMore={story.length > 0}
+              isMore={isMore}
               type={'sub'} // or 'sub'
               __handleSelect={_handleSelect}
             />
           )}
-          <div id={`InfoGroup-Story${_favRank}`}>
+          <div id={`InfoGroup-Story${id}`}>
             {story.map((item) => (
               <Fragment>
                 <TitleItem id={`InfoGroup-TitleItem${item.id}`}>
@@ -123,10 +128,11 @@ const InfoGroup = ({
                 </TitleItem>
                 <InfoGroup
                   _favRank={item.id}
-                  __handleSelect={handleDrop}
+                  _topId={_topId}
+                  // !!!
+                  _handleSelect={handleDrop}
                   __openItem={openStory}
                   __item={item}
-                  _handleSelect={handleDrop}
                 />
               </Fragment>
             ))}

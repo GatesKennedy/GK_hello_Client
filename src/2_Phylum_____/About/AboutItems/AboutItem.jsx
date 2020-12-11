@@ -16,6 +16,7 @@ const AboutItem = ({
 }) => {
   //  STATE
   const [openInfo, setOpenInfo] = useState(0);
+  const [topId, setTopId] = useState(favRank);
   const [itemHeight, setItemHeight] = useState(null);
   //  EFFECT
   useEffect(() => {
@@ -46,6 +47,7 @@ const AboutItem = ({
           _handleSelect={handleSelect}
           _openInfo={openInfo}
           _setOpenInfo={setOpenInfo}
+          _topId={topId}
           __dropType={_dropType}
           __item={_item}
           __openItem={_openItem}
