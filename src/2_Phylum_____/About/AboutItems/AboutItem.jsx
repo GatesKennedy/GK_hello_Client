@@ -28,11 +28,12 @@ const AboutItem = ({
   }, [topId, _openItem]);
 
   //  FXN
-  const handleSelect = () => {
+  const handleSelect = (localId) => {
     console.log('%chandleSelect() > ', 'color: darkseagreen');
-    _openItem === topId ? _setOpenItem(0) : _setOpenItem(topId);
+    _openItem === localId ? _setOpenItem(0) : _setOpenItem(localId);
     console.log(`handleSelect()
-    item.id:      ${topId}
+    localId:      ${localId}
+    item.id:      ${id}
     topId:        ${topId}
     _openItem:    ${_openItem}
     `);

@@ -10,7 +10,7 @@ const SummaryItem = ({
   id,
   summary,
   setParentHeight,
-  _toggleParent,
+  handleToggle,
 }) => {
   useEffect(() => {
     const summaryHeight = document.getElementById(
@@ -24,7 +24,7 @@ const SummaryItem = ({
       id={`SummaryItem-SummaryCont${id}`}
       className={isMore && ' pointer'}
       onClick={() => {
-        isMore && _toggleParent();
+        isMore && handleToggle(id);
       }}
     >
       <ItemSummary id='SummaryItem-ItemSummary'>
@@ -42,7 +42,7 @@ SummaryItem.propTypes = {
   id: PropTypes.number.isRequired,
   summary: PropTypes.array.isRequired,
   setParentHeight: PropTypes.func.isRequired,
-  _toggleParent: PropTypes.func.isRequired,
+  handleToggle: PropTypes.func.isRequired,
 };
 
 export default SummaryItem;

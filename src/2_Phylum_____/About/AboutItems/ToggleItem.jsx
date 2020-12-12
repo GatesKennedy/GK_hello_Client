@@ -5,7 +5,7 @@ import { RiArrowDropDownLine, RiArrowUpSLine } from 'react-icons/ri';
 import { Btn1 } from '../../../Design/Styled_aoe';
 import { ToggleCont } from './styled';
 
-const ToggleItem = ({ isOpen, isMore, type, _toggleParent }) => {
+const ToggleItem = ({ isOpen, isMore, id, type, handleToggle }) => {
   const togStyle = () =>
     isMore
       ? {
@@ -27,7 +27,7 @@ const ToggleItem = ({ isOpen, isMore, type, _toggleParent }) => {
     <ToggleCont
       id='ToggleItem-ToggleCont'
       style={togStyle()}
-      onClick={() => _toggleParent()}
+      onClick={() => handleToggle(id)}
     >
       <Btn1 id='ToggleItem-Btn1' className={bgStyle()} style={togStyle()}>
         {isOpen ? (
@@ -47,7 +47,8 @@ const ToggleItem = ({ isOpen, isMore, type, _toggleParent }) => {
 ToggleItem.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   isMore: PropTypes.bool.isRequired,
-  _toggleParent: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
+  handleToggle: PropTypes.func.isRequired,
 };
 
 export default ToggleItem;
