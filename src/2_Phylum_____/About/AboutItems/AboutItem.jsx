@@ -10,28 +10,32 @@ import { ItemCont, InfoGroupCont } from './styled';
 const AboutItem = ({
   _dropType,
   _item,
-  _item: { titleImgUrl, favRank, links },
+  _item: { titleImgUrl, favRank, id, links },
   _openItem,
   _setOpenItem,
 }) => {
   //  STATE
-  const [isTopOpen, setIsTopOpen] = useState(false);
-  const [topId, setTopId] = useState(favRank);
 
+  const [topId, setTopId] = useState(id);
   const [storyHeight, setStoryHeight] = useState(0);
   //  EFFECT
   useEffect(() => {
-    _openItem === topId ? setIsTopOpen(true) : setIsTopOpen(false);
+    console.log('%c------------------', 'color: darkseagreen');
+    console.log(`AboutItem > Effect Log
+    topId:        ${topId}
+    _openItem:    ${_openItem}
+    `);
   }, [topId, _openItem]);
 
-  useEffect(() => {
-    console.log('%c------------------', 'color: darkseagreen');
-    console.log(`AboutItem > topId:       `, topId);
-    console.log(`AboutItem > isTopOpen:   `, isTopOpen);
-  }, [topId, isTopOpen]);
   //  FXN
   const handleSelect = () => {
+    console.log('%chandleSelect() > ', 'color: darkseagreen');
     _openItem === topId ? _setOpenItem(0) : _setOpenItem(topId);
+    console.log(`handleSelect()
+    item.id:      ${topId}
+    topId:        ${topId}
+    _openItem:    ${_openItem}
+    `);
   };
 
   return (
@@ -49,7 +53,7 @@ const AboutItem = ({
       <InfoGroupCont id={`AboutItem-InfoGroupCont${_item.id}`}>
         <InfoGroup
           topId={topId}
-          parentId={topId}
+          parentId={_openItem}
           toggleParent={handleSelect}
           setParentHeight={setStoryHeight}
           item={_item}

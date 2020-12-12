@@ -16,47 +16,41 @@ const InfoGroup = ({
 }) => {
   //  STATE
   const isMore = story.length > 0;
-  const [isOpen, setIsOpen] = useState(false);
-  const [openId, setOpenId] = useState(0);
+
+  const [isOpen, setIsOpen] = useState(id === parentId);
+  const [openChild, setOpenChildId] = useState(0);
 
   const [textHeight, setTextHeight] = useState(null); //  full height
   const [summaryHeight, setSummaryHeight] = useState(null);
-  const [toggleHeight, setToggleHeight] = useState(null);
+  const toggleHeight = 38;
   const [storyHeight, setStoryHeight] = useState(0);
   const [mediaHeight, setMediaHeight] = useState(null);
 
   const [topOffset, setTopOffset] = useState(0);
   //  CALLBACK
   const calcHeight = useCallback(() => {
-    setToggleHeight(38);
     setStoryHeight(
       document.getElementById(`InfoGroup-Story${id}`).offsetHeight
     );
-    isMore
-      ? setTextHeight(summaryHeight + toggleHeight)
-      : setTextHeight(summaryHeight);
-    if (id === 1) {
-      console.log(`calcHeight() > summaryHeight${id}: `, summaryHeight);
-      console.log(`calcHeight() > storyHeight${id}: `, storyHeight);
-      console.log(`calcHeight() > textHeight${id}: `, textHeight);
-    }
+    isMore && isOpen
+      ? setTextHeight(summaryHeight + toggleHeight + storyHeight)
+      : setTextHeight(summaryHeight + toggleHeight);
     isOpen
       ? setParentHeight(textHeight + storyHeight)
       : setParentHeight(textHeight);
-    console.log('%c---------', 'color: green');
-    console.log(`caclHeight() > id ${id}
-      summaryHeight ${id}:    ${summaryHeight}
-      toggleHeight  ${id}:    ${toggleHeight}
-      storyHeight   ${id}:    ${storyHeight}
-      mediaHeight   ${id}:    ${mediaHeight}
-      -------------------------
-      textHeight    ${id}:     ${textHeight}
+    console.log('%c--------- caclHeight() >', 'color: #9bdbd8');
+    console.log(`  caclHeight()
+          summaryHeight ${id}:    ${summaryHeight}
+          toggleHeight  ${id}:    ${toggleHeight}
+          storyHeight   ${id}:    ${storyHeight}
+          mediaHeight   ${id}:    ${mediaHeight}
+          -------------------------
+          textHeight    ${id}:     ${textHeight}
         `);
   }, [
     id,
     isOpen,
     isMore,
-    openId,
     summaryHeight,
     storyHeight,
     textHeight,
@@ -67,23 +61,46 @@ const InfoGroup = ({
 
   //  EFFECT
   useEffect(() => {
-    openId === id ? setIsOpen(true) : setIsOpen(false);
-
+    console.log('%c--------- Effect log', 'color: #9bdbd8');
+    console.log(`  setIsOpen()
+          item.id:      ${id}
+          parentId:     ${parentId}
+          isMore:       ${isMore}
+          isOpen:       ${isOpen}
+      `);
+    parentId === id ? setIsOpen(true) : setIsOpen(false);
+    console.log('%c--------- Effect log', 'color: #9bdbd8');
+    console.log(`  setIsOpen()
+          item.id:      ${id}
+          parentId:     ${parentId}
+          isMore:       ${isMore}
+          isOpen:       ${isOpen}
+      `);
     calcHeight();
-  }, [id, openId, calcHeight]);
+  }, [
+    id,
+    openChild,
+    isOpen,
+    isMore,
+    parentId,
+    storyHeight,
+    summaryHeight,
+    textHeight,
+    toggleHeight,
+    calcHeight,
+  ]);
 
   useEffect(() => {
-    console.log(`
-    topId:        ${topId}
-    parentId:     ${parentId}
-    item.id:      ${id}
-
-    summaryHeight${id}:  ${summaryHeight}
-    storyHeight${id}:    ${storyHeight}
-    toggleHeight${id}:    ${toggleHeight}
-    -------------------------
-    textHeight${id}:     ${textHeight}
-      `);
+    // console.log('%cInfoGroup Effect log', 'color: #9bdbd8');
+    // console.log(`
+    // parentId:     ${parentId}
+    // item.id:      ${id}
+    // summaryHeight${id}:  ${summaryHeight}
+    // storyHeight${id}:    ${storyHeight}
+    // toggleHeight${id}:    ${toggleHeight}
+    // -------------------------
+    // textHeight${id}:     ${textHeight}
+    //   `);
   }, [
     id,
     topId,
@@ -96,8 +113,14 @@ const InfoGroup = ({
 
   //  FXN
   const handleDrop = () => {
-    id === topId && toggleParent();
-    openId === id ? setOpenId(0) : setOpenId(id);
+    console.log('%chandleDrop() > ', 'color: #9bdbd8');
+    if (id === topId) toggleParent();
+    else openChild === id ? setOpenChildId(0) : setOpenChildId(id);
+    console.log(`  handleDrop()
+    item.id:  ${id}
+    topId:    ${topId}
+    openChild:   ${openChild}
+    `);
   };
 
   return (
@@ -128,7 +151,7 @@ const InfoGroup = ({
                 </TitleItem>
                 <InfoGroup
                   topId={topId}
-                  parentId={openId}
+                  parentId={openChild}
                   setParentHeight={setStoryHeight}
                   toggleParent={handleDrop}
                   item={child}

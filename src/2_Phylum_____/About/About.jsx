@@ -21,7 +21,6 @@ const About = () => {
   //  EFFECT
   useEffect(() => {
     console.log('%c-----------------------------------', 'color: goldenrod');
-
     console.log('About     > openItem:    ', openItem);
   }, [openItem]);
 
