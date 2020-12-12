@@ -17,15 +17,17 @@ const AboutItem = ({
   //  STATE
   const [isTopOpen, setIsTopOpen] = useState(false);
   const [topId, setTopId] = useState(favRank);
+
+  const [storyHeight, setStoryHeight] = useState(0);
   //  EFFECT
   useEffect(() => {
     _openItem === topId ? setIsTopOpen(true) : setIsTopOpen(false);
   }, [topId, _openItem]);
 
   useEffect(() => {
-    console.log('%c---------', 'color: darkseagreen');
-    console.log('AboutItem > isTopOpen: ', isTopOpen);
-    console.log('AboutItem > topId: ', topId);
+    console.log('%c------------------', 'color: darkseagreen');
+    console.log(`AboutItem > topId:       `, topId);
+    console.log(`AboutItem > isTopOpen:   `, isTopOpen);
   }, [topId, isTopOpen]);
   //  FXN
   const handleSelect = () => {
@@ -46,11 +48,11 @@ const AboutItem = ({
       />
       <InfoGroupCont id={`AboutItem-InfoGroupCont${_item.id}`}>
         <InfoGroup
-          _handleSelect={handleSelect}
-          _isOpen={isTopOpen}
-          _topId={topId}
-          __dropType={_dropType}
-          __item={_item}
+          topId={topId}
+          parentId={topId}
+          toggleParent={handleSelect}
+          setParentHeight={setStoryHeight}
+          item={_item}
         />
       </InfoGroupCont>
       <LinkGroup id='AboutItem-LinkGroup' _links={links} />

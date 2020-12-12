@@ -8,21 +8,23 @@ import ToggleItem from './ToggleItem';
 import { InfoCont, TextCont, BodyCont, TitleItem } from './styled';
 
 const InfoGroup = ({
-  _handleSelect,
-  _isOpen,
-  _topId,
-  __item: { id, summary, story, media, links },
+  topId,
+  parentId,
+  toggleParent,
+  setParentHeight,
+  item: { id, summary, story, media, links },
 }) => {
   //  STATE
   const isMore = story.length > 0;
-  const [isOpen, setIsOpen] = useState(_isOpen);
-  const [openStory, setOpenStory] = useState(0);
-  const [infoHeight, setInfoHeight] = useState(null);
-  const [displayHeight, setDisplayHeight] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [openId, setOpenId] = useState(0);
 
+  const [textHeight, setTextHeight] = useState(null); //  full height
   const [summaryHeight, setSummaryHeight] = useState(null);
-  const [storyHeight, setStoryHeight] = useState(null);
-  const [toggleHeight, setToggleHeight] = useState(0);
+  const [toggleHeight, setToggleHeight] = useState(null);
+  const [storyHeight, setStoryHeight] = useState(0);
+  const [mediaHeight, setMediaHeight] = useState(null);
+
   const [topOffset, setTopOffset] = useState(0);
   //  CALLBACK
   const calcHeight = useCallback(() => {
@@ -31,84 +33,105 @@ const InfoGroup = ({
       document.getElementById(`InfoGroup-Story${id}`).offsetHeight
     );
     isMore
-      ? setInfoHeight(summaryHeight + storyHeight + toggleHeight)
-      : setInfoHeight(summaryHeight + storyHeight);
+      ? setTextHeight(summaryHeight + toggleHeight)
+      : setTextHeight(summaryHeight);
     if (id === 1) {
       console.log(`calcHeight() > summaryHeight${id}: `, summaryHeight);
       console.log(`calcHeight() > storyHeight${id}: `, storyHeight);
-      console.log(`calcHeight() > InfoHeight${id}: `, infoHeight);
+      console.log(`calcHeight() > textHeight${id}: `, textHeight);
     }
     isOpen
-      ? setDisplayHeight(infoHeight)
-      : setDisplayHeight(infoHeight - storyHeight);
+      ? setParentHeight(textHeight + storyHeight)
+      : setParentHeight(textHeight);
+    console.log('%c---------', 'color: green');
+    console.log(`caclHeight() > id ${id}
+      summaryHeight ${id}:    ${summaryHeight}
+      toggleHeight  ${id}:    ${toggleHeight}
+      storyHeight   ${id}:    ${storyHeight}
+      mediaHeight   ${id}:    ${mediaHeight}
+      -------------------------
+      textHeight    ${id}:     ${textHeight}
+        `);
   }, [
     id,
     isOpen,
     isMore,
+    openId,
     summaryHeight,
     storyHeight,
-    infoHeight,
+    textHeight,
     toggleHeight,
+    mediaHeight,
+    setParentHeight,
   ]);
 
   //  EFFECT
   useEffect(() => {
-    openStory === id ? setIsOpen(true) : setIsOpen(false);
+    openId === id ? setIsOpen(true) : setIsOpen(false);
+
     calcHeight();
-  }, [id, openStory, calcHeight]);
+  }, [id, openId, calcHeight]);
+
   useEffect(() => {
     console.log(`
+    topId:        ${topId}
+    parentId:     ${parentId}
+    item.id:      ${id}
+
     summaryHeight${id}:  ${summaryHeight}
     storyHeight${id}:    ${storyHeight}
     toggleHeight${id}:    ${toggleHeight}
     -------------------------
-
-    infoHeight${id}:     ${infoHeight}
-    displayHeight${id}:  ${displayHeight}
+    textHeight${id}:     ${textHeight}
       `);
-  }, [id, displayHeight, summaryHeight, storyHeight, toggleHeight, infoHeight]);
+  }, [
+    id,
+    topId,
+    parentId,
+    summaryHeight,
+    storyHeight,
+    toggleHeight,
+    textHeight,
+  ]);
 
   //  FXN
   const handleDrop = () => {
-    id === _topId && _handleSelect();
-    openStory === id ? setOpenStory(0) : setOpenStory(id);
+    id === topId && toggleParent();
+    openId === id ? setOpenId(0) : setOpenId(id);
   };
 
   return (
     <InfoCont id={`InfoGroup-InfoCont${id}`}>
       <BodyCont id={`InfoGroup-BodyCont${id}`}>
-        <TextCont
-          id={`InfoGroup-TextCont${id}`}
-          style={{ height: displayHeight }}
-        >
+        <TextCont id={`InfoGroup-TextCont${id}`} style={{ height: textHeight }}>
           <SummaryItem
+            topId={topId}
             isMore={isMore}
-            // isMore={isMore}
-            _id={id}
-            _summary={summary}
-            _setSummaryHeight={setSummaryHeight}
-            __handleSelect={_handleSelect}
-            __topId={_topId}
+            id={id}
+            summary={summary}
+            setParentHeight={setSummaryHeight}
+            _toggleParent={toggleParent}
           />
           {isMore && (
             <ToggleItem
               isOpen={isOpen}
               isMore={isMore}
               type={'sub'} // 'main' or 'sub'
-              __handleSelect={handleDrop}
+              _toggleParent={handleDrop}
             />
           )}
           <div id={`InfoGroup-Story${id}`}>
-            {story.map((item) => (
+            {story.map((child) => (
               <Fragment>
-                <TitleItem id={`InfoGroup-TitleItem${item.id}`}>
-                  {item.title}
+                <TitleItem id={`InfoGroup-TitleItem${child.id}`}>
+                  {child.title}
                 </TitleItem>
                 <InfoGroup
-                  _topId={_topId}
-                  // !!!
-                  _handleSelect={_handleSelect}
-                  __item={item}
+                  topId={topId}
+                  parentId={openId}
+                  setParentHeight={setStoryHeight}
+                  toggleParent={handleDrop}
+                  item={child}
                 />
               </Fragment>
             ))}

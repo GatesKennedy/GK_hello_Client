@@ -1,27 +1,21 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 //  STYLE
 import { RiArrowDropDownLine, RiArrowUpSLine } from 'react-icons/ri';
 import { Btn1 } from '../../../Design/Styled_aoe';
 import { ToggleCont } from './styled';
 
-const ToggleItem = ({
-  isOpen,
-  isMore,
-  type,
-
-  __handleSelect,
-}) => {
-  // const togStyle = () =>
-  //   isMore
-  //     ? {
-  //         opacity: 1,
-  //         transition: 'all 0.5s ease-in-out ',
-  //       }
-  //     : {
-  //         opacity: 0,
-  //         transition: 'all 0.3s ease-in-out',
-  //       };
+const ToggleItem = ({ isOpen, isMore, type, _toggleParent }) => {
+  const togStyle = () =>
+    isMore
+      ? {
+          opacity: 1,
+          transition: 'all 0.5s ease-in-out ',
+        }
+      : {
+          opacity: 0,
+          transition: 'all 0.3s ease-in-out',
+        };
   const bgStyle = () => {
     if (isOpen) {
       return type === 'sub' ? ' bg-gry2 left-red' : ' bg-gry2';
@@ -32,11 +26,10 @@ const ToggleItem = ({
   return (
     <ToggleCont
       id='ToggleItem-ToggleCont'
-      // style={togStyle()}
-      onClick={() => __handleSelect()}
+      style={togStyle()}
+      onClick={() => _toggleParent()}
     >
-      {/* <Btn1 id='ToggleItem-Btn1' className={bgStyle()} style={togStyle()}> */}
-      <Btn1 id='ToggleItem-Btn1' className={bgStyle()}>
+      <Btn1 id='ToggleItem-Btn1' className={bgStyle()} style={togStyle()}>
         {isOpen ? (
           <Fragment>
             less <RiArrowUpSLine />
@@ -54,7 +47,7 @@ const ToggleItem = ({
 ToggleItem.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   isMore: PropTypes.bool.isRequired,
-  __handleSelect: PropTypes.func.isRequired,
+  _toggleParent: PropTypes.func.isRequired,
 };
 
 export default ToggleItem;

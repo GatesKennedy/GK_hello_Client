@@ -5,35 +5,30 @@ import { ParaSml } from '../../../Design/Styled_aoe';
 import { SummaryCont, ItemSummary } from './styled';
 
 const SummaryItem = ({
+  topId,
   isMore,
-  _id,
-  _summary,
-  _setSummaryHeight,
-  __handleSelect,
-  __topId,
+  id,
+  summary,
+  setParentHeight,
+  _toggleParent,
 }) => {
   useEffect(() => {
     const summaryHeight = document.getElementById(
-      `SummaryItem-SummaryCont${_id}`
+      `SummaryItem-SummaryCont${id}`
     ).offsetHeight;
-
-    _setSummaryHeight(summaryHeight);
-    console.log(`SummaryItem > summaryCont${_id}.height = `, summaryHeight);
-    console.log(`SummaryItem > 
-        id: ${_id}
-        fR: ${__topId}`);
-  }, [_setSummaryHeight, _id, __topId]);
+    setParentHeight(summaryHeight);
+  }, [setParentHeight, id, topId]);
 
   return (
     <SummaryCont
-      id={`SummaryItem-SummaryCont${_id}`}
+      id={`SummaryItem-SummaryCont${id}`}
       className={isMore && ' pointer'}
       onClick={() => {
-        isMore && __handleSelect();
+        isMore && _toggleParent();
       }}
     >
       <ItemSummary id='SummaryItem-ItemSummary'>
-        {_summary.map((paragraph, index) => (
+        {summary.map((paragraph, index) => (
           <ParaSml key={index} id='SummaryItem-ParaSml'>
             {paragraph}
           </ParaSml>
@@ -44,10 +39,10 @@ const SummaryItem = ({
 };
 
 SummaryItem.propTypes = {
-  _id: PropTypes.number.isRequired,
-  _summary: PropTypes.array.isRequired,
-  _setSummaryHeight: PropTypes.func.isRequired,
-  __handleSelect: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
+  summary: PropTypes.array.isRequired,
+  setParentHeight: PropTypes.func.isRequired,
+  _toggleParent: PropTypes.func.isRequired,
 };
 
 export default SummaryItem;
