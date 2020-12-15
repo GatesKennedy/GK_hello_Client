@@ -61,8 +61,8 @@ export const introObj = [
           `By age five, household items and my sisters’ toys would go missing because ‘Conor was making something again’ and by grade five, I
       had convinced my dad to purchase blueprints for a 6’x8’x32’ half-pipe.  We agreed that he’d handle the cuts 
       but I had to mark them out myself and do all other work. He taught me what all the symbols meant on the schematics, and by middle school I’d built it. `,
-          `Twenty years later I’m learning a different set of symbols and exploring how I can implement
-      them to build new things that I’ve now designed myself.`,
+          `Twenty years later I’m still learning new symbols (code) and exploring how I can implement
+      them to build new things that I’ve designed myself.`,
         ],
         story: [],
         media: [],
@@ -172,45 +172,45 @@ export const softwareObj = [
         imgUrl: SubIcon0,
         summary: [`High level look at system components.`],
         story: [
-          {
-            id: 221,
-            title: 'Client:',
-            tech: [],
-            imgUrl: SubIcon0,
-            summary: [
-              `Client info CLIENT INFO client info CLIENT INFO client info CLIENT INFO client info CLIENT INFO client info CLIENT INFO`,
-              `more info. MORE good. more info. MORE good.`,
-            ],
-            story: [],
-            media: [],
-            links: [],
-          },
-          {
-            id: 222,
-            title: 'Server:',
-            tech: [],
-            imgUrl: SubIcon0,
-            summary: [
-              `server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO `,
-              `more info. MORE good. more info. MORE good.`,
-            ],
-            story: [],
-            media: [],
-            links: [],
-          },
-          {
-            id: 223,
-            title: `Data:`,
-            tech: [],
-            imgUrl: SubIcon0,
-            summary: [
-              `Data? Is that the best name for this section? You're sooo minimal conor. ugh`,
-              `Postgres Stuff, AWS S3, Stripe transactions`,
-            ],
-            story: [],
-            media: [],
-            links: [],
-          },
+          // {
+          //   id: 221,
+          //   title: 'Client:',
+          //   tech: [],
+          //   imgUrl: SubIcon0,
+          //   summary: [
+          //     `Client info CLIENT INFO client info CLIENT INFO client info CLIENT INFO client info CLIENT INFO client info CLIENT INFO`,
+          //     `more info. MORE good. more info. MORE good.`,
+          //   ],
+          //   story: [],
+          //   media: [],
+          //   links: [],
+          // },
+          // {
+          //   id: 222,
+          //   title: 'Server:',
+          //   tech: [],
+          //   imgUrl: SubIcon0,
+          //   summary: [
+          //     `server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO `,
+          //     `more info. MORE good. more info. MORE good.`,
+          //   ],
+          //   story: [],
+          //   media: [],
+          //   links: [],
+          // },
+          // {
+          //   id: 223,
+          //   title: `Data:`,
+          //   tech: [],
+          //   imgUrl: SubIcon0,
+          //   summary: [
+          //     `Data? Is that the best name for this section? You're sooo minimal conor. ugh`,
+          //     `Postgres Stuff, AWS S3, Stripe transactions`,
+          //   ],
+          //   story: [],
+          //   media: [],
+          //   links: [],
+          // },
         ],
         media: [
           {
@@ -288,10 +288,7 @@ export const softwareObj = [
         title: `Architecture:`,
         tech: [],
         imgUrl: SubIcon0,
-        summary: [
-          'GK_Hello is a digital portfolio and communication hub to meet potential clients and employers. If you log in and create an account, you can create a profile to tell me more about yourself and chat with me (Conor) directly using my messaging service, GK_Talk',
-          'Please explore and have fun!',
-        ],
+        summary: [`High level look at system components.`],
         story: [],
         media: [
           {
@@ -551,7 +548,11 @@ export const personalObj = [
         title: `Overview:`,
         tech: [],
         imgUrl: SubIcon0,
-        summary: ['This is PG-13'],
+        summary: [
+          'A life-long passion that found a name in 2016 and began playing local shows at Holocene, Missippi Studios and a small west coast tour with fellow Portland band Night Heron (a founder of Radiation City).',
+          'PG-13 is a solo project which plays live with long-time friends who grew up together in Spokane, WA.',
+          `Called a 'weirdo brain-trust' by Bud Wilson of Aan and described as feeling similar to 'making out to Pet Sematary', PG-13 creates grooves that make you sway and bob while impuslively looking over your shoulder.`,
+        ],
         story: [],
         media: [],
         links: [],

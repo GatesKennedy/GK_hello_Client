@@ -15,14 +15,10 @@ import TitleHeader from '../../0_GenComps_____/TitleHeader';
 const About = () => {
   //  STATE
   const [openItem, setOpenItem] = useState(0);
+
   const titleTxt1 = 'Hello, Friend...';
   const titleTxt2 = 'Software...';
   const titleTxt3 = 'Personal...';
-  //  EFFECT
-  useEffect(() => {
-    console.log('%c-----------------------------------', 'color: goldenrod');
-    console.log('About     > openItem:    ', openItem);
-  }, [openItem]);
 
   return (
     <AboutCont id='About-AboutCont' className='bg-gry2 txt-black'>

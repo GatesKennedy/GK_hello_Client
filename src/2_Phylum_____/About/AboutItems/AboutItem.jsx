@@ -17,27 +17,25 @@ const AboutItem = ({
   //  STATE
 
   const [topId, setTopId] = useState(id);
-  const [storyHeight, setStoryHeight] = useState(0);
-  //  EFFECT
-  useEffect(() => {
-    console.log('%c------------------', 'color: darkseagreen');
-    console.log(`AboutItem > Effect Log
-    topId:        ${topId}
-    _openItem:    ${_openItem}
-    `);
-  }, [topId, _openItem]);
+  const [childList, updateChildList] = useState([{ id: 0, height: 0 }]);
 
   //  FXN
   const handleSelect = (localId) => {
-    console.log('%chandleSelect() > ', 'color: darkseagreen');
     _openItem === localId ? _setOpenItem(0) : _setOpenItem(localId);
-    console.log(`handleSelect()
+
+    //==========================================================
+    console.log('%chandleSelect() > ', 'color: darkseagreen');
+    console.log(`${id}: handleSelect()
     localId:      ${localId}
     item.id:      ${id}
     topId:        ${topId}
     _openItem:    ${_openItem}
     `);
   };
+
+  function setChildList(list) {
+    updateChildList(list);
+  }
 
   return (
     <ItemCont
@@ -56,7 +54,8 @@ const AboutItem = ({
           topId={topId}
           parentId={_openItem}
           toggleParent={handleSelect}
-          setParentHeight={setStoryHeight}
+          childList={childList}
+          updateChildList={setChildList}
           item={_item}
         />
       </InfoGroupCont>
