@@ -17,38 +17,22 @@ export const AboutHead = styled.section`
   margin-top: 18px;
   padding: 8px 8px 0px 8px;
 `;
-export const AboutIntro = styled.section`
-  display: flex;
-  flex-direction: column;
-
-  width: calc(100% - 1vw);
-  margin: 0vw 0vw 0vw 2vw;
-  padding: 8px;
-  border-radius: 12px;
-
-  @media only screen and (min-width: 600px) {
-    /* For desktop: */
-    position: relative;
-    left: -24px;
-    width: calc(100% - 6vw);
-
-    margin: 0vw 4vw 0vw 2vw;
-  }
-`;
 export const AboutBody = styled.section`
   display: flex;
   flex-direction: column;
-  width: calc(100% - 4vw);
 
-  margin: 0px 4vw;
+  width: calc(100%);
+
   padding: 8px;
   border-radius: 12px;
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
     position: relative;
-    left: -24px;
-    width: calc(100% - 8vw);
+    left: 13px;
+    width: calc(100% - 6vw);
+
+    margin: 0vw 4vw 0vw 2vw;
   }
 `;
 

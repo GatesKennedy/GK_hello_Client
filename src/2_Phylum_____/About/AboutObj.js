@@ -33,6 +33,7 @@ import nope from '../../Design/Graphics/Blank_space.png';
 
 export const introObj = [
   {
+    id: 1,
     favRank: 1,
     timeRank: 1,
     title: `Conor Gates Kennedy`,
@@ -51,24 +52,26 @@ export const introObj = [
     ],
     story: [
       {
-        id: 0,
+        id: 10,
         title: 'Early',
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `I’ve been building things for as long as I can remember.`,
           `By age five, household items and my sisters’ toys would go missing because ‘Conor was making something again’ and by grade five, I
       had convinced my dad to purchase blueprints for a 6’x8’x32’ half-pipe.  We agreed that he’d handle the cuts 
       but I had to mark them out myself and do all other work. He taught me what all the symbols meant on the schematics, and by middle school I’d built it. `,
-          `Twenty years later I’m learning a different set of symbols and exploring how I can implement
-      them to build new things that I’ve now designed myself.`,
+          `Twenty years later I’m still learning new symbols (code) and exploring how I can implement
+      them to build new things that I’ve designed myself.`,
         ],
         story: [],
         media: [],
-        link: 'void',
+        links: [],
       },
       {
-        id: 1,
+        id: 11,
         title: 'Lately',
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `Shortly after graduating with a degree in Mechanical Engineering from WSU, I chose to start a design and
@@ -83,17 +86,19 @@ export const introObj = [
         ],
         story: [],
         media: [],
-        link: 'void',
+        links: [],
       },
     ],
-    projectLink: ``,
-    repoLink: ``,
+    projectLinks: ``,
+    repoLinks: ``,
     titleImgUrl: conor,
-    media: [
+    media: [],
+    links: [
       {
         id: 0,
         type: 'link',
         title: 'GitHub',
+        tech: [],
         img: gitHub,
         url: 'https://github.com/GatesKennedy',
       },
@@ -101,6 +106,7 @@ export const introObj = [
         id: 1,
         type: 'link',
         title: 'LinkedIn',
+        tech: [],
         img: linkedIn,
         url: 'https://www.linkedin.com/in/conorgateskennedy/',
       },
@@ -108,6 +114,7 @@ export const introObj = [
         id: 2,
         type: 'link',
         title: 'Escape Collective',
+        tech: [],
         img: esc_2,
         url: 'https://esccollective.com/',
       },
@@ -115,6 +122,7 @@ export const introObj = [
         id: 3,
         type: 'link',
         title: 'Spotify Playlists',
+        tech: [],
         img: spotify,
         url: 'https://open.spotify.com/user/ohnodamn/playlists',
       },
@@ -124,6 +132,7 @@ export const introObj = [
 
 export const softwareObj = [
   {
+    id: 2,
     favRank: 2,
     timeRank: 5,
     title: 'Needle Drop Co.',
@@ -143,8 +152,9 @@ export const softwareObj = [
     ],
     story: [
       {
-        id: 1,
+        id: 21,
         title: 'Overview:',
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `Needle Drop Co. is a music licensing company in Portland, Oregon. Having outgrown the functionality of their prior web presence, 
@@ -153,76 +163,83 @@ export const softwareObj = [
         ],
         story: [],
         media: [],
-        link: 'void',
+        links: [],
       },
       {
-        id: 2,
+        id: 22,
         title: 'Architecture:',
+        tech: [],
         imgUrl: SubIcon0,
         summary: [`High level look at system components.`],
         story: [
-          {
-            id: 1,
-            title: 'Client:',
-            imgUrl: SubIcon0,
-            summary: [
-              `Client info CLIENT INFO client info CLIENT INFO client info CLIENT INFO client info CLIENT INFO client info CLIENT INFO`,
-              `more info. MORE good. more info. MORE good.`,
-            ],
-            story: [],
-            media: [],
-            link: 'void',
-          },
-          {
-            id: 2,
-            title: 'Server:',
-            imgUrl: SubIcon0,
-            summary: [
-              `server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO `,
-              `more info. MORE good. more info. MORE good.`,
-            ],
-            story: [],
-            media: [],
-            link: 'void',
-          },
-          {
-            id: 3,
-            title: `Data:`,
-            imgUrl: SubIcon0,
-            summary: [
-              `Data? Is that the best name for this section? You're sooo minimal conor. ugh`,
-              `Postgres Stuff, AWS S3, Stripe transactions`,
-            ],
-            story: [],
-            media: [],
-            link: 'void',
-          },
+          // {
+          //   id: 221,
+          //   title: 'Client:',
+          //   tech: [],
+          //   imgUrl: SubIcon0,
+          //   summary: [
+          //     `Client info CLIENT INFO client info CLIENT INFO client info CLIENT INFO client info CLIENT INFO client info CLIENT INFO`,
+          //     `more info. MORE good. more info. MORE good.`,
+          //   ],
+          //   story: [],
+          //   media: [],
+          //   links: [],
+          // },
+          // {
+          //   id: 222,
+          //   title: 'Server:',
+          //   tech: [],
+          //   imgUrl: SubIcon0,
+          //   summary: [
+          //     `server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO server info SERVER INFO `,
+          //     `more info. MORE good. more info. MORE good.`,
+          //   ],
+          //   story: [],
+          //   media: [],
+          //   links: [],
+          // },
+          // {
+          //   id: 223,
+          //   title: `Data:`,
+          //   tech: [],
+          //   imgUrl: SubIcon0,
+          //   summary: [
+          //     `Data? Is that the best name for this section? You're sooo minimal conor. ugh`,
+          //     `Postgres Stuff, AWS S3, Stripe transactions`,
+          //   ],
+          //   story: [],
+          //   media: [],
+          //   links: [],
+          // },
         ],
         media: [
           {
-            id: 0,
+            id: 221,
             type: 'img',
             title: 'Needle Drop Software',
+            tech: [],
             img: Arch_NDS,
             url: 'void',
           },
         ],
-        link: 'void',
+        links: [],
       },
       {
-        id: 3,
+        id: 23,
         title: `Consumer Features: `,
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `Library browsing by filters or search, User playlists and favorites, Currated playlists by Needle Drop, Artist discovery and Artist Profiles, Secure payment system for obtaining licenses`,
         ],
         story: [],
         media: [],
-        link: 'void',
+        links: [],
       },
       {
-        id: 4,
+        id: 24,
         title: `Enterprise Features:`,
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `Library Managment, Filter Managment, Artist Managment, Playlist Managment, Purchase History and Trends`,
@@ -230,16 +247,18 @@ export const softwareObj = [
         ],
         story: [],
         media: [],
-        link: 'void',
+        links: [],
       },
     ],
-    projectLink: 'void',
-    repoLink: ``,
+    projectLinks: [],
+    repoLinks: ``,
     titleImgUrl: 'https://www.needledrop.co/images/whitesmlogo.png',
     media: [],
+    links: [],
   },
 
   {
+    id: 3,
     favRank: 3,
     timeRank: 6,
     title: 'GK_Hello',
@@ -247,8 +266,9 @@ export const softwareObj = [
     summary: [`You're here now. This is where you currently are... Welcome!`],
     story: [
       {
-        id: 1,
+        id: 31,
         title: `Overview:`,
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           'GK_Hello is a digital portfolio and communication hub to meet potential clients and employers. If you log in and create an account, you can create a profile to tell me more about yourself and chat with me (Conor) directly using my messaging service, GK_Talk',
@@ -261,36 +281,37 @@ export const softwareObj = [
         ],
         story: [],
         media: [],
-        link: 'void',
+        links: [],
       },
       {
-        id: 1,
+        id: 32,
         title: `Architecture:`,
+        tech: [],
         imgUrl: SubIcon0,
-        summary: [
-          'GK_Hello is a digital portfolio and communication hub to meet potential clients and employers. If you log in and create an account, you can create a profile to tell me more about yourself and chat with me (Conor) directly using my messaging service, GK_Talk',
-          'Please explore and have fun!',
-        ],
+        summary: [`High level look at system components.`],
         story: [],
         media: [
           {
-            id: 0,
+            id: 321,
             type: 'img',
             title: 'Needle Drop Software',
+            tech: [],
             img: Arch_GK_Hello,
             url: 'void',
           },
         ],
-        link: 'void',
+        links: [],
       },
     ],
-    projectLink: `https://www.conor.website/about`,
-    repoLink: ``,
+    projectLinks: `https://www.conor.website/about`,
+    repoLinks: ``,
     titleImgUrl: algorithm3,
     media: [],
+    links: [],
   },
 
   {
+    id: 4,
     favRank: 4,
     timeRank: 7,
     title: 'GK_Talk',
@@ -310,8 +331,9 @@ export const softwareObj = [
     ],
     story: [
       {
-        id: 1,
+        id: 41,
         title: `Overview:`,
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `Designed for reuse across projects with and for later implementation as a microservice, GK_Talk is foundationally a messaging service.
@@ -320,16 +342,18 @@ export const softwareObj = [
         ],
         story: [],
         media: [],
-        link: 'void',
+        links: [],
       },
     ],
-    projectLink: `https://www.conor.website/talk`,
-    repoLink: ``,
+    projectLinks: `https://www.conor.website/talk`,
+    repoLinks: ``,
     titleImgUrl: algorithm4,
     media: [],
+    links: [],
   },
 
   {
+    id: 5,
     favRank: 5,
     timeRank: 1,
     title: 'Content Aggregator',
@@ -339,24 +363,27 @@ export const softwareObj = [
     ],
     story: [
       {
-        id: 1,
+        id: 51,
         title: `Overview:`,
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           'Final Project Instructor, Scrum Master, and Project Lead for web scraping application at a code school in Portland, OR. ',
         ],
         story: [],
         media: [],
-        link: 'void',
+        links: [],
       },
     ],
-    projectLink: ``,
-    repoLink: ``,
+    projectLinks: ``,
+    repoLinks: ``,
     titleImgUrl: algorithm,
     media: [],
+    links: [],
   },
 
   {
+    id: 6,
     favRank: 6,
     timeRank: 2,
     title: 'Parsing Algorithm',
@@ -366,8 +393,9 @@ export const softwareObj = [
     ],
     story: [
       {
-        id: 1,
+        id: 61,
         title: `Overview:`,
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `After leaving Escape Collective and pursuing software development as my primary focus, I found suprising overlap in skills. 
@@ -382,16 +410,18 @@ export const softwareObj = [
         ],
         story: [],
         media: [],
-        link: 'void',
+        links: [],
       },
     ],
-    projectLink: 'void',
-    repoLink: ``,
+    projectLinks: [],
+    repoLinks: ``,
     titleImgUrl: algorithm2,
     media: [],
+    links: [],
   },
 
   {
+    id: 7,
     favRank: 7,
     timeRank: 3,
     title: 'HBD_Bridger',
@@ -401,8 +431,9 @@ export const softwareObj = [
     ],
     story: [
       {
-        id: 1,
+        id: 71,
         title: `Overview:`,
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `Originally built with C# on ASP.NET, this application was basically a Mad Lib solution generator. 
@@ -412,16 +443,18 @@ export const softwareObj = [
         ],
         story: [],
         media: [],
-        link: 'void',
+        links: [],
       },
     ],
-    projectLink: 'www.bridgerbaby.com',
-    repoLink: ``,
+    projectLinks: 'www.bridgerbaby.com',
+    repoLinks: ``,
     titleImgUrl: bridger,
     media: [],
+    links: [],
   },
 
   {
+    id: 8,
     favRank: 8,
     timeRank: 1,
     title: 'Escape Collective',
@@ -438,8 +471,9 @@ export const softwareObj = [
     ],
     story: [
       {
-        id: 1,
+        id: 81,
         title: `Overview:`,
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `Shortly after graduating with a degree in Mechanical Engineering from WSU, I chose to start a design and fabrication company with some talented friends in Portland called the Escape Collective. 
@@ -447,11 +481,12 @@ export const softwareObj = [
         ],
         story: [],
         media: [],
-        link: 'void',
+        links: [],
       },
       {
-        id: 2,
+        id: 82,
         title: `Design Engineering:`,
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `My early roles were focused on calculating, analyzing and explaining the frame and cover designs for 36’ diameter geodesic domes. 
@@ -462,11 +497,12 @@ export const softwareObj = [
         ],
         story: [],
         media: [],
-        link: 'void',
+        links: [],
       },
       {
-        id: 3,
+        id: 83,
         title: `Project Management:`,
+        tech: [],
         imgUrl: SubIcon0,
         summary: [
           `In Escape Collective, as with all start-ups, no one person could afford to play a single role. 
@@ -476,18 +512,20 @@ export const softwareObj = [
         ],
         story: [],
         media: [],
-        link: 'void',
+        links: [],
       },
     ],
-    projectLink: `www.esccollective.com`,
-    repoLink: ``,
+    projectLinks: `www.esccollective.com`,
+    repoLinks: ``,
     titleImgUrl: esc_1,
     media: [],
+    links: [],
   },
 ];
 
 export const personalObj = [
   {
+    id: 9,
     favRank: 9,
     timeRank: 1,
     title: 'PG-13 [band]',
@@ -506,18 +544,24 @@ export const personalObj = [
     ],
     story: [
       {
-        id: 1,
+        id: 91,
         title: `Overview:`,
+        tech: [],
         imgUrl: SubIcon0,
-        summary: ['This is PG-13'],
+        summary: [
+          'A life-long passion that found a name in 2016 and began playing local shows at Holocene, Missippi Studios and a small west coast tour with fellow Portland band Night Heron (a founder of Radiation City).',
+          'PG-13 is a solo project which plays live with long-time friends who grew up together in Spokane, WA.',
+          `Called a 'weirdo brain-trust' by Bud Wilson of Aan and described as feeling similar to 'making out to Pet Sematary', PG-13 creates grooves that make you sway and bob while impuslively looking over your shoulder.`,
+        ],
         story: [],
         media: [],
-        link: 'void',
+        links: [],
       },
     ],
-    projectLink: ``,
-    repoLink: ``,
+    projectLinks: ``,
+    repoLinks: ``,
     titleImgUrl: PG13_2,
     media: [],
+    links: [],
   },
 ];

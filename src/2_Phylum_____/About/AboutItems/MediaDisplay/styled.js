@@ -7,7 +7,15 @@ export const MediaRow = styled.div`
   align-content: center;
 
   width: 100%;
-  /* padding-left: 12px; */
+  padding: 12px;
+  @media only screen and (min-width: 600px) {
+    /* For desktop: */
+    position: relative;
+    max-width: calc(100% - 13vw);
+    position: relative;
+
+    left: 7vw;
+  }
 `;
 export const MediaTitle = styled.h4`
   display: flex;

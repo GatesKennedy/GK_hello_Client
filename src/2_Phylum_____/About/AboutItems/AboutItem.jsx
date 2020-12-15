@@ -1,98 +1,65 @@
-import React, { Fragment, useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 //  COMPS
-import ImageItem from './ImageItem';
-import DropAdd from '../../../3_Class_____/DropTypes/DropAdd';
-import DropSwitch from '../../../3_Class_____/DropTypes/DropSwitch';
-import MediaCont from './MediaDisplay/MediaCont';
+import TitleGroup from './TitleGroup';
+import InfoGroup from './InfoGroup';
+import LinkGroup from './MediaDisplay/LinkGroup';
 //  STYLE
-
-import {
-  ItemCont,
-  InfoCont,
-  ItemTitle,
-  ItemTech,
-  TechList,
-  TechItem,
-  SubTitle,
-} from './styled';
-
+import { ItemCont, InfoGroupCont } from './styled';
 //  MAIN
 const AboutItem = ({
-  dropType,
-  _item: { titleImgUrl, title, tech, favRank, timeRank, summary, story, media },
-  _openState,
-  _setOpenState,
+  _dropType,
+  _item,
+  _item: { titleImgUrl, favRank, id, links },
+  _openItem,
+  _setOpenItem,
 }) => {
   //  STATE
-  const [topOffset, setTopOffset] = useState(0);
-  const [infoHeight, setInfoHeight] = useState(0);
+
+  const [topId, setTopId] = useState(id);
+  const [childList, updateChildList] = useState([{ id: 0, height: 0 }]);
+
   //  FXN
-  const handleToggle = () => {
-    _openState === favRank ? _setOpenState(0) : _setOpenState(favRank);
+  const handleSelect = (localId) => {
+    _openItem === localId ? _setOpenItem(0) : _setOpenItem(localId);
+
+    //==========================================================
+    console.log('%chandleSelect() > ', 'color: darkseagreen');
+    console.log(`${id}: handleSelect()
+    localId:      ${localId}
+    item.id:      ${id}
+    topId:        ${topId}
+    _openItem:    ${_openItem}
+    `);
   };
+
+  function setChildList(list) {
+    updateChildList(list);
+  }
 
   return (
     <ItemCont
-      id='AboutItem-ItemCont'
-      className={_openState === favRank ? ' activeItem ' : ' inactiveItem '}
+      id={`AboutItem-ItemCont${topId}`}
+      className={_openItem === favRank ? ' activeItem ' : ' inactiveItem '}
     >
-      <ImageItem
-        _openState={_openState}
-        _handleToggle={handleToggle}
+      <TitleGroup
+        __item={_item}
+        _openItem={_openItem}
+        _handleSelect={handleSelect}
         favRank={favRank}
         titleImgUrl={titleImgUrl}
-        imageSize={favRank === 1 ? 'large' : 'medium'}
       />
-      {/* <InfoCont id='AboutItem-InfoCont' style={{ height: infoHeight }}> */}
-      <InfoCont id='AboutItem-InfoCont'>
-        <ItemTitle id='AboutItem-ItemTitle' onClick={() => handleToggle()}>
-          {title}
-        </ItemTitle>
-        <ItemTech id='AboutItem-ItemTech' onClick={() => handleToggle()}>
-          <SubTitle>{favRank === 1 ? 'Titles:' : 'Tech:'}</SubTitle>
-          <TechList id='AboutItem-TechList'>
-            {tech.map((item, index) => (
-              <TechItem
-                id='AboutItem-TechItem'
-                key={index}
-                className={_openState !== favRank ? ' bg-gry1' : ' bg-gry2'}
-              >
-                {item}
-              </TechItem>
-            ))}
-          </TechList>
-        </ItemTech>
-        {dropType === 'add' ? (
-          <DropAdd
-            summary={summary}
-            story={story}
-            media={media}
-            _openState={_openState}
-            _setOpenState={_setOpenState}
-            _handleToggle={handleToggle}
-            topOffset={topOffset}
-            setTopOffset={setTopOffset}
-            favRank={favRank}
-          />
-        ) : (
-          <DropSwitch
-            summary={summary}
-            story={story}
-            media={media}
-            _openState={_openState}
-            _setOpenState={_setOpenState}
-            _handleToggle={handleToggle}
-            _setTopOffset={setTopOffset}
-            _setInfoHeight={setInfoHeight}
-            topOffset={topOffset}
-            favRank={favRank}
-          />
-        )}
-        {media.length !== 0 && (
-          <MediaCont id='AboutItem-MediaCont' _media={media} _title={title} />
-        )}
-      </InfoCont>
+      <InfoGroupCont id={`AboutItem-InfoGroupCont${_item.id}`}>
+        <InfoGroup
+          topId={topId}
+          parentId={_openItem}
+          toggleParent={handleSelect}
+          childList={childList}
+          updateChildList={setChildList}
+          item={_item}
+        />
+      </InfoGroupCont>
+      <LinkGroup id='AboutItem-LinkGroup' _links={links} />
     </ItemCont>
   );
 };
@@ -106,8 +73,8 @@ AboutItem.propTypes = {
     summary: PropTypes.arrayOf(PropTypes.string).isRequired,
     story: PropTypes.arrayOf(PropTypes.object).isRequired,
   }).isRequired,
-  _openState: PropTypes.number.isRequired,
-  _setOpenState: PropTypes.func.isRequired,
+  _openItem: PropTypes.number.isRequired,
+  _setOpenItem: PropTypes.func.isRequired,
 };
 
 export default AboutItem;

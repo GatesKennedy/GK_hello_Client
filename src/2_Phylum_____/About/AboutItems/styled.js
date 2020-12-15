@@ -4,25 +4,26 @@ import styled from 'styled-components';
 
 export const ItemCont = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 
-  width: 100%;
+  width: calc(100% + 8px);
 
-  padding: 8px 0px 0px 8px;
+  padding: 4px 0px 0px 4px;
   margin: 4px 0px 4px -8px;
-  border-radius: 12px;
-  overflow: hidden;
+  border-radius: 32px;
 
-  /* background-color: #e7e7e7; */
+  background-color: #e7e7e7;
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
     width: 100%;
     margin: 2px 0px 2px -8px;
+    height: calc(initial - 24px);
     /* background-color: #e0e0e0; */
+    &:hover {
+      background-color: #f2f2f2;
+    }
   }
-
-  /* transition: height 0.2s ease-in-out; */
   transition: all 0.2s ease-in-out;
 `;
 export const ImgContLrg = styled.section`
@@ -31,19 +32,20 @@ export const ImgContLrg = styled.section`
   align-items: center;
   justify-content: center;
 
-  margin: 0px 8px 0px 8px;
+  margin: 2px;
   padding: 4px;
   width: 16vw;
   height: calc(16vw - 0px);
 
-  border-radius: 8px;
+  border-radius: 24px;
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
     width: 142px;
     height: 138px;
     position: relative;
-    top: 0px;
+    margin: 0px 8px;
+    top: 4px;
   }
   transition: all 0.4s ease-in-out;
 `;
@@ -58,14 +60,15 @@ export const ImgContMed = styled.section`
   width: 16vw;
   height: calc(16vw - 0px);
 
-  border-radius: 8px;
+  border-radius: 24px;
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
     width: 108px;
     height: 104px;
     position: relative;
-    top: 0px;
+    margin: 0px 8px;
+    top: 4px;
   }
   transition: all 0.4s ease-in-out;
 `;
@@ -91,20 +94,54 @@ export const ImgContSml = styled.section`
   }
   transition: all 0.4s ease-in-out;
 `;
+export const TitleCont = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  transition: inherit;
+`;
+export const StatsCont = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  width: calc(100% - 16vw - 16px);
+  padding: 4px;
+  @media only screen and (min-width: 600px) {
+    /* For desktop: */
+
+    justify-content: center;
+  }
+  transition: inherit;
+`;
+export const InfoGroupCont = styled.section`
+  display: flex;
+
+  @media only screen and (min-width: 600px) {
+    /* For desktop: */
+    position: relative;
+    max-width: calc(100% - 13vw);
+    position: relative;
+    top: -24px;
+    left: 7vw;
+  }
+  transition: all 0.4s ease-in-out;
+`;
 export const InfoCont = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   justify-items: flex-start;
 
-  width: calc(100% - 16vw - 16px);
-  padding: 0px 8px;
-  margin-top: -6px;
+  width: calc(100%);
+  padding: 0px 8px 0px 18px;
+
+  overflow: hidden;
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
     position: relative;
-    max-width: calc(100% + 6px);
+    max-width: calc(100% - 2vw);
+    margin-left: 2vw;
   }
   transition: all 0.4s ease-in-out;
 `;
@@ -113,16 +150,11 @@ export const TextCont = styled.div`
   flex-direction: column;
   justify-content: flex-start;
 
-  width: calc(100% + 18vw);
-
   overflow: hidden;
   position: relative;
-  left: -18vw;
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
-    width: 100%;
-    left: 0vw;
   }
 
   transition: all 0.4s ease-in-out;
@@ -144,11 +176,43 @@ export const StoryCont = styled.div`
   font-size: smaller;
   transition: inherit;
 `;
+export const BodyCont = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+
+  transition: all 0.4s ease-in-out;
+`;
 export const ToggleCont = styled.div`
-  /* margin: 12px 0px 0px 0px; */
-  /* cursor: pointer; */
+  transition: all 0.4s ease-in-out;
+  margin: 12px 0px 8px 0px;
+
+  cursor: pointer;
+
+  transition: inherit;
 `;
 
+export const TitleItem = styled.div`
+  display: flex;
+
+  padding: 0px 8px 0px 18px;
+
+  @media only screen and (min-width: 600px) {
+    /* For desktop: */
+    position: relative;
+    max-width: calc(100% - 1vw);
+    margin-left: 1vw;
+  }
+`;
+
+export const ItemInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  width: 80%;
+`;
 export const ItemTitle = styled.div`
   display: flex;
   flex-direction: row;
@@ -169,7 +233,7 @@ export const ItemTech = styled.div`
   align-items: flex-start;
 
   min-height: 3em;
-  margin-bottom: 4px;
+
   font-size: smaller;
 
   transition: inherit;

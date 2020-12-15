@@ -1,12 +1,10 @@
 //  React
-import React, { Fragment, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 //  REDUX
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 //  STYLE
-import { AboutCont, AboutBody, AboutIntro } from './Styled';
+import { AboutCont, AboutBody } from './Styled';
 
 //  Asset
 import { introObj, softwareObj, personalObj } from './AboutObj';
@@ -16,7 +14,8 @@ import TitleHeader from '../../0_GenComps_____/TitleHeader';
 //  MAIN
 const About = () => {
   //  STATE
-  const [openState, setOpenState] = useState(0);
+  const [openItem, setOpenItem] = useState(0);
+
   const titleTxt1 = 'Hello, Friend...';
   const titleTxt2 = 'Software...';
   const titleTxt3 = 'Personal...';
@@ -25,17 +24,17 @@ const About = () => {
     <AboutCont id='About-AboutCont' className='bg-gry2 txt-black'>
       {/* Hello */}
       <TitleHeader id='About-TitleHeader1' _txt={titleTxt1} />
-      <AboutIntro id='About-AboutIntro'>
+      <AboutBody id='About-AboutBody'>
         {introObj.map((item) => (
           <AboutItem
             key={item.favRank}
             dropType='add'
             _item={item}
-            _openState={openState}
-            _setOpenState={setOpenState}
+            _openItem={openItem}
+            _setOpenItem={setOpenItem}
           />
         ))}
-      </AboutIntro>
+      </AboutBody>
 
       {/* Software */}
       <TitleHeader id='About-TitleHeader2' _txt={titleTxt2} />
@@ -45,8 +44,8 @@ const About = () => {
             key={item.favRank}
             dropType='switch'
             _item={item}
-            _openState={openState}
-            _setOpenState={setOpenState}
+            _openItem={openItem}
+            _setOpenItem={setOpenItem}
           />
         ))}
       </AboutBody>
@@ -58,8 +57,8 @@ const About = () => {
             key={item.favRank}
             dropType='switch'
             _item={item}
-            _openState={openState}
-            _setOpenState={setOpenState}
+            _openItem={openItem}
+            _setOpenItem={setOpenItem}
           />
         ))}
       </AboutBody>
