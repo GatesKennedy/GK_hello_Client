@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 //  COMPS
 import ToggleItem from './ToggleItem';
 import SummaryItem from '../../2_Phylum_____/About/AboutItems/SummaryItem';
-import StoryItem from '../../2_Phylum_____/About/AboutItems/StoryItem';
+import StoryGroup from '../../2_Phylum_____/About/AboutItems/StoryGroup';
 //  STYLE
-import { DropCont } from './styled';
+import { DropCont, StoryCont } from './styled';
 
 const DropSwitch = ({
   favRank,
@@ -42,7 +42,7 @@ const DropSwitch = ({
       setDropHeight(shutHeight);
       _setTopOffset(0);
     }
-  }, [isOpen, summaryHeight, storyHeight, _setTopOffset, _setInfoHeight]);
+  }, [isOpen, summaryHeight, _setTopOffset, favRank]);
 
   useEffect(() => {
     _openState === favRank ? setIsOpen(true) : setIsOpen(false);
@@ -86,14 +86,21 @@ const DropSwitch = ({
                 }
           }
         />
-        <StoryItem
-          favRank={favRank}
-          story={story}
-          media={media}
-          isOpen={isOpen}
-          offset={topOffset}
-          _setStoryHeight={setStoryHeight}
-        />
+        <StoryCont>
+          {story.length !== 0 &&
+            story.map((storyObj, index) => (
+              <StoryGroup
+                key={index}
+                favRank={favRank}
+                story={storyObj}
+                media={media}
+                isOpen={isOpen}
+                offset={topOffset}
+                _setStoryHeight={setStoryHeight}
+              />
+            ))}
+        </StoryCont>
+
         <ToggleItem
           isOpen={isOpen}
           _setOpenState={_setOpenState}

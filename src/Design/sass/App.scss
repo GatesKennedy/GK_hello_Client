@@ -224,6 +224,15 @@ button {
 }
 
 //  aoe-bg grayscale
+.bg-wht1 {
+  background-color: $white-1;
+}
+.bg-wht2 {
+  background-color: $white-2;
+}
+.bg-wht3 {
+  background-color: $white-3;
+}
 .bg-gry1 {
   background-color: $aoe-gry1;
 }
@@ -260,7 +269,29 @@ button {
 
 //  aoe-bg action
 
+.bg-robin0 {
+  background-color: #9bdbd8;
+}
+.bg-golden0 {
+  background-color: #e6af2e;
+}
+
+.shadow-more {
+  &:hover {
+    box-shadow: -4px 0px 0px 0px #9bdbd8;
+  }
+}
+.shadow-less {
+  box-shadow: -2.5px 0px 0px 0px #e6af2e;
+}
+
 //  ~~ GOOD ~~
+.bg-act-5 {
+  background-color: $aoe-good-5;
+}
+.bg-act-4 {
+  background-color: $aoe-good-4;
+}
 .bg-act-3 {
   background-color: $aoe-good-3;
 }
@@ -359,4 +390,20 @@ button {
 }
 .txt-idle {
   color: $aoe-gry5;
+}
+
+//  BORDERS
+
+.left-blue {
+  border-style: solid;
+  border-left-width: 3.5px;
+  // border-color: $aoe-good0;
+  border-color: #9bdbd8;
+  border-radius: 7px 4px 4px 7px;
+}
+.left-red {
+  border-style: solid;
+  border-left-width: 3px;
+  border-color: #e6af2e;
+  border-radius: 4px;
 }

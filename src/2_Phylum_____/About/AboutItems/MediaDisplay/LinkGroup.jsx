@@ -8,29 +8,26 @@ import { MediaRow, MediaItem, MediaTitle } from './styled';
 //  UTILS
 import { openNewTab } from '../../../../utils/Routing';
 
-const MediaCont = ({ _media }) => {
+const LinkGroup = ({ _links }) => {
   return (
-    <MediaRow
-      id='MediaCont-MediaRow'
-      style={{ width: _media.length > 0 ? '40%' : '0px' }}
-    >
-      {_media.length > 0 &&
-        _media.map(({ id, type, title, img, url }) =>
+    <MediaRow id='LinkGroup-MediaRow'>
+      {_links.length > 0 &&
+        _links.map(({ id, type, title, img, url }) =>
           type === 'link' ? (
             <MediaItem
-              id='MediaCont-MediaItem'
+              id='LinkGroup-MediaItem'
               key={id}
               onClick={() => openNewTab(url)}
             >
               <Tooltip title={title} placement='bottom'>
-                <ImageLogo id='MediaCont-ImageLogo' src={img} />
+                <ImageLogo id='LinkGroup-ImageLogo' src={img} />
               </Tooltip>
             </MediaItem>
           ) : (
             type === 'img' && (
-              <MediaItem id='MediaCont-MediaItem' key={id}>
+              <MediaItem id='LinkGroup-MediaItem' key={id}>
                 <Tooltip title={title} placement='bottom'>
-                  <ImageInfo id='MediaCont-ImageLogo' src={img} />
+                  <ImageInfo id='LinkGroup-ImageLogo' src={img} />
                 </Tooltip>
               </MediaItem>
             )
@@ -40,6 +37,8 @@ const MediaCont = ({ _media }) => {
   );
 };
 
-MediaCont.propTypes = {};
+LinkGroup.propTypes = {
+  _links: PropTypes.array.isRequired,
+};
 
-export default MediaCont;
+export default LinkGroup;

@@ -5,24 +5,27 @@ import { ParaSml } from '../../../Design/Styled_aoe';
 import { SummaryCont, ItemSummary } from './styled';
 
 const SummaryItem = ({
-  favRank,
+  topId,
+  isMore,
+  id,
   summary,
-  offset,
-  setSummaryHeight,
-  __handleToggle,
+  setParentHeight,
+  handleToggle,
 }) => {
   useEffect(() => {
     const summaryHeight = document.getElementById(
-      `SummaryItem-SummaryCont${favRank}`
+      `SummaryItem-SummaryCont${id}`
     ).offsetHeight;
-    setSummaryHeight(summaryHeight);
-  }, [setSummaryHeight, favRank]);
+    setParentHeight(summaryHeight);
+  }, [setParentHeight, id, topId]);
 
   return (
     <SummaryCont
-      id={`SummaryItem-SummaryCont${favRank}`}
-      className='pointer'
-      onClick={() => __handleToggle()}
+      id={`SummaryItem-SummaryCont${id}`}
+      className={isMore && ' pointer'}
+      onClick={() => {
+        isMore && handleToggle(id);
+      }}
     >
       <ItemSummary id='SummaryItem-ItemSummary'>
         {summary.map((paragraph, index) => (
@@ -35,6 +38,11 @@ const SummaryItem = ({
   );
 };
 
-SummaryItem.propTypes = {};
+SummaryItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  summary: PropTypes.array.isRequired,
+  setParentHeight: PropTypes.func.isRequired,
+  handleToggle: PropTypes.func.isRequired,
+};
 
 export default SummaryItem;

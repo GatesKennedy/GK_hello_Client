@@ -1,111 +1,48 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import DropSub from '../../../3_Class_____/DropTypes/DropSub';
-import StorySub from './StorySub';
+//  COMPS
+// import DropSub from '../../../3_Class_____/DropTypes/DropSub';
+import MediaCont from './MediaDisplay/MediaCont';
 //  STYLE
 import { ParaSml } from '../../../Design/Styled_aoe';
-import MediaCont from './MediaDisplay/MediaCont';
-import ToggleItem from '../../../3_Class_____/DropTypes/ToggleItem';
-
 import {
-  ItemCont,
   StoryCont,
-  ItemStory,
+  ItemCont,
   SubItem,
   SubTitle,
   SubText,
+  SubToggleCont,
 } from './styled';
 
-const StoryItem = ({
-  favRank,
-  isOpen,
-  story,
-  media,
-  offset,
-  _setStoryHeight,
-}) => {
-  //  STATE
-  const [openId, setOpenId] = useState(null);
-  const [isSubOpen, setIsSubOpen] = useState(false);
-  const [subHeight, setSubHeight] = useState(null);
-
-  useEffect(() => {
-    const storyHeight = document.getElementById(`StoryItem-StoryCont${favRank}`)
-      .offsetHeight;
-    console.log(
-      `%c StoryItem${favRank}-StoryCont Height: ${storyHeight}`,
-      'color: blue'
-    );
-
-    _setStoryHeight(storyHeight);
-  }, [_setStoryHeight, favRank]);
-  //  FXN
-  const handleToggle = () => {};
-  const handleSub = (id) => {
-    openId === id ? setOpenId(0) : setOpenId(id);
-  };
-
+const StoryItem = ({ story, favRank, __isOpen, _isSubOpen }) => {
   return (
-    <StoryCont
-      id={`StoryItem-StoryCont${favRank}`}
-      style={isOpen ? { opacity: 1 } : { opacity: 0 }}
-    >
-      <ItemStory id='StoryItem-ItemStory'>
-        {story.map(({ id, title, imgUrl, summary, story, media }) => (
-          <ItemCont id='StoryItem-ItemCont' key={id}>
-            <SubItem id='StoryItem-SubItem'>
-              <SubText id='StoryItem-SubText'>
-                <SubTitle id='StoryItem-SubTitle'>{title}</SubTitle>
-
-                {summary.length !== 0 && (
-                  <SubText id='StoryItem-SubText'>
-                    {summary.map((paragraph, index) => (
-                      <ParaSml id='StoryItem-ParaSml' key={index}>
-                        {paragraph}
-                      </ParaSml>
-                    ))}
-
-                    {story.length !== 0 && (
-                      <div onClick={() => handleSub(id)}>
-                        <ToggleItem
-                          isOpen={isSubOpen}
-                          __handleToggle={handleToggle}
-                        />
-                      </div>
-                    )}
-                  </SubText>
+    <SubItem id={`StoryGroup-SubItem-Story`} style={{ height: `` }}>
+      <ItemCont id='DropSub-ItemCont'>
+        <SubItem id='DropSub-SubItem'>
+          <SubText id='DropSub-SubText'>
+            {/* <SubTitle id='DropSub-SubTitle'>{story.title}</SubTitle>
+            {story.summary.length !== 0 &&
+              story.summary.map((paragraph, index) => (
+                <ParaSml id='DropSub-ParaSml' key={index}>
+                  {paragraph}
+                </ParaSml>
+              ))} */}
+            {/* <SubItem>
+                {media.length !== 0 && (
+                  <MediaCont
+                    id='DropSub-MediaCont'
+                    _media={media}
+                    _title={title}
+                  />
                 )}
-                <SubItem id='StoryItem-SubItem-Story'>
-                  {id === openId && (
-                    <Fragment>
-                      <StorySub
-                        id='StoryItem-StorySub'
-                        story={story}
-                        favRank={favRank}
-                        __isOpen={isOpen}
-                        _isSubOpen={isSubOpen}
-                      />
-                      {media.length !== 0 && (
-                        <MediaCont
-                          id='StoryItem-MediaCont'
-                          _media={media}
-                          _title={title}
-                        />
-                      )}
-                    </Fragment>
-                  )}
-                </SubItem>
-              </SubText>
-            </SubItem>
-          </ItemCont>
-        ))}
-      </ItemStory>
-    </StoryCont>
+              </SubItem> */}
+          </SubText>
+        </SubItem>
+      </ItemCont>
+    </SubItem>
   );
 };
 
-StoryItem.propTypes = {
-  _setStoryHeight: PropTypes.func.isRequired,
-};
+StoryItem.propTypes = {};
 
 export default StoryItem;
