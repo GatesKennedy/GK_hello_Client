@@ -111,11 +111,13 @@ export const ImageInfo = styled.img`
   overflow: hidden;
   /* background-color: #262727; */
 
-  height: auto;
-  width: 100%;
+  height: 230px;
+  width: auto;
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
+    height: auto;
+    width: 100%;
   }
 `;
 export const ImageLrg = styled.img`
