@@ -169,6 +169,10 @@ export const StoryCont = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   justify-items: flex-start;
+
+  position: relative;
+  top: 0px;
+
   padding: 0px 0px 8px 8px;
   width: 100%;
   font-size: 96%;
@@ -197,6 +201,8 @@ export const BodyCont = styled.div`
 export const ToggleCont = styled.div`
   transition: all 0.4s ease-in-out;
   margin: 12px 0px 8px 0px;
+
+  position: static;
 
   cursor: pointer;
 
