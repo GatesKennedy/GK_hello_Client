@@ -1,42 +1,52 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 //  STYLE
 import { Tooltip } from '@material-ui/core';
 import { ImageLogo, ImageInfo } from '../../../../Design/Styled_aoe';
-import { MediaRow, MediaItem, MediaTitle } from './styled';
+import {
+  MediaRow,
+  MediaCol,
+  MediaItem,
+  MediaItemInfo,
+  MediaTitle,
+} from './styled';
 //  UTILS
 import { openNewTab } from '../../../../utils/Routing';
 
 const MediaCont = ({ _media }) => {
   return (
-    <MediaRow
-      id='MediaCont-MediaRow'
-      style={{ width: _media.length > 0 ? '40%' : '0px' }}
-    >
+    <Fragment>
       {_media.length > 0 &&
         _media.map(({ id, type, title, img, url }) =>
           type === 'link' ? (
-            <MediaItem
-              id='MediaCont-MediaItem'
-              key={id}
-              onClick={() => openNewTab(url)}
+            <MediaRow
+              id='MediaCont-MediaRow'
+              style={{ width: _media.length > 0 ? '40%' : '0px' }}
             >
-              <Tooltip title={title} placement='bottom'>
-                <ImageLogo id='MediaCont-ImageLogo' src={img} />
-              </Tooltip>
-            </MediaItem>
-          ) : (
-            type === 'img' && (
-              <MediaItem id='MediaCont-MediaItem' key={id}>
+              <MediaItem
+                id='MediaCont-MediaItem'
+                key={id}
+                onClick={() => openNewTab(url)}
+              >
                 <Tooltip title={title} placement='bottom'>
-                  <ImageInfo id='MediaCont-ImageLogo' src={img} />
+                  <ImageLogo id='MediaCont-ImageLogo' src={img} />
                 </Tooltip>
               </MediaItem>
+            </MediaRow>
+          ) : (
+            type === 'img' && (
+              <MediaCol>
+                <MediaItemInfo id='MediaCont-MediaItemInfo' key={id}>
+                  <Tooltip title={title} placement='bottom'>
+                    <ImageInfo id='MediaCont-ImageInfo' src={img} />
+                  </Tooltip>
+                </MediaItemInfo>
+              </MediaCol>
             )
           )
         )}
-    </MediaRow>
+    </Fragment>
   );
 };
 

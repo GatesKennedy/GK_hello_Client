@@ -33,75 +33,63 @@ const InfoGroup = ({
     const storyHeight = document.getElementById(`InfoGroup-Expanded${id}`)
       .offsetHeight;
     setClosedHeight(summaryHeight + toggleHeight);
-
+    setExpandedHeight(storyHeight);
     isOpen
       ? setShownHeight(closedHeight + storyHeight)
       : setShownHeight(closedHeight);
     //==========================================================
     (topId === 2 || topId === 1) &&
       console.log('%c calcHeight() > ', 'color: #9bdbd8');
-    // (topId === 2 || topId === 1) &&
-    //   console.log(`   ${id}: caclHeight()
-    //       isOpen:         ${isOpen}
-    //       closedHeight    ${closedHeight}
-    //       expandedHeight  ${expandedHeight}
-    //                       --------
-    //       shownHeight     ${shownHeight}
-    //     `);
   }, [id, topId, isOpen, closedHeight, summaryHeight, toggleHeight]);
 
   //  Record height of children
   const reportChild = useCallback(() => {
-    const reportChildHeight = (localId, localHeight) => {
-      (topId === 2 || topId === 1) &&
-        console.log('%creportChild() > ', 'color: #9d58da');
-      (topId === 2 || topId === 1) && console.log(`   ${localId}`);
-      //==========================================================
-      let childUpdate = [];
-      let isDiff = false;
-
-      if (childList == null) return;
-      (topId === 2 || topId === 1) &&
-        console.log(`   ${localId} childList: `, childList);
-      //  child has reported
-      if (childList.some((item) => item.id === localId)) {
-        (topId === 2 || topId === 1) && console.log(`   updating...`);
-
-        childUpdate = childList.map((item) => {
-          if (item.id === localId && item.height !== localHeight) {
-            isDiff = true;
-            return { ...item, height: localHeight };
-          } else return item;
-        });
-      } else {
-        //  child unreported
-        (topId === 2 || topId === 1) && console.log(`   adding...`);
-        childUpdate = [...childList, { id: localId, height: localHeight }];
-        isDiff = true;
-      }
-
-      //  filter updateList
-      const updateList = childUpdate.filter((item) => item.id !== 0);
-      //  reduce childList heights
-      const childHeightSum = updateList.reduce(
-        (cnt, item) => cnt + item.height,
-        0
-      );
-
-      childUpdate = childUpdate.map((item) =>
-        item.id === 0 ? { ...item, height: childHeightSum } : item
-      );
-      console.log('   isDiff? ', isDiff);
-      // isDiff && updateChildList(childUpdate);
-      //==========================================================
-      (topId === 2 || topId === 1) &&
-        console.log(
-          `   childUpdate[] =
-            `,
-          childUpdate
-        );
-    };
-    reportChildHeight(id, shownHeight);
+    // const reportChildHeight = (localId, localHeight) => {
+    //   (topId === 2 || topId === 1) &&
+    //     console.log('%creportChild() > ', 'color: #9d58da');
+    //   (topId === 2 || topId === 1) && console.log(`   ${localId}`);
+    //   //==========================================================
+    //   let childUpdate = [];
+    //   let isDiff = false;
+    //   if (childList == null) return;
+    //   (topId === 2 || topId === 1) &&
+    //     console.log(`   ${localId} childList: `, childList);
+    //   //  child has reported
+    //   if (childList.some((item) => item.id === localId)) {
+    //     (topId === 2 || topId === 1) && console.log(`   updating...`);
+    //     childUpdate = childList.map((item) => {
+    //       if (item.id === localId && item.height !== localHeight) {
+    //         isDiff = true;
+    //         return { ...item, height: localHeight };
+    //       } else return item;
+    //     });
+    //   } else {
+    //     //  child unreported
+    //     (topId === 2 || topId === 1) && console.log(`   adding...`);
+    //     childUpdate = [...childList, { id: localId, height: localHeight }];
+    //     isDiff = true;
+    //   }
+    //   //  filter updateList
+    //   const updateList = childUpdate.filter((item) => item.id !== 0);
+    //   //  reduce childList heights
+    //   const childHeightSum = updateList.reduce(
+    //     (cnt, item) => cnt + item.height,
+    //     0
+    //   );
+    //   childUpdate = childUpdate.map((item) =>
+    //     item.id === 0 ? { ...item, height: childHeightSum } : item
+    //   );
+    //   console.log('   isDiff? ', isDiff);
+    //   // isDiff && updateChildList(childUpdate);
+    //   //==========================================================
+    //   (topId === 2 || topId === 1) &&
+    //     console.log(
+    //       `   childUpdate[] =
+    //         `,
+    //       childUpdate
+    //     );
+    // };
+    // reportChildHeight(id, shownHeight);
   }, [topId, id, childList, shownHeight]);
   //  setIsOpen()
   useEffect(() => {
@@ -111,6 +99,16 @@ const InfoGroup = ({
   //  calc
   useEffect(() => {
     calcHeight();
+    (topId === 2 || topId === 1) &&
+      console.log(`   ${id}: caclHeight()
+        isOpen:         ${isOpen}
+        summaryHeight:  ${summaryHeight}
+        toggleHeight:   ${toggleHeight}
+        closedHeight    ${closedHeight}
+        expandedHeight  ${expandedHeight}
+                        --------
+        shownHeight     ${shownHeight}
+      `);
   }, [calcHeight, isOpen]);
   //  report
   useEffect(() => {
@@ -145,7 +143,10 @@ const InfoGroup = ({
       <BodyCont id={`InfoGroup-BodyCont${id}`}>
         <TextCont
           id={`InfoGroup-TextCont${id}`}
-          style={{ height: shownHeight }}
+          style={{
+            height: shownHeight,
+            width: media.length > 0 ? '30%' : '100%',
+          }}
         >
           <SummaryItem
             topId={topId}
@@ -160,6 +161,7 @@ const InfoGroup = ({
               isOpen={isOpen}
               isMore={isMore}
               id={id}
+              setPar
               type={'sub'} // 'main' or 'sub'
               handleToggle={handleToggle}
             />
