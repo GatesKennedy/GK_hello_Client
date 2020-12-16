@@ -1,11 +1,17 @@
-import React, { Fragment, useEffect, useState, useCallback } from 'react';
+import React, {
+  Fragment,
+  useEffect,
+  useState,
+  useCallback,
+  useLayoutEffect,
+} from 'react';
 import PropTypes from 'prop-types';
 //  COMPS
 import SummaryItem from './SummaryItem';
 import MediaCont from './MediaDisplay/MediaCont';
 import ToggleItem from './ToggleItem';
 //  STYLE
-import { InfoCont, TextCont, BodyCont, TitleItem } from './styled';
+import { InfoCont, TextCont, BodyCont, StoryCont, TitleItem } from './styled';
 
 const InfoGroup = ({
   topId,
@@ -28,35 +34,43 @@ const InfoGroup = ({
 
   const [topOffset, setTopOffset] = useState(0);
 
-  //  CALLBACK
-  const calcHeight = useCallback(() => {
-    const storyHeight = document.getElementById(`InfoGroup-Expanded${id}`)
-      .offsetHeight;
-    setClosedHeight(summaryHeight + toggleHeight);
+  //  Calc Height
+  useLayoutEffect(() => {
+    let storyHeight = 0;
+    if (story.length !== 0)
+      storyHeight = document.getElementById(`InfoGroup-Expanded${id}`)
+        .offsetHeight;
+    isMore
+      ? setClosedHeight(summaryHeight + toggleHeight)
+      : setClosedHeight(summaryHeight);
     setExpandedHeight(storyHeight);
     isOpen
       ? setShownHeight(closedHeight + storyHeight)
       : setShownHeight(closedHeight);
     //==========================================================
-    (topId === 2 || topId === 1) &&
-      console.log('%c calcHeight() > ', 'color: #9bdbd8');
+    topId === 1 && console.log('%c calcHeight() > ', 'color: #9bdbd8');
   }, [id, topId, isOpen, closedHeight, summaryHeight, toggleHeight]);
+
+  // //  calc
+  // useEffect(() => {
+  //   calcHeight();
+  // }, [calcHeight, isOpen, summaryHeight]);
 
   //  Record height of children
   const reportChild = useCallback(() => {
     // const reportChildHeight = (localId, localHeight) => {
-    //   (topId === 2 || topId === 1) &&
+    //   (topId === 1) &&
     //     console.log('%creportChild() > ', 'color: #9d58da');
-    //   (topId === 2 || topId === 1) && console.log(`   ${localId}`);
+    //   (topId === 1) && console.log(`   ${localId}`);
     //   //==========================================================
     //   let childUpdate = [];
     //   let isDiff = false;
     //   if (childList == null) return;
-    //   (topId === 2 || topId === 1) &&
+    //   (topId === 1) &&
     //     console.log(`   ${localId} childList: `, childList);
     //   //  child has reported
     //   if (childList.some((item) => item.id === localId)) {
-    //     (topId === 2 || topId === 1) && console.log(`   updating...`);
+    //     (topId === 1) && console.log(`   updating...`);
     //     childUpdate = childList.map((item) => {
     //       if (item.id === localId && item.height !== localHeight) {
     //         isDiff = true;
@@ -65,7 +79,7 @@ const InfoGroup = ({
     //     });
     //   } else {
     //     //  child unreported
-    //     (topId === 2 || topId === 1) && console.log(`   adding...`);
+    //     (topId === 1) && console.log(`   adding...`);
     //     childUpdate = [...childList, { id: localId, height: localHeight }];
     //     isDiff = true;
     //   }
@@ -82,7 +96,7 @@ const InfoGroup = ({
     //   console.log('   isDiff? ', isDiff);
     //   // isDiff && updateChildList(childUpdate);
     //   //==========================================================
-    //   (topId === 2 || topId === 1) &&
+    //   (topId === 1) &&
     //     console.log(
     //       `   childUpdate[] =
     //         `,
@@ -96,24 +110,28 @@ const InfoGroup = ({
     parentId === id ? setIsOpen(true) : setIsOpen(false);
   }, [id, topId, parentId]);
 
-  //  calc
+  //  LOG STATE
   useEffect(() => {
-    calcHeight();
-    (topId === 2 || topId === 1) &&
-      console.log(`   ${id}: caclHeight()
-        isOpen:         ${isOpen}
-        summaryHeight:  ${summaryHeight}
-        toggleHeight:   ${toggleHeight}
-        closedHeight    ${closedHeight}
-        expandedHeight  ${expandedHeight}
-                        --------
-        shownHeight     ${shownHeight}
-      `);
-  }, [calcHeight, isOpen]);
-  //  report
-  useEffect(() => {
-    shownHeight && reportChild();
-  }, [reportChild, shownHeight, isOpen]);
+    //   topId === 1 &&
+    //     console.log(`   ${id}: caclHeight()
+    //   isOpen:         ${isOpen}
+    //   summaryHeight:  ${summaryHeight}
+    //   toggleHeight:   ${toggleHeight}
+    //   closedHeight    ${closedHeight}
+    //   expandedHeight  ${expandedHeight}
+    //                   --------
+    //   shownHeight     ${shownHeight}
+    // `);
+  }, [
+    id,
+    topId,
+    closedHeight,
+    shownHeight,
+    summaryHeight,
+    expandedHeight,
+    toggleHeight,
+    isOpen,
+  ]);
 
   //  Tell Parent Chosen Child
   const handleToggle = (localId) => {
@@ -157,32 +175,38 @@ const InfoGroup = ({
             handleToggle={handleToggle}
           />
           {isMore && (
-            <ToggleItem
-              isOpen={isOpen}
-              isMore={isMore}
-              id={id}
-              setPar
-              type={'sub'} // 'main' or 'sub'
-              handleToggle={handleToggle}
-            />
+            <Fragment>
+              <ToggleItem
+                isOpen={isOpen}
+                isMore={isMore}
+                id={id}
+                setPar
+                type={'sub'} // 'main' or 'sub'
+                handleToggle={handleToggle}
+              />
+
+              <div id={`InfoGroup-Expanded${id}`}>
+                {story.map((child) => (
+                  <StoryCont
+                    key={child.id}
+                    id={`InfoGroup-StoryCont${child.id}`}
+                  >
+                    <TitleItem id={`InfoGroup-TitleItem${child.id}`}>
+                      {child.title}
+                    </TitleItem>
+                    <InfoGroup
+                      topId={topId}
+                      parentId={openChild}
+                      reportChild={reportChild}
+                      childList={childList}
+                      toggleParent={handleToggle}
+                      item={child}
+                    />
+                  </StoryCont>
+                ))}
+              </div>
+            </Fragment>
           )}
-          <div id={`InfoGroup-Expanded${id}`}>
-            {story.map((child) => (
-              <Fragment>
-                <TitleItem id={`InfoGroup-TitleItem${child.id}`}>
-                  {child.title}
-                </TitleItem>
-                <InfoGroup
-                  topId={topId}
-                  parentId={openChild}
-                  reportChild={reportChild}
-                  childList={childList}
-                  toggleParent={handleToggle}
-                  item={child}
-                />
-              </Fragment>
-            ))}
-          </div>
         </TextCont>
         {media.length > 0 && (
           <MediaCont id='InfoGroup-MediaCont' _media={media} />
@@ -192,8 +216,6 @@ const InfoGroup = ({
   );
 };
 
-InfoGroup.propTypes = {
-  updateChildList: PropTypes.func.isRequired,
-};
+InfoGroup.propTypes = {};
 
 export default InfoGroup;

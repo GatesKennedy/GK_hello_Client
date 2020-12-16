@@ -21,6 +21,7 @@ const MediaCont = ({ _media }) => {
         _media.map(({ id, type, title, img, url }) =>
           type === 'link' ? (
             <MediaRow
+              key={id}
               id='MediaCont-MediaRow'
               style={{ width: _media.length > 0 ? '40%' : '0px' }}
             >
@@ -36,7 +37,7 @@ const MediaCont = ({ _media }) => {
             </MediaRow>
           ) : (
             type === 'img' && (
-              <MediaCol>
+              <MediaCol key={id}>
                 <MediaItemInfo id='MediaCont-MediaItemInfo' key={id}>
                   <Tooltip title={title} placement='bottom'>
                     <ImageInfo id='MediaCont-ImageInfo' src={img} />

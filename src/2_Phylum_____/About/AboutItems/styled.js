@@ -149,12 +149,12 @@ export const TextCont = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
+  min-width: 260px;
   overflow: hidden;
-  position: relative;
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
+    /* position: relative; */
   }
 
   transition: all 0.4s ease-in-out;
@@ -171,9 +171,15 @@ export const StoryCont = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   justify-items: flex-start;
-  padding: 0px 0px 8px 16px;
+  padding: 0px 0px 8px 8px;
   width: 100%;
-  font-size: smaller;
+  font-size: 96%;
+
+  @media only screen and (min-width: 600px) {
+    /* For desktop: */
+    padding: 0px 0px 8px 16px;
+  }
+
   transition: inherit;
 `;
 export const BodyCont = styled.div`
