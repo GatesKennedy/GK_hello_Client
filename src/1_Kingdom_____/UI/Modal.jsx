@@ -5,6 +5,7 @@ import { shape, bool, string, func } from 'prop-types';
 import { setModal } from '../UI/axn_ui';
 //  COMPS
 import Auth from '../../1_Kingdom_____/Auth/Auth';
+import Alert from '../Alert/Alert';
 //  STYLE
 import styled from 'styled-components';
 import { IoMdClose } from 'react-icons/io';
@@ -149,6 +150,7 @@ const Modal = ({
           opacity: modalShow ? 1 : 0,
         }}
       >
+        <Alert />
         {modalMsg !== 'void' && (
           <ModalMsg id='Modal-ModalMsg' className='bg-gry1 txt-gry6'>
             {modalMsg}

@@ -45,7 +45,7 @@ const App = () => {
     <Provider store={store}>
       <Router basename='/'>
         <Kingdom id='App-Kingdom' className='App bg-gry2'>
-          <Alert />
+          {!modalState && <Alert />}
           <Modal id='App-Modal' _setModalState={setModalState} />
           <Navi
             id='App-Navi'
