@@ -145,11 +145,8 @@ export const InfoCont = styled.section`
   transition: all 0.4s ease-in-out;
 `;
 export const TextCont = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  position: relative;
-  top: 0px;
+  display: block;
+  position: static;
 
   min-width: 260px;
   overflow: hidden;
@@ -173,7 +170,7 @@ export const StoryCont = styled.div`
   justify-content: flex-start;
   justify-items: flex-start;
 
-  position: relative;
+  position: static;
   top: 0px;
 
   padding: 0px 0px 8px 8px;
