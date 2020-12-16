@@ -25,7 +25,7 @@ export const ProfileBody = styled.section`
   padding: 8px;
   border-radius: 12px;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (min-width: 600px) {
     /* For desktop: */
     position: relative;
     left: -24px;
@@ -65,7 +65,7 @@ export const BodyCont = styled.section`
   margin: 2px 0px 2px -8px;
   border-radius: 12px;
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (min-width: 600px) {
     /* For desktop: */
     width: calc(100% + 32px);
   }

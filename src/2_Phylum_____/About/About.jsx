@@ -15,7 +15,6 @@ import TitleHeader from '../../0_GenComps_____/TitleHeader';
 const About = () => {
   //  STATE
   const [openItem, setOpenItem] = useState(0);
-
   const titleTxt1 = 'Hello, Friend...';
   const titleTxt2 = 'Software...';
   const titleTxt3 = 'Personal...';
@@ -67,7 +66,15 @@ const About = () => {
 };
 
 About.propTypes = {
-  // introObj: PropTypes.arrayOf(PropTypes.string).isRequired,
+  // introObj: PropTypes.shape({
+  //   rank: PropTypes.number,
+  //   title: PropTypes.string,
+  //   tech: PropTypes.arrayOf(PropTypes.string),
+  //   summary: PropTypes.string,
+  //   story: PropTypes.arrayOf(PropTypes.string),
+  //   titleImgUrl: PropTypes.string,
+  //   media: PropTypes.arrayOf(PropTypes.string),
+  // }).isRequired,
   // softwareObj: PropTypes.shape({
   //   rank: PropTypes.number,
   //   title: PropTypes.string,

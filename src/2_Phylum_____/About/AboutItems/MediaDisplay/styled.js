@@ -12,7 +12,7 @@ export const MediaRow = styled.div`
     /* For desktop: */
     position: relative;
     max-width: calc(100% - 13vw);
-    position: relative;
+
     top: -12px;
     left: 7vw;
   }
@@ -54,7 +54,7 @@ export const MediaItemInfo = styled.div`
     /* For desktop: */
     max-height: auto;
     width: auto;
-    position: relative;
+
     top: 12px;
   }
 `;

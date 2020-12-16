@@ -25,6 +25,9 @@ export const StoryCont = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   justify-items: flex-start;
+  //  !!!
+  position: static;
+
   padding: 0px 0px 8px 16px;
   width: 100%;
   font-size: smaller;
@@ -43,5 +46,9 @@ export const DropItem = styled.div`
 
 export const ToggleCont = styled.div`
   transition: all 0.4s ease-in-out;
+
+  //  !!!
+  position: static;
+
   /* margin: 12px 0px 0px 0px; */
 `;

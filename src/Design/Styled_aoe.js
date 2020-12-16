@@ -107,26 +107,20 @@ export const BtnTight = styled.button`
 `;
 
 export const ImageInfo = styled.img`
-  position: relative;
-  top: 0px;
-
   border-radius: 12px;
   overflow: hidden;
   /* background-color: #262727; */
 
-  height: auto;
-  width: 100%;
+  height: 230px;
+  width: auto;
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
-    position: relative;
-    top: 0px;
+    height: auto;
+    width: 100%;
   }
 `;
 export const ImageLrg = styled.img`
-  position: relative;
-  top: 0px;
-
   clip-path: circle(50%);
   overflow: hidden;
   background-color: #262727;
@@ -136,16 +130,12 @@ export const ImageLrg = styled.img`
 
   @media only screen and (max-width: 600px) {
     /* For desktop: */
-    position: relative;
-    top: 0px;
+
     width: calc(16vw - 8px);
     height: calc(16vw - 8px);
   }
 `;
 export const ImageMed = styled.img`
-  position: relative;
-  top: 0px;
-
   clip-path: circle(50%);
   overflow: hidden;
   background-color: #262727;
@@ -155,16 +145,12 @@ export const ImageMed = styled.img`
 
   @media only screen and (max-width: 600px) {
     /* For desktop: */
-    position: relative;
-    top: 0px;
+
     width: calc(16vw - 8px);
     height: calc(16vw - 8px);
   }
 `;
 export const ImageSml = styled.img`
-  position: relative;
-  top: 0px;
-
   clip-path: circle(50%);
   overflow: hidden;
   background-color: #262727;
@@ -174,16 +160,12 @@ export const ImageSml = styled.img`
 
   @media only screen and (max-width: 600px) {
     /* For desktop: */
-    position: relative;
-    top: 0px;
+
     width: calc(16vw - 8px);
     height: calc(16vw - 8px);
   }
 `;
 export const ImageLogo = styled.img`
-  position: relative;
-  top: 0px;
-
   overflow: hidden;
 
   width: 36px;
@@ -191,15 +173,12 @@ export const ImageLogo = styled.img`
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
-    position: relative;
-    top: 0px;
+
     width: 36px;
     height: 36px;
   }
 `;
 export const ImageIcon = styled.img`
-  position: relative;
-  top: 1px;
   left: -4px;
 
   clip-path: circle(50%);
@@ -210,8 +189,7 @@ export const ImageIcon = styled.img`
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
-    position: relative;
-    top: 0px;
+
     width: calc(16vw - 8px);
     height: calc(16vw - 8px);
   }

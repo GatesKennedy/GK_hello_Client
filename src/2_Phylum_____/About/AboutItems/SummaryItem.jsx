@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useLayoutEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 //  STYLE
 import { ParaSml } from '../../../Design/Styled_aoe';
@@ -12,11 +12,11 @@ const SummaryItem = ({
   setParentHeight,
   handleToggle,
 }) => {
-  useEffect(() => {
+  useLayoutEffect(() => {
     const summaryHeight = document.getElementById(
       `SummaryItem-SummaryCont${id}`
     ).offsetHeight;
-    console.log(`   ${id} summaryCont Height: `, summaryHeight);
+    topId === 8 && console.log(`   ${id} summaryCont Height: `, summaryHeight);
     setParentHeight(summaryHeight);
   }, [setParentHeight, id, topId]);
 
@@ -40,6 +40,8 @@ const SummaryItem = ({
 };
 
 SummaryItem.propTypes = {
+  topId: PropTypes.number.isRequired,
+  isMore: PropTypes.bool.isRequired,
   id: PropTypes.number.isRequired,
   summary: PropTypes.array.isRequired,
   setParentHeight: PropTypes.func.isRequired,

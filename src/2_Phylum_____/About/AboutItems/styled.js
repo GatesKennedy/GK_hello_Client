@@ -120,7 +120,6 @@ export const InfoGroupCont = styled.section`
     /* For desktop: */
     position: relative;
     max-width: calc(100% - 13vw);
-    position: relative;
     top: -24px;
     left: 7vw;
   }
@@ -146,12 +145,11 @@ export const InfoCont = styled.section`
   transition: all 0.4s ease-in-out;
 `;
 export const TextCont = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  display: block;
+  position: static;
 
+  min-width: 260px;
   overflow: hidden;
-  position: relative;
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
@@ -162,7 +160,7 @@ export const TextCont = styled.div`
 export const SummaryCont = styled.section`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  position: static;
 
   transition: inherit;
 `;
@@ -171,9 +169,19 @@ export const StoryCont = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   justify-items: flex-start;
-  padding: 0px 0px 8px 16px;
+
+  position: static;
+  top: 0px;
+
+  padding: 0px 0px 8px 8px;
   width: 100%;
-  font-size: smaller;
+  font-size: 96%;
+
+  @media only screen and (min-width: 600px) {
+    /* For desktop: */
+    padding: 0px 0px 8px 16px;
+  }
+
   transition: inherit;
 `;
 export const BodyCont = styled.div`
@@ -191,8 +199,11 @@ export const BodyCont = styled.div`
   transition: all 0.4s ease-in-out;
 `;
 export const ToggleCont = styled.div`
+  display: flex;
   transition: all 0.4s ease-in-out;
   margin: 12px 0px 8px 0px;
+
+  position: static;
 
   cursor: pointer;
 

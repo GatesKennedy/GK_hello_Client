@@ -62,9 +62,7 @@ const ImageItem = ({ imageSize, isOpen, titleImgUrl, __handleSelect }) => {
 };
 
 ImageItem.propTypes = {
-  _openState: PropTypes.number.isRequired,
   __handleSelect: PropTypes.func.isRequired,
-  favRank: PropTypes.number.isRequired,
   titleImgUrl: PropTypes.string.isRequired,
   imageSize: PropTypes.string,
 };
