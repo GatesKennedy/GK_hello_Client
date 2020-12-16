@@ -160,7 +160,7 @@ export const TextCont = styled.div`
 export const SummaryCont = styled.section`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  position: static;
 
   transition: inherit;
 `;
