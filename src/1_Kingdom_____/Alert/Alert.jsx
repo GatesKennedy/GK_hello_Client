@@ -18,8 +18,12 @@ const txtBlk2 = '#1d1d1d'; // ...more
 const txtWhite3 = '#e0e0e0'; // ....more
 
 const alert = {
+  display: 'flex',
+  postition: 'fixed',
+  top: 0,
   width: '100vw',
   padding: '4px 8px',
+  transition: 'all 0.3s ease-in-out',
 };
 
 const alertWarn = {
