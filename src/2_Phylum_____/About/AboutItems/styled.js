@@ -178,9 +178,15 @@ export const StoryCont = styled.div`
 `;
 export const BodyCont = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 
   width: 100%;
+
+  @media only screen and (min-width: 600px) {
+    /* For desktop: */
+    flex-direction: row;
+  }
+  transition: all 0.2s ease-in-out;
 
   transition: all 0.4s ease-in-out;
 `;
