@@ -28,8 +28,8 @@ const InfoGroup = ({
   const [closedHeight, setClosedHeight] = useState(null);
   const [expandedHeight, setExpandedHeight] = useState(null);
   const [summaryHeight, setSummaryHeight] = useState(null);
+  const [toggleHeight, setToggleHeight] = useState(38);
   const [mediaHeight, setMediaHeight] = useState(null);
-  const toggleHeight = 38;
 
   const [topOffset, setTopOffset] = useState(0);
 
@@ -48,7 +48,21 @@ const InfoGroup = ({
       : setShownHeight(closedHeight);
     //==========================================================
     topId === 1 && console.log('%c calcHeight() > ', 'color: #9bdbd8');
-  }, [id, topId, isOpen, closedHeight, summaryHeight, toggleHeight]);
+  }, [
+    id,
+    topId,
+    isOpen,
+    isMore,
+    story,
+    closedHeight,
+    summaryHeight,
+    toggleHeight,
+  ]);
+
+  //  setIsOpen()
+  useEffect(() => {
+    parentId === id ? setIsOpen(true) : setIsOpen(false);
+  }, [id, topId, parentId]);
 
   // //  calc
   // useEffect(() => {
@@ -104,10 +118,6 @@ const InfoGroup = ({
     // };
     // reportChildHeight(id, shownHeight);
   }, [topId, id, childList, shownHeight]);
-  //  setIsOpen()
-  useEffect(() => {
-    parentId === id ? setIsOpen(true) : setIsOpen(false);
-  }, [id, topId, parentId]);
 
   //  LOG STATE
   useEffect(() => {
@@ -134,7 +144,6 @@ const InfoGroup = ({
 
   //  Tell Parent Chosen Child
   const handleToggle = (localId) => {
-    //==========================================================
     console.log('%chandleToggle() > ', 'color: #c58cda');
     console.log(`   ${id}: handleToggle() 
     localId:      ${localId}
@@ -144,7 +153,6 @@ const InfoGroup = ({
     isOpen:       ${isOpen}
     shownHeight:  ${shownHeight}
     `);
-
     //==========================================================
     if (localId === id) {
       toggleParent(localId);
@@ -178,7 +186,7 @@ const InfoGroup = ({
               isOpen={isOpen}
               isMore={isMore}
               id={id}
-              setPar
+              setParentHeight={setToggleHeight}
               type={'sub'} // 'main' or 'sub'
               handleToggle={handleToggle}
             />
