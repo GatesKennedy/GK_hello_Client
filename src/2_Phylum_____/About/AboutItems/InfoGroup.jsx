@@ -175,37 +175,33 @@ const InfoGroup = ({
             handleToggle={handleToggle}
           />
           {isMore && (
-            <Fragment>
-              <ToggleItem
-                isOpen={isOpen}
-                isMore={isMore}
-                id={id}
-                setPar
-                type={'sub'} // 'main' or 'sub'
-                handleToggle={handleToggle}
-              />
-
-              <div id={`InfoGroup-Expanded${id}`}>
-                {story.map((child) => (
-                  <StoryCont
-                    key={child.id}
-                    id={`InfoGroup-StoryCont${child.id}`}
-                  >
-                    <TitleItem id={`InfoGroup-TitleItem${child.id}`}>
-                      {child.title}
-                    </TitleItem>
-                    <InfoGroup
-                      topId={topId}
-                      parentId={openChild}
-                      reportChild={reportChild}
-                      childList={childList}
-                      toggleParent={handleToggle}
-                      item={child}
-                    />
-                  </StoryCont>
-                ))}
-              </div>
-            </Fragment>
+            <ToggleItem
+              isOpen={isOpen}
+              isMore={isMore}
+              id={id}
+              setPar
+              type={'sub'} // 'main' or 'sub'
+              handleToggle={handleToggle}
+            />
+          )}
+          {isMore && (
+            <div id={`InfoGroup-Expanded${id}`}>
+              {story.map((child) => (
+                <StoryCont key={child.id} id={`InfoGroup-StoryCont${child.id}`}>
+                  <TitleItem id={`InfoGroup-TitleItem${child.id}`}>
+                    {child.title}
+                  </TitleItem>
+                  <InfoGroup
+                    topId={topId}
+                    parentId={openChild}
+                    reportChild={reportChild}
+                    childList={childList}
+                    toggleParent={handleToggle}
+                    item={child}
+                  />
+                </StoryCont>
+              ))}
+            </div>
           )}
         </TextCont>
         {media.length > 0 && (

@@ -148,6 +148,9 @@ export const TextCont = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  position: relative;
+  top: 0px;
+
   min-width: 260px;
   overflow: hidden;
 
@@ -199,6 +202,7 @@ export const BodyCont = styled.div`
   transition: all 0.4s ease-in-out;
 `;
 export const ToggleCont = styled.div`
+  display: flex;
   transition: all 0.4s ease-in-out;
   margin: 12px 0px 8px 0px;
 
