@@ -44,7 +44,7 @@ export const introObj = [
       'Artist',
     ],
     summary: [
-      `Hello,`,
+      `Hi,`,
       `I'm a curious and driven full stack software engineer who enjoys working on highly motivated and creative teams.`,
       `I believe the only thing that seperates a problem from a puzzle is perspective and I'm excited to solve puzzles with skilled communicators!`,
       `Below are a collection of projects I feel are relevant to the reason you are here.`,

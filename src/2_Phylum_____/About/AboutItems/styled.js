@@ -120,7 +120,6 @@ export const InfoGroupCont = styled.section`
     /* For desktop: */
     position: relative;
     max-width: calc(100% - 13vw);
-    position: relative;
     top: -24px;
     left: 7vw;
   }
@@ -154,7 +153,6 @@ export const TextCont = styled.div`
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
-    /* position: relative; */
   }
 
   transition: all 0.4s ease-in-out;
