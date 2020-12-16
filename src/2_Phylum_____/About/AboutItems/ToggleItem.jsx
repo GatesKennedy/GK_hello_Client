@@ -1,11 +1,31 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 //  STYLE
 import { RiArrowDropDownLine, RiArrowUpSLine } from 'react-icons/ri';
 import { Btn1 } from '../../../Design/Styled_aoe';
 import { ToggleCont } from './styled';
+import styled from 'styled-components';
 
-const ToggleItem = ({ isOpen, isMore, id, type, handleToggle }) => {
+const BtnContent = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+//==================
+const ToggleItem = ({
+  isOpen,
+  isMore,
+  id,
+  type,
+  setParentHeight,
+  handleToggle,
+}) => {
+  useLayoutEffect(() => {
+    const toggleHeight = document.getElementById(`ToggleItem-ToggleCont`)
+      .offsetHeight;
+    setParentHeight(toggleHeight + 20);
+  }, [setParentHeight]);
+
   const togStyle = () =>
     isMore
       ? {
@@ -31,13 +51,13 @@ const ToggleItem = ({ isOpen, isMore, id, type, handleToggle }) => {
     >
       <Btn1 id='ToggleItem-Btn1' className={bgStyle()} style={togStyle()}>
         {isOpen ? (
-          <Fragment>
+          <BtnContent id='ToggleItem-BtnContent'>
             less <RiArrowUpSLine />
-          </Fragment>
+          </BtnContent>
         ) : (
-          <Fragment>
+          <BtnContent id='ToggleItem-BtnContent'>
             more <RiArrowDropDownLine />
-          </Fragment>
+          </BtnContent>
         )}
       </Btn1>
     </ToggleCont>
