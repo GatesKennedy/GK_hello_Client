@@ -26,8 +26,6 @@ export const ChatCont = styled.div`
   align-content: center;
   align-items: center;
 
-  position: relative;
-  left: -5vw;
   width: 80%;
   height: 80%;
   min-width: 375px;
@@ -36,6 +34,10 @@ export const ChatCont = styled.div`
   padding: 8px 12px;
   border-radius: 18px;
   /* box-shadow: 1px 2px 2px #dddddd; */
+
+  @media only screen and (min-width: 600px) {
+    /* For desktop: */
+  }
 `;
 
 //  MENU

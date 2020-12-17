@@ -31,14 +31,7 @@ const Navi = ({ _phylumObj, setModal, profile, isAuthenticated }) => {
     const routeExt = String(window.location.href).split('/').pop();
     setNavNow(routeExt);
   }, []);
-  //  FXN
-  // const handleProfileLink = (isAuthenticated) => {
-  //   if (!isAuthenticated) {
-  //     setModal(true, 'auth', 'You like horses too?? ...Who are you?')
-  //   } else {
-  //     //  !!! Redirect to Profile Route...
-  //   }
-  // };
+
   return (
     <NaviCont id='Navi-NaviCont' className='bg-eerie'>
       {isAuthenticated ? (

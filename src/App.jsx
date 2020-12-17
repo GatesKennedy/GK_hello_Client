@@ -34,6 +34,7 @@ const App = () => {
   useEffect(() => {
     store.dispatch(authUser());
   }, []);
+
   //  Phylum Obj
   const PhylumObj = [
     { route: '/about', name: 'about', private: false, show: 'I N F O' },
