@@ -20,6 +20,8 @@ import setAuthToken from './utils/setAuthToken';
 //  Authenticate User
 //==========================
 export const authUser = (role) => async (dispatch) => {
+  console.log('%cauthUser()', 'color: blue');
+
   console.log('axn > authUser() > ENTER FXN');
   console.log('axn > authUser() > User Role: ', role);
   //  Set Headers with 'x-auth-token': 'token'
@@ -70,6 +72,7 @@ export const loginUser = (emailRaw, passwordRaw) => async (dispatch) => {
   try {
     //  LOGIN user
     const { data } = await API.post('/api/auth/login', body, config);
+
     console.log('(o_O) login() > resStr: ', data);
     dispatch(setAlert(data.msg, 'good'));
     await dispatch({
@@ -81,6 +84,22 @@ export const loginUser = (emailRaw, passwordRaw) => async (dispatch) => {
     dispatch(setModal(false, 'void'));
   } catch (err) {
     //  CATCH Error
+    if (!err.response) {
+      console.log(
+        `loginUser() >
+          catch(err) >
+            name: ${err.name}
+            message: ${err.message}
+            config: {
+              url: ${err.url}
+              method: ${err.method}
+            }
+        `
+      );
+      dispatch(setAlert(`${err.name}: ${err.message}`, 'warn'));
+      return;
+    }
+
     const { errors } = err.response.data;
     if (Array.isArray(errors)) {
       errors.forEach((error) => dispatch(setAlert(error.msg, 'warn')));
