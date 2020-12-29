@@ -61,8 +61,8 @@ export const introObj = [
           `By age five, household items and my sisters’ toys would go missing because ‘Conor was making something again’ and by grade five, I
       had convinced my dad to purchase blueprints for a 6’x8’x32’ half-pipe.  We agreed that he’d handle the cuts 
       but I had to mark them out myself and do all other work. He taught me what all the symbols meant on the schematics, and by middle school I’d built it. `,
-          `Twenty years later I’m still learning new symbols (code) and exploring how I can implement
-      them to build new things that I’ve designed myself.`,
+          `Twenty years later I’m still learning new symbols and exploring how I can implement
+      them to build things that I’ve designed myself.`,
         ],
         story: [],
         media: [],
