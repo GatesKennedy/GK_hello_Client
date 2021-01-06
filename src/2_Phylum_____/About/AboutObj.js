@@ -9,6 +9,7 @@ import algorithm2 from '../../Design/Images/algorithm2.png';
 import algorithm3 from '../../Design/Images/algorithm3.png';
 import algorithm3_circle from '../../Design/Images/algorithm3_circle.png';
 import algorithm4 from '../../Design/Images/algorithm4.png';
+import algorithm4_circle from '../../Design/Images/algorithm4_circle.png';
 import algorithm5 from '../../Design/Images/algorithm5.jpg';
 import SubIcon0 from '../../Design/Images/SubIcon00000_invert.png';
 //  IMG Personal
@@ -269,7 +270,7 @@ export const softwareObj = [
       {
         id: 0,
         type: 'link',
-        title: '🚫 Private',
+        title: '⛔ Private',
         tech: [],
         img: gitHub,
         url: 'void',
@@ -396,28 +397,21 @@ export const softwareObj = [
     media: [],
     links: [
       {
-        id: 1,
-        type: 'link',
-        title: 'Client Repo',
-        tech: [],
-        img: gitHub,
-        url: 'https://github.com/GatesKennedy/GK_hello_Client',
-      },
-      {
         id: 0,
         type: 'link',
-        title: 'Conor.Website',
+        title: 'Conor.Website/Talk',
         tech: [],
-        img: algorithm3_circle,
-        url: 'https://github.com/GatesKennedy/GK_hello_Client',
+        img: algorithm4_circle,
+        url: '/talk',
       },
       {
-        id: 2,
+        id: 1,
         type: 'link',
-        title: 'Server Repo',
+        title: '⛔ Server Repo',
         tech: [],
         img: gitHub,
-        url: 'https://github.com/GatesKennedy/GK_hello_Server',
+        // url: 'https://github.com/GatesKennedy/GK_Talk_Server',
+        url: 'void',
       },
     ],
   },
