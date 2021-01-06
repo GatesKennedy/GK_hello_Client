@@ -42,7 +42,7 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
   }, [editingType]);
   useEffect(() => {
     if (!isAuthenticated) {
-      setAlert('You gotta log in for that...', 'Notice');
+      setAlert('You gotta log in for that...', 'warn');
       return <Redirect to='/' />;
     }
   }, [isAuthenticated]);

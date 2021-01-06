@@ -7,6 +7,7 @@ import aggregate from '../../Design/Images/Aggregate.jpg';
 import algorithm from '../../Design/Images/algorithm.png';
 import algorithm2 from '../../Design/Images/algorithm2.png';
 import algorithm3 from '../../Design/Images/algorithm3.png';
+import algorithm3_circle from '../../Design/Images/algorithm3_circle.png';
 import algorithm4 from '../../Design/Images/algorithm4.png';
 import algorithm5 from '../../Design/Images/algorithm5.jpg';
 import SubIcon0 from '../../Design/Images/SubIcon00000_invert.png';
@@ -263,7 +264,7 @@ export const softwareObj = [
         title: '...In Progress',
         tech: [],
         img: needledrop,
-        url: '',
+        url: 'void',
       },
       {
         id: 0,
@@ -271,7 +272,7 @@ export const softwareObj = [
         title: '🚫 Private',
         tech: [],
         img: gitHub,
-        url: 'https://github.com/GatesKennedy',
+        url: 'void',
       },
     ],
   },
@@ -328,19 +329,19 @@ export const softwareObj = [
     media: [],
     links: [
       {
-        id: 0,
-        type: 'link',
-        title: 'Conor.Website',
-        tech: [],
-        img: GK_mobius,
-        url: 'https://github.com/GatesKennedy/GK_hello_Client',
-      },
-      {
         id: 1,
         type: 'link',
         title: 'Client Repo',
         tech: [],
         img: gitHub,
+        url: 'https://github.com/GatesKennedy/GK_hello_Client',
+      },
+      {
+        id: 0,
+        type: 'link',
+        title: 'Conor.Website',
+        tech: [],
+        img: algorithm3_circle,
         url: 'https://github.com/GatesKennedy/GK_hello_Client',
       },
       {
@@ -393,7 +394,32 @@ export const softwareObj = [
     repoLinks: ``,
     titleImgUrl: algorithm4,
     media: [],
-    links: [],
+    links: [
+      {
+        id: 1,
+        type: 'link',
+        title: 'Client Repo',
+        tech: [],
+        img: gitHub,
+        url: 'https://github.com/GatesKennedy/GK_hello_Client',
+      },
+      {
+        id: 0,
+        type: 'link',
+        title: 'Conor.Website',
+        tech: [],
+        img: algorithm3_circle,
+        url: 'https://github.com/GatesKennedy/GK_hello_Client',
+      },
+      {
+        id: 2,
+        type: 'link',
+        title: 'Server Repo',
+        tech: [],
+        img: gitHub,
+        url: 'https://github.com/GatesKennedy/GK_hello_Server',
+      },
+    ],
   },
 
   {
@@ -461,7 +487,16 @@ export const softwareObj = [
     repoLinks: ``,
     titleImgUrl: algorithm2,
     media: [],
-    links: [],
+    links: [
+      {
+        id: 0,
+        type: 'link',
+        title: '🚫 Private',
+        tech: [],
+        img: gitHub,
+        url: 'void',
+      },
+    ],
   },
 
   {
