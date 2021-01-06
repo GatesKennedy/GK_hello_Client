@@ -485,7 +485,7 @@ export const softwareObj = [
       {
         id: 0,
         type: 'link',
-        title: '🚫 Private',
+        title: '⛔ Project Repo',
         tech: [],
         img: gitHub,
         url: 'void',
