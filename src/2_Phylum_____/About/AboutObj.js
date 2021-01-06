@@ -26,8 +26,10 @@ import Arch_GK_Hello from '../../Design/Graphics/Arch_GK_Hello.png';
 import esc_1 from '../../Design/Images/esc.png';
 import esc_2 from '../../Design/Graphics/escape_collective_logo-circle.png';
 import gitHub from '../../Design/Graphics/GitHub-Mark-64px.png';
+import GK_mobius from '../../Design/Graphics/GK_Mobius2_circle.png';
 import linkedIn from '../../Design/Graphics/Linkedin-Square-black-2016-cropped.png';
 import spotify from '../../Design/Graphics/Spotify_Icon_RGB_Black.png';
+import needledrop from '../../Design/Graphics/needledrop_circle.png';
 import instagram from '../../Design/Graphics/instagram-icon.png';
 import nope from '../../Design/Graphics/Blank_space.png';
 
@@ -254,7 +256,24 @@ export const softwareObj = [
     repoLinks: ``,
     titleImgUrl: 'https://www.needledrop.co/images/whitesmlogo.png',
     media: [],
-    links: [],
+    links: [
+      {
+        id: 0,
+        type: 'link',
+        title: '...In Progress',
+        tech: [],
+        img: needledrop,
+        url: '',
+      },
+      {
+        id: 0,
+        type: 'link',
+        title: '🚫 Private',
+        tech: [],
+        img: gitHub,
+        url: 'https://github.com/GatesKennedy',
+      },
+    ],
   },
 
   {
@@ -307,7 +326,32 @@ export const softwareObj = [
     repoLinks: ``,
     titleImgUrl: algorithm3,
     media: [],
-    links: [],
+    links: [
+      {
+        id: 0,
+        type: 'link',
+        title: 'Conor.Website',
+        tech: [],
+        img: GK_mobius,
+        url: 'https://github.com/GatesKennedy/GK_hello_Client',
+      },
+      {
+        id: 1,
+        type: 'link',
+        title: 'Client Repo',
+        tech: [],
+        img: gitHub,
+        url: 'https://github.com/GatesKennedy/GK_hello_Client',
+      },
+      {
+        id: 2,
+        type: 'link',
+        title: 'Server Repo',
+        tech: [],
+        img: gitHub,
+        url: 'https://github.com/GatesKennedy/GK_hello_Server',
+      },
+    ],
   },
 
   {
@@ -519,7 +563,16 @@ export const softwareObj = [
     repoLinks: ``,
     titleImgUrl: esc_1,
     media: [],
-    links: [],
+    links: [
+      {
+        id: 0,
+        type: 'link',
+        title: 'EscCollective.com',
+        tech: [],
+        img: esc_2,
+        url: 'https://www.esccollective.com',
+      },
+    ],
   },
 ];
 
