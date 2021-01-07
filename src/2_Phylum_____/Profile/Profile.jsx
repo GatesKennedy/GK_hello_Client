@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
 //  STYLE
-
+import { Tooltip } from '@material-ui/core';
 import { BtnTight, RowFull } from '../../Design/Styled_aoe';
 import {
   ProfileCont,
@@ -26,6 +26,7 @@ import {
 //  MAIN
 //~~~~~~~~~~~~~~~~
 const Profile = ({ isAuthenticated, setAlert, profile }) => {
+  //  STATE
   const {
     name,
     email,
@@ -36,16 +37,21 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
     web_url,
     img_url,
   } = profile;
-  const [editingType, setEditingType] = useState();
+  const [editingType, setEditingType] = useState('void');
+  const [isHovering, setIsHovering] = useState();
+
+  //  EFFECT
   useEffect(() => {
     console.log('$$$ editingType: ', editingType);
   }, [editingType]);
+
   useEffect(() => {
     if (!isAuthenticated) {
       setAlert('You gotta log in for that...', 'warn');
       return <Redirect to='/' />;
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, setAlert]);
+
   //  ~~ FORM ~~
   const { register, handleSubmit, watch, reset, errors, formState } = useForm();
   const { touched, isValid, isSubmitting } = formState;
@@ -53,7 +59,13 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
   const onSubmit = async (data) => {
     console.log('FormData: ', data);
   };
-  //  Redirect (auth?)
+  //  FXN
+  const handleType = (typeIn) => {
+    console.log(`handleType() >
+      editingType: ${editingType}
+      typeIn:      ${typeIn}`);
+    editingType === 'void' ? setEditingType(typeIn) : setEditingType('void');
+  };
 
   //==================
   // MAIN RETURN
@@ -67,21 +79,30 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
         <ProfileHead>Profile Editing</ProfileHead>
         <ProfileBody>
           <BodyCont
-            onClick={() => setEditingType('identity')}
+            id='Profile-BodyCont-Identity'
+            onMouseEnter={() => setIsHovering('identity')}
+            onMouseLeave={() => setIsHovering('void')}
             className={editingType === 'identity' ? ' bg-gry1' : ' bg-gry2'}
           >
-            <RowFull>
+            <RowFull id='Profile-RowFull-Identity'>
               <h4>Identity</h4>
-              {editingType === 'identity' && (
-                <FormState id='identity-form'>
-                  <form>
-                    <Note className='txt-warn'>editing...</Note>
-                  </form>
-                  <BtnTight onClick={() => setEditingType('personality')}>
-                    nvm
-                  </BtnTight>
-                </FormState>
-              )}
+              <FormState id='identity-form'>
+                <form>
+                  <Note className='txt-warn'>
+                    {editingType === 'identity' && 'editing...'}
+                  </Note>
+                </form>
+                <BtnTight
+                  onClick={() => handleType('identity')}
+                  style={
+                    isHovering === 'identity'
+                      ? { opacity: '1' }
+                      : { opacity: '0' }
+                  }
+                >
+                  {editingType !== 'identity' ? 'edit' : 'nvm'}
+                </BtnTight>
+              </FormState>
             </RowFull>
 
             <RowFull className='fill-full'>
@@ -127,17 +148,30 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
             )}
           </BodyCont>
           <BodyCont
-            onClick={() => setEditingType('personality')}
+            id='Profile-BodyCont-Personality'
+            onMouseEnter={() => setIsHovering('personality')}
+            onMouseLeave={() => setIsHovering('void')}
             className={editingType === 'personality' ? ' bg-gry1' : ' bg-gry2'}
           >
-            <RowFull>
+            <RowFull id='Profile-RowFull-Personality'>
               <h4>Personality</h4>
-              {editingType === 'personality' && (
-                <FormState id='personality-form'>
-                  <Note className='txt-warn'>editing...</Note>
-                  <BtnTight>nvm</BtnTight>
-                </FormState>
-              )}
+              <FormState id='identity-form'>
+                <form>
+                  <Note className='txt-warn'>
+                    {editingType === 'personality' && 'editing...'}
+                  </Note>
+                </form>
+                <BtnTight
+                  onClick={() => handleType('personality')}
+                  style={
+                    isHovering === 'personality'
+                      ? { opacity: '1' }
+                      : { opacity: '0' }
+                  }
+                >
+                  {editingType !== 'personality' ? 'edit' : 'nvm'}
+                </BtnTight>
+              </FormState>
             </RowFull>
             <RowFull className='fill-full'>
               <PersonalityCont>
@@ -173,13 +207,13 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
                 <h5>Joke:</h5>
                 <PersonalityShow placeholder='Things that are funny...'>
                   {`It's easier to do
-In the moonlight
-And everyone you need
-Is alright
+                    In the moonlight
+                    And everyone you need
+                    Is alright
 
-And it doesn't take much to proof
-Everything is baby blue
-Everything is baby blue`}
+                    And it doesn't take much to proof
+                    Everything is baby blue
+                    Everything is baby blue`}
                 </PersonalityShow>
               </PersonalityCont>
 
@@ -214,6 +248,7 @@ Everything is baby blue`}
       </ProfileCont>
     );
 };
+
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
   profile: state.profile,
