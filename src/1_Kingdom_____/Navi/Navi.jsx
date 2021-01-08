@@ -139,7 +139,7 @@ Navi.propTypes = {
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
-  profile: state.profile,
+  profile: state.profile.identity,
 });
 
 export default connect(mapStateToProps, { setModal })(Navi);

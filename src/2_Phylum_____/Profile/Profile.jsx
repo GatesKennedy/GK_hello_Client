@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
 //  COMPS
-import FormSection from './FormSection';
+import IdentityForm from './IdentityForm';
 //  STYLE
 import { BtnTight, RowFull } from '../../Design/Styled_aoe';
 import {
@@ -72,7 +72,7 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
       <ProfileCont className='txt-black'>
         <ProfileHead>Profile Editing</ProfileHead>
         <ProfileBody>
-          <FormSection
+          <IdentityForm
             profileData={[name, entity, location, email, web_url, img_url]}
             editingType={editingType}
             setEditingType={setEditingType}
