@@ -1,13 +1,14 @@
 //  React
 import React, { Fragment, useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+// import { useForm } from 'react-hook-form';
 //  REDUX
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
+//  COMPS
+import FormSection from './FormSection';
 //  STYLE
-import { Tooltip } from '@material-ui/core';
 import { BtnTight, RowFull } from '../../Design/Styled_aoe';
 import {
   ProfileCont,
@@ -52,19 +53,12 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
     }
   }, [isAuthenticated, setAlert]);
 
-  //  ~~ FORM ~~
-  const { register, handleSubmit, watch, reset, errors, formState } = useForm();
-  const { touched, isValid, isSubmitting } = formState;
-
-  const onSubmit = async (data) => {
-    console.log('FormData: ', data);
-  };
   //  FXN
   const handleType = (typeIn) => {
     console.log(`handleType() >
       editingType: ${editingType}
       typeIn:      ${typeIn}`);
-    editingType === 'void' ? setEditingType(typeIn) : setEditingType('void');
+    editingType !== typeIn ? setEditingType(typeIn) : setEditingType('void');
   };
 
   //==================
@@ -78,6 +72,13 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
       <ProfileCont className='txt-black'>
         <ProfileHead>Profile Editing</ProfileHead>
         <ProfileBody>
+          <FormSection
+            profileData={[name, entity, location, email, web_url, img_url]}
+            editingType={editingType}
+            setEditingType={setEditingType}
+            isHovering={isHovering}
+            setIsHovering={setIsHovering}
+          />
           <BodyCont
             id='Profile-BodyCont-Identity'
             onMouseEnter={() => setIsHovering('identity')}
@@ -147,6 +148,7 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
               />
             )}
           </BodyCont>
+
           <BodyCont
             id='Profile-BodyCont-Personality'
             onMouseEnter={() => setIsHovering('personality')}
@@ -247,6 +249,12 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
         </ProfileBody>
       </ProfileCont>
     );
+};
+
+Profile.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
+  profile: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({

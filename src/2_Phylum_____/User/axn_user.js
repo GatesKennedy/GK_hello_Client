@@ -29,14 +29,20 @@ export const loadUser = (profile) => async (dispatch) => {
     console.log('AXN    authUser() > LOADED_USER: \n', data);
 
     const profileObj = {
-      name: data.name,
-      email: data.email,
-      entity: data.entity,
-      location: data.location,
-      puzzle: data.puzzle,
-      thought: data.thought,
-      web_url: data.website,
-      img_url: data.img_url,
+      identityObj: {
+        name: data.name,
+        email: data.email,
+        entity: data.entity,
+        location: data.location,
+        web_url: data.website,
+        img_url: data.img_url,
+      },
+      personalityObj: {
+        puzzle: data.puzzle,
+        thought: data.thought,
+        joke: data.joke,
+        question: data.question,
+      },
     };
     const userObj = {
       id: data.id,

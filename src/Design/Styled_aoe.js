@@ -104,6 +104,8 @@ export const BtnTight = styled.button`
     transform: scale(1.02);
     background-color: #bdbdbd;
   }
+
+  transition: all 0.3s ease-in-out 0s;
 `;
 
 export const ImageInfo = styled.img`

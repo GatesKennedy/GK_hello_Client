@@ -73,6 +73,8 @@ export const BodyCont = styled.section`
   &:hover {
     background-color: #e7e7e7;
   }
+
+  transition: all 0.3s ease-in-out 0s;
 `;
 
 //  EXTRA
