@@ -4,13 +4,9 @@ import PropTypes from 'prop-types';
 //  STYLE
 import { BtnTight, RowFull } from '../../Design/Styled_aoe';
 import {
-  ProfileCont,
-  ProfileHead,
-  ProfileBody,
   IdentityCont,
   IdentityShow,
-  PersonalityCont,
-  PersonalityShow,
+  FormCont,
   BodyCont,
   Note,
   FormState,
@@ -20,11 +16,13 @@ import FormField from './FormField';
 
 const IdentityForm = ({
   isAuthenticated,
+  formType,
   profileData,
   editingType,
   isHovering,
   setEditingType,
   setIsHovering,
+  handleType,
 }) => {
   //  STATE
 
@@ -35,47 +33,45 @@ const IdentityForm = ({
   const onSubmit = async (data) => {
     console.log('FormData: ', data);
   };
-  //  FXN
-  const handleType = (typeIn) => {
-    console.log(`handleType() >
-          editingType: ${editingType}
-          typeIn:      ${typeIn}`);
-    editingType !== typeIn ? setEditingType(typeIn) : setEditingType('void');
-  };
   return (
     <BodyCont
       id='Profile-BodyCont-Identity'
-      onMouseEnter={() => setIsHovering('identity')}
+      onMouseEnter={() => setIsHovering(formType)}
       onMouseLeave={() => setIsHovering('void')}
-      className={editingType === 'identity' ? ' bg-gry1' : ' bg-gry2'}
+      className={editingType === formType ? ' bg-gry1' : ' bg-gry2'}
     >
       <RowFull id='Profile-RowFull-Identity'>
-        <h4>Identity</h4>
+        <h4>{formType}</h4>
         <FormState id='identity-form'>
           <form>
             <Note className='txt-warn'>
-              {editingType === 'identity' && 'editing...'}
+              {editingType === formType && 'editing...'}
             </Note>
           </form>
           <BtnTight
-            onClick={() => handleType('identity')}
+            onClick={() => handleType(formType)}
             style={
-              isHovering === 'identity' ? { opacity: '1' } : { opacity: '0' }
+              isHovering === formType ? { opacity: '1' } : { opacity: '0' }
             }
           >
-            {editingType !== 'identity' ? 'edit' : 'nvm'}
+            {editingType !== formType ? 'edit' : 'nvm'}
           </BtnTight>
         </FormState>
       </RowFull>
 
-      <RowFull className='fill-full'>
-        {profileData.map((field) => (
-          <FormField
-            fieldObj={{ title: field, value: field, type: 'identity' }}
-          />
+      <FormCont
+        id='FormGroup-FormCont'
+        style={{
+          gridTemplateColumns:
+            formType === 'Personality' ? 'auto auto' : 'auto auto auto',
+        }}
+        className='fill-full'
+      >
+        {profileData.map((fieldObj) => (
+          <FormField fieldObj={fieldObj} />
         ))}
-      </RowFull>
-      {editingType === 'identity' && (
+      </FormCont>
+      {editingType === formType && (
         <input
           type='submit'
           form='identity-form'

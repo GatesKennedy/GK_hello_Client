@@ -10,17 +10,21 @@ import {
 } from './Styled';
 const FormField = ({ fieldObj }) => {
   return fieldObj.type === 'identity' ? (
-    <IdentityCont>
+    <IdentityCont id='FormField-IdentityCont'>
       <h5>{fieldObj.title}</h5>
-      <IdentityShow>
-        {fieldObj.value !== 'void' ? fieldObj.value : 'who sent you?'}
+      <IdentityShow id='FormField-IdentityShow'>
+        {fieldObj.value !== 'void' && fieldObj.value
+          ? fieldObj.value
+          : fieldObj.msg}
       </IdentityShow>
     </IdentityCont>
   ) : (
-    <PersonalityCont>
+    <PersonalityCont id='FormField-PersonalityCont'>
       <h5>{fieldObj.title}</h5>
-      <PersonalityShow>
-        {fieldObj.value !== 'void' ? fieldObj.value : 'who sent you?'}
+      <PersonalityShow id='FormField-PersonalityShow'>
+        {fieldObj.value !== 'void' && fieldObj.value
+          ? fieldObj.value
+          : fieldObj.msg}
       </PersonalityShow>
     </PersonalityCont>
   );

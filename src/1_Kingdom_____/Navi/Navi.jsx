@@ -21,7 +21,12 @@ import {
 import { IoMdLogIn, IoMdLogOut, IoMdPerson } from 'react-icons/io';
 import { FaHorseHead } from 'react-icons/fa';
 
-const Navi = ({ _phylumObj, setModal, profile, isAuthenticated }) => {
+const Navi = ({
+  _phylumObj,
+  setModal,
+  profile: { identity, loading },
+  isAuthenticated,
+}) => {
   //  STATE
   const [navNow, setNavNow] = useState();
   const iconStyle = { height: '100%', width: 'auto', padding: '2px 3px' };
@@ -42,22 +47,26 @@ const Navi = ({ _phylumObj, setModal, profile, isAuthenticated }) => {
               onClick={() => setNavNow('profile')}
               className='flex-row'
             >
-              <NaviLogo id='Navi-NaviLogo'>
-                <Btn>
-                  {profile.img_url === 'void' ? (
-                    <NaviImg src={profile.img_url} alt='img' />
-                  ) : (
-                    <IoMdPerson
-                      id='navi-logo-user'
-                      style={iconStyle}
-                      className='hoverColor'
-                    />
-                  )}
-                </Btn>
-                <IconText id='Navi-IconText'>
-                  <div className='txt-mine align-left'>{profile.name}</div>
-                </IconText>
-              </NaviLogo>
+              {loading ? (
+                <NaviLogo>wait..</NaviLogo>
+              ) : (
+                <NaviLogo id='Navi-NaviLogo'>
+                  <Btn>
+                    {identity.img_url ? (
+                      <NaviImg src={identity.img_url} alt='img' />
+                    ) : (
+                      <IoMdPerson
+                        id='navi-logo-user'
+                        style={iconStyle}
+                        className='hoverColor'
+                      />
+                    )}
+                  </Btn>
+                  <IconText id='Navi-IconText'>
+                    <div className='txt-mine align-left'>{identity.name}</div>
+                  </IconText>
+                </NaviLogo>
+              )}
             </Link>
           </Tooltip>
         </LinkCont>
@@ -135,11 +144,15 @@ const Navi = ({ _phylumObj, setModal, profile, isAuthenticated }) => {
 Navi.propTypes = {
   //logout: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
+  // profile: {
+  //   name: PropTypes.string,
+  //   img_url: PropTypes.string,
+  // },
 };
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
-  profile: state.profile.identity,
+  profile: state.profile,
 });
 
 export default connect(mapStateToProps, { setModal })(Navi);

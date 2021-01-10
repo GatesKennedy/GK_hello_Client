@@ -29,20 +29,65 @@ export const loadUser = (profile) => async (dispatch) => {
     console.log('AXN    authUser() > LOADED_USER: \n', data);
 
     const profileObj = {
-      identityObj: {
-        name: data.name,
-        email: data.email,
-        entity: data.entity,
-        location: data.location,
-        web_url: data.website,
-        img_url: data.img_url,
-      },
-      personalityObj: {
-        puzzle: data.puzzle,
-        thought: data.thought,
-        joke: data.joke,
-        question: data.question,
-      },
+      identityObj: [
+        {
+          title: 'name',
+          value: data.name,
+          msg: 'name (IRL)',
+          type: 'identity',
+        },
+        { title: 'email', value: data.email, msg: 'email', type: 'identity' },
+        {
+          title: 'entity',
+          value: data.entity,
+          msg: 'who sent you?',
+          type: 'identity',
+        },
+        {
+          title: 'location',
+          value: data.location,
+          msg: 'where?',
+          type: 'identity',
+        },
+        {
+          title: 'web_url',
+          value: data.website,
+          msg: 'what do you do?',
+          type: 'identity',
+        },
+        {
+          title: 'img_url',
+          value: data.img_url,
+          msg: 'upload?',
+          type: 'identity',
+        },
+      ],
+      personalityObj: [
+        {
+          title: 'puzzle',
+          value: data.puzzle,
+          msg: `what's your favorite brain teaser or riddle??`,
+          type: 'personality',
+        },
+        {
+          title: 'thought',
+          value: data.thought,
+          msg: `what's an important thought you've had?`,
+          type: 'personality',
+        },
+        {
+          title: 'joke',
+          value: data.joke,
+          msg: `what is funny?`,
+          type: 'personality',
+        },
+        {
+          title: 'question',
+          value: data.question,
+          msg: `what do you wonder about?`,
+          type: 'personality',
+        },
+      ],
     };
     const userObj = {
       id: data.id,

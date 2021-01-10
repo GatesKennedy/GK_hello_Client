@@ -29,7 +29,7 @@ const authReducer = (state = initialState, action) => {
       };
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
-      console.log('rdc_auth.js > payload.token: ', payload.token);
+      console.log('rdc_auth.js > LOGIN_SUCCESS');
       localStorage.setItem('token', payload.token);
       return {
         ...state,

@@ -20,9 +20,7 @@ import setAuthToken from './utils/setAuthToken';
 //  Authenticate User
 //==========================
 export const authUser = (role) => async (dispatch) => {
-  console.log('%cauthUser()', 'color: blue');
-
-  console.log('axn > authUser() > ENTER FXN');
+  console.log('%caxn > authUser() > ENTER FXN', 'color: goldenrod');
   console.log('axn > authUser() > User Role: ', role);
   //  Set Headers with 'x-auth-token': 'token'
   if (localStorage.token) {
@@ -64,7 +62,6 @@ export const loginUser = (emailRaw, passwordRaw) => async (dispatch) => {
   //  req config
   const email = emailRaw.toLowerCase();
   const body = { emailIn: email, passwordIn: passwordRaw };
-  console.log('(._.) login() > body = ', body);
   const config = {
     headers: { 'Content-Type': 'application/json' },
   };
@@ -79,8 +76,10 @@ export const loginUser = (emailRaw, passwordRaw) => async (dispatch) => {
       type: LOGIN_SUCCESS,
       payload: data,
     });
+    console.log('(o_O) login() > LOGIN_SUCCESS > Pass');
     //  AUTH user
     await dispatch(authUser(data.role));
+    console.log('(o_O) login() > authUser() > Pass');
     dispatch(setModal(false, 'void'));
   } catch (err) {
     //  CATCH Error

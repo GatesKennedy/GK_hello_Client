@@ -31,10 +31,15 @@ export const ProfileBody = styled.section`
     left: -24px;
   }
 `;
+export const FormCont = styled.div`
+  display: grid;
+  justify-content: space-between
+  padding: 9px;
+`;
+
 //  Identity
 export const IdentityCont = styled.section`
   padding: 12px;
-  min-width: calc(30% - 12px);
 `;
 export const IdentityShow = styled.div`
   width: 80%;
@@ -46,15 +51,14 @@ export const IdentityForm = styled.input`
 //  Personality
 export const PersonalityCont = styled.section`
   padding: 12px;
-  min-width: calc(50% - 12px);
 `;
 export const PersonalityShow = styled.div`
   height: 20vh;
+  color: #828282;
 `;
 export const PersonalityForm = styled.div`
   height: 20vh;
 `;
-
 export const BodyCont = styled.section`
   display: flex;
   flex-direction: column;
@@ -62,16 +66,18 @@ export const BodyCont = styled.section`
   max-width: 960px;
   width: calc(100% + 16px);
   padding: 8px 12px 8px 16px;
-  margin: 2px 0px 2px -8px;
+  margin: 6px 0px 6px -8px;
   border-radius: 12px;
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
+    background-color: #e7e7e7;
     width: calc(100% + 32px);
   }
 
   &:hover {
-    background-color: #e7e7e7;
+    background-color: #f2f2f2;
+    /* background-color: #e7e7e7; */
   }
 
   transition: all 0.3s ease-in-out 0s;
