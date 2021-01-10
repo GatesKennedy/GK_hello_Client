@@ -84,7 +84,7 @@ export const loadUser = (profile) => async (dispatch) => {
         {
           title: 'question',
           value: data.question,
-          msg: `what do you wonder about?`,
+          msg: `what is confusing?`,
           type: 'personality',
         },
       ],
