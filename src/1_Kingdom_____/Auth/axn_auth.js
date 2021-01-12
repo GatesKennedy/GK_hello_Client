@@ -42,8 +42,8 @@ export const authUser = (role) => async (dispatch) => {
       payload: data,
     });
     //  LOAD USER & LOAD PROFILE
-    dispatch(loadUser());
-    dispatch(loadTalkAccess());
+    await dispatch(loadUser());
+    await dispatch(loadTalkAccess());
     await dispatch(loadChat());
     console.log('(^=^) authUser() > DONE');
   } catch (err) {

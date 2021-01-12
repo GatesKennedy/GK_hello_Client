@@ -95,11 +95,11 @@ export const loadUser = (profile) => async (dispatch) => {
       role: data.role,
     };
 
-    dispatch({
+    await dispatch({
       type: USER_LOAD,
       payload: userObj,
     });
-    dispatch({
+    await dispatch({
       type: PROFILE_LOAD,
       payload: profileObj,
     });

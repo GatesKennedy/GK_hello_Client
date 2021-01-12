@@ -47,9 +47,7 @@ const Navi = ({
               onClick={() => setNavNow('profile')}
               className='flex-row'
             >
-              {loading ? (
-                <NaviLogo>wait..</NaviLogo>
-              ) : (
+              {identity ? (
                 <NaviLogo id='Navi-NaviLogo'>
                   <Btn>
                     {identity.img_url ? (
@@ -66,6 +64,8 @@ const Navi = ({
                     <div className='txt-mine align-left'>{identity.name}</div>
                   </IconText>
                 </NaviLogo>
+              ) : (
+                <NaviLogo>wait..</NaviLogo>
               )}
             </Link>
           </Tooltip>
