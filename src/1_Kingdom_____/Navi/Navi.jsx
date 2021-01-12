@@ -39,7 +39,7 @@ const Navi = ({
 
   return (
     <NaviCont id='Navi-NaviCont' className='bg-eerie'>
-      {isAuthenticated ? (
+      {isAuthenticated && identity ? (
         <LinkCont id='Navi-LinkCont'>
           <Tooltip title='Edit Profile' placement='bottom-start'>
             <Link
@@ -47,26 +47,22 @@ const Navi = ({
               onClick={() => setNavNow('profile')}
               className='flex-row'
             >
-              {identity ? (
-                <NaviLogo id='Navi-NaviLogo'>
-                  <Btn>
-                    {identity.img_url ? (
-                      <NaviImg src={identity.img_url} alt='img' />
-                    ) : (
-                      <IoMdPerson
-                        id='navi-logo-user'
-                        style={iconStyle}
-                        className='hoverColor'
-                      />
-                    )}
-                  </Btn>
-                  <IconText id='Navi-IconText'>
-                    <div className='txt-mine align-left'>{identity.name}</div>
-                  </IconText>
-                </NaviLogo>
-              ) : (
-                <NaviLogo>wait..</NaviLogo>
-              )}
+              <NaviLogo id='Navi-NaviLogo'>
+                <Btn>
+                  {identity.img_url ? (
+                    <NaviImg src={identity.img_url} alt='img' />
+                  ) : (
+                    <IoMdPerson
+                      id='navi-logo-user'
+                      style={iconStyle}
+                      className='hoverColor'
+                    />
+                  )}
+                </Btn>
+                <IconText id='Navi-IconText'>
+                  <div className='txt-mine align-left'>{identity.name}</div>
+                </IconText>
+              </NaviLogo>
             </Link>
           </Tooltip>
         </LinkCont>
