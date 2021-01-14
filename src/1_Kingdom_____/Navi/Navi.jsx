@@ -21,25 +21,23 @@ import {
 import { IoMdLogIn, IoMdLogOut, IoMdPerson } from 'react-icons/io';
 import { FaHorseHead } from 'react-icons/fa';
 
-const Navi = ({
-  _phylumObj,
-  setModal,
-  profile: { identity, loading },
-  isAuthenticated,
-}) => {
+const Navi = ({ _phylumObj, setModal, profile, isAuthenticated }) => {
   //  STATE
+  const { identity, loading } = profile;
   const [navNow, setNavNow] = useState();
+  const [profileState, setProfileState] = useState(profile);
+
   const iconStyle = { height: '100%', width: 'auto', padding: '2px 3px' };
   const RightStyle = { textAlign: 'right' };
   //  EFFECT
   useEffect(() => {
     const routeExt = String(window.location.href).split('/').pop();
     setNavNow(routeExt);
-  }, []);
+  }, [identity]);
 
   return (
     <NaviCont id='Navi-NaviCont' className='bg-eerie'>
-      {isAuthenticated && identity ? (
+      {loading && identity ? (
         <LinkCont id='Navi-LinkCont'>
           <Tooltip title='Edit Profile' placement='bottom-start'>
             <Link

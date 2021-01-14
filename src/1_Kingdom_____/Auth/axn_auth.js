@@ -20,23 +20,16 @@ import setAuthToken from './utils/setAuthToken';
 //  Authenticate User
 //==========================
 export const authUser = (role) => async (dispatch) => {
-  console.log('%caxn > authUser() > ENTER FXN', 'color: goldenrod');
-  console.log('axn > authUser() > User Role: ', role);
-  //  Set Headers with 'x-auth-token': 'token'
   if (localStorage.token) {
-    console.log('(o_O) authUser() > setAuthToken() > wait...');
     await setAuthToken(localStorage.token);
   } else {
-    console.log('(._.) authUser() > logout()...');
     dispatch({ type: PROFILE_CLEAR });
     dispatch({ type: LOGOUT });
     return;
   }
 
   try {
-    console.log('(^=^) authUser() > Enter Try');
     const { data } = await API.get('api/auth');
-    console.log('(^=^) authUser() > LOADED_USER: \n', data);
     dispatch({
       type: AUTH_SUCCESS,
       payload: data,
@@ -45,9 +38,8 @@ export const authUser = (role) => async (dispatch) => {
     await dispatch(loadUser());
     await dispatch(loadTalkAccess());
     await dispatch(loadChat());
-    console.log('(^=^) authUser() > DONE');
   } catch (err) {
-    console.log('(>_<) authUser() > catch > err.message: ', err.message);
+    console.error('(>_<) authUser() > catch > err.message: ', err.message);
     dispatch({
       type: AUTH_ERROR,
       payload: err,
@@ -58,7 +50,6 @@ export const authUser = (role) => async (dispatch) => {
 //  Login User
 //==========================
 export const loginUser = (emailRaw, passwordRaw) => async (dispatch) => {
-  console.log('(O_O) login() > ENTER FXN');
   //  req config
   const email = emailRaw.toLowerCase();
   const body = { emailIn: email, passwordIn: passwordRaw };
@@ -70,21 +61,20 @@ export const loginUser = (emailRaw, passwordRaw) => async (dispatch) => {
     //  LOGIN user
     const { data } = await API.post('/api/auth/login', body, config);
 
-    console.log('(o_O) login() > resStr: ', data);
     dispatch(setAlert(data.msg, 'good'));
     await dispatch({
       type: LOGIN_SUCCESS,
       payload: data,
     });
-    console.log('(o_O) login() > LOGIN_SUCCESS > Pass');
+    // console.log('(o_O) login() > LOGIN_SUCCESS > Pass');
     //  AUTH user
     await dispatch(authUser(data.role));
-    console.log('(o_O) login() > authUser() > Pass');
+    // console.log('(o_O) login() > authUser() > Pass');
     dispatch(setModal(false, 'void'));
   } catch (err) {
     //  CATCH Error
     if (!err.response) {
-      console.log(
+      console.error(
         `loginUser() >
           catch(err) >
             name: ${err.name}
@@ -119,7 +109,6 @@ export const registerUser = (
   confirm,
   role = 'user'
 ) => async (dispatch) => {
-  console.log('(O_O) register() > ENTER FXN');
   if (password !== confirm) {
     dispatch(setAlert(`oops.. passwords don't match`, `warn`));
     return;
@@ -135,7 +124,7 @@ export const registerUser = (
   try {
     const { data } = await API.post('/api/auth/register', body, config);
     const resStr = JSON.stringify(data);
-    console.log('AUTH REGI: res.data = ' + resStr);
+
     dispatch({
       type: REGISTER_SUCCESS,
       payload: data,
@@ -144,7 +133,6 @@ export const registerUser = (
     dispatch(setAlert(`Welcome! ${username}`, 'good'));
     dispatch(setModal(false, 'void'));
   } catch (err) {
-    console.log('(>_<) ERROR CATCH > err: ', err);
     const { errors, msg } = err.response.data;
     if (errors) {
       errors.forEach((error) => dispatch(setAlert(error.msg, 'warn')));
@@ -158,11 +146,9 @@ export const registerUser = (
 //  Logout / Clear Profile
 //==========================
 export const logoutUser = () => (dispatch) => {
-  console.log('(O_O) logout() > ENTER FXN');
   //  !!! remove token from local storage!
   dispatch({ type: PROFILE_CLEAR });
   dispatch({ type: LOGOUT });
   dispatch(setModal(false, 'guest'));
   dispatch(setAlert('okee.. bye bye', 'good'));
-  console.log('(^=^) logout() > DONE');
 };

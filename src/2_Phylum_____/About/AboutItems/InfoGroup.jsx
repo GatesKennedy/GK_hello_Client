@@ -46,8 +46,6 @@ const InfoGroup = ({
     isOpen
       ? setShownHeight(closedHeight + storyHeight)
       : setShownHeight(closedHeight);
-    //==========================================================
-    topId === 1 && console.log('%c calcHeight() > ', 'color: #9bdbd8');
   }, [
     id,
     topId,
@@ -144,21 +142,11 @@ const InfoGroup = ({
 
   //  Tell Parent Chosen Child
   const handleToggle = (localId) => {
-    console.log('%chandleToggle() > ', 'color: #c58cda');
-    console.log(`   ${id}: handleToggle() 
-    localId:      ${localId}
-    item.id:      ${id}
-    topId:        ${topId}
-    openChild:    ${openChild}
-    isOpen:       ${isOpen}
-    shownHeight:  ${shownHeight}
-    `);
     //==========================================================
     if (localId === id) {
       toggleParent(localId);
       return;
     } else {
-      console.log('%csetOpenChildId()', 'color: #c58cda');
       localId === openChild ? setOpenChildId(0) : setOpenChildId(localId);
     }
   };

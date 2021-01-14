@@ -17,11 +17,11 @@ export const makeTrkStr = (trk, artist, trkPre = 320) => {
   //  High 320
   if (trkPre === 320) {
     const objStr = `320/${artStr}/${trkStr}.mp3`;
-    console.log('makeTrkStr() > 320/objStr: ', objStr);
+    // console.log('makeTrkStr() > 320/objStr: ', objStr);
     return objStr;
   } else {
     const objStr = `160/${artStr}/${trkStr}.mp3`;
-    console.log('makeTrkStr() > 160/objStr: ', objStr);
+    // console.log('makeTrkStr() > 160/objStr: ', objStr);
     return objStr;
   }
 };
@@ -36,11 +36,11 @@ export const makeImgStr = (imageUrl, imgFamily, imgGenus = false) => {
   //  High 320
   if (!genStr) {
     const objStr = `${famStr}/${imgStr}`;
-    console.log('makeImgStr() > objStr: ', objStr);
+    // console.log('makeImgStr() > objStr: ', objStr);
     return objStr;
   } else {
     const objStr = `${famStr}/${genStr}/${imgStr}`;
-    console.log('makeImgStr() > objStr: ', objStr);
+    // console.log('makeImgStr() > objStr: ', objStr);
     return objStr;
   }
 };

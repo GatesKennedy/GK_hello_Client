@@ -16,12 +16,6 @@ export const setModal = (
   modalType = 'guest',
   modalMsg = 'void'
 ) => async (dispatch) => {
-  console.log(`axn > setModal() > ENTER FXN`, {
-    modalShow: modalShow,
-    modalType: modalType,
-    modalMsg: modalMsg,
-  });
-
   const setObj = {
     modalShow: modalShow,
     modalType: modalType,

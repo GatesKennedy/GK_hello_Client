@@ -90,7 +90,7 @@ const Modal = ({
   //  EFFECT
   useEffect(() => {
     _setModalState(modalShow);
-  }, [modalShow]);
+  }, [modalShow, _setModalState]);
   //  STYLE
   const styleIcon = {
     position: 'relative',
@@ -106,7 +106,6 @@ const Modal = ({
   if (!isAuthenticated) modalType = 'guest';
   const authType = <Auth />;
   const contentResult = (type) => {
-    console.log(`|    Modal > contentResult() > type: `, type);
     switch (type) {
       case 'auth':
       case 'guest':

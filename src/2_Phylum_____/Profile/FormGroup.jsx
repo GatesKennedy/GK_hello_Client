@@ -30,9 +30,7 @@ const IdentityForm = ({
   const { register, handleSubmit, watch, reset, errors, formState } = useForm();
   const { touched, isValid, isSubmitting } = formState;
 
-  const onSubmit = async (data) => {
-    console.log('FormData: ', data);
-  };
+  const onSubmit = async (data) => {};
   return (
     <BodyCont
       id='Profile-BodyCont-Identity'

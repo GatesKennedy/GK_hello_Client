@@ -14,8 +14,6 @@ import {
 } from '../../2_Phylum_____/About/AboutItems/styled';
 
 const DropSub = ({ favRank, openId, story, __isOpen, _isSubOpen }) => {
-  console.log(`${favRank} story: `, story);
-
   return (
     <StoryCont
       id={`DropSub-StoryCont${favRank}`}

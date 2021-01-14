@@ -4,26 +4,26 @@ export const defineVar = (testObj) => {
   var objectConstructor = {}.constructor;
 
   function whatIsIt(object) {
+    let resultString = '**UTIL** > Object is: ';
     if (object === null) {
-      return 'null';
+      resultString += 'null';
     }
     if (object === undefined) {
-      return 'undefined';
+      resultString += 'undefined';
     }
     if (object.constructor === stringConstructor) {
-      return 'String';
+      resultString += 'String';
     }
     if (object.constructor === arrayConstructor) {
-      return 'Array';
+      resultString += 'Array';
     }
     if (object.constructor === objectConstructor) {
-      return 'Object';
+      resultString += 'Object';
+    } else {
+      resultString += "don't know";
     }
-    {
-      return "don't know";
-    }
+    return resultString;
   }
 
   alert(whatIsIt(testObj));
-  console.log('**UTIL** > Object is: ' + whatIsIt(testObj));
 };

@@ -5,11 +5,7 @@ const { REACT_APP_API_URL } = process.env;
 
 //  Upload Image
 export async function awsImageUpload(data) {
-  console.log('ENTER FXN: awsImageUpload');
   const formData = new FormData();
-
-  console.log('TEST ', data.name);
-  console.log('TEST ', safeSpace(data.name));
 
   formData.append('artist', data.name);
   formData.append('type', 'profile');
@@ -19,6 +15,5 @@ export async function awsImageUpload(data) {
     method: 'POST',
     body: formData,
   }).then((res) => res.json());
-  console.log('AWS UTILS > awsImageUpload > res', res);
   return res;
 }

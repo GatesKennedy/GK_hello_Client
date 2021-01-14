@@ -16,7 +16,6 @@ const SummaryItem = ({
     const summaryHeight = document.getElementById(
       `SummaryItem-SummaryCont${id}`
     ).offsetHeight;
-    topId === 8 && console.log(`   ${id} summaryCont Height: `, summaryHeight);
     setParentHeight(summaryHeight);
   }, [setParentHeight, id, topId]);
 

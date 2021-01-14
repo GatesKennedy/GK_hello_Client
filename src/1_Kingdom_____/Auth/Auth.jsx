@@ -78,7 +78,6 @@ const Auth = ({
   const { touched, isValid, isSubmitting } = formState;
 
   const onSubmit = async (data) => {
-    console.log('onSubmit > FormData: ', data);
     const { email, password, confirm, username } = data;
 
     if (authType === 'login') {

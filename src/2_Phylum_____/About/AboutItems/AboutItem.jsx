@@ -22,15 +22,6 @@ const AboutItem = ({
   //  FXN
   const handleSelect = (localId) => {
     _openItem === localId ? _setOpenItem(0) : _setOpenItem(localId);
-
-    //==========================================================
-    console.log('%chandleSelect() > ', 'color: darkseagreen');
-    console.log(`${id}: handleSelect()
-    localId:      ${localId}
-    item.id:      ${id}
-    topId:        ${topId}
-    _openItem:    ${_openItem}
-    `);
   };
 
   function setChildList(list) {

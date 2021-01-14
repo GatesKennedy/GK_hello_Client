@@ -59,12 +59,11 @@ const Talk = ({
       setModal(true, 'auth', "You'll need to log in for GK_Talk");
     } else if (access.length > 0) {
       setAlert('Welcome friend...', 'good');
-      console.log(`$$$    Talk > ENTER > LOAD GOOD`);
+
       setTalkId(access[0].id);
       setChatContent(chat);
       if (user.role !== 'admin') setRoomName('Conor');
     } else {
-      console.log(`$$$    Talk > ENTER > LOAD FAIL`);
       setAlert('aww... you new?', 'success');
     }
   }, [chat]);
@@ -88,7 +87,7 @@ const Talk = ({
       send_id: userId,
       seen: false,
     };
-    console.log(`FXN    handleSend() > newMsg: `, msgObj);
+
     sendMsg(msgObj);
     postTalkHistory(talkId, msgObj);
   };

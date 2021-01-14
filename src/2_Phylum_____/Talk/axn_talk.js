@@ -18,16 +18,12 @@ import setAuthToken from '../../1_Kingdom_____/Auth/utils/setAuthToken';
 //  Set Messages Now
 //==========================
 export const setTalkNow = (talkObj) => (dispatch) => {
-  console.log(`AXN  > setTalkNow() > ENTER`);
-  console.log('AXN    setTalkNow() > talkObj: ', talkObj);
-
   try {
     dispatch({
       type: TALK_SET_NOW,
       payload: talkObj,
     });
   } catch (err) {
-    console.log(`AXN  > setTalkNow() > catch err`);
     dispatch({
       type: TALK_ERROR,
       payload: err,
@@ -38,14 +34,11 @@ export const setTalkNow = (talkObj) => (dispatch) => {
 //  Get Talk Access  [PRIVATE]
 //==========================
 export const loadTalkAccess = () => async (dispatch) => {
-  console.log('(O_O) chatLoad() > ENTER FXN');
   //  !!! > should be middleware function
   //  Set Headers with 'x-auth-token': 'token'
   if (localStorage.token) {
-    console.log('(o_O) authUser() > setAuthToken() > wait...');
     await setAuthToken(localStorage.token);
   } else {
-    console.log('(._.) authUser() > logout()...');
     dispatch({ type: TALK_CLEAR });
     dispatch({ type: LOGOUT });
     return;
@@ -53,7 +46,6 @@ export const loadTalkAccess = () => async (dispatch) => {
 
   try {
     const res = await API.get('/api/chat');
-    console.log('(o_O) chatLoad() > resStr: ', res.data);
 
     await dispatch({
       type: TALK_LOAD,
@@ -62,7 +54,6 @@ export const loadTalkAccess = () => async (dispatch) => {
     dispatch(setAlert(res.data.msg, 'success'));
   } catch (err) {
     //  CATCH Error
-    console.log('(-_-) chatLoad() > FAIL > errStr: ', err);
     const errors = err.errors;
     if (Array.isArray(errors)) {
       errors.forEach((error) => dispatch(setAlert(error.msg, 'warn')));
@@ -77,14 +68,11 @@ export const loadTalkAccess = () => async (dispatch) => {
 //  Load User Chat  [PRIVATE]
 //==========================
 export const loadChat = () => async (dispatch) => {
-  console.log('(O_O) chatLoad() > ENTER FXN');
   //  !!! > should be middleware function
   //  Set Headers with 'x-auth-token': 'token'
   if (localStorage.token) {
-    console.log('(o_O) authUser() > setAuthToken() > wait...');
     await setAuthToken(localStorage.token);
   } else {
-    console.log('(._.) authUser() > logout()...');
     dispatch({ type: TALK_CLEAR });
     dispatch({ type: LOGOUT });
     return;
@@ -92,8 +80,6 @@ export const loadChat = () => async (dispatch) => {
 
   try {
     const { data } = await API.get('/api/chat/history');
-    console.log('(o_O) chatLoad() > resStr: ', data);
-    console.log('(o_O) chatLoad() > data[0]: ', data[0]);
 
     await dispatch({
       type: TALK_CHAT_LOAD,
@@ -108,7 +94,7 @@ export const loadChat = () => async (dispatch) => {
     dispatch(setAlert(data.msg, 'success'));
   } catch (err) {
     //  CATCH Error
-    console.log('(-_-) chatLoad() > FAIL > errStr: ', err);
+
     const errors = err.errors;
     if (Array.isArray(errors)) {
       errors.forEach((error) => dispatch(setAlert(error.msg, 'warn')));
@@ -122,7 +108,6 @@ export const loadChat = () => async (dispatch) => {
 //  Post User Chat [PRIVATE]
 //==========================
 export const postTalkHistory = (talk_id, msgObj) => async (dispatch) => {
-  console.log(`AXN    postTalkHistory() > ENTER`);
   setAuthToken(localStorage.token);
   const config = {
     headers: { 'Content-Type': 'application/json' },
@@ -133,16 +118,13 @@ export const postTalkHistory = (talk_id, msgObj) => async (dispatch) => {
     body: msgObj.body,
     seen: msgObj.seen,
   };
-  console.log('AXN    postTalkHistory() > req body = ', body.body);
 
   try {
     const { data } = await API.post('/api/chat/', body, config);
-    console.log(`AXN    postTalkHistory() > returned > data: `, data[0].body);
     dispatch({
       type: TALK_CHAT_POST,
     });
   } catch (err) {
-    console.log(`AXN  > postTalkHistory() > catch err`);
     dispatch({
       type: TALK_ERROR,
       payload: err,
@@ -152,8 +134,6 @@ export const postTalkHistory = (talk_id, msgObj) => async (dispatch) => {
 //  Update User Chat [PRIVATE]
 //==========================
 export const setChatHistory = (talk_id, msgObj) => async (dispatch) => {
-  console.log(`AXN    setChatHistory() > ENTER`);
-
   try {
     const chatObj = {
       id: msgObj.send_id,
@@ -161,13 +141,11 @@ export const setChatHistory = (talk_id, msgObj) => async (dispatch) => {
       body: msgObj.body,
       seen: msgObj.seen,
     };
-    console.log('AXN    setChatHistory() > chatObj: ', chatObj);
 
     dispatch({
       type: TALK_SET_UPDATE,
     });
   } catch (err) {
-    console.log(`AXN  > setChatHistory() > catch err`);
     dispatch({
       type: TALK_ERROR,
       payload: err,

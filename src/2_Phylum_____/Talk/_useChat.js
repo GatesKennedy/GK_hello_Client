@@ -6,21 +6,11 @@ const useChat = (talkId) => {
   const [chatContent, setChatContent] = useState([]);
   //
   const sockRef = useRef();
-  useEffect(() => {
-    console.log('$$$    chatContent: ', chatContent);
-  }, [chatContent]);
+  useEffect(() => {}, [chatContent]);
 
   useEffect(() => {
     sockRef.current = io(REACT_APP_API_URL);
-    console.log('$$$$$    chatContent: ', chatContent);
-
     sockRef.current.on('chatMsg', (msgObj) => {
-      console.log(
-        `$$$  useChat() > .on('chatMsg', cb) > 
-      talkId = ${msgObj.talkId}`
-      );
-      console.log(`$$$   msgObj: `, msgObj);
-      console.log(`$$$   chatContent: `, chatContent);
       setChatContent((chatContent) => {
         const foundConvo = chatContent.find(
           (chat) => chat.talk_id === msgObj.talkId
@@ -33,9 +23,10 @@ const useChat = (talkId) => {
         return newContent;
       });
     });
+
     sockRef.current.on('status', (res) => {
-      console.log(`$$$  useChat() > .on('status', cb)`);
-      console.log(res);
+      // console.log(`$$$  useChat() > .on('status', cb)`);
+      // console.log(res);
     });
 
     return () => {
@@ -45,18 +36,13 @@ const useChat = (talkId) => {
   }, []);
 
   const registerClient = (userId, talkId) => {
-    console.log(`$$$    useChat() > .emit('register', {userId, talkId})`);
-
     sockRef.current.emit('register', { userId, talkId });
   };
   const initTalk = (userId, talkId, talkHistory) => {
-    console.log(`$$$    useChat() > .emit('init-talk', talkId)`);
-
     sockRef.current.emit('init-talk', talkId);
   };
 
   const sendMsg = (msgObj) => {
-    console.log(`$$$    useChat() > .emit('chatMsg', msgObj)`);
     sockRef.current.emit('chatMsg', msgObj);
   };
 

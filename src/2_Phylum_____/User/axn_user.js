@@ -16,18 +16,14 @@ import setAuthToken from '../../1_Kingdom_____/Auth/utils/setAuthToken';
 //  Load User (AUTH)
 //==========================
 export const loadUser = (profile) => async (dispatch) => {
-  console.log('axn  loadUser() > ENTER FXN');
   //  Set Headers with 'x-auth-token': 'token'
   if (localStorage.token) {
-    console.log('(o_O) authUser() > setAuthToken() > wait...');
     await setAuthToken(localStorage.token);
   }
 
   try {
     //  AUTH & LOAD USER
     const { data } = await API.get('api/user/');
-    console.log('AXN    authUser() > LOADED_USER: \n', data);
-
     const profileObj = {
       identityObj: [
         {
@@ -103,9 +99,7 @@ export const loadUser = (profile) => async (dispatch) => {
       type: PROFILE_LOAD,
       payload: profileObj,
     });
-    console.log('(^=^) authUser() > DONE');
   } catch (err) {
-    console.log('(>_<) authUser() > catch: ', err.message);
     dispatch({
       type: USER_LOAD_ERROR,
       payload: err,

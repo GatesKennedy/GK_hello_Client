@@ -1,9 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 import App from './App';
-// === Logs ===
-console.log('REACT_APP_NAME= ', process.env.REACT_APP_NAME);
-console.log('REACT_APP_API_URL= ', process.env.REACT_APP_API_URL);
 
 // ReactDOM.render(
 //   <React.StrictMode>

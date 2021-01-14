@@ -23,7 +23,6 @@ const StoryGroup = ({
   offset,
   _setStoryHeight,
 }) => {
-  console.log(`StoryObj${favRank}-${id}: `, story);
   //  STATE
   const [openId, setOpenId] = useState(0);
   const [isSubOpen, setIsSubOpen] = useState(false);
@@ -38,8 +37,6 @@ const StoryGroup = ({
   }, []);
   const calcHeight = useCallback(
     (id) => {
-      console.log('%c calcHeight()', 'color: blue');
-
       const subStoryHeight = document.getElementById(
         `StoryGroup-SubItem-Story${id}`
       ).offsetHeight;
@@ -47,9 +44,6 @@ const StoryGroup = ({
         .offsetHeight;
       const shutHeight = fullHeight - subStoryHeight;
       // const offset = summaryHeight + 2 * toggleHeight;
-      console.log('subStoryHeight: ', subStoryHeight);
-      console.log('fullHeight: ', fullHeight);
-      console.log('shutHeight: ', shutHeight);
       if (openId === id) {
         setSubHeight(fullHeight);
         // _setTopOffset(offset);
@@ -65,21 +59,14 @@ const StoryGroup = ({
     const storyHeight = document.getElementById(`StoryGroup-ItemCont${id}`)
       .offsetHeight;
 
-    console.log(
-      `%c StoryGroup${favRank}-ItemCont Height: ${storyHeight}`,
-      'color: blue'
-    );
-
     _setStoryHeight(storyHeight);
   }, [_setStoryHeight, favRank]);
   //  FXN
   const handleToggle = () => {};
   const handleSub = (id) => {
-    console.log(`id: ${id}, openId: ${openId}`);
     openId === id ? setOpenId(0) : setOpenId(id);
 
     calcHeight(id);
-    console.log('openId: ', openId);
   };
 
   return (

@@ -30,10 +30,6 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
 
   //  EFFECT
   useEffect(() => {
-    console.log('$$$ editingType: ', editingType);
-  }, [editingType]);
-
-  useEffect(() => {
     if (!isAuthenticated) {
       setAlert('You gotta log in for that...', 'warn');
       return <Redirect to='/' />;
@@ -42,9 +38,6 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
 
   //  FXN
   const handleType = (typeIn) => {
-    console.log(`handleType() >
-      editingType: ${editingType}
-      typeIn:      ${typeIn}`);
     editingType !== typeIn ? setEditingType(typeIn) : setEditingType('void');
   };
 
