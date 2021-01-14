@@ -56,5 +56,5 @@ export const NaviBtns = styled.div`
 `;
 export const IconText = styled.h5`
   min-width: 20vw;
-  padding: 4px;
+  padding: 2px 8px;
 `;
