@@ -30,7 +30,7 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
 
   //  FXN
   const handleType = (typeIn) => {
-    editingType !== typeIn ? setEditingType(typeIn) : setEditingType('void');
+    editingType === typeIn ? setEditingType('void') : setEditingType(typeIn);
   };
 
   //==================

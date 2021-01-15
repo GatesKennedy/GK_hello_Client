@@ -3,14 +3,7 @@ import { useForm } from 'react-hook-form';
 import PropTypes from 'prop-types';
 //  STYLE
 import { BtnTight, RowFull } from '../../Design/Styled_aoe';
-import {
-  IdentityCont,
-  IdentityShow,
-  FormCont,
-  BodyCont,
-  Note,
-  FormState,
-} from './Styled';
+import { FormCont, BodyCont, Note, FormState } from './Styled';
 import { connect } from 'react-redux';
 import FormField from './FormField';
 
@@ -25,7 +18,7 @@ const IdentityForm = ({
   handleType,
 }) => {
   //  STATE
-  const [editingNow, setEditingNow] = useState(editingType);
+
   //  ~~ FORM ~~
   const { register, handleSubmit, watch, reset, errors, formState } = useForm();
   const { touched, isValid, isSubmitting } = formState;
@@ -35,8 +28,13 @@ const IdentityForm = ({
     <BodyCont
       id='FormGroup-BodyCont'
       onMouseEnter={() => setIsHovering(formType)}
-      onMouseLeave={() => setIsHovering(editingNow)}
-      className={editingType === formType ? ' bg-gry1' : ' bg-gry2'}
+      onMouseLeave={() => setIsHovering('void')}
+      style={{
+        backgroundColor:
+          editingType === formType || isHovering === formType
+            ? '#f2f2f2'
+            : '#e7e7e7',
+      }}
     >
       {/* Header */}
       <RowFull id='FormGroup-RowFull'>

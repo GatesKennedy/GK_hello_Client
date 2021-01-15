@@ -33,12 +33,12 @@ export const ProfileBody = styled.section`
 `;
 export const FormCont = styled.div`
   display: grid;
-  justify-content: space-between
+  grid-template-columns: 28% auto 34%;
   padding: 9px;
 `;
 
 //  Identity
-export const IdentityCont = styled.section`
+export const FieldCont = styled.section`
   padding: 12px;
 `;
 export const IdentityShow = styled.div`
@@ -49,9 +49,7 @@ export const IdentityForm = styled.input`
   width: 80%;
 `;
 //  Personality
-export const PersonalityCont = styled.section`
-  padding: 12px;
-`;
+
 export const PersonalityShow = styled.div`
   height: 20vh;
   color: #828282;
@@ -73,11 +71,6 @@ export const BodyCont = styled.section`
     /* For desktop: */
     background-color: #e7e7e7;
     width: calc(100% + 32px);
-  }
-
-  &:hover {
-    background-color: #f2f2f2;
-    /* background-color: #e7e7e7; */
   }
 
   transition: all 0.3s ease-in-out 0s;
