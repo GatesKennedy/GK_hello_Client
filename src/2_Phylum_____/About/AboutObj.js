@@ -268,7 +268,7 @@ export const softwareObj = [
         url: 'void',
       },
       {
-        id: 0,
+        id: 1,
         type: 'link',
         title: '⛔ Private',
         tech: [],

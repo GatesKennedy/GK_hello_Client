@@ -1,5 +1,5 @@
 //  React
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 // import { useForm } from 'react-hook-form';
 //  REDUX
@@ -9,15 +9,7 @@ import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
 //  COMPS
 import FormGroup from './FormGroup';
 //  STYLE
-import { BtnTight, RowFull } from '../../Design/Styled_aoe';
-import {
-  ProfileCont,
-  ProfileHead,
-  ProfileBody,
-  Note,
-  FormState,
-  PersonalityForm,
-} from './Styled';
+import { ProfileCont, ProfileHead, ProfileBody } from './Styled';
 
 //~~~~~~~~~~~~~~~~
 //  MAIN
@@ -63,14 +55,6 @@ const Profile = ({ isAuthenticated, setAlert, profile }) => {
           />
           <FormGroup
             formType='Personality'
-            profileData={profile.personality}
-            editingType={editingType}
-            setEditingType={setEditingType}
-            isHovering={isHovering}
-            setIsHovering={setIsHovering}
-            handleType={handleType}
-          />
-          <PersonalityForm
             profileData={profile.personality}
             editingType={editingType}
             setEditingType={setEditingType}

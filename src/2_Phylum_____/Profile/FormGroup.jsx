@@ -25,7 +25,7 @@ const IdentityForm = ({
   handleType,
 }) => {
   //  STATE
-
+  const [editingNow, setEditingNow] = useState(editingType);
   //  ~~ FORM ~~
   const { register, handleSubmit, watch, reset, errors, formState } = useForm();
   const { touched, isValid, isSubmitting } = formState;
@@ -33,19 +33,18 @@ const IdentityForm = ({
   const onSubmit = async (data) => {};
   return (
     <BodyCont
-      id='Profile-BodyCont-Identity'
+      id='FormGroup-BodyCont'
       onMouseEnter={() => setIsHovering(formType)}
-      onMouseLeave={() => setIsHovering('void')}
+      onMouseLeave={() => setIsHovering(editingNow)}
       className={editingType === formType ? ' bg-gry1' : ' bg-gry2'}
     >
-      <RowFull id='Profile-RowFull-Identity'>
+      {/* Header */}
+      <RowFull id='FormGroup-RowFull'>
         <h4>{formType}</h4>
-        <FormState id='identity-form'>
-          <form>
-            <Note className='txt-warn'>
-              {editingType === formType && 'editing...'}
-            </Note>
-          </form>
+        <FormState id='FormGroup-FormState'>
+          <Note className='txt-warn'>
+            {editingType === formType && 'editing...'}
+          </Note>
           <BtnTight
             onClick={() => handleType(formType)}
             style={
@@ -56,7 +55,7 @@ const IdentityForm = ({
           </BtnTight>
         </FormState>
       </RowFull>
-
+      {/* Forms */}
       <FormCont
         id='FormGroup-FormCont'
         style={{
@@ -82,7 +81,7 @@ const IdentityForm = ({
 };
 
 IdentityForm.propTypes = {
-  profileData: PropTypes.object.isRequired,
+  profileData: PropTypes.arrayOf(PropTypes.object).isRequired,
   editingType: PropTypes.string.isRequired,
   setEditingType: PropTypes.func.isRequired,
   isHovering: PropTypes.string.isRequired,
