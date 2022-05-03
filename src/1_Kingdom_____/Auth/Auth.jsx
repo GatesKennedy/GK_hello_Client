@@ -68,6 +68,7 @@ const Auth = ({
   setModal,
   isAuthenticated,
 }) => {
+  
   const txtInput = {
     width: '100%',
     marginRight: 'calc(2em + 4px)',

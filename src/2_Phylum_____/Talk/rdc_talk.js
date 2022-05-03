@@ -1,12 +1,12 @@
 import {
   TALK_LOAD,
-  TALK_UPDATE,
+  // TALK_UPDATE,
   TALK_CLEAR,
   TALK_SET_NOW,
   TALK_CHAT_LOAD,
   TALK_SET_UPDATE,
-  TALK_NOTE_LOAD,
-  TALK_NOTE_UPDATE,
+  // TALK_NOTE_LOAD,
+  // TALK_NOTE_UPDATE,c
   TALK_ERROR,
   LOGOUT,
 } from '../../Redux/axn_types';

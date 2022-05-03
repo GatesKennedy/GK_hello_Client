@@ -123,6 +123,7 @@ export const postTalkHistory = (talk_id, msgObj) => async (dispatch) => {
     const { data } = await API.post('/api/chat/', body, config);
     dispatch({
       type: TALK_CHAT_POST,
+      payload: data // ???
     });
   } catch (err) {
     dispatch({
@@ -144,6 +145,7 @@ export const setChatHistory = (talk_id, msgObj) => async (dispatch) => {
 
     dispatch({
       type: TALK_SET_UPDATE,
+      payload: chatObj // ???
     });
   } catch (err) {
     dispatch({

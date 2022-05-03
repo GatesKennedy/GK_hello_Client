@@ -123,7 +123,7 @@ export const registerUser = (
   //  Create User
   try {
     const { data } = await API.post('/api/auth/register', body, config);
-    const resStr = JSON.stringify(data);
+    // const resStr = JSON.stringify(data);
 
     dispatch({
       type: REGISTER_SUCCESS,

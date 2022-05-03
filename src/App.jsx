@@ -1,30 +1,30 @@
-import React, { Fragment, useEffect, useState } from 'react';
+// import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect,
+  // Redirect,
 } from 'react-router-dom';
 // === REDUX ===
 import { Provider } from 'react-redux';
 import store from './Redux/store';
 import { authUser } from './1_Kingdom_____/Auth/axn_auth';
-import setAuthToken from './1_Kingdom_____/Auth/utils/setAuthToken';
+// import setAuthToken from './1_Kingdom_____/Auth/utils/setAuthToken'; // !!!
 // === Style ===
-import './Design/sass/App.scss';
 import { Kingdom } from './1_Kingdom_____/Styled';
 import { BodyCont } from './Design/Styled_aoe';
 //  Comps
 import Alert from './1_Kingdom_____/Alert/Alert';
 import Modal from './1_Kingdom_____/UI/Modal';
 import Navi from './1_Kingdom_____/Navi/Navi';
-import Hello from './2_Phylum_____/Hello/Hello';
+// import Hello from './2_Phylum_____/Hello/Hello'; // !!!
 import About from './2_Phylum_____/About/About';
 import Talk from './2_Phylum_____/Talk/Talk';
 import Profile from './2_Phylum_____/Profile/Profile';
 // === Socket.io ===
-import io from 'socket.io-client';
-const { REACT_APP_API_URL } = process.env;
+// import io from 'socket.io-client';
+// const { REACT_APP_API_URL } = process.env; //???
 
 const App = () => {
   //  Modal State

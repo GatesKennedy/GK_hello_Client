@@ -1,4 +1,4 @@
-import { SET_ALERT, REMOVE_ALERT, REMOVE_ALERTS } from '../../Redux/axn_types';
+ import { SET_ALERT, REMOVE_ALERT, REMOVE_ALERTS } from '../../Redux/axn_types';
 
 const initialState = [
   {

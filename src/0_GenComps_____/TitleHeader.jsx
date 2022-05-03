@@ -17,6 +17,8 @@ const TitleHeader = ({ _txt }) => {
   );
 };
 
-TitleHeader.propTypes = {};
+TitleHeader.propTypes = {
+  _txt: PropTypes.func.isRequired
+};
 
 export default TitleHeader;

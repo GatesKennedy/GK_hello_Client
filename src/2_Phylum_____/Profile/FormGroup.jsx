@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+// import React, { useState, useEffect } from 'react';
+// import { useForm } from 'react-hook-form';
 import PropTypes from 'prop-types';
 //  STYLE
 import { BtnTight, RowFull } from '../../Design/Styled_aoe';
@@ -8,22 +8,22 @@ import { connect } from 'react-redux';
 import FormField from './FormField';
 
 const IdentityForm = ({
-  isAuthenticated,
+  // isAuthenticated,
   formType,
   profileData,
   editingType,
   isHovering,
-  setEditingType,
+  // setEditingType,
   setIsHovering,
   handleType,
 }) => {
   //  STATE
 
   //  ~~ FORM ~~
-  const { register, handleSubmit, watch, reset, errors, formState } = useForm();
-  const { touched, isValid, isSubmitting } = formState;
+  // const { register, handleSubmit, watch, reset, errors, formState } = useForm();
+  // const { touched, isValid, isSubmitting } = formState;
+  // const onSubmit = async (data) => {};
 
-  const onSubmit = async (data) => {};
   return (
     <BodyCont
       id='FormGroup-BodyCont'

@@ -1,13 +1,13 @@
 import { API } from '../../utils/API';
 
 //  REDUX
-import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert';
+// import { setAlert } from '../../1_Kingdom_____/Alert/axn_alert'; // !!!
 import {
   USER_LOAD,
   PROFILE_LOAD,
-  USER_UPDATE,
-  USER_CLEAR,
-  USER_UPDATE_ERROR,
+  // USER_UPDATE,
+  // USER_CLEAR,
+  // USER_UPDATE_ERROR, // !!!
   USER_LOAD_ERROR,
 } from '../../Redux/axn_types';
 //  UTILS
@@ -15,7 +15,9 @@ import setAuthToken from '../../1_Kingdom_____/Auth/utils/setAuthToken';
 
 //  Load User (AUTH)
 //==========================
-export const loadUser = (profile) => async (dispatch) => {
+
+// export const loadUser = (profile) => async (dispatch) => { // ???
+export const loadUser = () => async (dispatch) => {
   //  Set Headers with 'x-auth-token': 'token'
   if (localStorage.token) {
     await setAuthToken(localStorage.token);

@@ -6,8 +6,8 @@
   "author": "Conor Gates Kennedy",
   "license": "ISC",
   "engines": {
-    "node": "12.13.1",
-    "npm": "6.12.1"
+    "node": "16.15.0",
+    "npm": "8.5.5"
   },
   "scripts": {
     "start": "react-scripts -r dotenv/config start",
@@ -20,22 +20,21 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "axios": "^0.19.2",
+    "axios": "^0.27.2",
     "dotenv": "^8.2.0",
     "moment": "^2.26.0",
-    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hook-form": "^5.7.2",
     "react-icons": "^3.11.0",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.0",
+    "react-scripts": "^5.0.1",
     "react-transition-group": "^4.4.1",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
-    "socket.io": "^2.3.0",
+    "socket.io": "^4.5.0",
     "socket.io-client": "^2.3.0",
     "styled-components": "^5.1.1"
   },
@@ -53,6 +52,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {}
+  }
 }

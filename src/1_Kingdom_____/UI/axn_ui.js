@@ -1,7 +1,7 @@
 import {
   MODAL_SET,
-  MODAL_SHOW_SET,
-  MODAL_TYPE_SET,
+  // MODAL_SHOW_SET, // ???
+  // MODAL_TYPE_SET, // ???
   MODAL_ERROR,
 } from '../../Redux/axn_types';
 

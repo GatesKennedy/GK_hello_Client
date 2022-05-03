@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+// import { useForm } from 'react-hook-form';
 // REDUX
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 //  STYLE
 import { ChatFormCont, ChatFormTxt, ChatFormBtn } from './Styled';

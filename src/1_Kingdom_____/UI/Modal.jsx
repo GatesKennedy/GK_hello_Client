@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 //  REDUX
 import { connect } from 'react-redux';
 import { shape, bool, string, func } from 'prop-types';
@@ -9,7 +9,8 @@ import Alert from '../Alert/Alert';
 //  STYLE
 import styled from 'styled-components';
 import { IoMdClose } from 'react-icons/io';
-import { Act } from '../../Design/Styled_aoe';
+// import { Act } from '../../Design/Styled_aoe'; !!!
+
 const ModalCont = styled.div`
   position: fixed;
   left: 0;
@@ -79,8 +80,8 @@ const ModalInsert = styled.div`
 
   padding: 8px;
 `;
-
 //=============================================
+
 const Modal = ({
   _setModalState,
   ui: { modalShow, modalType, modalMsg },

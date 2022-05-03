@@ -5,8 +5,8 @@ import styled from 'styled-components';
 
 // =================
 // ===   alert   ===
-const aoeAct2 = '#18a29f'; // ...more
-const txtWhite3 = '#e0e0e0'; // ....more
+// const aoeAct2 = '#18a29f'; // ...morek
+// const txtWhite3 = '#e0e0e0'; // ....more
 const AlertCont = styled.div`
   width: 100%;
 `;

@@ -1,8 +1,7 @@
 //  React
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 //  REDUX
 import PropTypes from 'prop-types';
-
 //  STYLE
 import { AboutCont, AboutBody } from './Styled';
 

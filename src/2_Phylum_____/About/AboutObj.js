@@ -1,39 +1,39 @@
-//  IMG Arts
-import mobiuss_1 from '../../Design/Images/LogoGk.jpg';
-import mobiuss_3 from '../../Design/Images/mobiuss_3.png';
-import mobiuss_4 from '../../Design/Images/mobiuss_4.png';
-import mobiuss_5 from '../../Design/Images/mobiuss_5.png';
-import aggregate from '../../Design/Images/Aggregate.jpg';
+// //  IMG Arts
+// import mobiuss_1 from '../../Design/Images/LogoGk.jpg';
+// import mobiuss_3 from '../../Design/Images/mobiuss_3.png';
+// import mobiuss_4 from '../../Design/Images/mobiuss_4.png';
+// import mobiuss_5 from '../../Design/Images/mobiuss_5.png';
+// import aggregate from '../../Design/Images/Aggregate.jpg';
 import algorithm from '../../Design/Images/algorithm.png';
 import algorithm2 from '../../Design/Images/algorithm2.png';
 import algorithm3 from '../../Design/Images/algorithm3.png';
 import algorithm3_circle from '../../Design/Images/algorithm3_circle.png';
 import algorithm4 from '../../Design/Images/algorithm4.png';
 import algorithm4_circle from '../../Design/Images/algorithm4_circle.png';
-import algorithm5 from '../../Design/Images/algorithm5.jpg';
+// import algorithm5 from '../../Design/Images/algorithm5.jpg';
 import SubIcon0 from '../../Design/Images/SubIcon00000_invert.png';
 //  IMG Personal
 import bridger from '../../Design/Images/BridgerBaby1.JPG';
-import ohnodamn from '../../Design/Images/ohnodamn.png';
+// import ohnodamn from '../../Design/Images/ohnodamn.png';
 import conor from '../../Design/Images/conor.jpg';
-import PG13_0 from '../../Design/Images/PG-13_0.jpg';
-import PG13_1 from '../../Design/Images/PG-13_1.jpg';
+// import PG13_0 from '../../Design/Images/PG-13_0.jpg';
+// import PG13_1 from '../../Design/Images/PG-13_1.jpg';
 import PG13_2 from '../../Design/Images/PG-13_2.jpg';
-import PG13_4 from '../../Design/Images/PG-13_4.jpg';
+// import PG13_4 from '../../Design/Images/PG-13_4.jpg';
 //  IMG Inform
-import architecture from '../../Design/Images/Architecture.jpg';
+// import architecture from '../../Design/Images/Architecture.jpg';
 import Arch_NDS from '../../Design/Graphics/Arch_NDS.png';
 import Arch_GK_Hello from '../../Design/Graphics/Arch_GK_Hello.png';
 //  VEX Brands
 import esc_1 from '../../Design/Images/esc.png';
 import esc_2 from '../../Design/Graphics/escape_collective_logo-circle.png';
 import gitHub from '../../Design/Graphics/GitHub-Mark-64px.png';
-import GK_mobius from '../../Design/Graphics/GK_Mobius2_circle.png';
+// import GK_mobius from '../../Design/Graphics/GK_Mobius2_circle.png';
 import linkedIn from '../../Design/Graphics/Linkedin-Square-black-2016-cropped.png';
 import spotify from '../../Design/Graphics/Spotify_Icon_RGB_Black.png';
 import needledrop from '../../Design/Graphics/needledrop_circle.png';
-import instagram from '../../Design/Graphics/instagram-icon.png';
-import nope from '../../Design/Graphics/Blank_space.png';
+// import instagram from '../../Design/Graphics/instagram-icon.png';
+// import nope from '../../Design/Graphics/Blank_space.png';
 
 export const introObj = [
   {

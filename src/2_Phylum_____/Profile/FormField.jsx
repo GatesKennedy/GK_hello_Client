@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 //  STYLE
-import { BtnTight, RowFull } from '../../Design/Styled_aoe';
+// import { BtnTight, RowFull } from '../../Design/Styled_aoe';
 import { FieldCont, IdentityShow, PersonalityShow } from './Styled';
 const FormField = ({ fieldObj }) => {
   return fieldObj.type === 'identity' ? (

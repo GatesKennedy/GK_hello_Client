@@ -1,9 +1,9 @@
 //  React
 import React, { Fragment, useState, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+// import { useForm } from 'react-hook-form';
 //  REDUX
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { setAlert, removeAlerts } from '../../1_Kingdom_____/Alert/axn_alert';
 import { setModal } from '../../1_Kingdom_____/UI/axn_ui';
 import { loadChat, postTalkHistory } from './axn_talk';
@@ -24,14 +24,14 @@ import {
 import ChatBody from './ChatBody';
 import ChatForm from './ChatForm';
 import BackDrop from '../../1_Kingdom_____/UI/Backdrop';
-import { REGISTER_ERROR } from '../../Redux/axn_types';
+// import { REGISTER_ERROR } from '../../Redux/axn_types';
 
 //==========================================================
 const Talk = ({
   setModal,
   setAlert,
   removeAlerts,
-  loadChat,
+  // loadChat,
   postTalkHistory,
   user,
   talk: { access, chat, loading },
