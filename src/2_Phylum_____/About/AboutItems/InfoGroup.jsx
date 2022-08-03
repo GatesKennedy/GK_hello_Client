@@ -10,7 +10,7 @@ import SummaryItem from './SummaryItem';
 import MediaCont from './MediaDisplay/MediaCont';
 import ToggleItem from './ToggleItem';
 //  STYLE
-import { InfoCont, TextCont, BodyCont, StoryCont, TitleItem } from './styled';
+import { InfoCont, InfoText, BodyCont, StoryCont, TitleItem } from './styled';
 
 const InfoGroup = ({
   topId,
@@ -153,9 +153,8 @@ const InfoGroup = ({
 
   return (
     <InfoCont id={`InfoGroup-InfoCont${id}`}>
-      <BodyCont id={`InfoGroup-BodyCont${id}`}>
-        <TextCont
-          id={`InfoGroup-TextCont${id}`}
+        <InfoText
+          id={`InfoGroup-InfoText${id}`}
           style={{
             height: shownHeight,
             width: media.length > 0 ? '30%' : '100%',
@@ -198,11 +197,10 @@ const InfoGroup = ({
               ))}
             </div>
           )}
-        </TextCont>
+        </InfoText>
         {media.length > 0 && (
           <MediaCont id='InfoGroup-MediaCont' _media={media} />
         )}
-      </BodyCont>
     </InfoCont>
   );
 };

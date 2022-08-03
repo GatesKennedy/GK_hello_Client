@@ -7,8 +7,9 @@ export const AboutCont = styled.section`
   flex-direction: column;
 
   width: 92vw;
+  max-width: 1400px;
 
-  margin: 0vw 4vw;
+  margin: auto;
   padding: 8px;
 `;
 export const AboutHead = styled.section`

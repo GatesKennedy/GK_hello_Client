@@ -113,14 +113,14 @@ export const StatsCont = styled.div`
   }
   transition: inherit;
 `;
-export const InfoGroupCont = styled.section`
+export const ItemInfo = styled.section`
   display: flex;
 
   @media only screen and (min-width: 600px) {
     /* For desktop: */
     position: relative;
     max-width: calc(100% - 13vw);
-    top: -24px;
+    top: -2em;
     left: 7vw;
   }
   transition: all 0.4s ease-in-out;
@@ -131,7 +131,6 @@ export const InfoCont = styled.section`
   justify-content: flex-start;
   justify-items: flex-start;
 
-  width: calc(100%);
   padding: 0px 8px 0px 18px;
 
   overflow: hidden;
@@ -141,10 +140,12 @@ export const InfoCont = styled.section`
     position: relative;
     max-width: calc(100% - 2vw);
     margin-left: 2vw;
+
+    flex-direction: row;
   }
   transition: all 0.4s ease-in-out;
 `;
-export const TextCont = styled.div`
+export const InfoText = styled.div`
   display: block;
   position: static;
 
@@ -194,7 +195,6 @@ export const BodyCont = styled.div`
     /* For desktop: */
     flex-direction: row;
   }
-  transition: all 0.2s ease-in-out;
 
   transition: all 0.4s ease-in-out;
 `;
@@ -209,7 +209,6 @@ export const ToggleCont = styled.div`
 
   transition: inherit;
 `;
-
 export const TitleItem = styled.div`
   display: flex;
 
@@ -222,15 +221,14 @@ export const TitleItem = styled.div`
     margin-left: 1vw;
   }
 `;
+// export const ItemInfo = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: flex-start;
 
-export const ItemInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-
-  width: 80%;
-`;
-export const ItemTitle = styled.div`
+//   width: 80%;
+// `;
+export const TitleName = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -243,7 +241,7 @@ export const ItemTitle = styled.div`
   font-size: larger;
   font-weight: bold;
 `;
-export const ItemTech = styled.div`
+export const TitleDetail = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -273,6 +271,8 @@ export const TechList = styled.ul`
   flex-wrap: wrap;
 
   font-size: smaller;
+  margin: 0px;
+  padding-left: 0px;
   width: 80vw;
 
   transition: inherit;
@@ -290,6 +290,8 @@ export const TechItem = styled.li`
   padding: 1px 4px;
 
   font-size: smaller;
+  background-color: #f6f6f6; 
+
 
   transition: inherit;
 `;

@@ -1,0 +1,264 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  left: 0;
+  width: 100%;
+}
+
+body {
+  -webkit-flex: 1 0;
+  -ms-flex: 1; /* IE 10 */
+  flex: 1 0;
+
+  font-family: 'Exo 2', Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.3;
+
+  /* background-color: $white-2; */
+  /* color: $black-1; */
+
+  cursor: default;
+}
+
+.chat {
+  text-transform: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* //  Display */
+.fill-full {
+  height: 100%;
+  left: 0;
+  width: 100%;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.msg-chat {
+  display: flex;
+}
+.msg-them {
+  justify-content: flex-start;
+  text-align: left;
+}
+.msg-self {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+a {
+  text-decoration: none;
+  padding-top: 4px;
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  text-align: center;
+  text-justify: center;
+}
+
+.align-left {
+  text-align: left;
+}
+/* // Buttons */
+.pointer {
+  cursor: pointer;
+}
+
+/* // ANIMATE */
+.styleIcon {
+  @media only screen and (max-width: 600px) {
+    /* For desktop: */
+    width: calc(100% + 32px);
+  }
+}
+/*
+.hoverColor {
+  &:hover {
+    background-color: #bdbdbd; $aoe-gry3
+  }
+}
+
+.activeItem {
+  background-color: $aoe-gry1; 
+  &:hover {
+    background-color: #ededed;
+  }
+}
+.inactiveItem {
+  &:hover {
+    background-color: $aoe-gry1-5;
+  }
+}
+*/
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0.1rem;
+  outline: none;
+  margin: 1px;
+  padding: 0px;
+
+  cursor: pointer;
+  -webkit-appearance: none;
+  text-decoration: none;
+  text-align: center;
+
+  will-change: transform;
+  transform: scale(1);
+  transition: transform 480ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* &:not(:last-of-type) {
+    margin-right: 3px;
+  } */
+
+  /* &:hover {
+    transform: scale(1.02);
+  } */
+}
+.button:hover {
+  opacity: 0.85;
+}
+.button:active {
+  box-shadow: inset 0 3px 4px hsla(0, 0%, 0%, 0.2);
+}
+.fade {
+  transition: opacity 0.25s ease-in-out;
+}
+.btn {
+  text-align: center;
+  width: fit-content;
+  margin: 2px 4px;
+  padding: 6px 6px 3px 6px;
+
+  cursor: pointer;
+  will-change: transform;
+  transform: scale(1);
+  transition: transform 480ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* &:hover {
+    transform: scale(1.02);
+  } */
+}
+/* // ================= */
+/* // ===   alert   === */
+.alert {
+  width: 100%;
+}
+
+.alert-good {
+  padding: 4px 8px;
+  /* background-color: $aoe-good2; */
+  /* // color: $aoe-blk2; */
+  /* color: $aoe-gry2; */
+  font-weight: bold;
+}
+.alert-warn {
+  padding: 4px 8px;
+  /* background-color: $aoe-warn2; */
+  /* color: $aoe-gry2; */
+  font-weight: bold;
+}
+
+/* // ================= */
+/* // ===   mobile  === */
+
+/* // ================= */
+/* // ===   Edges   === */
+.marg-btn {
+  margin: 2px 4px;
+}
+.pad-btn {
+  padding: 2px 4px;
+}
+
+.bg-eerie {
+  background-color: #18191a;
+}
+.bg-jet {
+  background-color: #3c3c3a;
+}
+.bg-prop {
+  background-color: #484846;
+}
+.bg-pale {
+  background-color: #c4c2b7;
+}
+
+
+/* //  aoe-bg action */
+
+.bg-robin0 {
+  background-color: #9bdbd8;
+}
+.bg-golden0 {
+  background-color: #e6af2e;
+}
+
+/* .shadow-more {
+  &:hover {
+    box-shadow: -4px 0px 0px 0px #9bdbd8;
+  }
+} */
+.shadow-less {
+  box-shadow: -2.5px 0px 0px 0px #e6af2e;
+}
+
+
+.txt-active {
+  color: #18191a;
+  font-weight: bold;
+}
+.txt-jet {
+  color: #3c3c3a;
+}
+.txt-pale {
+  color: #c4c2b7;
+}
+.txt-white {
+  /* color: $aoe-gry1; */
+  font-weight: bold;
+}
+
+.txt-active {
+  /* color: $aoe-blk3; */
+  font-weight: 777;
+}
+
+.txt-suggest {
+  color: #1fcecb;
+  font-size: 1.02rem;
+}
+
+.txt-mine {
+  /* color: $aoe-good2; */
+  font-weight: bold;
+}
+.txt-they {
+  padding: 0px 12px;
+  /* color: $aoe-good3; */
+  font-weight: bold;
+}
+

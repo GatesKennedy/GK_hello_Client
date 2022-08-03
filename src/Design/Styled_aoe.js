@@ -47,13 +47,18 @@ export const RowFull = styled.div`
 export const ParaMed = styled.p`
   display: block;
   padding: 4px;
-  width: 100%;
+  
+  /* width: 100%; //!!! */
+  margin-block-end: 0.5em;
+  margin-block-start: 0.5em;
 `;
 export const ParaSml = styled.p`
   display: block;
   padding: 3px;
 
-  width: 100%;
+  /* width: 100%; */ //!!!
+  margin-block-end: 0.5em;
+  margin-block-start: 0.5em;
 `;
 
 export const Btn = styled.button`

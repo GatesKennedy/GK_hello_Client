@@ -8,7 +8,7 @@ import { AboutCont, AboutBody } from './Styled';
 //  Asset
 import { introObj, softwareObj, personalObj } from './AboutObj';
 import AboutItem from './AboutItems/AboutItem';
-import TitleHeader from '../../0_GenComps_____/TitleHeader';
+import AboutHeader from './AboutItems/AboutHeader';
 
 //  MAIN
 const About = () => {
@@ -21,7 +21,7 @@ const About = () => {
   return (
     <AboutCont id='About-AboutCont' className='bg-gry2 txt-black'>
       {/* Hello */}
-      <TitleHeader id='About-TitleHeader1' _txt={titleTxt1} />
+      <AboutHeader id='About-AboutHeader1' _txt={titleTxt1} />
       <AboutBody id='About-AboutBody'>
         {introObj.map((item) => (
           <AboutItem
@@ -35,7 +35,7 @@ const About = () => {
       </AboutBody>
 
       {/* Software */}
-      <TitleHeader id='About-TitleHeader2' _txt={titleTxt2} />
+      <AboutHeader id='About-AboutHeader2' _txt={titleTxt2} />
       <AboutBody id='About-AboutBody'>
         {softwareObj.map((item) => (
           <AboutItem
@@ -48,7 +48,7 @@ const About = () => {
         ))}
       </AboutBody>
       {/* Personal */}
-      <TitleHeader id='About-TitleHeader3' _txt={titleTxt3} />
+      <AboutHeader id='About-AboutHeader3' _txt={titleTxt3} />
       <AboutBody id='About-AboutBody'>
         {personalObj.map((item) => (
           <AboutItem

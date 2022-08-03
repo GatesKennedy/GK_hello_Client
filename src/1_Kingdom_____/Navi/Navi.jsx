@@ -130,11 +130,6 @@ const Navi = ({
           className='just-right'
           onClick={() => setModal(true, 'auth')}
         >
-          <IconText id='Navi-IconText'>
-            <div style={RightStyle}>
-              {!isAuthenticated ? 'Login' : 'Logout'}
-            </div>
-          </IconText>
           <Btn>
             {!isAuthenticated ? (
               <IoMdLogIn style={iconStyle} className='hoverColor' />
@@ -142,6 +137,11 @@ const Navi = ({
               <IoMdLogOut style={iconStyle} className='hoverColor' />
             )}
           </Btn>
+          <IconText id='Navi-IconText'>
+            <div style={RightStyle}>
+              {!isAuthenticated ? 'Login' : 'Logout'}
+            </div>
+          </IconText>
         </NaviLogo>
       </Tooltip>
     </NaviCont>

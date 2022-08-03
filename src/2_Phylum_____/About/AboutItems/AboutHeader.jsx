@@ -9,16 +9,16 @@ export const TitleHead = styled.section`
   padding-top: 8px;
 `;
 
-const TitleHeader = ({ _txt }) => {
+const AboutHeader = ({ _txt }) => {
   return (
-    <TitleHead id='TitleHeader-TitleHead'>
+    <TitleHead id='AboutHeader-TitleHead'>
       <h2>{_txt}</h2>
     </TitleHead>
   );
 };
 
-TitleHeader.propTypes = {
+AboutHeader.propTypes = {
   _txt: PropTypes.func.isRequired
 };
 
-export default TitleHeader;
+export default AboutHeader;

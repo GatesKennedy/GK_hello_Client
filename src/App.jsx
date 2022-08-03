@@ -1,17 +1,13 @@
 // import React, { Fragment, useEffect, useState } from 'react';
 import React, { useEffect, useState } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  // Redirect,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // === REDUX ===
 import { Provider } from 'react-redux';
 import store from './Redux/store';
 import { authUser } from './1_Kingdom_____/Auth/axn_auth';
 // import setAuthToken from './1_Kingdom_____/Auth/utils/setAuthToken'; // !!!
 // === Style ===
+import './Design/StyleBase.css';
 import { Kingdom } from './1_Kingdom_____/Styled';
 import { BodyCont } from './Design/Styled_aoe';
 //  Comps

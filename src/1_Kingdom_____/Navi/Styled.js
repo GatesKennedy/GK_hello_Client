@@ -6,13 +6,13 @@ export const NaviCont = styled.section`
   justify-content: space-between;
 
   height: 42px;
-  width: 100vw;
   min-height: 42px;
   padding: 8px 1vw;
   top: 0px;
 `;
 export const NaviLogo = styled.div`
   display: flex;
+  flex-direction: column;
   align-self: center;
 
   height: 24px;
@@ -49,12 +49,21 @@ export const LinkCont = styled.div`
 
   height: 24px;
 `;
+
 export const NaviBtns = styled.div`
   display: flex;
   justify-content: space-evenly;
-  min-width: 30vw;
+
+  min-width: 42vw
+  @media only screen and (min-width: 600px) {
+    /* For desktop: */
+    min-width: 30vw;
+  }
 `;
+
 export const IconText = styled.h5`
-  min-width: 20vw;
+  /* min-width: 20vw; //!!! */
   padding: 2px 8px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
 `;

@@ -45,6 +45,7 @@ const Backdrop = styled.div`
   transition: all 0.7s ease-in-out;
 `;
 const UiCont = styled.div`
+  background-color: #eee;
   position: fixed;
   display: flex;
   flex-direction: column;

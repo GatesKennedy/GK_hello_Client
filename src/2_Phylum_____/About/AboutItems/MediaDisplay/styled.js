@@ -13,7 +13,7 @@ export const MediaRow = styled.div`
     position: relative;
     max-width: calc(100% - 13vw);
 
-    top: -12px;
+    /* top: -12px; */ //!!!
     left: 7vw;
   }
 `;

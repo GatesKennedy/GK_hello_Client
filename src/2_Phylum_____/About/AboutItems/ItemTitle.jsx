@@ -6,14 +6,14 @@ import ImageItem from './ImageItem';
 import {
   TitleCont,
   StatsCont,
-  ItemTitle,
-  ItemTech,
+  TitleName,
+  TitleDetail,
   TechList,
   TechItem,
   SubTitle,
 } from './styled';
 
-const TitleGroup = ({
+const ItemTitle = ({
   _openItem,
   _handleSelect,
   favRank,
@@ -21,22 +21,22 @@ const TitleGroup = ({
   __item: { id, title, tech, summary, story, media, links },
 }) => {
   return (
-    <TitleCont id={`TitleGroup-TitleCont${id}`} className=' pointer'>
+    <TitleCont id={`ItemTitle-TitleCont${id}`} className=' pointer'>
       <ImageItem
         isOpen={favRank === _openItem}
         titleImgUrl={titleImgUrl}
         imageSize={favRank === 1 ? 'large' : 'medium'}
         __handleSelect={_handleSelect}
       />
-      <StatsCont id={`TitleGroup-StatsCont${id}`}>
-        <ItemTitle
-          id={`InfoGroup-ItemTitle${id}`}
+      <StatsCont id={`ItemTitle-StatsCont${id}`}>
+        <TitleName
+          id={`InfoGroup-TitleName${id}`}
           onClick={() => _handleSelect()}
         >
           {title}
-        </ItemTitle>
-        <ItemTech
-          id={`InfoGroup-ItemTech${id}`}
+        </TitleName>
+        <TitleDetail
+          id={`InfoGroup-TitleDetail${id}`}
           onClick={() => _handleSelect()}
         >
           <SubTitle>{favRank === 1 ? 'Titles:' : 'Tech:'}</SubTitle>
@@ -52,12 +52,12 @@ const TitleGroup = ({
                 </TechItem>
               ))}
           </TechList>
-        </ItemTech>
+        </TitleDetail>
       </StatsCont>
     </TitleCont>
   );
 };
 
-TitleGroup.propTypes = {};
+ItemTitle.propTypes = {};
 
-export default TitleGroup;
+export default ItemTitle;

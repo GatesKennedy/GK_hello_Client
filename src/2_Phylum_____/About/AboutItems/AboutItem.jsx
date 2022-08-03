@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 //  COMPS
-import TitleGroup from './TitleGroup';
+import ItemTitle from './ItemTitle';
 import InfoGroup from './InfoGroup';
 import LinkGroup from './MediaDisplay/LinkGroup';
 //  STYLE
-import { ItemCont, InfoGroupCont } from './styled';
+import { ItemCont, ItemInfo } from './styled';
 //  MAIN
 const AboutItem = ({
   _dropType,
@@ -33,14 +33,15 @@ const AboutItem = ({
       id={`AboutItem-ItemCont${topId}`}
       className={_openItem === favRank ? ' activeItem ' : ' inactiveItem '}
     >
-      <TitleGroup
+      <ItemTitle
+        id='AboutItem-ItemTitle'
         __item={_item}
         _openItem={_openItem}
         _handleSelect={handleSelect}
         favRank={favRank}
         titleImgUrl={titleImgUrl}
       />
-      <InfoGroupCont id={`AboutItem-InfoGroupCont${_item.id}`}>
+      <ItemInfo id={`AboutItem-ItemInfo${_item.id}`}>
         <InfoGroup
           topId={topId}
           parentId={_openItem}
@@ -49,7 +50,7 @@ const AboutItem = ({
           updateChildList={setChildList}
           item={_item}
         />
-      </InfoGroupCont>
+      </ItemInfo>
       <LinkGroup id='AboutItem-LinkGroup' _links={links} />
     </ItemCont>
   );
